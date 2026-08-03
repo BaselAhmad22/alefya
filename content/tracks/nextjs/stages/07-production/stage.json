@@ -1,0 +1,17 @@
+{
+  "slug": "07-production",
+  "order": 7,
+  "title": {
+    "ar": "Production",
+    "en": "Production"
+  },
+  "description": {
+    "ar": "env config، auth patterns، deploy على Vercel",
+    "en": "env config, auth patterns, deploy on Vercel"
+  },
+  "lessons": [
+    "01-env-config.json",
+    "02-auth-patterns.json",
+    "03-deploy-vercel.json"
+  ]
+}

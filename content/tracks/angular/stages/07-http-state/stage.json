@@ -1,0 +1,17 @@
+{
+  "slug": "07-http-state",
+  "order": 7,
+  "title": {
+    "ar": "HTTP وإدارة الحالة",
+    "en": "HTTP & state"
+  },
+  "description": {
+    "ar": "HttpClient، الخدمات، وأنماط الحالة",
+    "en": "HttpClient, services, and state patterns"
+  },
+  "lessons": [
+    "01-httpclient.json",
+    "02-services.json",
+    "03-state-patterns.json"
+  ]
+}

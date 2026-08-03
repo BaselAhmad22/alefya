@@ -1,0 +1,23 @@
+{
+  "slug": "flutter",
+  "order": 6,
+  "title": {
+    "ar": "Flutter",
+    "en": "Flutter"
+  },
+  "tagline": {
+    "ar": "من Dart حتى تطبيق جوال متعدد المنصات",
+    "en": "From Dart to a cross-platform mobile app"
+  },
+  "description": {
+    "ar": "مسار Flutter الأشهر عالمياً لبناء iOS وAndroid بقاعدة كود واحدة: Dart، Widgets، الحالة، التنقل، ثم مشروع.",
+    "en": "The world's most popular path for one codebase on iOS & Android: Dart, widgets, state, navigation, then a project."
+  },
+  "color": "#02569B",
+  "estimatedHours": 100,
+  "stages": [
+    "01-dart",
+    "02-widgets",
+    "03-state-project"
+  ]
+}

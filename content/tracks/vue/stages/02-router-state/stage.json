@@ -1,0 +1,17 @@
+{
+  "slug": "02-router-state",
+  "order": 2,
+  "title": {
+    "ar": "Router وPinia",
+    "en": "Router & Pinia"
+  },
+  "description": {
+    "ar": "التنقل والحالة العامة",
+    "en": "Routing and global state"
+  },
+  "lessons": [
+    "01-vue-router.json",
+    "02-pinia.json",
+    "03-project.json"
+  ]
+}

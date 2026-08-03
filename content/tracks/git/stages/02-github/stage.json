@@ -1,0 +1,17 @@
+{
+  "slug": "02-github",
+  "order": 2,
+  "title": {
+    "ar": "GitHub",
+    "en": "GitHub"
+  },
+  "description": {
+    "ar": "Remote وPRs",
+    "en": "Remotes and PRs"
+  },
+  "lessons": [
+    "01-remote.json",
+    "02-pull-requests.json",
+    "03-workflow.json"
+  ]
+}

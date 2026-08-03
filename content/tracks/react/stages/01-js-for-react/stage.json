@@ -1,0 +1,18 @@
+{
+  "slug": "01-js-for-react",
+  "order": 1,
+  "title": {
+    "ar": "JavaScript لـ React",
+    "en": "JavaScript for React"
+  },
+  "description": {
+    "ar": "الوحدات، الثبات، دوال المصفوفات، async، وdestructuring — قبل JSX.",
+    "en": "Modules, immutability, array methods, async, and destructuring — before JSX."
+  },
+  "lessons": [
+    "01-modules-immutability.json",
+    "02-array-methods.json",
+    "03-async-promises.json",
+    "04-destructuring.json"
+  ]
+}

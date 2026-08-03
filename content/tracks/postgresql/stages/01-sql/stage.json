@@ -1,0 +1,17 @@
+{
+  "slug": "01-sql",
+  "order": 1,
+  "title": {
+    "ar": "SQL الأساسي",
+    "en": "Core SQL"
+  },
+  "description": {
+    "ar": "SELECT إلى JOIN",
+    "en": "SELECT to JOIN"
+  },
+  "lessons": [
+    "01-why-postgres.json",
+    "02-tables-crud.json",
+    "03-joins.json"
+  ]
+}

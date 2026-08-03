@@ -1,0 +1,17 @@
+{
+  "slug": "06-data-forms",
+  "order": 6,
+  "title": {
+    "ar": "البيانات والنماذج",
+    "en": "Data & forms"
+  },
+  "description": {
+    "ar": "Controlled forms، fetch، loading و error UI.",
+    "en": "Controlled forms, fetch, loading and error UI."
+  },
+  "lessons": [
+    "01-controlled-forms.json",
+    "02-fetch-data.json",
+    "03-loading-errors.json"
+  ]
+}

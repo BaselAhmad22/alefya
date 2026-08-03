@@ -1,0 +1,17 @@
+{
+  "slug": "05-actions-mutations",
+  "order": 5,
+  "title": {
+    "ar": "Actions و Mutations",
+    "en": "Actions and mutations"
+  },
+  "description": {
+    "ar": "Server Actions، forms، revalidation",
+    "en": "Server Actions, forms, and revalidation"
+  },
+  "lessons": [
+    "01-server-actions.json",
+    "02-forms-actions.json",
+    "03-revalidation.json"
+  ]
+}

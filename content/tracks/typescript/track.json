@@ -1,0 +1,24 @@
+{
+  "slug": "typescript",
+  "order": 23,
+  "title": {
+    "ar": "TypeScript من الصفر",
+    "en": "TypeScript from zero"
+  },
+  "tagline": {
+    "ar": "أنواع أقوى قبل React/Angular",
+    "en": "Stronger types before React/Angular"
+  },
+  "description": {
+    "ar": "مسار TypeScript للمبتدئين مع أنواع، دوال، ووحدات قبل أطر الواجهة.",
+    "en": "Beginner TypeScript path with types, functions, and modules before UI frameworks."
+  },
+  "color": "#3178C6",
+  "estimatedHours": 70,
+  "stages": [
+    "01-start",
+    "02-control-functions",
+    "03-async-modules",
+    "04-project"
+  ]
+}

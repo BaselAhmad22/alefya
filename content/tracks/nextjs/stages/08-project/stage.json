@@ -1,0 +1,17 @@
+{
+  "slug": "08-project",
+  "order": 8,
+  "title": {
+    "ar": "المشروع",
+    "en": "Capstone project"
+  },
+  "description": {
+    "ar": "تصميم، تنفيذ، وتحصين تطبيق تعلّم AlefYa-style",
+    "en": "Design, implement, and harden an AlefYa-style learning app"
+  },
+  "lessons": [
+    "01-design.json",
+    "02-implement.json",
+    "03-harden.json"
+  ]
+}

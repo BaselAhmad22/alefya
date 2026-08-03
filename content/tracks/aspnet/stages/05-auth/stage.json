@@ -1,0 +1,17 @@
+{
+  "slug": "05-auth",
+  "order": 5,
+  "title": {
+    "ar": "المصادقة والتفويض",
+    "en": "Authentication & authorization"
+  },
+  "description": {
+    "ar": "Identity، JWT، والسياسات",
+    "en": "Identity, JWT, and policies"
+  },
+  "lessons": [
+    "01-identity-basics.json",
+    "02-jwt.json",
+    "03-policies-roles.json"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "docker",
+  "order": 13,
+  "title": {
+    "ar": "Docker",
+    "en": "Docker"
+  },
+  "tagline": {
+    "ar": "حاويات أصبحت مهارة إلزامية لأي مطوّر جاد",
+    "en": "Containers — a must-have skill for serious developers"
+  },
+  "description": {
+    "ar": "Docker: الصور، الحاويات، Dockerfile، وCompose لتشغيل التطبيقات بنفس الطريقة في كل بيئة.",
+    "en": "Docker: images, containers, Dockerfiles, and Compose to run apps the same way everywhere."
+  },
+  "color": "#2496ED",
+  "estimatedHours": 65,
+  "stages": [
+    "01-containers",
+    "02-compose"
+  ]
+}

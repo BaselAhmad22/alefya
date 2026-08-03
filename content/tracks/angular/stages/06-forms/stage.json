@@ -1,0 +1,17 @@
+{
+  "slug": "06-forms",
+  "order": 6,
+  "title": {
+    "ar": "النماذج",
+    "en": "Forms"
+  },
+  "description": {
+    "ar": "Template-driven وReactive Forms",
+    "en": "Template-driven and reactive forms"
+  },
+  "lessons": [
+    "01-template-forms.json",
+    "02-reactive-forms.json",
+    "03-validation.json"
+  ]
+}

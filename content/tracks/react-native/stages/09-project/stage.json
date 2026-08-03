@@ -1,0 +1,17 @@
+{
+  "slug": "09-project",
+  "order": 9,
+  "title": {
+    "ar": "مشروع تطبيقي",
+    "en": "Capstone project"
+  },
+  "description": {
+    "ar": "تصميم، تنفيذ، و polish لتطبيق AlefYa Mobile",
+    "en": "Design, implement, and polish the AlefYa Mobile app"
+  },
+  "lessons": [
+    "01-design.json",
+    "02-implement.json",
+    "03-polish.json"
+  ]
+}

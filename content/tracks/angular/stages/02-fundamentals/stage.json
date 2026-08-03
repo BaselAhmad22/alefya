@@ -1,0 +1,18 @@
+{
+  "slug": "02-fundamentals",
+  "order": 2,
+  "title": {
+    "ar": "أساسيات Angular",
+    "en": "Angular fundamentals"
+  },
+  "description": {
+    "ar": "CLI، البنية، وأول مكوّن",
+    "en": "CLI, structure, and your first component"
+  },
+  "lessons": [
+    "01-cli-workspace.json",
+    "02-app-structure.json",
+    "03-first-component.json",
+    "04-standalone.json"
+  ]
+}

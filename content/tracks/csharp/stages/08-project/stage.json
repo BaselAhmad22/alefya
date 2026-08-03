@@ -1,0 +1,17 @@
+{
+  "slug": "08-project",
+  "order": 8,
+  "title": {
+    "ar": "مشروع كونسول",
+    "en": "Console project"
+  },
+  "description": {
+    "ar": "طبّق ما تعلمته",
+    "en": "Apply what you learned"
+  },
+  "lessons": [
+    "01-design.json",
+    "02-implement.json",
+    "03-polish.json"
+  ]
+}

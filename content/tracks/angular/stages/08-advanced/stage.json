@@ -1,0 +1,17 @@
+{
+  "slug": "08-advanced",
+  "order": 8,
+  "title": {
+    "ar": "مواضيع متقدمة",
+    "en": "Advanced topics"
+  },
+  "description": {
+    "ar": "الأداء، الاختبار، والـ SSR",
+    "en": "Performance, testing, and SSR"
+  },
+  "lessons": [
+    "01-change-detection.json",
+    "02-testing.json",
+    "03-ssr-i18n.json"
+  ]
+}

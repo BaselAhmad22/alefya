@@ -1,0 +1,24 @@
+{
+  "slug": "python",
+  "order": 24,
+  "title": {
+    "ar": "Python من الصفر",
+    "en": "Python from zero"
+  },
+  "tagline": {
+    "ar": "أساسيات Python قبل الـ APIs",
+    "en": "Python foundations before APIs"
+  },
+  "description": {
+    "ar": "لغة Python من المتغيرات حتى مشروع صغير ثم الانتقال لإطار الويب.",
+    "en": "Python from variables through a mini project, then into web frameworks."
+  },
+  "color": "#3776AB",
+  "estimatedHours": 70,
+  "stages": [
+    "01-start",
+    "02-functions-data",
+    "03-async-project",
+    "04-web-fastapi"
+  ]
+}

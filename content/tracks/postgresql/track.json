@@ -1,0 +1,22 @@
+{
+  "slug": "postgresql",
+  "order": 11,
+  "title": {
+    "ar": "PostgreSQL",
+    "en": "PostgreSQL"
+  },
+  "tagline": {
+    "ar": "قاعدة البيانات العلائقية الأقوى والأكثر طلباً",
+    "en": "The most in-demand relational database"
+  },
+  "description": {
+    "ar": "SQL وPostgreSQL: الجداول، العلاقات، الفهارس، الاستعلامات، والمعاملات — أساس أي Backend جاد.",
+    "en": "SQL & PostgreSQL: tables, relations, indexes, queries, and transactions — the backbone of serious backends."
+  },
+  "color": "#336791",
+  "estimatedHours": 80,
+  "stages": [
+    "01-sql",
+    "02-performance"
+  ]
+}

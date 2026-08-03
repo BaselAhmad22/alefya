@@ -1,0 +1,18 @@
+{
+  "slug": "03-state-props",
+  "order": 3,
+  "title": {
+    "ar": "State و Props",
+    "en": "State & props"
+  },
+  "description": {
+    "ar": "تدفق props، useState، رفع state، lists و keys.",
+    "en": "Props flow, useState, lifting state, lists and keys."
+  },
+  "lessons": [
+    "01-props-flow.json",
+    "02-use-state.json",
+    "03-lifting-state.json",
+    "04-lists-keys.json"
+  ]
+}

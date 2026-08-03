@@ -1,0 +1,17 @@
+{
+  "slug": "04-methods",
+  "order": 4,
+  "title": {
+    "ar": "الدوال",
+    "en": "Methods"
+  },
+  "description": {
+    "ar": "إعادة الاستخدام والوسائط",
+    "en": "Reuse and parameters"
+  },
+  "lessons": [
+    "01-methods-basics.json",
+    "02-overloads-defaults.json",
+    "03-scope.json"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "angular",
+  "order": 2,
+  "title": {
+    "ar": "Angular",
+    "en": "Angular"
+  },
+  "tagline": {
+    "ar": "من TypeScript حتى تطبيق واجهة احترافي",
+    "en": "From TypeScript to a production-ready UI"
+  },
+  "description": {
+    "ar": "مسار Angular متكامل يبدأ من TypeScript — اللغة التي يُكتب بها الإطار — ثم ينتقل إلى CLI وبنية التطبيق، المكوّنات، RxJS وSignals، التوجيه، النماذج، HttpClient وإدارة الحالة، مواضيع متقدمة مثل Change Detection والاختبار وSSR، وينتهي بمشروع تطبيقي لواجهة متعلّم. كل درس ثنائي اللغة ومكتفي بذاته: شرح، أمثلة، أخطاء شائعة، تمارين، وقائمة تحقق.",
+    "en": "A complete Angular path starting with TypeScript — the language the framework is written in — then CLI and app structure, components, RxJS and Signals, routing, forms, HttpClient and state management, advanced topics like change detection, testing, and SSR, ending with a capstone learner UI project. Every lesson is bilingual and self-contained: explanation, examples, common mistakes, exercises, and a checklist."
+  },
+  "color": "#DD0031",
+  "estimatedHours": 110,
+  "stages": [
+    "01-typescript",
+    "02-fundamentals",
+    "03-components",
+    "04-rxjs",
+    "05-routing",
+    "06-forms",
+    "07-http-state",
+    "08-advanced",
+    "09-project"
+  ]
+}

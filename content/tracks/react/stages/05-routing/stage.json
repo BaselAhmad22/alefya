@@ -1,0 +1,17 @@
+{
+  "slug": "05-routing",
+  "order": 5,
+  "title": {
+    "ar": "التوجيه",
+    "en": "Routing"
+  },
+  "description": {
+    "ar": "React Router — routes، nested layouts، protected routes.",
+    "en": "React Router — routes, nested layouts, protected routes."
+  },
+  "lessons": [
+    "01-react-router.json",
+    "02-nested-routes.json",
+    "03-protected-routes.json"
+  ]
+}

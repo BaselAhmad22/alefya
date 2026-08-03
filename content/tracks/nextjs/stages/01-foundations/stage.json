@@ -1,0 +1,18 @@
+{
+  "slug": "01-foundations",
+  "order": 1,
+  "title": {
+    "ar": "أساسيات Next.js",
+    "en": "Next.js foundations"
+  },
+  "description": {
+    "ar": "لماذا Next.js، create-next-app، هيكل المشروع، وإعداد TypeScript",
+    "en": "Why Next.js, create-next-app, project structure, and TypeScript setup"
+  },
+  "lessons": [
+    "01-why-next.json",
+    "02-create-app.json",
+    "03-project-structure.json",
+    "04-typescript-setup.json"
+  ]
+}

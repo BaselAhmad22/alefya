@@ -1,0 +1,22 @@
+{
+  "slug": "nodejs",
+  "order": 9,
+  "title": {
+    "ar": "Node.js",
+    "en": "Node.js"
+  },
+  "tagline": {
+    "ar": "JavaScript على الخادم — الأشهر لـ APIs الحديثة",
+    "en": "JavaScript on the server — the default for modern APIs"
+  },
+  "description": {
+    "ar": "Node.js وExpress/Fastify لبناء REST APIs: الوحدات، HTTP، الوسطاء، المصادقة، والنشر.",
+    "en": "Node.js with Express/Fastify for REST APIs: modules, HTTP, middleware, auth, and deploy."
+  },
+  "color": "#339933",
+  "estimatedHours": 90,
+  "stages": [
+    "01-core",
+    "02-api"
+  ]
+}

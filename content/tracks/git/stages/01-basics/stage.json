@@ -1,0 +1,17 @@
+{
+  "slug": "01-basics",
+  "order": 1,
+  "title": {
+    "ar": "أساسيات Git",
+    "en": "Git basics"
+  },
+  "description": {
+    "ar": "مستودع محلي",
+    "en": "Local repo"
+  },
+  "lessons": [
+    "01-why-git.json",
+    "02-commit.json",
+    "03-branch-merge.json"
+  ]
+}

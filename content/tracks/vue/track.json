@@ -1,0 +1,22 @@
+{
+  "slug": "vue",
+  "order": 7,
+  "title": {
+    "ar": "Vue.js",
+    "en": "Vue.js"
+  },
+  "tagline": {
+    "ar": "إطار تقدّمي لواجهات ويب سريعة التعلم",
+    "en": "The progressive framework teams love to learn fast"
+  },
+  "description": {
+    "ar": "Vue من أكثر أطر الواجهة بحثاً: Composition API، المكوّنات، Pinia، Vue Router، ثم مشروع.",
+    "en": "Vue is one of the most searched UI frameworks: Composition API, components, Pinia, Vue Router, then a project."
+  },
+  "color": "#42B883",
+  "estimatedHours": 85,
+  "stages": [
+    "01-basics",
+    "02-router-state"
+  ]
+}

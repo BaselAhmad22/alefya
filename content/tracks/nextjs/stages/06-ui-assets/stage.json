@@ -1,0 +1,17 @@
+{
+  "slug": "06-ui-assets",
+  "order": 6,
+  "title": {
+    "ar": "UI و Assets",
+    "en": "UI and assets"
+  },
+  "description": {
+    "ar": "next/image، fonts، metadata SEO، Tailwind و CSS Modules",
+    "en": "next/image, fonts, metadata SEO, Tailwind and CSS Modules"
+  },
+  "lessons": [
+    "01-images-fonts.json",
+    "02-metadata-seo.json",
+    "03-css-modules-tailwind.json"
+  ]
+}

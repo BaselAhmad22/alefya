@@ -1,0 +1,17 @@
+{
+  "slug": "07-patterns",
+  "order": 7,
+  "title": {
+    "ar": "أنماط React",
+    "en": "React patterns"
+  },
+  "description": {
+    "ar": "Composition، Context، performance basics.",
+    "en": "Composition, Context, performance basics."
+  },
+  "lessons": [
+    "01-composition.json",
+    "02-context.json",
+    "03-performance.json"
+  ]
+}

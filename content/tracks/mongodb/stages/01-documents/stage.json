@@ -1,0 +1,17 @@
+{
+  "slug": "01-documents",
+  "order": 1,
+  "title": {
+    "ar": "نموذج الوثائق",
+    "en": "Document model"
+  },
+  "description": {
+    "ar": "Collections وCRUD",
+    "en": "Collections and CRUD"
+  },
+  "lessons": [
+    "01-why-mongo.json",
+    "02-crud-queries.json",
+    "03-schema-design.json"
+  ]
+}

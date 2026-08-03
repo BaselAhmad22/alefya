@@ -1,0 +1,62 @@
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import { SessionProvider } from "@/components/SessionProvider";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { PageTransition } from "@/components/PageTransition";
+import { NavigationProgress } from "@/components/NavigationProgress";
+
+type Props = {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+};
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+  const messages = await getMessages();
+  const dir = locale === "ar" ? "rtl" : "ltr";
+
+  return (
+    <NextIntlClientProvider messages={messages}>
+      <SessionProvider>
+        <div
+          lang={locale}
+          dir={dir}
+          className="flex min-h-screen flex-col"
+          style={
+            {
+              /* AR UI: Noto Sans for clean headings; Naskh reserved for .font-brand */
+              "--font-display":
+                locale === "ar"
+                  ? "var(--font-body-arabic), var(--font-display-arabic)"
+                  : "var(--font-display-latin), var(--font-display-arabic)",
+              "--font-body":
+                locale === "ar"
+                  ? "var(--font-body-arabic), var(--font-body-latin)"
+                  : "var(--font-body-latin), var(--font-body-arabic)",
+              fontFamily: "var(--font-body), system-ui, sans-serif",
+            } as React.CSSProperties
+          }
+        >
+          <NavigationProgress />
+          <SiteHeader />
+          <main className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <SiteFooter />
+        </div>
+      </SessionProvider>
+    </NextIntlClientProvider>
+  );
+}

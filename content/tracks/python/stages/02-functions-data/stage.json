@@ -1,0 +1,17 @@
+{
+  "slug": "02-functions-data",
+  "order": 2,
+  "title": {
+    "ar": "دوال وبيانات",
+    "en": "Functions & data"
+  },
+  "description": {
+    "ar": "def و dict",
+    "en": "def and dict"
+  },
+  "lessons": [
+    "01-functions.json",
+    "02-dicts.json",
+    "03-errors.json"
+  ]
+}

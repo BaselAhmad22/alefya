@@ -1,0 +1,17 @@
+{
+  "slug": "06-lists-forms",
+  "order": 6,
+  "title": {
+    "ar": "القوائم والنماذج",
+    "en": "Lists & forms"
+  },
+  "description": {
+    "ar": "FlatList، SectionList، TextInput، KeyboardAvoidingView، list performance",
+    "en": "FlatList, SectionList, TextInput, KeyboardAvoidingView, list performance"
+  },
+  "lessons": [
+    "01-flatlist.json",
+    "02-forms-keyboard.json",
+    "03-performance-lists.json"
+  ]
+}

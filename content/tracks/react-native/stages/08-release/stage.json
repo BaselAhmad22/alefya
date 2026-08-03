@@ -1,0 +1,17 @@
+{
+  "slug": "08-release",
+  "order": 8,
+  "title": {
+    "ar": "البناء والنشر",
+    "en": "Build & release"
+  },
+  "description": {
+    "ar": "EAS Build، App Store / Play Store، OTA updates",
+    "en": "EAS Build, App Store / Play Store, OTA updates"
+  },
+  "lessons": [
+    "01-eas-build.json",
+    "02-app-store-play.json",
+    "03-updates-ota.json"
+  ]
+}

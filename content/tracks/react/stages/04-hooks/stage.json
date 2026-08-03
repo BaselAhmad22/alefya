@@ -1,0 +1,18 @@
+{
+  "slug": "04-hooks",
+  "order": 4,
+  "title": {
+    "ar": "Hooks",
+    "en": "Hooks"
+  },
+  "description": {
+    "ar": "useEffect، useRef/useMemo، custom hooks، rules.",
+    "en": "useEffect, useRef/useMemo, custom hooks, rules."
+  },
+  "lessons": [
+    "01-use-effect.json",
+    "02-use-ref-memo.json",
+    "03-custom-hooks.json",
+    "04-rules-of-hooks.json"
+  ]
+}

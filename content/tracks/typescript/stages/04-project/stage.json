@@ -1,0 +1,17 @@
+{
+  "slug": "04-project",
+  "order": 4,
+  "title": {
+    "ar": "مشروع صغير",
+    "en": "Mini project"
+  },
+  "description": {
+    "ar": "تطبيق ما تعلمته",
+    "en": "Apply what you learned"
+  },
+  "lessons": [
+    "01-design.json",
+    "02-build.json",
+    "03-ready.json"
+  ]
+}

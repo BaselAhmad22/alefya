@@ -1,0 +1,17 @@
+{
+  "slug": "03-control",
+  "order": 3,
+  "title": {
+    "ar": "التحكم",
+    "en": "Control flow"
+  },
+  "description": {
+    "ar": "شروط وحلقات",
+    "en": "Branches and loops"
+  },
+  "lessons": [
+    "01-if-switch.json",
+    "02-loops.json",
+    "03-break-continue.json"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "01-containers",
+  "order": 1,
+  "title": {
+    "ar": "الحاويات",
+    "en": "Containers"
+  },
+  "description": {
+    "ar": "مفاهيم التشغيل",
+    "en": "Runtime concepts"
+  },
+  "lessons": [
+    "01-why-docker.json",
+    "02-images-containers.json",
+    "03-dockerfile.json"
+  ]
+}

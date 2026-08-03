@@ -1,0 +1,17 @@
+{
+  "slug": "03-server-client",
+  "order": 3,
+  "title": {
+    "ar": "Server و Client Components",
+    "en": "Server and Client Components"
+  },
+  "description": {
+    "ar": "نموذج RSC، Client Components، وحدود التركيب",
+    "en": "RSC model, Client Components, and composition boundaries"
+  },
+  "lessons": [
+    "01-rsc-model.json",
+    "02-client-components.json",
+    "03-composition-boundaries.json"
+  ]
+}

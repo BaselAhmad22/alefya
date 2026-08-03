@@ -1,0 +1,17 @@
+{
+  "slug": "04-web-fastapi",
+  "order": 4,
+  "title": {
+    "ar": "مدخل FastAPI",
+    "en": "FastAPI intro"
+  },
+  "description": {
+    "ar": "أول API بعد أساسيات اللغة",
+    "en": "First API after language basics"
+  },
+  "lessons": [
+    "01-why-fastapi.json",
+    "02-first-route.json",
+    "03-models.json"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "04-data",
+  "order": 4,
+  "title": {
+    "ar": "جلب البيانات",
+    "en": "Data fetching"
+  },
+  "description": {
+    "ar": "fetch caching، Suspense streaming، parallel و sequential",
+    "en": "fetch caching, Suspense streaming, parallel and sequential"
+  },
+  "lessons": [
+    "01-fetch-caching.json",
+    "02-streaming-suspense.json",
+    "03-parallel-sequential.json"
+  ]
+}

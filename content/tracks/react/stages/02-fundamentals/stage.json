@@ -1,0 +1,18 @@
+{
+  "slug": "02-fundamentals",
+  "order": 2,
+  "title": {
+    "ar": "أساسيات React",
+    "en": "React fundamentals"
+  },
+  "description": {
+    "ar": "ما هو React، JSX، المكوّنات، وآلية الرسم.",
+    "en": "What React is, JSX, components, and rendering."
+  },
+  "lessons": [
+    "01-what-is-react.json",
+    "02-jsx-elements.json",
+    "03-components.json",
+    "04-rendering.json"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "02-types",
+  "order": 2,
+  "title": {
+    "ar": "الأنواع",
+    "en": "Types"
+  },
+  "description": {
+    "ar": "أرقام، نصوص، منطقي، null",
+    "en": "Numbers, strings, bool, null"
+  },
+  "lessons": [
+    "01-numbers.json",
+    "02-strings-bool.json",
+    "03-null-nullable.json"
+  ]
+}

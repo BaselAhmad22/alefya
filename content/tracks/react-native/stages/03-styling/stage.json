@@ -1,0 +1,17 @@
+{
+  "slug": "03-styling",
+  "order": 3,
+  "title": {
+    "ar": "التنسيق والتخطيط",
+    "en": "Styling & layout"
+  },
+  "description": {
+    "ar": "StyleSheet، Flexbox، Platform-specific styles، و responsive design",
+    "en": "StyleSheet, Flexbox, platform-specific styles, and responsive design"
+  },
+  "lessons": [
+    "01-styleheet-flexbox.json",
+    "02-platform-specific.json",
+    "03-responsive.json"
+  ]
+}

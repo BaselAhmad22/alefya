@@ -1,0 +1,17 @@
+{
+  "slug": "04-rxjs",
+  "order": 4,
+  "title": {
+    "ar": "RxJS والتفاعلية",
+    "en": "RxJS & reactivity"
+  },
+  "description": {
+    "ar": "Observables، Operators، وSignals",
+    "en": "Observables, operators, and signals"
+  },
+  "lessons": [
+    "01-observables.json",
+    "02-operators.json",
+    "03-signals.json"
+  ]
+}

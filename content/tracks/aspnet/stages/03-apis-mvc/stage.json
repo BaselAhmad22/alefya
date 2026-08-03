@@ -1,0 +1,18 @@
+{
+  "slug": "03-apis-mvc",
+  "order": 3,
+  "title": {
+    "ar": "Minimal APIs وMVC",
+    "en": "Minimal APIs & MVC"
+  },
+  "description": {
+    "ar": "بناء endpoints، التحقق، وتنظيم الـ Controllers",
+    "en": "Building endpoints, validation, and controllers"
+  },
+  "lessons": [
+    "01-minimal-apis.json",
+    "02-routing-model-binding.json",
+    "03-validation.json",
+    "04-controllers.json"
+  ]
+}

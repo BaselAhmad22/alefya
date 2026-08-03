@@ -1,0 +1,17 @@
+{
+  "slug": "02-api",
+  "order": 2,
+  "title": {
+    "ar": "بناء API",
+    "en": "Building APIs"
+  },
+  "description": {
+    "ar": "تحقق، مصادقة، هيكلة",
+    "en": "Validation, auth, structure"
+  },
+  "lessons": [
+    "01-validation.json",
+    "02-auth-jwt.json",
+    "03-project.json"
+  ]
+}

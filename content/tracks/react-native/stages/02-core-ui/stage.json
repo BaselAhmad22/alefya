@@ -1,0 +1,18 @@
+{
+  "slug": "02-core-ui",
+  "order": 2,
+  "title": {
+    "ar": "مكوّنات الواجهة الأساسية",
+    "en": "Core UI components"
+  },
+  "description": {
+    "ar": "View، Text، Pressable، الصور، الأيقونات، وSafe Area",
+    "en": "View, Text, Pressable, images, icons, and Safe Area"
+  },
+  "lessons": [
+    "01-view-text.json",
+    "02-pressable-touch.json",
+    "03-images-icons.json",
+    "04-safe-area.json"
+  ]
+}

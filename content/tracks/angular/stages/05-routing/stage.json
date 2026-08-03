@@ -1,0 +1,17 @@
+{
+  "slug": "05-routing",
+  "order": 5,
+  "title": {
+    "ar": "التوجيه",
+    "en": "Routing"
+  },
+  "description": {
+    "ar": "المسارات، الحراس، والتحميل الكسول",
+    "en": "Routes, guards, and lazy loading"
+  },
+  "lessons": [
+    "01-router-basics.json",
+    "02-params-data.json",
+    "03-guards-lazy.json"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "slug": "01-foundations",
+  "order": 1,
+  "title": {
+    "ar": "أساسيات C# والكائنات",
+    "en": "C# & OOP Foundations"
+  },
+  "description": {
+    "ar": "اللغة التي يُبنى عليها كل شيء في .NET — من صيغة C# إلى async/await",
+    "en": "The language everything in .NET is built on — from C# syntax to async/await"
+  },
+  "lessons": [
+    "01-dotnet-world.json",
+    "02-csharp-syntax.json",
+    "03-types-null.json",
+    "04-oop-classes.json",
+    "05-interfaces-generics.json",
+    "06-async-await.json"
+  ]
+}
