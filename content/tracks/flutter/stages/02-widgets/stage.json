@@ -1,0 +1,17 @@
+{
+  "slug": "02-widgets",
+  "order": 2,
+  "title": {
+    "ar": "Widgets",
+    "en": "Widgets"
+  },
+  "description": {
+    "ar": "كل شيء Widget",
+    "en": "Everything is a widget"
+  },
+  "lessons": [
+    "01-widget-tree.json",
+    "02-layout.json",
+    "03-navigation.json"
+  ]
+}

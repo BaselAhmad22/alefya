@@ -1,0 +1,17 @@
+{
+  "slug": "01-start",
+  "order": 1,
+  "title": {
+    "ar": "البداية",
+    "en": "Start"
+  },
+  "description": {
+    "ar": "مدخل JavaScript",
+    "en": "JavaScript intro"
+  },
+  "lessons": [
+    "01-why.json",
+    "02-values-vars.json",
+    "03-operators.json"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "02-ship",
+  "order": 2,
+  "title": {
+    "ar": "تهيئة ونشر",
+    "en": "Config & shipping"
+  },
+  "description": {
+    "ar": "YAML عملي",
+    "en": "Practical YAML"
+  },
+  "lessons": [
+    "01-yaml-manifests.json",
+    "02-config-secrets.json",
+    "03-project.json"
+  ]
+}

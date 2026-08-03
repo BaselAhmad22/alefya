@@ -1,0 +1,17 @@
+{
+  "slug": "07-native-device",
+  "order": 7,
+  "title": {
+    "ar": "واجهات الجهاز",
+    "en": "Device APIs"
+  },
+  "description": {
+    "ar": "Permissions، camera/location، AsyncStorage و secure store",
+    "en": "Permissions, camera/location, AsyncStorage and secure store"
+  },
+  "lessons": [
+    "01-permissions.json",
+    "02-camera-location.json",
+    "03-storage-secure.json"
+  ]
+}

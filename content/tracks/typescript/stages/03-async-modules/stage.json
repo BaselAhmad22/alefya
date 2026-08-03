@@ -1,0 +1,17 @@
+{
+  "slug": "03-async-modules",
+  "order": 3,
+  "title": {
+    "ar": "Async والوحدات",
+    "en": "Async & modules"
+  },
+  "description": {
+    "ar": "Promises و import",
+    "en": "Promises and import"
+  },
+  "lessons": [
+    "01-promises.json",
+    "02-async-await.json",
+    "03-modules.json"
+  ]
+}

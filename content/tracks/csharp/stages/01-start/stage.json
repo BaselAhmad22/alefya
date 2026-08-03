@@ -1,0 +1,17 @@
+{
+  "slug": "01-start",
+  "order": 1,
+  "title": {
+    "ar": "البداية",
+    "en": "Getting started"
+  },
+  "description": {
+    "ar": "لماذا C# وكيف تشغّل أول برنامج",
+    "en": "Why C# and your first program"
+  },
+  "lessons": [
+    "01-why-csharp.json",
+    "02-first-program.json",
+    "03-variables.json"
+  ]
+}

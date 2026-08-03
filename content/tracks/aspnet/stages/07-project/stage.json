@@ -1,0 +1,17 @@
+{
+  "slug": "07-project",
+  "order": 7,
+  "title": {
+    "ar": "مشروع تطبيقي",
+    "en": "Capstone project"
+  },
+  "description": {
+    "ar": "ابنِ API كامل لمسار تعلّم مصغّر",
+    "en": "Build a full API for a mini learning path"
+  },
+  "lessons": [
+    "01-design.json",
+    "02-implement.json",
+    "03-harden.json"
+  ]
+}

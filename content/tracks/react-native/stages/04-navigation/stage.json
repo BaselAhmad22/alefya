@@ -1,0 +1,17 @@
+{
+  "slug": "04-navigation",
+  "order": 4,
+  "title": {
+    "ar": "التنقل بين الشاشات",
+    "en": "Screen navigation"
+  },
+  "description": {
+    "ar": "React Navigation، Stack/Tabs، params، و deep linking",
+    "en": "React Navigation, Stack/Tabs, params, and deep linking"
+  },
+  "lessons": [
+    "01-react-navigation.json",
+    "02-stack-tabs.json",
+    "03-params-linking.json"
+  ]
+}

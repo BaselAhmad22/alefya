@@ -1,0 +1,17 @@
+{
+  "slug": "01-basics",
+  "order": 1,
+  "title": {
+    "ar": "الأساسيات",
+    "en": "Basics"
+  },
+  "description": {
+    "ar": "لماذا Dart وأول كود",
+    "en": "Why Dart and first code"
+  },
+  "lessons": [
+    "01-why-dart.json",
+    "02-variables-types.json",
+    "03-null-safety.json"
+  ]
+}

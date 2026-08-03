@@ -1,0 +1,24 @@
+{
+  "slug": "javascript",
+  "order": 22,
+  "title": {
+    "ar": "JavaScript من الصفر",
+    "en": "JavaScript from zero"
+  },
+  "tagline": {
+    "ar": "لغة الويب قبل React و Node",
+    "en": "The web language before React & Node"
+  },
+  "description": {
+    "ar": "أساسيات JS كاملة: قيم، تحكم، دوال، بيانات، async، وحدات، مشروع.",
+    "en": "Full JS foundations: values, control, functions, data, async, modules, project."
+  },
+  "color": "#F7DF1E",
+  "estimatedHours": 70,
+  "stages": [
+    "01-start",
+    "02-control-functions",
+    "03-async-modules",
+    "04-project"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "csharp",
+  "order": 20,
+  "title": {
+    "ar": "C# من الصفر",
+    "en": "C# from zero"
+  },
+  "tagline": {
+    "ar": "أساسيات C# قبل ASP.NET",
+    "en": "C# foundations before ASP.NET"
+  },
+  "description": {
+    "ar": "مسار لغة كامل: متغيرات، أنواع، تحكم، دوال، OOP، مجموعات، LINQ، أخطاء، async، ثم مشروع كونسول.",
+    "en": "Full language path: variables, types, control flow, methods, OOP, collections, LINQ, errors, async, then a console project."
+  },
+  "color": "#68217A",
+  "estimatedHours": 80,
+  "stages": [
+    "01-start",
+    "02-types",
+    "03-control",
+    "04-methods",
+    "05-oop",
+    "06-collections-linq",
+    "07-errors-async",
+    "08-project"
+  ]
+}

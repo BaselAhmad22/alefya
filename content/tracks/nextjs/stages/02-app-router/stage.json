@@ -1,0 +1,18 @@
+{
+  "slug": "02-app-router",
+  "order": 2,
+  "title": {
+    "ar": "App Router",
+    "en": "App Router"
+  },
+  "description": {
+    "ar": "التوجيه القائم على الملفات، layouts، loading/error، وroute groups",
+    "en": "File-based routing, layouts, loading/error, and route groups"
+  },
+  "lessons": [
+    "01-file-based-routing.json",
+    "02-layouts-templates.json",
+    "03-loading-error.json",
+    "04-route-groups.json"
+  ]
+}

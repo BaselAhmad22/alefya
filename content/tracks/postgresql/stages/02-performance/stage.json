@@ -1,0 +1,17 @@
+{
+  "slug": "02-performance",
+  "order": 2,
+  "title": {
+    "ar": "أداء ومعاملات",
+    "en": "Performance & transactions"
+  },
+  "description": {
+    "ar": "فهارس وACID",
+    "en": "Indexes and ACID"
+  },
+  "lessons": [
+    "01-indexes.json",
+    "02-transactions.json",
+    "03-project.json"
+  ]
+}

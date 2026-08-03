@@ -1,0 +1,22 @@
+{
+  "slug": "mongodb",
+  "order": 12,
+  "title": {
+    "ar": "MongoDB",
+    "en": "MongoDB"
+  },
+  "tagline": {
+    "ar": "قاعدة وثائق NoSQL الأشهر للتطبيقات الحديثة",
+    "en": "The most popular document NoSQL database for modern apps"
+  },
+  "description": {
+    "ar": "MongoDB: الوثائق، الاستعلامات، الفهارس، والتجميع — شائعة جداً مع Node وPython.",
+    "en": "MongoDB: documents, queries, indexes, and aggregation — hugely common with Node and Python."
+  },
+  "color": "#47A248",
+  "estimatedHours": 75,
+  "stages": [
+    "01-documents",
+    "02-advanced"
+  ]
+}

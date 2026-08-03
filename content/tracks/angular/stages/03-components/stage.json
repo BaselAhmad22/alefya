@@ -1,0 +1,18 @@
+{
+  "slug": "03-components",
+  "order": 3,
+  "title": {
+    "ar": "المكوّنات والقوالب",
+    "en": "Components & templates"
+  },
+  "description": {
+    "ar": "الإدخال/الإخراج، التوجيهات، والأنابيب",
+    "en": "Inputs/outputs, directives, and pipes"
+  },
+  "lessons": [
+    "01-template-syntax.json",
+    "02-inputs-outputs.json",
+    "03-directives.json",
+    "04-pipes.json"
+  ]
+}

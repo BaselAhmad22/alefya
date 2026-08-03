@@ -1,0 +1,17 @@
+{
+  "slug": "01-core",
+  "order": 1,
+  "title": {
+    "ar": "مفاهيم K8s",
+    "en": "K8s concepts"
+  },
+  "description": {
+    "ar": "العنقود والكائنات",
+    "en": "Cluster and objects"
+  },
+  "lessons": [
+    "01-why-k8s.json",
+    "02-pods-deployments.json",
+    "03-services.json"
+  ]
+}

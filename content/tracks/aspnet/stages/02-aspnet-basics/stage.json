@@ -1,0 +1,18 @@
+{
+  "slug": "02-aspnet-basics",
+  "order": 2,
+  "title": {
+    "ar": "أساسيات ASP.NET Core",
+    "en": "ASP.NET Core basics"
+  },
+  "description": {
+    "ar": "Host، Middleware، الإعدادات، والـ DI",
+    "en": "Host, middleware, configuration, and DI"
+  },
+  "lessons": [
+    "01-project-structure.json",
+    "02-middleware-pipeline.json",
+    "03-dependency-injection.json",
+    "04-configuration.json"
+  ]
+}

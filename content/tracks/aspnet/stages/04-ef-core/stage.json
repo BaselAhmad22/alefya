@@ -1,0 +1,18 @@
+{
+  "slug": "04-ef-core",
+  "order": 4,
+  "title": {
+    "ar": "Entity Framework Core",
+    "en": "Entity Framework Core"
+  },
+  "description": {
+    "ar": "النماذج، DbContext، الهجرات، والاستعلامات",
+    "en": "Models, DbContext, migrations, and queries"
+  },
+  "lessons": [
+    "01-dbcontext.json",
+    "02-migrations.json",
+    "03-relationships.json",
+    "04-querying.json"
+  ]
+}

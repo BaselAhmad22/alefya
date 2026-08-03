@@ -1,0 +1,17 @@
+{
+  "slug": "02-advanced",
+  "order": 2,
+  "title": {
+    "ar": "فهارس وتجميع",
+    "en": "Indexes & aggregation"
+  },
+  "description": {
+    "ar": "أداء وتحليل",
+    "en": "Performance and analytics"
+  },
+  "lessons": [
+    "01-indexes.json",
+    "02-aggregation.json",
+    "03-project.json"
+  ]
+}

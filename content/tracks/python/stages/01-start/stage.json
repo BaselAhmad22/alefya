@@ -1,0 +1,17 @@
+{
+  "slug": "01-start",
+  "order": 1,
+  "title": {
+    "ar": "البداية",
+    "en": "Start"
+  },
+  "description": {
+    "ar": "لماذا Python",
+    "en": "Why Python"
+  },
+  "lessons": [
+    "01-why-python.json",
+    "02-variables.json",
+    "03-control.json"
+  ]
+}

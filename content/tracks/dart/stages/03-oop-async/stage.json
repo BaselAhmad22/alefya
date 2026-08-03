@@ -1,0 +1,17 @@
+{
+  "slug": "03-oop-async",
+  "order": 3,
+  "title": {
+    "ar": "OOP و async",
+    "en": "OOP & async"
+  },
+  "description": {
+    "ar": "كلاسات و Future",
+    "en": "Classes and Future"
+  },
+  "lessons": [
+    "01-classes.json",
+    "02-async.json",
+    "03-mini-project.json"
+  ]
+}

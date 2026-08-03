@@ -1,0 +1,18 @@
+{
+  "slug": "01-environment",
+  "order": 1,
+  "title": {
+    "ar": "البيئة والأدوات",
+    "en": "Environment & tooling"
+  },
+  "description": {
+    "ar": "فهم React Native، اختيار Expo أو CLI، أول تطبيق، وأدوات التطوير",
+    "en": "Understand React Native, choose Expo or CLI, first app, and dev tools"
+  },
+  "lessons": [
+    "01-what-is-rn.json",
+    "02-expo-vs-cli.json",
+    "03-first-app.json",
+    "04-devtools.json"
+  ]
+}

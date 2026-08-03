@@ -1,0 +1,17 @@
+{
+  "slug": "01-basics",
+  "order": 1,
+  "title": {
+    "ar": "أساسيات Vue",
+    "en": "Vue basics"
+  },
+  "description": {
+    "ar": "التفاعلية والمكوّنات",
+    "en": "Reactivity and components"
+  },
+  "lessons": [
+    "01-why-vue.json",
+    "02-template-reactivity.json",
+    "03-components.json"
+  ]
+}

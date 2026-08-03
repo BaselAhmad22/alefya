@@ -1,0 +1,17 @@
+{
+  "slug": "01-core",
+  "order": 1,
+  "title": {
+    "ar": "أساسيات Node",
+    "en": "Node fundamentals"
+  },
+  "description": {
+    "ar": "الحدث والوحدات",
+    "en": "Event loop and modules"
+  },
+  "lessons": [
+    "01-why-node.json",
+    "02-modules-npm.json",
+    "03-http-express.json"
+  ]
+}

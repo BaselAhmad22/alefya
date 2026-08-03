@@ -1,0 +1,18 @@
+{
+  "slug": "01-typescript",
+  "order": 1,
+  "title": {
+    "ar": "أساسيات TypeScript",
+    "en": "TypeScript foundations"
+  },
+  "description": {
+    "ar": "اللغة التي يُكتب بها Angular",
+    "en": "The language Angular is written in"
+  },
+  "lessons": [
+    "01-why-typescript.json",
+    "02-types-interfaces.json",
+    "03-classes-modules.json",
+    "04-generics-utility.json"
+  ]
+}

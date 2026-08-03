@@ -1,0 +1,22 @@
+{
+  "slug": "kubernetes",
+  "order": 14,
+  "title": {
+    "ar": "Kubernetes",
+    "en": "Kubernetes"
+  },
+  "tagline": {
+    "ar": "منصة تشغيل الحاويات القياسية في الشركات",
+    "en": "The industry-standard container orchestration platform"
+  },
+  "description": {
+    "ar": "Kubernetes (K8s): Pods، Deployments، Services، وتهيئة أساسية لنشر تطبيقات حقيقية.",
+    "en": "Kubernetes (K8s): Pods, Deployments, Services, and core config to ship real workloads."
+  },
+  "color": "#326CE5",
+  "estimatedHours": 85,
+  "stages": [
+    "01-core",
+    "02-ship"
+  ]
+}

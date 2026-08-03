@@ -1,0 +1,22 @@
+{
+  "slug": "git",
+  "order": 16,
+  "title": {
+    "ar": "Git & GitHub",
+    "en": "Git & GitHub"
+  },
+  "tagline": {
+    "ar": "أداة لا غنى عنها لكل مطوّر في أي فريق",
+    "en": "The non-negotiable tool for every developer and team"
+  },
+  "description": {
+    "ar": "Git وGitHub: الالتزامات، الفروع، الدمج، وPull Requests — مهارة مطلوبة في كل وظيفة تقريباً.",
+    "en": "Git & GitHub: commits, branches, merges, and pull requests — required in almost every job."
+  },
+  "color": "#F05032",
+  "estimatedHours": 45,
+  "stages": [
+    "01-basics",
+    "02-github"
+  ]
+}

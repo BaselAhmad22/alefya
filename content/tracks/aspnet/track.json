@@ -1,0 +1,27 @@
+{
+  "slug": "aspnet",
+  "order": 1,
+  "title": {
+    "ar": "ASP.NET Core",
+    "en": "ASP.NET Core"
+  },
+  "tagline": {
+    "ar": "من C# حتى بناء API ومشروع حقيقي",
+    "en": "From C# to APIs and a real project"
+  },
+  "description": {
+    "ar": "مسار دراسي متكامل يأخذك من صفر في C# و.NET حتى تبني Web API حقيقي: Minimal APIs وMVC، Entity Framework Core، المصادقة بـ JWT والسياسات، ثم مشروع تطبيقي كامل. كل درس مكتوب بالعربية والإنجليزية مع أمثلة عملية وأخطاء شائعة وتمارين داخل الموقع — بدون الحاجة لمصادر خارجية.",
+    "en": "A complete learning path from zero in C# and .NET to building a real Web API: Minimal APIs and MVC, Entity Framework Core, JWT auth and policies, then a full capstone project. Every lesson is bilingual with practical examples, common pitfalls, and in-site exercises — no external sites required."
+  },
+  "color": "#512BD4",
+  "estimatedHours": 120,
+  "stages": [
+    "01-foundations",
+    "02-aspnet-basics",
+    "03-apis-mvc",
+    "04-ef-core",
+    "05-auth",
+    "06-advanced",
+    "07-project"
+  ]
+}

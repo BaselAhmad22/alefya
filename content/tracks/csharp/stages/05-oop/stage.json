@@ -1,0 +1,17 @@
+{
+  "slug": "05-oop",
+  "order": 5,
+  "title": {
+    "ar": "البرمجة كائنية التوجه",
+    "en": "OOP"
+  },
+  "description": {
+    "ar": "كائنات، تغليف، وراثة",
+    "en": "Objects, encapsulation, inheritance"
+  },
+  "lessons": [
+    "01-classes-objects.json",
+    "02-encapsulation.json",
+    "03-inheritance-interfaces.json"
+  ]
+}

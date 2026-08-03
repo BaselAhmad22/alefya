@@ -1,0 +1,17 @@
+{
+  "slug": "05-state-data",
+  "order": 5,
+  "title": {
+    "ar": "الحالة والبيانات",
+    "en": "State & data"
+  },
+  "description": {
+    "ar": "Hooks، Context، global store، fetch، و offline caching",
+    "en": "Hooks, Context, global store, fetch, and offline caching"
+  },
+  "lessons": [
+    "01-hooks-state.json",
+    "02-context-store.json",
+    "03-fetch-offline.json"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "02-compose",
+  "order": 2,
+  "title": {
+    "ar": "Compose",
+    "en": "Compose"
+  },
+  "description": {
+    "ar": "خدمات متعددة",
+    "en": "Multi-service stacks"
+  },
+  "lessons": [
+    "01-compose-basics.json",
+    "02-dev-workflow.json",
+    "03-project.json"
+  ]
+}

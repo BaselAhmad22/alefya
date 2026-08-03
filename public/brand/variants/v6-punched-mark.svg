@@ -1,0 +1,12 @@
+<!-- V6 Punched Mark: solid mark with rounded path cut -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <mask id="cut">
+      <rect width="100" height="100" fill="white"/>
+      <circle cx="58" cy="46" r="14" fill="black"/>
+      <circle cx="42" cy="58" r="9" fill="black"/>
+    </mask>
+  </defs>
+  <circle cx="50" cy="50" r="28" fill="currentColor" mask="url(#cut)"/>
+  <circle cx="58" cy="46" r="5" fill="currentColor"/>
+</svg>

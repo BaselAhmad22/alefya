@@ -1,0 +1,17 @@
+{
+  "slug": "08-project",
+  "order": 8,
+  "title": {
+    "ar": "المشروع التطبيقي",
+    "en": "Capstone project"
+  },
+  "description": {
+    "ar": "تصميم، تنفيذ، و polish لتطبيق learner UI.",
+    "en": "Design, implement, and polish a learner UI app."
+  },
+  "lessons": [
+    "01-design.json",
+    "02-implement.json",
+    "03-polish.json"
+  ]
+}

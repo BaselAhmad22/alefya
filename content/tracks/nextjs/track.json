@@ -1,0 +1,28 @@
+{
+  "slug": "nextjs",
+  "order": 4,
+  "title": {
+    "ar": "Next.js",
+    "en": "Next.js"
+  },
+  "tagline": {
+    "ar": "من App Router حتى منتج جاهز للإطلاق",
+    "en": "From App Router to a shippable product"
+  },
+  "description": {
+    "ar": "مسار Next.js الحديث (App Router): الهيكل، التوجيه، Server/Client Components، جلب البيانات، Server Actions، الأداء، النشر، ثم مشروع. محتوى ثنائي اللغة عميق داخل ألف ياء.",
+    "en": "Modern Next.js (App Router) path: structure, routing, Server/Client Components, data fetching, Server Actions, performance, deploy, then a project. Deep bilingual content inside AlefYa."
+  },
+  "color": "#E8E8E8",
+  "estimatedHours": 95,
+  "stages": [
+    "01-foundations",
+    "02-app-router",
+    "03-server-client",
+    "04-data",
+    "05-actions-mutations",
+    "06-ui-assets",
+    "07-production",
+    "08-project"
+  ]
+}

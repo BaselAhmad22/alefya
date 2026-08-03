@@ -1,0 +1,28 @@
+{
+  "slug": "react",
+  "order": 3,
+  "title": {
+    "ar": "React",
+    "en": "React"
+  },
+  "tagline": {
+    "ar": "من المكوّنات حتى تطبيق واجهة حديث",
+    "en": "From components to a modern UI app"
+  },
+  "description": {
+    "ar": "مسار مرتّب لـ React: JavaScript الحديث، JSX، الحالة، الـ Hooks، التوجيه، جلب البيانات، الأنماط، ثم مشروع تطبيقي. كل درس عميق عربي/إنجليزي داخل ألف ياء.",
+    "en": "An ordered React path: modern JS, JSX, state, Hooks, routing, data fetching, patterns, then a capstone. Every lesson is deep bilingual content inside AlefYa."
+  },
+  "color": "#61DAFB",
+  "estimatedHours": 100,
+  "stages": [
+    "01-js-for-react",
+    "02-fundamentals",
+    "03-state-props",
+    "04-hooks",
+    "05-routing",
+    "06-data-forms",
+    "07-patterns",
+    "08-project"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "03-async-project",
+  "order": 3,
+  "title": {
+    "ar": "مشروع",
+    "en": "Project"
+  },
+  "description": {
+    "ar": "تطبيق عملي",
+    "en": "Hands-on"
+  },
+  "lessons": [
+    "01-files.json",
+    "02-mini-api-mindset.json",
+    "03-ready.json"
+  ]
+}

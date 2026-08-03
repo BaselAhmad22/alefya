@@ -1,0 +1,29 @@
+{
+  "slug": "react-native",
+  "order": 5,
+  "title": {
+    "ar": "React Native",
+    "en": "React Native"
+  },
+  "tagline": {
+    "ar": "من أول شاشة حتى تطبيق جوال قابل للبناء",
+    "en": "From first screen to a buildable mobile app"
+  },
+  "description": {
+    "ar": "مسار React Native مرتّب: البيئة، المكوّنات، الأنماط، التنقل، الحالة، القوائم، واجهات الجهاز، البناء، ثم مشروع. دروس عميقة عربي/إنجليزي داخل ألف ياء.",
+    "en": "Ordered React Native path: environment, components, styling, navigation, state, lists, device APIs, builds, then a project. Deep bilingual lessons inside AlefYa."
+  },
+  "color": "#00D4FF",
+  "estimatedHours": 105,
+  "stages": [
+    "01-environment",
+    "02-core-ui",
+    "03-styling",
+    "04-navigation",
+    "05-state-data",
+    "06-lists-forms",
+    "07-native-device",
+    "08-release",
+    "09-project"
+  ]
+}

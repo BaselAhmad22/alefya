@@ -1,0 +1,17 @@
+{
+  "slug": "07-errors-async",
+  "order": 7,
+  "title": {
+    "ar": "الأخطاء و async",
+    "en": "Errors & async"
+  },
+  "description": {
+    "ar": "try/catch و Task",
+    "en": "try/catch and Task"
+  },
+  "lessons": [
+    "01-exceptions.json",
+    "02-async-await.json",
+    "03-async-pitfalls.json"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "dart",
+  "order": 21,
+  "title": {
+    "ar": "Dart من الصفر",
+    "en": "Dart from zero"
+  },
+  "tagline": {
+    "ar": "لغة Flutter قبل الواجهات",
+    "en": "Flutter's language before UI"
+  },
+  "description": {
+    "ar": "أساسيات Dart: أنواع، null safety، دوال، OOP، مجموعات، async، ثم مشروع صغير.",
+    "en": "Dart foundations: types, null safety, functions, OOP, collections, async, then a small project."
+  },
+  "color": "#0175C2",
+  "estimatedHours": 60,
+  "stages": [
+    "01-basics",
+    "02-control-functions",
+    "03-oop-async"
+  ]
+}

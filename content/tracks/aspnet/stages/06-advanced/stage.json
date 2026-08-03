@@ -1,0 +1,17 @@
+{
+  "slug": "06-advanced",
+  "order": 6,
+  "title": {
+    "ar": "مواضيع متقدمة",
+    "en": "Advanced topics"
+  },
+  "description": {
+    "ar": "التخزين المؤقت، التسجيل، والخلفية",
+    "en": "Caching, logging, and background work"
+  },
+  "lessons": [
+    "01-caching.json",
+    "02-logging-health.json",
+    "03-background-services.json"
+  ]
+}

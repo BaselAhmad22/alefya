@@ -1,0 +1,17 @@
+{
+  "slug": "06-collections-linq",
+  "order": 6,
+  "title": {
+    "ar": "المجموعات و LINQ",
+    "en": "Collections & LINQ"
+  },
+  "description": {
+    "ar": "List وفلترة",
+    "en": "List and filtering"
+  },
+  "lessons": [
+    "01-list-dict.json",
+    "02-linq-basics.json",
+    "03-linq-practice.json"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "02-control-functions",
+  "order": 2,
+  "title": {
+    "ar": "تحكم ودوال",
+    "en": "Control & functions"
+  },
+  "description": {
+    "ar": "شروط، حلقات، دوال",
+    "en": "Branches, loops, functions"
+  },
+  "lessons": [
+    "01-if-loops.json",
+    "02-functions.json",
+    "03-collections.json"
+  ]
+}
