@@ -1,6 +1,12 @@
 import { createHash } from "crypto";
 import type { Locale } from "@/lib/content";
 import { getTrack, t as tl, type Stage, type Track } from "@/lib/content";
+import {
+  chatJsonCompletion,
+  cleanProse,
+  cleanProseList,
+  hasOpenAiKey,
+} from "@/lib/openai";
 
 export type ExamFormat = "mixed" | "mcq" | "written";
 
@@ -17,7 +23,31 @@ export type ExamQuestion = {
   /** keywords for written local grading */
   keywords?: { ar: string[]; en: string[] };
   fingerprint: string;
+  /** Internal topic key used for overlap / avoid logic (may include both locales). */
   topic: string;
+  /** Learner-facing topic name for the active UI locale. */
+  topicLabel: { ar: string; en: string };
+};
+
+export type ExamReportItem = {
+  id: string;
+  kind: "mcq" | "written";
+  prompt: string;
+  userAnswer: string;
+  correctAnswer: string | null;
+  score: number;
+  correct: boolean;
+  why: string;
+  improvement: string;
+  lessonSlug?: string;
+  topic: string;
+};
+
+export type ExamReport = {
+  items: ExamReportItem[];
+  strengths: string[];
+  weaknesses: string[];
+  summary: string;
 };
 
 function fp(text: string) {
@@ -48,12 +78,14 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
   const bank: ExamQuestion[] = [];
   for (const lesson of stage.lessons) {
     const topic = `${lesson.slug} ${lesson.title.en} ${lesson.title.ar}`;
+    const topicLabel = { en: lesson.title.en, ar: lesson.title.ar };
     const base = `${stage.slug}:${lesson.slug}`;
 
     bank.push({
       id: `${base}:mcq-core`,
       kind: "mcq",
       topic,
+      topicLabel,
       fingerprint: fp(`${base}|mcq-core|${lesson.title.en}`),
       prompt: {
         ar: `ما الهدف الأساسي من درس «${lesson.title.ar}» ضمن مرحلة «${stage.title.ar}»؟`,
@@ -80,6 +112,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
       id: `${base}:mcq-trap`,
       kind: "mcq",
       topic,
+      topicLabel,
       fingerprint: fp(`${base}|mcq-trap|${lesson.slug}`),
       prompt: {
         ar: `أي خيار يمثل خطأ شائعاً عند تطبيق «${lesson.title.ar}»؟`,
@@ -106,6 +139,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
       id: `${base}:written-explain`,
       kind: "written",
       topic,
+      topicLabel,
       fingerprint: fp(`${base}|written-explain|${lesson.title.en}`),
       prompt: {
         ar: `اشرح «${lesson.title.ar}» بكلماتك، واذكر مدخلاً ومخرجاً وحالة حدّية واحدة على الأقل.`,
@@ -121,6 +155,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
       id: `${base}:written-debug`,
       kind: "written",
       topic,
+      topicLabel,
       fingerprint: fp(`${base}|written-debug|${lesson.slug}`),
       prompt: {
         ar: `صف سيناريو فشل حقيقي متعلق بـ «${lesson.title.ar}»، وكيف تكتشفه وتصلحه.`,
@@ -136,6 +171,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
       id: `${base}:mcq-practice`,
       kind: "mcq",
       topic,
+      topicLabel,
       fingerprint: fp(`${base}|mcq-practice|${lesson.slug}`),
       prompt: {
         ar: `ما أفضل خطوة تالية بعد فهم «${lesson.title.ar}»؟`,
@@ -162,6 +198,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
       id: `${base}:mcq-signal`,
       kind: "mcq",
       topic,
+      topicLabel,
       fingerprint: fp(`${base}|mcq-signal|${lesson.title.en}`),
       prompt: {
         ar: `أي عبارة تصف «${lesson.title.ar}» بدقة أكبر؟`,
@@ -188,6 +225,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
       id: `${base}:written-steps`,
       kind: "written",
       topic,
+      topicLabel,
       fingerprint: fp(`${base}|written-steps|${lesson.slug}`),
       prompt: {
         ar: `اكتب ثلاث خطوات عملية لتطبيق «${lesson.title.ar}» في مشروع صغير.`,
@@ -203,6 +241,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
       id: `${base}:written-contrast`,
       kind: "written",
       topic,
+      topicLabel,
       fingerprint: fp(`${base}|written-contrast|${lesson.title.en}`),
       prompt: {
         ar: `قارن بين الاستخدام الصحيح والخاطئ لـ «${lesson.title.ar}» بجملتين لكل حالة.`,
@@ -215,11 +254,14 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
     });
   }
 
+  const stageTopicLabel = { en: stage.title.en, ar: stage.title.ar };
+
   // Stage-level synthesis questions
   bank.push({
     id: `${stage.slug}:mcq-order`,
     kind: "mcq",
     topic: stage.slug,
+    topicLabel: stageTopicLabel,
     fingerprint: fp(`${stage.slug}|mcq-order`),
     prompt: {
       ar: `لماذا يجب إتمام دروس مرحلة «${stage.title.ar}» بالترتيب قبل الامتحان؟`,
@@ -246,6 +288,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
     id: `${stage.slug}:written-synth`,
     kind: "written",
     topic: stage.slug,
+    topicLabel: stageTopicLabel,
     fingerprint: fp(`${stage.slug}|written-synth|${track.slug}`),
     prompt: {
       ar: `لخّص مرحلة «${stage.title.ar}» في فقرة، واذكر مفهومين يجب أن يتقنه المتعلم قبل الانتقال.`,
@@ -261,6 +304,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
     id: `${stage.slug}:mcq-pass`,
     kind: "mcq",
     topic: stage.slug,
+    topicLabel: stageTopicLabel,
     fingerprint: fp(`${stage.slug}|mcq-pass`),
     prompt: {
       ar: `ما معنى النجاح في امتحان مرحلة «${stage.title.ar}»؟`,
@@ -287,6 +331,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
     id: `${stage.slug}:mcq-review`,
     kind: "mcq",
     topic: stage.slug,
+    topicLabel: stageTopicLabel,
     fingerprint: fp(`${stage.slug}|mcq-review|${track.slug}`),
     prompt: {
       ar: `إذا رسبت في امتحان «${stage.title.ar}»، ما أفضل تصرف؟`,
@@ -313,6 +358,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
     id: `${stage.slug}:written-map`,
     kind: "written",
     topic: stage.slug,
+    topicLabel: stageTopicLabel,
     fingerprint: fp(`${stage.slug}|written-map`),
     prompt: {
       ar: `ارسم بخطة قصيرة (نقاط) كيف ترتبط دروس مرحلة «${stage.title.ar}» ببعضها.`,
@@ -328,6 +374,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
     id: `${stage.slug}:written-checklist`,
     kind: "written",
     topic: stage.slug,
+    topicLabel: stageTopicLabel,
     fingerprint: fp(`${stage.slug}|written-checklist|${track.slug}`),
     prompt: {
       ar: `اكتب قائمة تحقق من 4 بنود تثبت أنك جاهز لاجتياز امتحان «${stage.title.ar}».`,
@@ -525,57 +572,261 @@ export function localGradeQuestion(
   };
 }
 
-export async function aiGradeBatch(opts: {
+type FullReportOptions = {
   locale: Locale;
   stageTitle: string;
-  items: { prompt: string; answer: string; kind: string }[];
-}): Promise<{ scores: number[]; feedbacks: string[] } | null> {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) return null;
-  const base = (process.env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/$/, "");
-  const model = process.env.OPENAI_MODEL || "gpt-4o-mini";
+  questions: ExamQuestion[];
+  answers: Record<string, string | number>;
+  localScores: number[];
+  lessonSlugs?: Record<string, string | undefined>;
+};
+
+function clampScore(value: unknown) {
+  return Math.max(0, Math.min(100, Number(value) || 0));
+}
+
+function answerText(
+  question: ExamQuestion,
+  answer: string | number | undefined,
+  locale: Locale,
+) {
+  if (question.kind === "mcq") {
+    const index = typeof answer === "number" ? answer : Number(answer);
+    return question.options?.[locale]?.[index] ?? String(answer ?? "");
+  }
+  return String(answer ?? "");
+}
+
+function localReportItem(
+  opts: FullReportOptions,
+  question: ExamQuestion,
+  index: number,
+): ExamReportItem {
+  const localScore = clampScore(opts.localScores[index]);
+  const prompt = tl(question.prompt, opts.locale);
+  const userAnswer = answerText(question, opts.answers[question.id], opts.locale);
+  const topic = tl(question.topicLabel, opts.locale);
+  const correct = localScore >= 75;
+
+  let correctAnswer: string | null = null;
+  if (question.kind === "mcq" && typeof question.correctIndex === "number") {
+    correctAnswer =
+      question.options?.[opts.locale]?.[question.correctIndex] ?? null;
+  } else if (question.kind === "written") {
+    const keys =
+      question.keywords?.[opts.locale] || question.keywords?.en || [];
+    correctAnswer =
+      opts.locale === "ar"
+        ? keys.length
+          ? `إجابة نموذجية تغطي: ${keys.slice(0, 5).join("، ")}. اربط المفهوم بمثال عملي واضح ضمن موضوع «${topic}».`
+          : `اشرح المفهوم الأساسي في «${topic}» بجمل واضحة، مع مثال عملي وحالة حدّية واحدة.`
+        : keys.length
+          ? `A model answer should cover: ${keys.slice(0, 5).join(", ")}. Tie the concept to a concrete example in “${topic}”.`
+          : `Explain the core idea in “${topic}” clearly, with one practical example and one edge case.`;
+  }
+
+  return {
+    id: question.id,
+    kind: question.kind,
+    prompt,
+    userAnswer,
+    correctAnswer,
+    score: localScore,
+    correct,
+    why:
+      opts.locale === "ar"
+        ? correct
+          ? `إجابتك («${truncateForLocal(userAnswer)}») تغطي المطلوب في السؤال حول «${topic}».`
+          : `إجابتك («${truncateForLocal(userAnswer)}») لا تغطي بعد المطلوب الكامل في سؤال «${topic}».`
+        : correct
+          ? `Your answer (“${truncateForLocal(userAnswer)}”) covers what the question asks about “${topic}”.`
+          : `Your answer (“${truncateForLocal(userAnswer)}”) does not yet fully cover what “${topic}” asks for.`,
+    improvement:
+      opts.locale === "ar"
+        ? correct
+          ? `ثبّت فهم «${topic}» بتطبيق الفكرة في مثال جديد مختلف عن إجابتك الحالية.`
+          : `راجع درس «${topic}»، ثم أعد الإجابة بذكر المفهوم صراحةً وربطه بمثال عملي قصير.`
+        : correct
+          ? `Reinforce “${topic}” by applying the idea in a fresh example beyond your current answer.`
+          : `Review the “${topic}” lesson, then answer again naming the concept explicitly and tying it to a short practical example.`,
+    lessonSlug: opts.lessonSlugs?.[question.id],
+    topic,
+  };
+}
+
+function truncateForLocal(text: string, max = 90) {
+  const cleaned = text.replace(/\s+/g, " ").trim();
+  if (!cleaned) return "—";
+  if (cleaned.length <= max) return cleaned;
+  return `${cleaned.slice(0, max).trim()}…`;
+}
+
+export function buildLocalExamReport(opts: FullReportOptions): ExamReport {
+  const items = opts.questions.map((question, index) =>
+    localReportItem(opts, question, index),
+  );
+  const strengths = items
+    .filter((item) => item.correct)
+    .slice(0, 4)
+    .map((item) =>
+      opts.locale === "ar"
+        ? `أظهرت فهماً جيداً في «${item.topic}» من خلال إجابتك على السؤال.`
+        : `You showed solid understanding of “${item.topic}” in your answer.`,
+    );
+  const weaknesses = items
+    .filter((item) => !item.correct)
+    .slice(0, 4)
+    .map((item) =>
+      opts.locale === "ar"
+        ? `تحتاج إلى تعزيز «${item.topic}»: راجع المفهوم ثم أعد صياغة إجابة أوضح.`
+        : `Strengthen “${item.topic}”: revisit the concept, then rewrite a clearer answer.`,
+    );
+
+  return {
+    items,
+    strengths: strengths.length
+      ? strengths
+      : [
+          opts.locale === "ar"
+            ? "لم تُرصد بعد نقاط قوة واضحة — أكمل الإجابات وراجع التحليل التفصيلي."
+            : "No clear strengths yet — complete answers and review the detailed analysis.",
+        ],
+    weaknesses: weaknesses.length
+      ? weaknesses
+      : [
+          opts.locale === "ar"
+            ? "لا توجد فجوات بارزة في هذه المحاولة — ثبّت الفهم بأمثلة إضافية."
+            : "No major gaps in this attempt — reinforce understanding with extra examples.",
+        ],
+    summary:
+      opts.locale === "ar"
+        ? `أكملت امتحان «${opts.stageTitle}». راجع التحليل التفصيلي أدناه وثبّت نقاط القوة قبل معالجة نقاط الضعف.`
+        : `You completed the “${opts.stageTitle}” exam. Review the detailed analysis below, reinforce your strengths, and address the weaker areas.`,
+  };
+}
+
+export async function aiBuildFullReport(
+  opts: FullReportOptions,
+): Promise<ExamReport | null> {
+  if (!hasOpenAiKey()) return null;
 
   const system =
     opts.locale === "ar"
-      ? "أنت مصحح امتحانات صارم وعادل في منصة ألف ياء. لكل إجابة أعطِ درجة 0-100 وملاحظة قصيرة. أعد JSON فقط: {\"results\":[{\"score\":number,\"feedback\":string}]}"
-      : "You are a strict fair exam grader for AlefYa. For each answer give 0-100 and short feedback. Return JSON only: {\"results\":[{\"score\":number,\"feedback\":string}]}";
+      ? `أنت كبير المقيّمين التربويين في منصة ألف ياء. حلّل كل سؤال وإجابة بدقة وبأسلوب تعليمي واضح ومفهوم.
+أعد JSON فقط بالشكل:
+{"items":[{"id":string,"score":number,"why":string,"improvement":string,"correctAnswer":string|null}],"strengths":[string],"weaknesses":[string],"summary":string}
 
-  const res = await fetch(`${base}/chat/completions`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model,
-      temperature: 0.2,
-      response_format: { type: "json_object" },
-      messages: [
-        { role: "system", content: system },
-        {
-          role: "user",
-          content: JSON.stringify({
-            stage: opts.stageTitle,
-            items: opts.items,
-          }),
-        },
-      ],
-    }),
-  });
-  if (!res.ok) return null;
-  const data = await res.json();
-  const raw = data?.choices?.[0]?.message?.content;
-  if (!raw) return null;
-  try {
-    const parsed = JSON.parse(raw);
-    const results = parsed.results || [];
+قواعد ملزمة:
+1) لكل عنصر: اذكر صراحةً ما كتبه/اختاره المتعلم وما يطلبه السؤال، بحيث تكون الفكرة واضحة 100٪.
+2) MCQ: localScore و localCorrect حاسمان — انسخ الدرجة كما هي. املأ why بشرح لماذا الخيار المختار صحيح أو خاطئ مقارنةً بالإجابة الصحيحة المعطاة. improvement خطوة عملية قصيرة. correctAnswer اتركه null (سيُملأ من النظام).
+3) تحريري: قيّم الفهم والدقة والتطبيق 0–100. why تشخيص مرتبط بنص إجابة المستخدم. improvement خطوة قابلة للتنفيذ. correctAnswer = نموذج جواب مثالي واضح (٢–٥ جمل) مناسب لمستوى المرحلة.
+4) strengths و weaknesses: ٢–٤ جمل تعليمية كاملة مبنية على أنماط إجابات هذه المحاولة (ليست أسماء دروس فقط).
+5) summary: فقرة قصيرة بالعربية فقط تلخّص الأداء.
+6) لغة عربية فصحى واضحة فقط — بلا خلط إنجليزي. لا تخترع حقائق خارج السؤال/الإجابة/الخيارات.`
+      : `You are AlefYa's senior educational assessor. Analyze every question and answer rigorously in clear, accessible teaching language.
+Return JSON only in this shape:
+{"items":[{"id":string,"score":number,"why":string,"improvement":string,"correctAnswer":string|null}],"strengths":[string],"weaknesses":[string],"summary":string}
+
+Mandatory rules:
+1) For every item: explicitly reference what the learner chose/wrote and what the question asks, so the idea is 100% clear.
+2) MCQ: localScore and localCorrect are authoritative — copy the score unchanged. Fill why by explaining why the selected option is right or wrong versus the given correctAnswer. improvement is a short actionable step. Set correctAnswer to null (the system fills it).
+3) Written: score understanding, accuracy, and application 0–100. why must diagnose the learner's actual text. improvement must be a concrete next action. correctAnswer = a clear model answer (2–5 sentences) at stage level.
+4) strengths and weaknesses: 2–4 full teaching sentences based on patterns in THIS attempt (not bare topic labels).
+5) summary: one short English-only paragraph on overall performance.
+6) English only — never mix Arabic. Do not invent facts absent from the question, answer, or options.`;
+
+  const inputItems = opts.questions.map((question, index) => {
+    const localScore = clampScore(opts.localScores[index]);
+    const options = question.options?.[opts.locale] ?? [];
     return {
-      scores: results.map((r: { score?: number }) => Math.max(0, Math.min(100, Number(r.score) || 0))),
-      feedbacks: results.map((r: { feedback?: string }) => String(r.feedback || "")),
+      id: question.id,
+      kind: question.kind,
+      topic: tl(question.topicLabel, opts.locale),
+      prompt: tl(question.prompt, opts.locale),
+      options: question.kind === "mcq" ? options : undefined,
+      selectedAnswer: answerText(
+        question,
+        opts.answers[question.id],
+        opts.locale,
+      ),
+      correctAnswer:
+        question.kind === "mcq" && typeof question.correctIndex === "number"
+          ? options[question.correctIndex] ?? null
+          : null,
+      localScore,
+      localCorrect: localScore >= 75,
+      keywords:
+        question.kind === "written"
+          ? question.keywords?.[opts.locale] || question.keywords?.en || []
+          : undefined,
     };
-  } catch {
-    return null;
+  });
+
+  const parsed = await chatJsonCompletion({
+    system,
+    user: JSON.stringify({
+      stage: opts.stageTitle,
+      locale: opts.locale,
+      items: inputItems,
+    }),
+    temperature: 0.35,
+    maxTokens: 6000,
+  });
+
+  if (!parsed || !Array.isArray(parsed.items)) return null;
+
+  const aiItems = new Map<string, Record<string, unknown>>();
+  for (const raw of parsed.items) {
+    if (!raw || typeof raw !== "object") continue;
+    const row = raw as Record<string, unknown>;
+    const id = String(row.id || "");
+    if (!id) continue;
+    aiItems.set(id, row);
   }
+
+  const fallback = buildLocalExamReport(opts);
+  const items = fallback.items.map((item, index) => {
+    const aiItem = aiItems.get(item.id);
+    const question = opts.questions[index];
+    if (!aiItem) return item;
+
+    const aiScore = clampScore(aiItem.score);
+    const score =
+      question.kind === "mcq"
+        ? item.score
+        : Math.round(aiScore * 0.75 + item.score * 0.25);
+
+    const why = cleanProse(aiItem.why) ?? item.why;
+    const improvement = cleanProse(aiItem.improvement) ?? item.improvement;
+
+    let correctAnswer = item.correctAnswer;
+    if (question.kind === "mcq") {
+      correctAnswer = item.correctAnswer;
+    } else {
+      correctAnswer =
+        cleanProse(aiItem.correctAnswer, 700) ?? item.correctAnswer;
+    }
+
+    return {
+      ...item,
+      score,
+      correct: question.kind === "mcq" ? item.correct : score >= 75,
+      why,
+      improvement,
+      correctAnswer,
+    };
+  });
+
+  const strengths = cleanProseList(parsed.strengths, 4);
+  const weaknesses = cleanProseList(parsed.weaknesses, 4);
+  const summary = cleanProse(parsed.summary, 600) ?? fallback.summary;
+
+  return {
+    items,
+    strengths: strengths.length ? strengths : fallback.strengths,
+    weaknesses: weaknesses.length ? weaknesses : fallback.weaknesses,
+    summary,
+  };
 }
 
 export function publicQuestion(q: ExamQuestion, locale: Locale) {

@@ -1,10 +1,11 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import { getAllCategories } from "@/lib/categories";
-import { getTrack, countLessons, t as tl } from "@/lib/content";
+import { trackExists, t as tl } from "@/lib/content";
 import type { Locale } from "@/i18n/config";
 import { Reveal } from "@/components/Reveal";
 import { BrandLogo } from "@/components/BrandLogo";
+import { auth } from "@/lib/auth";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -15,6 +16,8 @@ export default async function HomePage({ params }: Props) {
   const tc = await getTranslations("categories");
   const categories = getAllCategories();
   const loc = locale as Locale;
+  const session = await auth();
+  const isLoggedIn = Boolean(session?.user);
 
   return (
     <div>
@@ -75,9 +78,14 @@ export default async function HomePage({ params }: Props) {
               <Link href="/categories" className="btn-ghost">
                 {t("cta")}
               </Link>
-              <Link href="/register" className="btn-ghost">
-                {t("ctaSecondary")}
+              <Link href="/interviews" className="btn-ghost">
+                {t("ctaInterviews")}
               </Link>
+              {!isLoggedIn ? (
+                <Link href="/register" className="btn-ghost">
+                  {t("ctaSecondary")}
+                </Link>
+              ) : null}
             </div>
           </div>
 
@@ -118,31 +126,27 @@ export default async function HomePage({ params }: Props) {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <Reveal>
-          <p className="text-xs text-ink-muted">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl text-ink sm:text-4xl">
             {tc("title")}
-          </p>
+          </h2>
         </Reveal>
         <div className="mt-8 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((cat, i) => {
-            const trackCount = cat.trackSlugs.filter((s) => getTrack(s)).length;
+            const trackCount = cat.trackSlugs.filter((s) => trackExists(s)).length;
             return (
               <Reveal key={cat.slug} delay={i * 70} className="h-full">
                 <Link
                   href={`/categories/${cat.slug}`}
-                  className="surface-panel group relative flex h-full min-h-[11.5rem] flex-col overflow-hidden p-6"
+                  className="surface-panel group relative flex h-full min-h-[11.5rem] flex-col overflow-hidden p-6 transition hover:border-teal/40"
                 >
-                  <div
-                    className="absolute inset-y-0 start-0 w-1 transition-all duration-300 group-hover:w-1.5"
-                    style={{ background: cat.color }}
-                  />
                   <p className="text-xs text-ink-muted">
                     {trackCount > 0
                       ? `${trackCount} ${tc("tracksCount")}`
                       : tc("comingSoon")}
                   </p>
-                  <h2 className="mt-3 font-[family-name:var(--font-display)] text-2xl text-ink transition-colors group-hover:text-accent">
+                  <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl text-ink transition-colors group-hover:text-accent">
                     {tl(cat.title, loc)}
-                  </h2>
+                  </h3>
                   <p
                     className={`mt-2 line-clamp-2 min-h-[2.75rem] text-sm text-ink-muted ${
                       loc === "ar" ? "leading-[1.7]" : "leading-relaxed"
@@ -154,6 +158,55 @@ export default async function HomePage({ params }: Props) {
               </Reveal>
             );
           })}
+        </div>
+      </section>
+
+      <section className="home-interview">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+          <Reveal className="home-interview-reveal">
+            <div className="home-interview-panel">
+              <div className="home-interview-glow" aria-hidden />
+              <div className="home-interview-copy">
+                <h2 className="home-interview-title home-interview-anim">
+                  {t("interviewsTitle")}
+                </h2>
+                <p className="home-interview-sub home-interview-anim">
+                  {t("interviewsSub")}
+                </p>
+                <div className="home-interview-actions home-interview-anim">
+                  <Link
+                    href="/interviews"
+                    className="btn-primary home-interview-btn"
+                  >
+                    {t("interviewsCta")}
+                  </Link>
+                  <Link
+                    href="/categories"
+                    className="btn-ghost home-interview-btn"
+                  >
+                    {t("cta")}
+                  </Link>
+                </div>
+              </div>
+              <ul
+                className="home-interview-points home-interview-anim"
+                aria-label={t("interviewsTitle")}
+              >
+                <li style={{ ["--i" as string]: 0 }}>
+                  <span className="home-interview-point-mark" aria-hidden />
+                  {t("interviewsPoint1")}
+                </li>
+                <li style={{ ["--i" as string]: 1 }}>
+                  <span className="home-interview-point-mark" aria-hidden />
+                  {t("interviewsPoint2")}
+                </li>
+                <li style={{ ["--i" as string]: 2 }}>
+                  <span className="home-interview-point-mark" aria-hidden />
+                  {t("interviewsPoint3")}
+                </li>
+              </ul>
+            </div>
+          </Reveal>
         </div>
       </section>
     </div>

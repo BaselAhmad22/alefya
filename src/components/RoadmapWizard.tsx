@@ -3,7 +3,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useRouter, Link } from "@/i18n/routing";
+import { showNavLoader, hideNavLoader } from "@/lib/nav-loader";
 import {
   LEVELS,
   FIELDS,
@@ -20,10 +23,10 @@ function locText(s: { ar: string; en: string }, locale: Locale) {
 
 type Step = "level" | "field" | "language" | "framework" | "result";
 
-const STEPS: Step[] = ["level", "field", "language", "framework", "result"];
+const ALL_STEPS: Step[] = ["level", "field", "language", "framework", "result"];
 
 function stepIndex(s: Step) {
-  return STEPS.indexOf(s);
+  return ALL_STEPS.indexOf(s);
 }
 
 type Option = {
@@ -56,7 +59,7 @@ function OptionCards({
           disabled={disabled}
           onClick={() => onSelect(opt.id)}
           style={animate ? { animationDelay: `${80 + i * 55}ms` } : undefined}
-          className={`${animate ? "wizard-card" : ""} border px-4 py-4 text-start transition-all duration-300 ${
+          className={`${animate ? "wizard-card" : "rounded-[0.9rem]"} border px-4 py-4 text-start transition-all duration-300 ${
             selected === opt.id
               ? "border-accent bg-accent/10 shadow-[0_0_0_1px_rgba(217,119,6,0.35)]"
               : "border-line bg-bg-elevated/40 hover:-translate-y-0.5 hover:border-accent/50 hover:bg-bg-elevated"
@@ -74,19 +77,24 @@ function OptionCards({
   );
 }
 
-export function RoadmapWizard() {
+export function RoadmapWizard({
+  savedLevel,
+}: {
+  savedLevel?: string | null;
+}) {
   const t = useTranslations("roadmap");
   const locale = useLocale() as Locale;
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  const [step, setStep] = useState<Step>("level");
-  const [visibleStep, setVisibleStep] = useState<Step>("level");
+  const initialStep: Step = savedLevel ? "field" : "level";
+  const [step, setStep] = useState<Step>(initialStep);
+  const [visibleStep, setVisibleStep] = useState<Step>(initialStep);
   const [phase, setPhase] = useState<"in" | "out">("in");
   const [direction, setDirection] = useState<"forward" | "back">("forward");
   const transitioning = useRef(false);
 
-  const [level, setLevel] = useState<string | null>(null);
+  const [level, setLevel] = useState<string | null>(savedLevel || null);
   const [field, setField] = useState<RoadmapField | null>(null);
   const [language, setLanguage] = useState<string | null>(null);
   const [framework, setFramework] = useState<string | null>(null);
@@ -100,7 +108,8 @@ export function RoadmapWizard() {
   const frameworks =
     field && language ? frameworksFor(field, language) : [];
   const selectedFw = frameworks.find((f) => f.id === framework);
-  const currentN = stepIndex(visibleStep) + 1;
+  const steps = savedLevel ? ALL_STEPS.slice(1) : ALL_STEPS;
+  const currentN = steps.indexOf(visibleStep) + 1;
 
   const contextTitle = useMemo(() => {
     if (visibleStep === "field") return t("aiContextField");
@@ -174,6 +183,7 @@ export function RoadmapWizard() {
   async function startLearning() {
     if (!level || !field || !language || !framework) return;
     if (status !== "authenticated" || !session?.user) {
+      showNavLoader();
       router.push(
         `/register?next=${encodeURIComponent(`/${locale}/start`)}`,
       );
@@ -181,6 +191,7 @@ export function RoadmapWizard() {
     }
     setSaving(true);
     setError(null);
+    showNavLoader();
     try {
       const res = await fetch("/api/roadmap", {
         method: "POST",
@@ -189,11 +200,14 @@ export function RoadmapWizard() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
+        hideNavLoader();
         setError(t("saveError"));
         return;
       }
       router.push(data.startHref || "/dashboard");
       router.refresh();
+    } catch {
+      hideNavLoader();
     } finally {
       setSaving(false);
     }
@@ -211,25 +225,25 @@ export function RoadmapWizard() {
 
       <nav
         className="wizard-steps mt-8"
-        aria-label={t("step", { n: currentN, total: 5 })}
+        aria-label={t("step", { n: currentN, total: steps.length })}
       >
         <ol className="flex w-full items-center">
-          {STEPS.map((s, i) => {
+          {steps.map((s, i) => {
             const n = i + 1;
             const done = n < currentN;
             const active = n === currentN;
-            const labels = [
-              t("stepLevel"),
-              t("stepField"),
-              t("stepLanguage"),
-              t("stepFramework"),
-              t("stepPlan"),
-            ] as const;
+            const labels: Record<Step, string> = {
+              level: t("stepLevel"),
+              field: t("stepField"),
+              language: t("stepLanguage"),
+              framework: t("stepFramework"),
+              result: t("stepPlan"),
+            };
 
             return (
               <li
                 key={s}
-                className={`flex items-center ${i < STEPS.length - 1 ? "flex-1" : ""}`}
+                className={`flex items-center ${i < steps.length - 1 ? "flex-1" : ""}`}
               >
                 <div className="flex flex-col items-center">
                   <span
@@ -270,10 +284,10 @@ export function RoadmapWizard() {
                           : "text-ink-muted"
                     }`}
                   >
-                    {labels[i]}
+                    {labels[s]}
                   </span>
                 </div>
-                {i < STEPS.length - 1 && (
+                {i < steps.length - 1 && (
                   <span
                     aria-hidden
                     className={`mx-2 mb-5 h-px min-w-[0.75rem] flex-1 transition-colors duration-500 ${
@@ -326,14 +340,16 @@ export function RoadmapWizard() {
                 goTo("language");
               }}
             />
-            <button
-              type="button"
-              disabled={busy}
-              className="mt-4 text-sm text-ink-muted transition-colors hover:text-accent disabled:opacity-50"
-              onClick={() => goTo("level")}
-            >
-              {t("back")}
-            </button>
+            {!savedLevel && (
+              <button
+                type="button"
+                disabled={busy}
+                className="mt-4 text-sm text-ink-muted transition-colors hover:text-accent disabled:opacity-50"
+                onClick={() => goTo("level")}
+              >
+                {t("back")}
+              </button>
+            )}
           </>
         )}
 
@@ -442,28 +458,81 @@ export function RoadmapWizard() {
       {(visibleStep === "field" ||
         visibleStep === "language" ||
         visibleStep === "framework") && (
-        <div className="wizard-ai mt-12 border border-line bg-bg-elevated/40 p-5">
-          <p className="text-sm font-medium">{t("askAi")}</p>
-          <p className="mt-1 text-xs text-ink-muted">{contextTitle}</p>
-          <div className="mt-3 flex gap-2">
+        <div className="wizard-ai wizard-ai-panel mt-12 p-5 sm:p-6">
+          <div className="flex items-start gap-3">
+            <BrandLogo size={36} className="shrink-0 rounded-xl border border-line" />
+            <div>
+              <p className="font-[family-name:var(--font-display)] text-lg text-accent">
+                {t("askAi")}
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-ink-muted">
+                {contextTitle}
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {(visibleStep === "field"
+              ? [t("aiSuggestField1"), t("aiSuggestField2"), t("aiSuggestField3")]
+              : visibleStep === "language"
+                ? [
+                    t("aiSuggestLang1"),
+                    t("aiSuggestLang2"),
+                    t("aiSuggestLang3"),
+                  ]
+                : [t("aiSuggestFw1"), t("aiSuggestFw2"), t("aiSuggestFw3")]
+            ).map((s, i) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => setAiQ(s)}
+                style={{ animationDelay: `${70 + i * 50}ms` }}
+                className="ai-chip rounded-xl border border-line/80 bg-bg/40 px-2.5 py-1 text-xs text-ink-muted transition-colors hover:border-accent hover:text-accent"
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+          <div className="mt-4 flex gap-2">
             <input
               value={aiQ}
               onChange={(e) => setAiQ(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  void askAi();
+                }
+              }}
               placeholder={t("aiPlaceholder")}
-              className="min-w-0 flex-1 border border-line bg-bg px-3 py-2 text-sm outline-none focus:border-accent"
+              className="min-w-0 flex-1 rounded-xl border border-line bg-bg px-3 py-2.5 text-sm outline-none transition-colors focus:border-accent"
             />
             <button
               type="button"
-              disabled={aiLoading}
+              disabled={aiLoading || !aiQ.trim()}
               onClick={() => void askAi()}
-              className="rounded bg-accent px-3 py-2 text-sm font-medium text-bg disabled:opacity-50"
+              className="btn-primary !px-4 !py-2.5 text-sm disabled:opacity-50"
             >
               {aiLoading ? "…" : t("aiSend")}
             </button>
           </div>
-          {aiA && (
-            <div className="prose-lesson wizard-ai-answer mt-4 text-sm whitespace-pre-wrap">
-              {aiA}
+          {aiLoading && (
+            <div className="mt-5 flex items-center gap-3 text-sm text-ink-muted">
+              <span className="page-loader-bars !h-3" aria-hidden>
+                <span />
+                <span />
+                <span />
+                <span />
+              </span>
+              <span>{t("aiThinking")}</span>
+            </div>
+          )}
+          {aiA && !aiLoading && (
+            <div
+              key={aiA.slice(0, 48)}
+              className="wizard-ai-answer-wrap mt-5 rounded-xl border border-line/70 bg-bg/50 px-4 py-4"
+            >
+              <div className="prose-lesson text-sm [&_h3]:!mt-3 [&_h3]:!mb-1.5 [&_h3]:!text-[0.95rem] [&_p]:!my-1.5 [&_ul]:!my-2">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{aiA}</ReactMarkdown>
+              </div>
             </div>
           )}
         </div>

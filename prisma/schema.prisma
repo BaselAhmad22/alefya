@@ -19,6 +19,16 @@ model User {
   examAttempts    ExamAttempt[]
   checklistItems  ChecklistItem[]
   roadmap         UserRoadmap?
+  reactions       Reaction[]
+  comments        Comment[]
+  conversationMembers ConversationMember[]
+  messagesSent    Message[]         @relation("MessageSender")
+  messageReactions MessageReaction[]
+  friendRequestsSent     FriendRequest[] @relation("FriendRequestsSent")
+  friendRequestsReceived FriendRequest[] @relation("FriendRequestsReceived")
+  friendshipsA    Friendship[]      @relation("FriendshipA")
+  friendshipsB    Friendship[]      @relation("FriendshipB")
+  notifications   Notification[]
 }
 
 model Progress {
@@ -88,4 +98,152 @@ model UserRoadmap {
   updatedAt        DateTime @updatedAt
   createdAt        DateTime @default(now())
   user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+/** Social: like on lesson | stage | track | comment */
+model Reaction {
+  id         String   @id @default(cuid())
+  userId     String
+  targetType String
+  targetId   String
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, targetType, targetId])
+  @@index([targetType, targetId])
+}
+
+model Comment {
+  id         String   @id @default(cuid())
+  userId     String
+  targetType String
+  targetId   String
+  body       String
+  parentId   String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  parent     Comment? @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies    Comment[] @relation("CommentReplies")
+
+  @@index([targetType, targetId])
+  @@index([userId])
+}
+
+model Conversation {
+  id        String               @id @default(cuid())
+  trackSlug String?
+  createdAt DateTime             @default(now())
+  updatedAt DateTime             @updatedAt
+  members   ConversationMember[]
+  messages  Message[]
+}
+
+model ConversationMember {
+  id             String       @id @default(cuid())
+  conversationId String
+  userId         String
+  joinedAt       DateTime     @default(now())
+  lastReadAt     DateTime?
+  pinnedAt       DateTime?
+  /** Soft-delete for this user only — conversation stays out of their list. */
+  hiddenAt       DateTime?
+  /** Messages at/before this time stay invisible to this user forever. */
+  clearedAt      DateTime?
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([conversationId, userId])
+  @@index([userId])
+}
+
+model Message {
+  id               String        @id @default(cuid())
+  conversationId   String
+  senderId         String
+  body             String        @default("")
+  createdAt        DateTime      @default(now())
+  editedAt         DateTime?
+  deletedAt        DateTime?
+  replyToId        String?
+  attachmentUrl    String?
+  attachmentMime   String?
+  attachmentName   String?
+  attachmentSize   Int?
+  conversation     Conversation  @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender           User          @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  replyTo          Message?      @relation("MessageReplies", fields: [replyToId], references: [id], onDelete: SetNull)
+  replies          Message[]     @relation("MessageReplies")
+  edits            MessageEdit[]
+  reactions        MessageReaction[]
+
+  @@index([conversationId, createdAt])
+  @@index([replyToId])
+}
+
+model MessageEdit {
+  id        String   @id @default(cuid())
+  messageId String
+  body      String
+  createdAt DateTime @default(now())
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@index([messageId, createdAt])
+}
+
+model MessageReaction {
+  id        String   @id @default(cuid())
+  messageId String
+  userId    String
+  emoji     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([messageId, userId])
+  @@index([messageId])
+}
+
+model FriendRequest {
+  id          String    @id @default(cuid())
+  fromUserId  String
+  toUserId    String
+  note        String?
+  status      String    @default("pending") // pending | accepted | rejected
+  createdAt   DateTime  @default(now())
+  respondedAt DateTime?
+  fromUser    User      @relation("FriendRequestsSent", fields: [fromUserId], references: [id], onDelete: Cascade)
+  toUser      User      @relation("FriendRequestsReceived", fields: [toUserId], references: [id], onDelete: Cascade)
+
+  @@index([toUserId, status])
+  @@index([fromUserId, status])
+  @@index([fromUserId, toUserId])
+}
+
+/** Undirected friendship with sorted pair (userAId < userBId lexicographically). */
+model Friendship {
+  id        String   @id @default(cuid())
+  userAId   String
+  userBId   String
+  createdAt DateTime @default(now())
+  userA     User     @relation("FriendshipA", fields: [userAId], references: [id], onDelete: Cascade)
+  userB     User     @relation("FriendshipB", fields: [userBId], references: [id], onDelete: Cascade)
+
+  @@unique([userAId, userBId])
+  @@index([userAId])
+  @@index([userBId])
+}
+
+model Notification {
+  id          String    @id @default(cuid())
+  userId      String
+  type        String // friend_request | friend_accepted | friend_rejected
+  payloadJson String
+  readAt      DateTime?
+  createdAt   DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([userId, readAt])
 }

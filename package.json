@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently -k -n web,rt -c cyan,magenta \"next dev\" \"node --env-file=.env server/realtime.mjs\"",
+    "dev:web": "next dev",
+    "dev:realtime": "node --env-file=.env server/realtime.mjs",
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint",
@@ -17,7 +19,9 @@
     "@auth/prisma-adapter": "^2.11.3",
     "@prisma/client": "^6.19.3",
     "bcryptjs": "^3.0.3",
+    "concurrently": "^10.0.4",
     "gray-matter": "^4.0.3",
+    "jose": "^6.2.8",
     "next": "16.2.12",
     "next-auth": "^5.0.0-beta.32",
     "next-intl": "^4.13.4",
@@ -26,6 +30,8 @@
     "react-dom": "19.2.4",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {

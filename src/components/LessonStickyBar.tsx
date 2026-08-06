@@ -20,11 +20,13 @@ export function LessonStickyBar({ children }: Props) {
 
   return (
     <div
-      className={`lesson-sticky-wrap sticky z-30 mb-8 ${
+      className={`lesson-sticky-wrap sticky z-30 mb-6 ${
         scrolled ? "is-scrolled" : ""
       }`}
     >
-      <div className={`lesson-sticky-bar group ${scrolled ? "is-scrolled" : ""}`}>
+      <div
+        className={`lesson-sticky-bar group${scrolled ? " is-scrolled" : ""}`}
+      >
         {children}
       </div>
     </div>

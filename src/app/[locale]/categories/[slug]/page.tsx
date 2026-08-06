@@ -31,10 +31,7 @@ export default async function CategoryDetailPage({ params }: Props) {
       </Link>
 
       <div className="mt-6 animate-rise">
-        <span
-          className="mb-4 block h-1.5 w-16"
-          style={{ background: category.color }}
-        />
+        <div className="accent-rule mb-4 max-w-[4rem]" />
         <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl">
           {tl(category.title, loc)}
         </h1>

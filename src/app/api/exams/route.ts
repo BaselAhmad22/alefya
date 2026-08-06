@@ -1,15 +1,17 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { auth } from "@/lib/auth";
+import { getApiSession } from "@/lib/api-session";
 import { prisma } from "@/lib/prisma";
 import { getTrack, t as tl } from "@/lib/content";
 import type { Locale } from "@/lib/content";
 import {
   generateStageExam,
   localGradeQuestion,
-  aiGradeBatch,
+  aiBuildFullReport,
+  buildLocalExamReport,
   publicQuestion,
   type ExamQuestion,
+  type ExamReport,
 } from "@/lib/exams";
 import {
   PASS_SCORE,
@@ -31,7 +33,7 @@ const submitSchema = z.object({
 });
 
 export async function POST(request: Request) {
-  const session = await auth();
+  const session = await getApiSession(request);
   if (!session?.user?.id) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
@@ -142,11 +144,15 @@ export async function POST(request: Request) {
   // Prevent re-submit of already graded attempt with real answers stored
   const existingAnswers = JSON.parse(attempt.answersJson || "{}");
   if (existingAnswers && Object.keys(existingAnswers).length > 0 && attempt.feedbackJson) {
+    const storedFeedback = JSON.parse(attempt.feedbackJson);
+    const isLegacyFeedback = Array.isArray(storedFeedback);
     return NextResponse.json({
       score: attempt.score,
       passed: attempt.passed,
-      feedback: JSON.parse(attempt.feedbackJson),
       passScore: PASS_SCORE,
+      report: isLegacyFeedback ? undefined : storedFeedback,
+      feedback: isLegacyFeedback ? storedFeedback : undefined,
+      attemptId: attempt.id,
     });
   }
 
@@ -158,43 +164,33 @@ export async function POST(request: Request) {
     localGradeQuestion(q, answers[q.id], locale),
   );
 
-  let scores = localResults.map((r) => r.score);
-  let feedbacks = localResults.map((r) => r.feedback);
-
   const track = getTrack(attempt.trackSlug);
   const stage = track?.stages.find((s) => s.slug === attempt.stageSlug);
-  const ai = await aiGradeBatch({
+  const lessonSlugs = Object.fromEntries(
+    questions.map((question) => [
+      question.id,
+      stage?.lessons.find((lesson) =>
+        question.topic.startsWith(`${lesson.slug} `),
+      )?.slug,
+    ]),
+  );
+  const reportOptions = {
     locale,
     stageTitle: stage ? tl(stage.title, locale) : attempt.stageSlug,
-    items: questions.map((q) => ({
-      kind: q.kind,
-      prompt: tl(q.prompt, locale),
-      answer: String(answers[q.id] ?? ""),
-    })),
-  });
-
-  if (ai && ai.scores.length === questions.length) {
-    // Blend: MCQ prefers local exactness, written prefers AI when available
-    scores = questions.map((q, i) => {
-      if (q.kind === "mcq") return localResults[i].score;
-      return Math.round(ai.scores[i] * 0.75 + localResults[i].score * 0.25);
-    });
-    feedbacks = questions.map((q, i) =>
-      q.kind === "written" && ai.feedbacks[i]
-        ? ai.feedbacks[i]
-        : localResults[i].feedback,
-    );
-  }
+    questions,
+    answers,
+    localScores: localResults.map((result) => result.score),
+    lessonSlugs,
+  };
+  const report: ExamReport =
+    (await aiBuildFullReport(reportOptions)) ??
+    buildLocalExamReport(reportOptions);
 
   const score = Math.round(
-    scores.reduce((a, b) => a + b, 0) / Math.max(1, scores.length),
+    report.items.reduce((total, item) => total + item.score, 0) /
+      Math.max(1, report.items.length),
   );
   const passed = score >= PASS_SCORE;
-  const feedback = questions.map((q, i) => ({
-    id: q.id,
-    score: scores[i],
-    feedback: feedbacks[i],
-  }));
 
   await prisma.examAttempt.update({
     where: { id: attempt.id },
@@ -202,7 +198,7 @@ export async function POST(request: Request) {
       score,
       passed,
       answersJson: JSON.stringify(answers),
-      feedbackJson: JSON.stringify(feedback),
+      feedbackJson: JSON.stringify(report),
     },
   });
 
@@ -210,6 +206,7 @@ export async function POST(request: Request) {
     score,
     passed,
     passScore: PASS_SCORE,
-    feedback,
+    report,
+    attemptId: attempt.id,
   });
 }

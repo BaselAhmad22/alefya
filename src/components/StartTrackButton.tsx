@@ -4,10 +4,11 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { useRouter } from "@/i18n/routing";
+import { hideNavLoader, showNavLoader } from "@/lib/nav-loader";
 
 type Props = {
   trackSlug: string;
-  /** Absolute path within locale routing, e.g. /learn/react/foo or /learn/react/exam/stage */
+  /** Absolute path within locale routing, e.g. /learn/react/foo or /exam/react/stage */
   continueHref: string;
   alreadyStarted: boolean;
   labelStart: string;
@@ -31,12 +32,14 @@ export function StartTrackButton({
     if (status === "loading") return;
 
     if (!session?.user) {
+      showNavLoader();
       const callback = `/${locale}/tracks/${trackSlug}`;
       router.push(`/register?next=${encodeURIComponent(callback)}`);
       return;
     }
 
     setLoading(true);
+    showNavLoader();
     try {
       const res = await fetch("/api/tracks/start", {
         method: "POST",
@@ -44,7 +47,9 @@ export function StartTrackButton({
         body: JSON.stringify({ trackSlug }),
       });
       if (!res.ok) {
+        hideNavLoader();
         if (res.status === 401) {
+          showNavLoader();
           router.push(
             `/login?next=${encodeURIComponent(`/${locale}/tracks/${trackSlug}`)}`,
           );
@@ -54,6 +59,8 @@ export function StartTrackButton({
       }
       router.push(continueHref);
       router.refresh();
+    } catch {
+      hideNavLoader();
     } finally {
       setLoading(false);
     }
@@ -62,6 +69,7 @@ export function StartTrackButton({
   return (
     <button
       type="button"
+      data-nav-loader
       onClick={onClick}
       disabled={loading || status === "loading"}
       className="btn-primary disabled:opacity-50"

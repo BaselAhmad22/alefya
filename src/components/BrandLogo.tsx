@@ -18,7 +18,7 @@ export function BrandLogo({
 }: Props) {
   return (
     <span
-      className={`inline-flex items-center justify-center overflow-hidden rounded-sm bg-[#0c0f14] text-[#e8a54b] ${className}`}
+      className={`inline-flex items-center justify-center overflow-hidden rounded-xl bg-[#0c0f14] text-[#e8a54b] ${className}`}
       style={{ width: size, height: size, minWidth: size, minHeight: size }}
     >
       <Mark variant={variant} size={Math.round(size * 0.72)} />

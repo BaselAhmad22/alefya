@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PageTransition } from "@/components/PageTransition";
 import { NavigationProgress } from "@/components/NavigationProgress";
+import { LazyMessenger } from "@/components/LazyMessenger";
 
 type Props = {
   children: React.ReactNode;
@@ -55,6 +56,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <PageTransition>{children}</PageTransition>
           </main>
           <SiteFooter />
+          <LazyMessenger />
         </div>
       </SessionProvider>
     </NextIntlClientProvider>

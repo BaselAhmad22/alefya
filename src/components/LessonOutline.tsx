@@ -11,7 +11,6 @@ type Props = {
   backHref: string;
   backLabel: string;
   outlineLabel: string;
-  stageTitle: string;
   lockedLabel: string;
   items: OutlineItem[];
   exam?: { href: string; label: string; active?: boolean } | null;
@@ -21,7 +20,6 @@ export function LessonOutline({
   backHref,
   backLabel,
   outlineLabel,
-  stageTitle,
   lockedLabel,
   items,
   exam,
@@ -38,8 +36,8 @@ export function LessonOutline({
           </Link>
 
           <div className="lesson-outline-head">
-            <span className="lesson-outline-kicker">{outlineLabel}</span>
-            <h2 className="lesson-outline-stage">{stageTitle}</h2>
+            <h2 className="lesson-outline-title-main">{outlineLabel}</h2>
+            <div className="lesson-outline-rule" aria-hidden />
           </div>
 
           <ol className="lesson-outline-list">

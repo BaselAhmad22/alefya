@@ -34,7 +34,22 @@ export type Track = {
   stages: Stage[];
 };
 
+/** Lightweight track header without lesson bodies — for catalogs / existence checks. */
+export type TrackMeta = {
+  slug: string;
+  order: number;
+  title: LocalizedString;
+  tagline: LocalizedString;
+  description: LocalizedString;
+  color: string;
+  estimatedHours: number;
+  stageSlugs: string[];
+};
+
 const CONTENT_ROOT = path.join(process.cwd(), "content", "tracks");
+
+const trackCache = new Map<string, Track | null>();
+const trackMetaCache = new Map<string, TrackMeta | null>();
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
@@ -48,9 +63,52 @@ export function getTrackSlugs(): string[] {
     .map((d) => d.name);
 }
 
-export function getTrack(slug: string): Track | null {
+export function trackExists(slug: string): boolean {
+  return fs.existsSync(path.join(CONTENT_ROOT, slug, "track.json"));
+}
+
+export function getTrackMeta(slug: string): TrackMeta | null {
+  if (trackMetaCache.has(slug)) return trackMetaCache.get(slug)!;
+
   const trackPath = path.join(CONTENT_ROOT, slug, "track.json");
-  if (!fs.existsSync(trackPath)) return null;
+  if (!fs.existsSync(trackPath)) {
+    trackMetaCache.set(slug, null);
+    return null;
+  }
+
+  const trackMeta = readJson<{
+    slug: string;
+    order: number;
+    title: LocalizedString;
+    tagline: LocalizedString;
+    description: LocalizedString;
+    color: string;
+    estimatedHours: number;
+    stages: string[];
+  }>(trackPath);
+
+  const meta: TrackMeta = {
+    slug: trackMeta.slug,
+    order: trackMeta.order,
+    title: trackMeta.title,
+    tagline: trackMeta.tagline,
+    description: trackMeta.description,
+    color: trackMeta.color,
+    estimatedHours: trackMeta.estimatedHours,
+    stageSlugs: trackMeta.stages,
+  };
+  trackMetaCache.set(slug, meta);
+  return meta;
+}
+
+export function getTrack(slug: string): Track | null {
+  if (trackCache.has(slug)) return trackCache.get(slug)!;
+
+  const trackPath = path.join(CONTENT_ROOT, slug, "track.json");
+  if (!fs.existsSync(trackPath)) {
+    trackCache.set(slug, null);
+    return null;
+  }
 
   const trackMeta = readJson<{
     slug: string;
@@ -93,7 +151,7 @@ export function getTrack(slug: string): Track | null {
 
   stages.sort((a, b) => a.order - b.order);
 
-  return {
+  const track: Track = {
     slug: trackMeta.slug,
     order: trackMeta.order,
     title: trackMeta.title,
@@ -103,6 +161,18 @@ export function getTrack(slug: string): Track | null {
     estimatedHours: trackMeta.estimatedHours,
     stages,
   };
+  trackCache.set(slug, track);
+  trackMetaCache.set(slug, {
+    slug: track.slug,
+    order: track.order,
+    title: track.title,
+    tagline: track.tagline,
+    description: track.description,
+    color: track.color,
+    estimatedHours: track.estimatedHours,
+    stageSlugs: trackMeta.stages,
+  });
+  return track;
 }
 
 export function getAllTracks(): Track[] {

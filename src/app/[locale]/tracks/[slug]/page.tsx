@@ -13,6 +13,7 @@ import { getCategoryForTrack } from "@/lib/categories";
 import type { Locale } from "@/i18n/config";
 import { Reveal } from "@/components/Reveal";
 import { StartTrackButton } from "@/components/StartTrackButton";
+import { ClassmatesPanel } from "@/components/ClassmatesPanel";
 import {
   getContinueTarget,
   isLessonUnlocked,
@@ -78,7 +79,7 @@ export default async function TrackPage({ params }: Props) {
   if (continueTarget.type === "lesson") {
     continueHref = `/learn/${track.slug}/${continueTarget.lessonSlug}`;
   } else if (continueTarget.type === "exam") {
-    continueHref = `/learn/${track.slug}/exam/${continueTarget.stageSlug}`;
+    continueHref = `/exam/${track.slug}/${continueTarget.stageSlug}`;
   }
 
   return (
@@ -94,10 +95,7 @@ export default async function TrackPage({ params }: Props) {
 
       <div className="mt-4 animate-rise flex flex-col gap-8 border-b border-line pb-10 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-3xl">
-          <div
-            className="mb-4 h-1.5 w-16"
-            style={{ background: track.color }}
-          />
+          <div className="accent-rule mb-4 max-w-[4rem]" />
           <p className="text-xs uppercase tracking-[0.2em] text-ink-muted">
             {track.stages.length} {t("stages")} · {total} {t("lessons")}
           </p>
@@ -143,113 +141,121 @@ export default async function TrackPage({ params }: Props) {
         </div>
       </div>
 
-      <ol className="mt-12 space-y-12">
-        {track.stages.map((stage, stageIndex) => {
-          const examUnlocked = isStageExamUnlocked(
-            track,
-            stage.slug,
-            completedSlugs,
-            passedStages,
-          );
-          const examPassed = passedStages.has(stage.slug);
+      <div className="track-layout mt-10">
+        <ol className="track-stages space-y-12">
+          {track.stages.map((stage, stageIndex) => {
+            const examUnlocked = isStageExamUnlocked(
+              track,
+              stage.slug,
+              completedSlugs,
+              passedStages,
+            );
+            const examPassed = passedStages.has(stage.slug);
 
-          return (
-            <Reveal key={stage.slug} delay={stageIndex * 40}>
-              <li>
-                <div className="mb-5 flex items-baseline gap-3">
-                  <span className="font-mono text-sm text-accent">
-                    {String(stageIndex + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h2 className="font-[family-name:var(--font-display)] text-2xl">
-                      {tl(stage.title, loc)}
-                    </h2>
-                    <p className="text-sm text-ink-muted">
-                      {tl(stage.description, loc)}
-                    </p>
+            return (
+              <Reveal key={stage.slug} delay={stageIndex * 40}>
+                <li>
+                  <div className="mb-5 flex items-baseline gap-3">
+                    <span className="font-mono text-sm text-accent">
+                      {String(stageIndex + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h2 className="font-[family-name:var(--font-display)] text-2xl">
+                        {tl(stage.title, loc)}
+                      </h2>
+                      <p className="text-sm text-ink-muted">
+                        {tl(stage.description, loc)}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <ol className="space-y-1 border-s border-line ms-3 ps-5">
-                  {stage.lessons.map((lesson) => {
-                    const done = completedSlugs.has(lesson.slug);
-                    const unlocked =
-                      enrolled &&
-                      Boolean(session?.user) &&
-                      isLessonUnlocked(
-                        track,
-                        lesson.slug,
-                        completedSlugs,
-                        passedStages,
-                      );
-                    const inner = (
-                      <span className="flex w-full items-center justify-between gap-4 py-2.5">
-                        <span className="flex items-center gap-3">
-                          <span
-                            className={`h-2 w-2 shrink-0 rounded-full ${
-                              done ? "bg-teal" : "bg-line"
-                            }`}
-                          />
-                          <span
-                            className={
-                              done
-                                ? "text-ink-muted"
-                                : !unlocked && enrolled
-                                  ? "text-ink-muted/50"
-                                  : ""
-                            }
-                          >
-                            {tl(lesson.title, loc)}
-                            {!unlocked && enrolled ? ` · ${t("locked")}` : ""}
+                  <ol className="space-y-1 border-s border-line ms-3 ps-5">
+                    {stage.lessons.map((lesson) => {
+                      const done = completedSlugs.has(lesson.slug);
+                      const unlocked =
+                        enrolled &&
+                        Boolean(session?.user) &&
+                        isLessonUnlocked(
+                          track,
+                          lesson.slug,
+                          completedSlugs,
+                          passedStages,
+                        );
+                      const inner = (
+                        <span className="flex w-full items-center justify-between gap-4 py-2.5">
+                          <span className="flex items-center gap-3">
+                            <span
+                              className={`h-2 w-2 shrink-0 rounded-full ${
+                                done ? "bg-teal" : "bg-line"
+                              }`}
+                            />
+                            <span
+                              className={
+                                done
+                                  ? "text-ink-muted"
+                                  : !unlocked && enrolled
+                                    ? "text-ink-muted/50"
+                                    : ""
+                              }
+                            >
+                              {tl(lesson.title, loc)}
+                              {!unlocked && enrolled ? ` · ${t("locked")}` : ""}
+                            </span>
+                          </span>
+                          <span className="shrink-0 text-xs text-ink-muted">
+                            {lesson.duration}m
                           </span>
                         </span>
-                        <span className="shrink-0 text-xs text-ink-muted">
-                          {lesson.duration}m
-                        </span>
-                      </span>
-                    );
+                      );
 
-                    return (
-                      <li key={lesson.slug}>
-                        {unlocked ? (
-                          <Link
-                            href={`/learn/${track.slug}/${lesson.slug}`}
-                            className="group block transition-colors hover:text-accent"
-                          >
-                            {inner}
-                          </Link>
-                        ) : (
-                          <div className="opacity-70">{inner}</div>
-                        )}
-                      </li>
-                    );
-                  })}
-                  <li className="pt-2">
-                    {examPassed ? (
-                      <span className="flex items-center gap-3 py-2.5 text-sm text-teal">
-                        <span className="h-2 w-2 rounded-full bg-teal" />
-                        {te("examPassedBadge")}
-                      </span>
-                    ) : examUnlocked && enrolled ? (
-                      <Link
-                        href={`/learn/${track.slug}/exam/${stage.slug}`}
-                        className="flex items-center gap-3 py-2.5 text-sm text-accent hover:underline"
-                      >
-                        <span className="h-2 w-2 rounded-full bg-accent" />
-                        {te("takeExam")} · {PASS_SCORE}+
-                      </Link>
-                    ) : (
-                      <span className="flex items-center gap-3 py-2.5 text-sm text-ink-muted/50">
-                        <span className="h-2 w-2 rounded-full bg-line" />
-                        {te("examLocked")}
-                      </span>
-                    )}
-                  </li>
-                </ol>
-              </li>
-            </Reveal>
-          );
-        })}
-      </ol>
+                      return (
+                        <li key={lesson.slug}>
+                          {unlocked ? (
+                            <Link
+                              href={`/learn/${track.slug}/${lesson.slug}`}
+                              className="group block transition-colors hover:text-accent"
+                            >
+                              {inner}
+                            </Link>
+                          ) : (
+                            <div className="opacity-70">{inner}</div>
+                          )}
+                        </li>
+                      );
+                    })}
+                    <li className="pt-2">
+                      {examPassed ? (
+                        <span className="flex items-center gap-3 py-2.5 text-sm text-teal">
+                          <span className="h-2 w-2 rounded-full bg-teal" />
+                          {te("examPassedBadge")}
+                        </span>
+                      ) : examUnlocked && enrolled ? (
+                        <Link
+                          href={`/exam/${track.slug}/${stage.slug}`}
+                          className="flex items-center gap-3 py-2.5 text-sm text-accent hover:underline"
+                        >
+                          <span className="h-2 w-2 rounded-full bg-accent" />
+                          {te("takeExam")} · {PASS_SCORE}+
+                        </Link>
+                      ) : (
+                        <span className="flex items-center gap-3 py-2.5 text-sm text-ink-muted/50">
+                          <span className="h-2 w-2 rounded-full bg-line" />
+                          {te("examLocked")}
+                        </span>
+                      )}
+                    </li>
+                  </ol>
+                </li>
+              </Reveal>
+            );
+          })}
+        </ol>
+
+        {session?.user ? (
+          <aside className="track-learners-rail">
+            <ClassmatesPanel trackSlug={track.slug} />
+          </aside>
+        ) : null}
+      </div>
     </div>
   );
 }

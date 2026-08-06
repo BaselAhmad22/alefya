@@ -1,13 +1,6 @@
 "use client";
 
-import { usePathname } from "@/i18n/routing";
-
+/** Pass-through — remounting the tree on every route made navigations feel laggy. */
 export function PageTransition({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-
-  return (
-    <div key={pathname} className="page-transition">
-      {children}
-    </div>
-  );
+  return <div className="page-shell">{children}</div>;
 }

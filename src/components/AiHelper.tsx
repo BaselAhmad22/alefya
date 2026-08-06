@@ -18,18 +18,80 @@ export function AiHelper({ trackSlug, lessonSlug, lessonTitle }: Props) {
   const t = useTranslations("ai");
   const locale = useLocale();
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [closing, setClosing] = useState(false);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
-  const endRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, open]);
+  const listRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
     setMessages([]);
   }, [trackSlug, lessonSlug]);
+
+  useEffect(() => {
+    if (!visible || !listRef.current) return;
+    const el = listRef.current;
+    el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+  }, [messages, loading, visible]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    };
+  }, []);
+
+  function openPanel() {
+    if (closeTimer.current) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setClosing(false);
+    setVisible(true);
+    setOpen(true);
+  }
+
+  function closePanel() {
+    if (!open || closing) return;
+    setOpen(false);
+    setClosing(true);
+    closeTimer.current = window.setTimeout(() => {
+      setVisible(false);
+      setClosing(false);
+      closeTimer.current = null;
+    }, 280);
+  }
+
+  function togglePanel() {
+    if (open) closePanel();
+    else openPanel();
+  }
+
+  useEffect(() => {
+    if (!open) return;
+
+    function onPointerDown(e: PointerEvent) {
+      const root = rootRef.current;
+      if (!root) return;
+      if (root.contains(e.target as Node)) return;
+      closePanel();
+    }
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") closePanel();
+    }
+
+    // Capture so outside click closes even if something stops bubbling.
+    document.addEventListener("pointerdown", onPointerDown, true);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown, true);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- close when open flips; closePanel reads latest open/closing
+  }, [open, closing]);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -72,23 +134,34 @@ export function AiHelper({ trackSlug, lessonSlug, lessonTitle }: Props) {
   }
 
   return (
-    <div className="ai-helper-root">
+    <div ref={rootRef} className="ai-helper-root">
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="ai-helper-fab"
+        onClick={togglePanel}
+        className={`ai-helper-fab ${open ? "ai-helper-fab-active" : ""}`}
         aria-label={t("title")}
         aria-expanded={open}
       >
         <BrandLogo size={48} />
       </button>
 
-      {open && (
-        <div className="ai-sheet ai-helper-panel">
-          <div className="flex items-start justify-between gap-3 border-b border-line px-4 py-3">
-            <div className="flex items-start gap-3">
-              <BrandLogo size={36} className="border border-line" />
-              <div>
+      {visible && (
+        <div
+          className={`ai-sheet ai-helper-panel ${
+            closing ? "ai-helper-panel-out" : "ai-helper-panel-in"
+          }`}
+          role="dialog"
+          aria-label={t("title")}
+        >
+          <button
+            type="button"
+            onClick={togglePanel}
+            className="ai-helper-header"
+            aria-label={t("close")}
+          >
+            <div className="flex min-w-0 items-start gap-3">
+              <BrandLogo size={36} className="shrink-0 border border-line" />
+              <div className="min-w-0 text-start">
                 <p className="font-[family-name:var(--font-display)] text-lg text-accent">
                   {t("title")}
                 </p>
@@ -97,27 +170,20 @@ export function AiHelper({ trackSlug, lessonSlug, lessonTitle }: Props) {
                 </p>
               </div>
             </div>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="text-ink-muted transition-colors hover:text-ink"
-              aria-label={t("close")}
-            >
-              ✕
-            </button>
-          </div>
+          </button>
 
-          <div className="flex-1 space-y-3 overflow-y-auto px-4 py-3">
+          <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-3">
             {messages.length === 0 && (
-              <div className="space-y-2 text-sm text-ink-muted">
+              <div className="ai-helper-welcome space-y-2 text-sm text-ink-muted">
                 <p>{t("welcome")}</p>
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {[t("suggest1"), t("suggest2"), t("suggest3")].map((s) => (
+                  {[t("suggest1"), t("suggest2"), t("suggest3")].map((s, i) => (
                     <button
                       key={s}
                       type="button"
                       onClick={() => setInput(s)}
-                      className="rounded border border-line px-2.5 py-1 text-xs transition-colors hover:border-accent hover:text-accent"
+                      style={{ animationDelay: `${80 + i * 60}ms` }}
+                      className="ai-chip rounded border border-line px-2.5 py-1 text-xs transition-colors hover:border-accent hover:text-accent"
                     >
                       {s}
                     </button>
@@ -128,11 +194,12 @@ export function AiHelper({ trackSlug, lessonSlug, lessonTitle }: Props) {
             {messages.map((m, i) => (
               <div
                 key={`${m.role}-${i}`}
-                className={`rounded px-3 py-2 text-sm leading-relaxed ${
+                className={`ai-msg rounded px-3 py-2 text-sm leading-relaxed ${
                   m.role === "user"
                     ? "ms-6 bg-accent-soft text-ink"
                     : "me-4 border border-line bg-bg-soft"
                 }`}
+                style={{ animationDelay: `${Math.min(i, 4) * 40}ms` }}
               >
                 {m.role === "assistant" ? (
                   <div className="prose-lesson !max-w-none !text-sm [&_h1]:!text-base [&_h2]:!text-sm [&_h3]:!text-sm [&_pre]:!my-2 [&_pre]:!p-2">
@@ -148,11 +215,13 @@ export function AiHelper({ trackSlug, lessonSlug, lessonTitle }: Props) {
             {loading && (
               <div className="flex justify-start py-1">
                 <span className="page-loader-bars !h-3" aria-hidden>
-                  <span /><span /><span /><span />
+                  <span />
+                  <span />
+                  <span />
+                  <span />
                 </span>
               </div>
             )}
-            <div ref={endRef} />
           </div>
 
           <form onSubmit={onSubmit} className="border-t border-line p-3">

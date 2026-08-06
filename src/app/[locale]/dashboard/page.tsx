@@ -10,6 +10,7 @@ import {
   getCompletedLessonSlugs,
   getPassedStages,
 } from "@/lib/progress-gates";
+import { DashboardFilters } from "@/components/CatalogFilters";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -57,7 +58,7 @@ export default async function DashboardPage({ params }: Props) {
       if (target.type === "lesson") {
         roadmapContinue = `/learn/${track.slug}/${target.lessonSlug}`;
       } else if (target.type === "exam") {
-        roadmapContinue = `/learn/${track.slug}/exam/${target.stageSlug}`;
+        roadmapContinue = `/exam/${track.slug}/${target.stageSlug}`;
       } else {
         const sequence = JSON.parse(roadmap.trackSequence) as string[];
         const idx = sequence.indexOf(track.slug);
@@ -97,15 +98,23 @@ export default async function DashboardPage({ params }: Props) {
       const done = all.filter((l) => completed.has(l.slug)).length;
       const passed = await getPassedStages(session.user.id, track.slug);
       const target = getContinueTarget(track, completed, passed);
-      let href = `/tracks/${track.slug}`;
+      let href = `/${locale}/tracks/${track.slug}`;
       if (target.type === "lesson") {
-        href = `/learn/${track.slug}/${target.lessonSlug}`;
+        href = `/${locale}/learn/${track.slug}/${target.lessonSlug}`;
       } else if (target.type === "exam") {
-        href = `/learn/${track.slug}/exam/${target.stageSlug}`;
+        href = `/${locale}/exam/${track.slug}/${target.stageSlug}`;
       } else if (all[0]) {
-        href = `/learn/${track.slug}/${all[0].slug}`;
+        href = `/${locale}/learn/${track.slug}/${all[0].slug}`;
       }
-      return { track, done, total, href };
+      return {
+        slug: track.slug,
+        title: tl(track.title, loc),
+        done,
+        total,
+        href,
+        resumeLabel: t("resume"),
+        completedLabel: t("completedLessons"),
+      };
     }),
   );
 
@@ -140,44 +149,22 @@ export default async function DashboardPage({ params }: Props) {
           <p className="text-ink-muted">{t("empty")}</p>
         </div>
       ) : (
-        <div className="mt-10 grid gap-4">
-          {visibleCards.map(({ track, done, total, href }) => {
-            const pct = total ? Math.round((done / total) * 100) : 0;
-            return (
-              <Link
-                key={track.slug}
-                href={href}
-                className="group relative block overflow-hidden rounded-[calc(var(--radius)+2px)] border border-line/80 bg-bg-elevated/55 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal/40 hover:bg-bg-elevated sm:p-6"
-              >
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="min-w-0">
-                    <h2 className="font-[family-name:var(--font-display)] text-2xl text-ink transition-colors group-hover:text-teal-bright">
-                      {tl(track.title, loc)}
-                    </h2>
-                    <p className="mt-1 text-sm text-ink-muted">
-                      {done}/{total} {t("completedLessons")} · {pct}%
-                    </p>
-                    <div className="mt-3 h-1.5 w-52 max-w-full overflow-hidden rounded-full bg-bg-soft">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-teal to-accent transition-[width] duration-500"
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                  </div>
-                  <span className="inline-flex items-center gap-2 self-start rounded-full border border-line bg-bg/50 px-3.5 py-2 text-sm text-ink-muted transition-all group-hover:border-accent/40 group-hover:text-accent sm:self-center">
-                    {t("resume")}
-                    <span
-                      className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/15 text-accent rtl:rotate-180"
-                      aria-hidden
-                    >
-                      →
-                    </span>
-                  </span>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+        <DashboardFilters
+          cards={visibleCards}
+          labels={{
+            search: t("filterSearch"),
+            status: t("filterStatus"),
+            all: t("filterAll"),
+            inProgress: t("filterInProgress"),
+            completed: t("filterCompleted"),
+            sort: t("filterSort"),
+            sortRecent: t("sortRecent"),
+            sortName: t("sortName"),
+            sortProgress: t("sortProgress"),
+            emptyFiltered: t("emptyFiltered"),
+            clear: t("filterClear"),
+          }}
+        />
       )}
     </div>
   );

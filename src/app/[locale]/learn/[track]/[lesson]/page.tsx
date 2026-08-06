@@ -12,11 +12,14 @@ import type { Locale } from "@/i18n/config";
 import { LessonBody } from "@/components/LessonBody";
 import { LessonActions } from "@/components/LessonActions";
 import { LessonStickyBar } from "@/components/LessonStickyBar";
+import { LessonNav } from "@/components/LessonNav";
 import { LessonOutline } from "@/components/LessonOutline";
 import { AiHelper } from "@/components/AiHelper";
+import { SocialBar } from "@/components/SocialBar";
 import {
   assertCanAccessLesson,
   isLessonUnlocked,
+  isLastLessonOfStage,
   PASS_SCORE,
 } from "@/lib/progress-gates";
 
@@ -82,6 +85,80 @@ export default async function LessonPage({ params }: Props) {
 
   const allStageDone = stage.lessons.every((l) => completed.has(l.slug));
   const showExamCta = allStageDone && !passedStages.has(stage.slug);
+  const endingStage = isLastLessonOfStage(track, lessonSlug);
+
+  const completedIfDone = new Set(completed);
+  if (!lessonDone) completedIfDone.add(lessonSlug);
+
+  const nextWouldUnlock =
+    Boolean(next) &&
+    isLessonUnlocked(track, next!.slug, completedIfDone, passedStages);
+
+  const examWouldUnlock =
+    !passedStages.has(stage.slug) &&
+    stage.lessons.every(
+      (l) => l.slug === lessonSlug || completedIfDone.has(l.slug),
+    );
+
+  const prevUnlocked =
+    prev && isLessonUnlocked(track, prev.slug, completed, passedStages);
+
+  const prevNav =
+    prevUnlocked && prev
+      ? {
+          href: `/learn/${track.slug}/${prev.slug}`,
+          label: t("prev"),
+          title: tl(prev.title, loc),
+        }
+      : null;
+
+  let nextNav: {
+    href: string;
+    label: string;
+    title: string;
+  } | null = null;
+  let nextBlocked = false;
+
+  if (nextUnlocked && next) {
+    nextNav = {
+      href: `/learn/${track.slug}/${next.slug}`,
+      label: t("next"),
+      title: tl(next.title, loc),
+    };
+  } else if (next && nextWouldUnlock) {
+    // Next lesson is ready after mark-complete — show it inactive until then.
+    nextNav = {
+      href: `/learn/${track.slug}/${next.slug}`,
+      label: t("next"),
+      title: tl(next.title, loc),
+    };
+    nextBlocked = true;
+  } else if (showExamCta) {
+    nextNav = {
+      href: `/exam/${track.slug}/${stage.slug}`,
+      label: te("takeExam"),
+      title: tl(stage.title, loc),
+    };
+  } else if (endingStage && examWouldUnlock) {
+    nextNav = {
+      href: `/exam/${track.slug}/${stage.slug}`,
+      label: te("takeExam"),
+      title: tl(stage.title, loc),
+    };
+    nextBlocked = !lessonDone;
+  } else if (!next) {
+    nextNav = {
+      href: `/tracks/${track.slug}`,
+      label: t("backToTrack"),
+      title: tl(track.title, loc),
+    };
+  } else {
+    nextNav = {
+      href: `/tracks/${track.slug}`,
+      label: t("backToTrack"),
+      title: tl(track.title, loc),
+    };
+  }
 
   return (
     <div className="relative mx-auto grid max-w-6xl gap-8 px-4 py-10 lg:grid-cols-[270px_1fr] lg:items-start sm:px-6">
@@ -89,7 +166,6 @@ export default async function LessonPage({ params }: Props) {
         backHref={`/tracks/${track.slug}`}
         backLabel={t("backToTrack")}
         outlineLabel={t("outline")}
-        stageTitle={tl(stage.title, loc)}
         lockedLabel={t("locked")}
         items={stage.lessons.map((item) => {
           const unlocked = isLessonUnlocked(
@@ -119,7 +195,7 @@ export default async function LessonPage({ params }: Props) {
         exam={
           showExamCta
             ? {
-                href: `/learn/${track.slug}/exam/${stage.slug}`,
+                href: `/exam/${track.slug}/${stage.slug}`,
                 label: te("takeExam"),
               }
             : null
@@ -139,8 +215,8 @@ export default async function LessonPage({ params }: Props) {
 
         <article className="animate-rise min-w-0 lg:pe-20">
         <LessonStickyBar>
-          <div className="flex items-center justify-between gap-4 px-4 py-3.5">
-            <div className="min-w-0">
+          <div className="lesson-sticky-head">
+            <div className="min-w-0 flex-1">
               <p className="text-xs text-ink-muted">
                 {tl(track.title, loc)} · {index + 1}/{total} · {lesson.duration}{" "}
                 {t("minutes")}
@@ -155,6 +231,13 @@ export default async function LessonPage({ params }: Props) {
               initialCompleted={lessonDone}
             />
           </div>
+          <LessonNav
+            prev={prevNav}
+            next={nextNav}
+            nextBlocked={nextBlocked}
+            blockedMessage={t("nextNeedsComplete")}
+            ariaLabel={t("navAria")}
+          />
         </LessonStickyBar>
 
         <div className="mb-8 border-b border-line pb-5">
@@ -168,6 +251,13 @@ export default async function LessonPage({ params }: Props) {
           isLoggedIn
         />
 
+        <SocialBar
+          targetType="lesson"
+          targetId={`${track.slug}:${lesson.slug}`}
+          shareUrl={`/${locale}/share/lesson/${track.slug}/${lesson.slug}`}
+          shareTitle={tl(lesson.title, loc)}
+        />
+
         {showExamCta && (
           <div className="mt-10 border border-accent/30 bg-accent/5 px-5 py-4">
             <p className="font-medium">{te("stageReadyTitle")}</p>
@@ -175,73 +265,13 @@ export default async function LessonPage({ params }: Props) {
               {te("stageReadyHint", { pass: PASS_SCORE })}
             </p>
             <Link
-              href={`/learn/${track.slug}/exam/${stage.slug}`}
+              href={`/exam/${track.slug}/${stage.slug}`}
               className="mt-3 inline-block rounded bg-accent px-4 py-2 text-sm font-medium text-bg"
             >
               {te("takeExam")}
             </Link>
           </div>
         )}
-
-        <nav className="lesson-pager" aria-label="Lesson navigation">
-          {prev &&
-          isLessonUnlocked(track, prev.slug, completed, passedStages) ? (
-            <Link
-              href={`/learn/${track.slug}/${prev.slug}`}
-              className="lesson-pager-btn lesson-pager-prev group"
-            >
-              <span className="lesson-pager-chip rtl:rotate-180" aria-hidden>
-                ←
-              </span>
-              <span className="lesson-pager-meta">
-                <span className="lesson-pager-label">{t("prev")}</span>
-                <span className="lesson-pager-title">{tl(prev.title, loc)}</span>
-              </span>
-            </Link>
-          ) : (
-            <span className="lesson-pager-empty" aria-hidden />
-          )}
-          {nextUnlocked && next ? (
-            <Link
-              href={`/learn/${track.slug}/${next.slug}`}
-              className="lesson-pager-btn lesson-pager-next group"
-            >
-              <span className="lesson-pager-meta">
-                <span className="lesson-pager-label">{t("next")}</span>
-                <span className="lesson-pager-title">{tl(next.title, loc)}</span>
-              </span>
-              <span className="lesson-pager-chip rtl:rotate-180" aria-hidden>
-                →
-              </span>
-            </Link>
-          ) : showExamCta ? (
-            <Link
-              href={`/learn/${track.slug}/exam/${stage.slug}`}
-              className="lesson-pager-btn lesson-pager-next group"
-            >
-              <span className="lesson-pager-meta">
-                <span className="lesson-pager-label">{te("takeExam")}</span>
-                <span className="lesson-pager-title">{tl(stage.title, loc)}</span>
-              </span>
-              <span className="lesson-pager-chip rtl:rotate-180" aria-hidden>
-                →
-              </span>
-            </Link>
-          ) : (
-            <Link
-              href={`/tracks/${track.slug}`}
-              className="lesson-pager-btn lesson-pager-next group"
-            >
-              <span className="lesson-pager-meta">
-                <span className="lesson-pager-label">{t("backToTrack")}</span>
-                <span className="lesson-pager-title">{tl(track.title, loc)}</span>
-              </span>
-              <span className="lesson-pager-chip rtl:rotate-180" aria-hidden>
-                →
-              </span>
-            </Link>
-          )}
-        </nav>
         </article>
       </div>
     </div>

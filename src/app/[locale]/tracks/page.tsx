@@ -59,10 +59,6 @@ export default async function TracksPage({ params }: Props) {
                   className="surface-panel flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between"
                 >
                   <div className="flex items-start gap-4">
-                    <span
-                      className="mt-1 h-12 w-1.5 shrink-0"
-                      style={{ background: track.color }}
-                    />
                     <div>
                       <h2 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl">
                         {tl(track.title, loc)}

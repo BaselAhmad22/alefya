@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { auth } from "@/lib/auth";
+import { getApiSession } from "@/lib/api-session";
 import { prisma } from "@/lib/prisma";
 import { getTrack } from "@/lib/content";
 import {
@@ -20,8 +20,8 @@ const saveSchema = z.object({
   framework: z.string().min(1),
 });
 
-export async function GET() {
-  const session = await auth();
+export async function GET(request: Request) {
+  const session = await getApiSession(request);
   if (!session?.user?.id) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
@@ -43,7 +43,7 @@ export async function GET() {
     if (target.type === "lesson") {
       continueHref = `/learn/${track.slug}/${target.lessonSlug}`;
     } else if (target.type === "exam") {
-      continueHref = `/learn/${track.slug}/exam/${target.stageSlug}`;
+      continueHref = `/exam/${track.slug}/${target.stageSlug}`;
     } else {
       // Track done — advance checkpoint if next exists
       const idx = sequence.indexOf(track.slug);
@@ -64,7 +64,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const session = await auth();
+  const session = await getApiSession(request);
   if (!session?.user?.id) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
@@ -91,13 +91,61 @@ export async function POST(request: Request) {
   }
 
   const first = sequence[0];
-  await prisma.trackEnrollment.upsert({
-    where: {
-      userId_trackSlug: { userId: session.user.id, trackSlug: first },
-    },
-    create: { userId: session.user.id, trackSlug: first },
-    update: {},
-  });
+
+  // Enroll in every track on the plan (so progress already made is visible)
+  for (const slug of sequence) {
+    await prisma.trackEnrollment.upsert({
+      where: {
+        userId_trackSlug: { userId: session.user.id, trackSlug: slug },
+      },
+      create: { userId: session.user.id, trackSlug: slug },
+      update: {},
+    });
+  }
+
+  // Resume at the first unfinished track in the sequence
+  let resumeTrackSlug = first;
+  let startHref = `/tracks/${first}`;
+
+  for (const slug of sequence) {
+    const track = getTrack(slug);
+    if (!track) continue;
+    const [completed, passed] = await Promise.all([
+      getCompletedLessonSlugs(session.user.id, slug),
+      getPassedStages(session.user.id, slug),
+    ]);
+    const target = getContinueTarget(track, completed, passed);
+    if (target.type === "done") continue;
+
+    resumeTrackSlug = slug;
+    if (target.type === "lesson") {
+      startHref = `/learn/${slug}/${target.lessonSlug}`;
+    } else {
+      startHref = `/exam/${slug}/${target.stageSlug}`;
+    }
+    break;
+  }
+
+  // If every track in the sequence is done, open the last one
+  if (startHref.startsWith("/tracks/") && sequence.length) {
+    const last = sequence[sequence.length - 1];
+    const lastTrack = getTrack(last);
+    if (lastTrack) {
+      const [completed, passed] = await Promise.all([
+        getCompletedLessonSlugs(session.user.id, last),
+        getPassedStages(session.user.id, last),
+      ]);
+      const target = getContinueTarget(lastTrack, completed, passed);
+      resumeTrackSlug = last;
+      if (target.type === "lesson") {
+        startHref = `/learn/${last}/${target.lessonSlug}`;
+      } else if (target.type === "exam") {
+        startHref = `/exam/${last}/${target.stageSlug}`;
+      } else {
+        startHref = `/tracks/${last}`;
+      }
+    }
+  }
 
   const roadmap = await prisma.userRoadmap.upsert({
     where: { userId: session.user.id },
@@ -108,7 +156,7 @@ export async function POST(request: Request) {
       language: parsed.data.language,
       framework: parsed.data.framework,
       trackSequence: JSON.stringify(sequence),
-      currentTrackSlug: first,
+      currentTrackSlug: resumeTrackSlug,
     },
     update: {
       level: parsed.data.level,
@@ -116,19 +164,14 @@ export async function POST(request: Request) {
       language: parsed.data.language,
       framework: parsed.data.framework,
       trackSequence: JSON.stringify(sequence),
-      currentTrackSlug: first,
+      currentTrackSlug: resumeTrackSlug,
     },
   });
-
-  const track = getTrack(first)!;
-  const firstLesson = track.stages[0]?.lessons[0];
 
   return NextResponse.json({
     ok: true,
     roadmap,
     sequence,
-    startHref: firstLesson
-      ? `/learn/${first}/${firstLesson.slug}`
-      : `/tracks/${first}`,
+    startHref,
   });
 }

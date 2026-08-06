@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { auth } from "@/lib/auth";
+import { getApiSession } from "@/lib/api-session";
 import { prisma } from "@/lib/prisma";
 import { getTrack, getAllLessons } from "@/lib/content";
 
@@ -9,7 +9,7 @@ const schema = z.object({
 });
 
 export async function POST(request: Request) {
-  const session = await auth();
+  const session = await getApiSession(request);
   if (!session?.user?.id) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
@@ -47,8 +47,8 @@ export async function POST(request: Request) {
   });
 }
 
-export async function GET() {
-  const session = await auth();
+export async function GET(request: Request) {
+  const session = await getApiSession(request);
   if (!session?.user?.id) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }

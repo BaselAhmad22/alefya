@@ -12,7 +12,11 @@
     "register": "Sign up",
     "logout": "Log out",
     "home": "Home",
-    "start": "From zero"
+    "start": "From zero",
+    "profile": "Profile",
+    "friends": "Friends",
+    "messages": "Messages",
+    "interviews": "Interview prep"
   },
   "home": {
     "brand": "AlefYa",
@@ -20,7 +24,14 @@
     "sub": "Start from the right category, then follow an ordered path to a real project. Arabic and English.",
     "cta": "Explore categories",
     "ctaSecondary": "Create an account",
-    "ctaStart": "Start from zero"
+    "ctaStart": "Start from zero",
+    "ctaInterviews": "Interview prep",
+    "interviewsTitle": "Interview preparation",
+    "interviewsSub": "Practice randomized interview questions for every track — with explanations for every answer.",
+    "interviewsCta": "Start practicing",
+    "interviewsPoint1": "Randomized questions per track",
+    "interviewsPoint2": "Junior to senior difficulty",
+    "interviewsPoint3": "Clear explanation after every answer"
   },
   "categories": {
     "label": "Categories",
@@ -29,7 +40,14 @@
     "tracksCount": "tracks",
     "comingSoon": "Coming soon",
     "back": "All categories",
-    "emptyCategory": "No tracks here yet — we're adding them soon."
+    "emptyCategory": "No tracks here yet — we're adding them soon.",
+    "filterSearch": "Search categories…",
+    "filterAvailability": "Availability",
+    "filterAll": "All",
+    "filterWithTracks": "With tracks",
+    "emptyFiltered": "No categories match your filters.",
+    "filterShowing": "{count} showing",
+    "filterClear": "Clear search"
   },
   "tracks": {
     "title": "Learning tracks",
@@ -66,7 +84,9 @@
     "goNextYes": "Yes, next lesson",
     "goNextExam": "Yes, take the exam",
     "goNextStay": "No, stay here",
-    "stickyNext": "Next lesson"
+    "stickyNext": "Next lesson",
+    "navAria": "Lesson navigation",
+    "nextNeedsComplete": "Mark this lesson complete first, then you can open the next lesson."
   },
   "exam": {
     "title": "Stage exam",
@@ -88,16 +108,36 @@
     "writtenPlaceholder": "Write your answer clearly…",
     "submit": "Submit for grading",
     "grading": "AI grader working…",
+    "analyzing": "AI is analyzing your answers and preparing a detailed learning report…",
     "aiGradeHint": "Graded automatically, with AI help when configured.",
+    "answeredProgress": "{answered} of {total} answered",
     "result": "Result",
     "passed": "Passed — minimum {pass}. You can move to the next stage.",
     "failed": "Failed — need at least {pass}. Retry with different questions.",
     "questionN": "Question {n}",
+    "reportSummary": "AI report summary",
+    "strengths": "Strengths",
+    "weaknesses": "Areas to improve",
+    "correct": "Correct",
+    "needsImprovement": "Needs improvement",
+    "yourAnswer": "Your answer",
+    "correctAnswer": "Correct answer",
+    "whyCorrect": "Why this is correct",
+    "whyWrong": "Why this needs improvement",
+    "why": "Why",
+    "improvement": "How to improve",
+    "viewReport": "View full report",
     "retry": "Retry with a new attempt",
+    "retryPractice": "Try a new exam",
     "continueNext": "Continue to next stage",
     "backToTrack": "Back to track",
+    "resultActions": "What's next",
     "stageReadyTitle": "You’ve finished this stage’s lessons",
-    "stageReadyHint": "Take the stage exam and score {pass}+ to unlock the next stage."
+    "stageReadyHint": "Take the stage exam and score {pass}+ to unlock the next stage.",
+    "leaveTitle": "Leave this exam?",
+    "leaveDesc": "If you leave now, your current answers will be lost and you will have to start the exam from the beginning.",
+    "leaveConfirm": "Leave exam",
+    "leaveCancel": "Stay"
   },
   "ai": {
     "title": "AlefYa Helper",
@@ -119,7 +159,19 @@
     "resume": "Resume",
     "completedLessons": "lessons completed",
     "browse": "Browse categories",
-    "startZero": "Start from zero"
+    "startZero": "Start from zero",
+    "filterSearch": "Search tracks…",
+    "filterStatus": "Status",
+    "filterAll": "All",
+    "filterInProgress": "In progress",
+    "filterCompleted": "Completed",
+    "filterSort": "Order by",
+    "sortRecent": "Recently started",
+    "sortName": "Name",
+    "sortProgress": "Progress",
+    "emptyFiltered": "No tracks match your filters.",
+    "filterShowing": "{count} showing",
+    "filterClear": "Clear search"
   },
   "auth": {
     "loginTitle": "Log in",
@@ -173,18 +225,435 @@
     "needAccount": "An account is required to save your plan and checkpoint.",
     "signUp": "Sign up",
     "saveError": "Could not save the plan.",
-    "askAi": "Ask if something is unclear",
+    "askAi": "Need help choosing?",
     "aiPlaceholder": "e.g. What's the difference between frontend and backend?",
     "aiSend": "Ask",
     "aiError": "Couldn't reply right now.",
-    "aiContextField": "Helping you pick a learning field.",
-    "aiContextLanguage": "Helping you pick a programming language.",
-    "aiContextFramework": "Helping you pick a framework.",
+    "aiThinking": "Thinking…",
+    "aiContextField": "I’ll help you pick the field that matches what you want to build.",
+    "aiContextLanguage": "I’ll help you pick a language that fits your field.",
+    "aiContextFramework": "I’ll help you pick a framework after language basics.",
     "aiContextGeneric": "Beginner roadmap helper",
+    "aiSuggestField1": "Frontend vs backend?",
+    "aiSuggestField2": "I want to build a store — what field?",
+    "aiSuggestField3": "Is mobile harder than web?",
+    "aiSuggestLang1": "Why JavaScript first?",
+    "aiSuggestLang2": "TypeScript or JavaScript?",
+    "aiSuggestLang3": "Which language for APIs?",
+    "aiSuggestFw1": "Why learn the language before the framework?",
+    "aiSuggestFw2": "React then Next — why that order?",
+    "aiSuggestFw3": "Vue vs React for beginners?",
     "continue": "Continue my plan",
     "noRoadmap": "No plan yet — start from zero."
   },
+  "profile": {
+    "title": "My profile",
+    "subtitle": "Update your account, learning level, or delete your data.",
+    "viewPublic": "View public profile",
+    "changeUsername": "Change username",
+    "usernameHint": "Letters, numbers, and underscores only — 5 to 32 characters.",
+    "username": "Username",
+    "saveUsername": "Save",
+    "changePassword": "Change password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "passwordHint": "Same rules as signup — 8+ characters with upper, lower, a number, and a special character.",
+    "savePassword": "Save password",
+    "learningLevel": "Learning level",
+    "level": "Level",
+    "selectLevel": "Select level",
+    "saveLevel": "Save level",
+    "levelHint": "Shown once in From zero — change it here anytime.",
+    "discard": "Discard",
+    "cancel": "Cancel",
+    "deleteAccount": "Delete account",
+    "dangerHint": "Permanent — progress, exams, and messages go with it.",
+    "deleteWarning": "This permanently deletes your progress, exams, and messages.",
+    "typeUsername": "Type your username ({username}) to confirm",
+    "deleteButton": "Delete my account",
+    "deleting": "Deleting…",
+    "saving": "Saving…",
+    "saved": "Saved successfully.",
+    "saveError": "Could not save changes.",
+    "deleteError": "Could not delete account.",
+    "usernameTaken": "Username is already taken.",
+    "wrongPassword": "Current password is incorrect.",
+    "levelNeedsRoadmap": "Start From zero once before changing level here."
+  },
+  "social": {
+    "comments": "Comments",
+    "share": "Share",
+    "copied": "Link copied",
+    "placeholder": "Write a helpful comment…",
+    "post": "Post",
+    "reply": "Reply",
+    "replyPlaceholder": "Write a reply…",
+    "loginToInteract": "Log in to like, comment, or share.",
+    "classmates": "Learners on this track",
+    "classmatesKicker": "Community",
+    "classmatesHint": "Connect with people on the same path.",
+    "classmatesEmpty": "No other learners on this track yet.",
+    "classmatesCount": "{count}",
+    "classmatesSearch": "Search learners…",
+    "classmatesNoMatch": "No learners match your search.",
+    "classmatesShowMore": "Show {count} more",
+    "classmatesShowLess": "Show less",
+    "message": "Message"
+  },
+  "friends": {
+    "pageTitle": "Friends",
+    "pageSubtitle": "See your friends and respond to requests.",
+    "tabFriends": "Friends",
+    "tabRequests": "Requests",
+    "incoming": "Incoming requests",
+    "outgoing": "Sent requests",
+    "emptyFriends": "No friends yet — add someone from a track or their profile.",
+    "emptyIncoming": "No incoming requests.",
+    "emptyOutgoing": "No pending sent requests.",
+    "loading": "Loading…",
+    "addFriend": "Add friend",
+    "sendRequest": "Send request",
+    "pendingOut": "Request sent",
+    "accept": "Accept",
+    "reject": "Decline",
+    "blocked": "Request unavailable",
+    "unfriend": "Unfriend",
+    "unfriendTitle": "Remove this friendship?",
+    "unfriendDesc": "You’ll no longer see each other as friends. You can send a new request later if you change your mind.",
+    "unfriendConfirm": "Yes, unfriend",
+    "message": "Message",
+    "friends": "Friends",
+    "noteLabel": "Note",
+    "noteHint": "Optional note for your friend request",
+    "notePlaceholder": "Hi — we are on the same track…",
+    "cancel": "Cancel",
+    "errorGeneric": "Could not send the request.",
+    "error_blocked": "You cannot send another request to this user.",
+    "error_pending": "A request is already pending.",
+    "error_already_friends": "You are already friends.",
+    "error_invalid": "Invalid request.",
+    "error_not_found": "User not found."
+  },
+  "profilePublic": {
+    "label": "Profile",
+    "joined": "Joined {date}",
+    "friendsCount": "{count} friends",
+    "editOwn": "Edit my profile",
+    "studying": "Currently studying",
+    "roadmapLine": "Level {level} · {field} · {language}",
+    "noTracks": "No tracks started yet.",
+    "privateHint": "Progress details are visible to friends only. Send a friend request to connect."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No notifications yet.",
+    "markAll": "Mark all read",
+    "openHint": "Tap to open",
+    "youAccepted": "You accepted this friend request",
+    "youRejected": "You declined this friend request",
+    "friendRequest": "sent you a friend request",
+    "friendAccepted": "accepted your friend request",
+    "friendRejected": "declined your friend request"
+  },
+  "messages": {
+    "title": "Messages",
+    "subtitle": "Chat with friends and classmates.",
+    "chats": "Chats",
+    "empty": "No conversations yet. Message a friend or classmate.",
+    "noMessages": "No messages yet",
+    "placeholder": "Type a message…",
+    "editPlaceholder": "Edit your message…",
+    "send": "Send",
+    "save": "Save",
+    "select": "Select a conversation",
+    "startChat": "Say hello — start the conversation.",
+    "connecting": "Connecting…",
+    "online": "Online",
+    "typing": "typing…",
+    "deleted": "This message was deleted",
+    "delete": "Delete",
+    "deleting": "Deleting…",
+    "cancel": "Cancel",
+    "close": "Close",
+    "selected": "Message selected",
+    "actions": "Message actions",
+    "reply": "Reply",
+    "replyingTo": "Replying to @{name}",
+    "cancelReply": "Cancel reply",
+    "edit": "Edit",
+    "editing": "Editing message",
+    "edited": "edited",
+    "editHistory": "Edit history",
+    "version": "Version {n}",
+    "currentVersion": "Current",
+    "attach": "Attach file",
+    "attachment": "Attachment",
+    "photo": "Photo",
+    "file": "File",
+    "removeAttachment": "Remove attachment",
+    "uploading": "Uploading…",
+    "uploadFailed": "Couldn’t upload the file. Try again.",
+    "fileTooLarge": "File is too large (max 8 MB).",
+    "sent": "Sent",
+    "read": "Read",
+    "pin": "Pin chat",
+    "unpin": "Unpin chat",
+    "chatActions": "Chat actions",
+    "deleteChat": "Delete chat",
+    "deleteChatTitle": "Delete this chat?",
+    "deleteChatDesc": "The chat is removed from your list only. Old messages stay gone for you. New messages from them will not bring it back — only they keep seeing the conversation.",
+    "deleteChatConfirm": "Delete for me",
+    "widgetTitle": "Chats",
+    "widgetSubtitle": "Your conversations",
+    "widgetOpen": "Open messenger",
+    "widgetBack": "Back to chats",
+    "openFull": "Open full messages",
+    "react": "React",
+    "reactions": "Reactions",
+    "emoji": "Emoji",
+    "moreEmojis": "More emojis"
+  },
   "footer": {
-    "tagline": "AlefYa — from Alef to Ya"
+    "tagline": "AlefYa — from Alef to Ya",
+    "faq": "FAQ",
+    "faqHint": "Answers & help"
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "subtitle": "Clear answers about accounts, learning paths, exams, interviews, friends, and AI on AlefYa.",
+    "search": "Search questions…",
+    "all": "All",
+    "seeAll": "See all FAQs",
+    "empty": "No questions match your search.",
+    "openHint": "Tap to expand",
+    "homeKicker": "FAQ",
+    "homeTitle": "Questions learners ask often",
+    "homeSub": "Start here — or open the full FAQ for every topic.",
+    "categories": {
+      "general": "General",
+      "account": "Account",
+      "roadmap": "From zero",
+      "tracks": "Tracks & lessons",
+      "exams": "Exams",
+      "interviews": "Interviews",
+      "social": "Friends & chat",
+      "ai": "AI helpers"
+    },
+    "items": {
+      "whatIsAlefya": {
+        "q": "What is AlefYa?",
+        "a": "AlefYa is a bilingual learning platform that takes you from Alef to Ya — ordered tracks, stage exams, interview practice, and progress saved to your account."
+      },
+      "bilingual": {
+        "q": "Is the site available in Arabic and English?",
+        "a": "Yes. Use the language switcher in the header anytime. Content, UI, and learning materials are built for both Arabic and English."
+      },
+      "isFree": {
+        "q": "Is AlefYa free to use?",
+        "a": "You can explore categories and start learning with a free account. Core learning paths, progress, exams, and interview prep are available after you sign up."
+      },
+      "whereToStart": {
+        "q": "Where should I start if I’m new?",
+        "a": "Open From zero to build a personal plan, or browse Categories if you already know your field. Both routes lead into ordered tracks."
+      },
+      "whoIsItFor": {
+        "q": "Who is AlefYa for?",
+        "a": "Complete beginners, learners who know some basics, and people returning to coding who want a clear specialization path with checkpoints."
+      },
+      "needAccount": {
+        "q": "Do I need an account?",
+        "a": "Browsing is open, but saving a roadmap, tracking lessons, taking exams, messaging friends, and using your dashboard require signing up."
+      },
+      "usernameRules": {
+        "q": "What are the username rules?",
+        "a": "Usernames must be 5–32 characters: English letters, numbers, and underscores only. They are unique across the platform."
+      },
+      "passwordRules": {
+        "q": "What makes a strong password here?",
+        "a": "Use at least 8 characters with uppercase, lowercase, a number, and a special character. You can change your password anytime in Profile."
+      },
+      "changeLevel": {
+        "q": "Can I change my learning level later?",
+        "a": "Yes. After you create a From zero plan once, you can update your learning level from Profile."
+      },
+      "publicProfile": {
+        "q": "What do others see on my public profile?",
+        "a": "Everyone can see your username and friend count. Detailed track progress is visible to you and your friends only."
+      },
+      "deleteAccount": {
+        "q": "How do I delete my account?",
+        "a": "Open Profile → Delete account. You’ll confirm with your password and username. This permanently removes progress, exams, and messages."
+      },
+      "whatIsFromZero": {
+        "q": "What is “From zero”?",
+        "a": "A short wizard that asks for your level, field, language, and framework, then builds an ordered plan starting with language fundamentals."
+      },
+      "howPlanBuilt": {
+        "q": "How is my learning plan built?",
+        "a": "We always start with a language track, then the framework track. You move lesson by lesson, with a stage exam after each phase."
+      },
+      "changeFieldLater": {
+        "q": "Can I switch field or framework later?",
+        "a": "You can explore other categories anytime. Your saved From zero plan keeps your primary path; start additional tracks from Categories when you’re ready."
+      },
+      "resumeProgress": {
+        "q": "Will I resume where I left off?",
+        "a": "Yes. Your dashboard and From zero continue from the first unfinished lesson or exam in your plan sequence."
+      },
+      "roadmapAiHelp": {
+        "q": "Can AI help me choose in From zero?",
+        "a": "Yes. At each wizard step you can ask the roadmap helper about fields, languages, and frameworks before you commit."
+      },
+      "lessonOrder": {
+        "q": "Do I have to follow lessons in order?",
+        "a": "Yes on a track. Lessons unlock in sequence so foundations come before advanced topics and stage exams."
+      },
+      "progressSaved": {
+        "q": "Is my lesson progress saved?",
+        "a": "When you’re signed in, completed lessons and exam results are stored on your account and sync across sessions."
+      },
+      "lockedLessons": {
+        "q": "Why is a lesson locked?",
+        "a": "You need to finish earlier lessons (and pass the previous stage exam when required) before the next block opens."
+      },
+      "categoriesVsTracks": {
+        "q": "What’s the difference between categories and tracks?",
+        "a": "Categories group a field (e.g. frontend). Tracks are ordered Alef-to-Ya paths inside a category (language, then framework)."
+      },
+      "myTracks": {
+        "q": "Where do I see tracks I’ve started?",
+        "a": "Open My tracks or My Progress (dashboard) to continue enrollments and see how far you’ve gone."
+      },
+      "whenExam": {
+        "q": "When do stage exams appear?",
+        "a": "After you complete the lessons in a stage. The exam checks that stage before you unlock the next one."
+      },
+      "passScore": {
+        "q": "What score do I need to pass an exam?",
+        "a": "You need at least 75% to pass a stage exam and continue on the track."
+      },
+      "retryExam": {
+        "q": "Can I retry an exam if I fail?",
+        "a": "Yes. Review the feedback, revisit lessons if needed, then take the exam again when you’re ready."
+      },
+      "writtenQuestions": {
+        "q": "Are there written answers, not only multiple choice?",
+        "a": "Yes. Some exams include written questions. Answers are analyzed to give you a clearer learning report."
+      },
+      "examReport": {
+        "q": "What is the exam learning report?",
+        "a": "After you submit, you get feedback on strengths and gaps so you know what to practice before moving on."
+      },
+      "whatAreInterviews": {
+        "q": "What is Interview prep?",
+        "a": "Practice randomized interview-style questions per track, with explanations after every answer — separate from stage exams."
+      },
+      "interviewDifficulty": {
+        "q": "Can I choose interview difficulty?",
+        "a": "Yes. Pick junior, mid, senior, or mixed before you start a session."
+      },
+      "interviewExplanations": {
+        "q": "Do I get explanations for interview answers?",
+        "a": "Yes. Every question includes a clear explanation so you learn why an answer is strong or weak."
+      },
+      "interviewRandom": {
+        "q": "Are interview questions the same every time?",
+        "a": "No. Sessions draw from a large bank so you can practice fresh mixes for the same track."
+      },
+      "interviewVsExam": {
+        "q": "How is interview prep different from stage exams?",
+        "a": "Stage exams gate your track progress. Interview prep is optional practice for real interview scenarios and judgment."
+      },
+      "howFriends": {
+        "q": "How do friends work?",
+        "a": "Send a friend request from a public profile or classmates list. Accepted friends can see more of each other’s learning progress and message freely."
+      },
+      "friendRequestRules": {
+        "q": "What happens if a friend request is declined?",
+        "a": "The sender cannot send another request to that person. Only the person who declined can send a request in the other direction."
+      },
+      "howMessages": {
+        "q": "How do I message someone?",
+        "a": "Message friends from Friends or their profile. You can also message classmates on a shared track. Chats open under Messages."
+      },
+      "deleteMessage": {
+        "q": "Can I delete a chat message?",
+        "a": "Yes. On your own message, open the delete action. Both sides see “This message was deleted.”"
+      },
+      "notifications": {
+        "q": "Where do friend notifications go?",
+        "a": "The bell next to the logo. Tap a notification to open Friends requests or the related profile. You can accept or decline requests from the list too."
+      },
+      "lessonAi": {
+        "q": "What is the lesson AI helper?",
+        "a": "On lessons you can open the AI helper to ask clarifying questions about the current material without leaving the page."
+      },
+      "aiWhatToAsk": {
+        "q": "What should I ask the AI helper?",
+        "a": "Ask about concepts in the lesson, examples, comparisons, or “why this order?” Avoid pasting unrelated homework unrelated to the track."
+      },
+      "aiLimits": {
+        "q": "Are there limits to AI help?",
+        "a": "AI is a study assistant, not a replacement for reading lessons or taking exams. Replies may be unavailable if the service is busy — try again shortly."
+      },
+      "aiGrading": {
+        "q": "Does AI grade my written exam answers?",
+        "a": "Written answers can be analyzed to produce a learning-oriented report. Use it as guidance alongside the score and explanations."
+      }
+    }
+  },
+  "interviews": {
+    "label": "Interview prep",
+    "title": "Interview preparation",
+    "subtitle": "Practice real interview questions across every learning category — coding concepts, scenarios, and judgment under pressure.",
+    "catMeta": "{tracks} tracks · {questions} questions",
+    "categoryHint": "Pick a track and start a randomized interview session with explanations after every answer.",
+    "emptyCategory": "No interview banks in this category yet.",
+    "bankSize": "{count} interview questions in the bank",
+    "startSession": "Start interview",
+    "backAll": "All interview categories",
+    "backCategory": "Back to category",
+    "startError": "Could not start the interview session.",
+    "submitError": "Could not grade your answers.",
+    "progressLabel": "Question {current} of {total} · answered {answered}",
+    "questionN": "Question {n}",
+    "kind_mcq": "Concept",
+    "kind_scenario": "Scenario",
+    "diff_junior": "Junior",
+    "diff_mid": "Mid",
+    "diff_senior": "Senior",
+    "diff_mixed": "Random mix",
+    "diffHintJunior": "Foundations and safe working principles.",
+    "diffHintMid": "Code review judgment and realistic trade-offs.",
+    "diffHintSenior": "Production pressure, risk, and architecture calls.",
+    "diffHintMixed": "A shuffled mix of junior, mid, and senior questions.",
+    "setupLabel": "Difficulty",
+    "setupHint": "Choose how hard this interview should feel. You can change answers while you move between questions.",
+    "changeDifficulty": "Change difficulty",
+    "prev": "Previous",
+    "next": "Next question",
+    "finish": "See results",
+    "analyzing": "AI is analyzing your answers and preparing personalized feedback…",
+    "answerAll": "Answer every question (use Previous to fill any gaps) before finishing.",
+    "lockedHint": "Answer locked. Review it in the final report.",
+    "sessionDone": "Session complete",
+    "scoreLabel": "Score / 100",
+    "correctCount": "{correct} of {total} correct",
+    "verdictStrong": "Strong interview readiness — keep sharpening edge cases.",
+    "verdictOk": "Solid base — review the explanations below and retry.",
+    "verdictWeak": "Treat this as a map of gaps — study the why, then retry.",
+    "retry": "New random session",
+    "reviewTitle": "Answer review",
+    "reportSummary": "Session summary",
+    "strengths": "Strengths",
+    "weaknesses": "Areas to improve",
+    "correctTag": "Correct",
+    "yourAnswer": "Your answer",
+    "why": "Why",
+    "improvement": "How to improve",
+    "leaveTitle": "Leave this interview?",
+    "leaveDesc": "If you leave now, your current answers will be lost and you will have to start a new interview session from the beginning.",
+    "leaveConfirm": "Leave interview",
+    "leaveCancel": "Stay"
   }
 }
