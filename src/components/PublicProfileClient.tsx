@@ -8,6 +8,7 @@ import { hideNavLoader, showNavLoader } from "@/lib/nav-loader";
 import { dispatchFriendsBadgeRefresh } from "@/lib/friends-badge";
 import type { Relationship } from "@/lib/friends";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
+import { BrandLogo } from "@/components/BrandLogo";
 
 export type PublicProfileData = {
   id: string;
@@ -153,21 +154,29 @@ export function PublicProfileClient({
   });
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-      <div className="animate-rise surface-panel p-6 sm:p-8">
-        <p className="text-xs uppercase tracking-[0.2em] text-accent">
-          {t("label")}
-        </p>
-        <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl">
-          @{profile.username}
-        </h1>
-        <p className="mt-2 text-sm text-ink-muted">
-          {t("joined", { date: joined })} · {t("friendsCount", { count: profile.friendCount })}
-        </p>
+    <div className="ay-page pp-page">
+      <div className="ay-page-ambient" aria-hidden />
 
-        <div className="mt-6 flex flex-wrap gap-2">
+      <article className="pp-identity">
+        <div className="pp-identity-glow" aria-hidden />
+        <div className="pp-identity-top">
+          <BrandLogo size={56} className="pp-identity-logo" />
+          <div className="pp-identity-copy">
+            <p className="page-kicker">{t("label")}</p>
+            <h1 className="pp-identity-name">@{profile.username}</h1>
+            {profile.name ? (
+              <p className="pp-identity-display">{profile.name}</p>
+            ) : null}
+            <p className="pp-identity-meta">
+              {t("joined", { date: joined })} ·{" "}
+              {t("friendsCount", { count: profile.friendCount })}
+            </p>
+          </div>
+        </div>
+
+        <div className="pp-identity-actions">
           {profile.relationship === "self" && (
-            <Link href="/profile" className="btn-ghost">
+            <Link href="/profile" className="btn-ghost btn-compact">
               {t("editOwn")}
             </Link>
           )}
@@ -250,35 +259,34 @@ export function PublicProfileClient({
         </div>
 
         {profile.pendingRequest?.note && (
-          <p className="mt-4 rounded border border-line/70 bg-bg/40 px-3 py-2 text-sm text-ink-muted">
-            <span className="text-ink">{tf("noteLabel")}: </span>
+          <p className="pp-identity-note">
+            <span className="pp-identity-note-label">{tf("noteLabel")}: </span>
             {profile.pendingRequest.note}
           </p>
         )}
 
-        {error && <p className="mt-3 text-sm text-danger">{error}</p>}
+        {error && <p className="pp-identity-error">{error}</p>}
 
         {showNote && (
-          <form
-            onSubmit={(e) => void sendRequest(e)}
-            className="mt-5 border border-line bg-bg/50 p-4"
-          >
-            <label className="text-sm text-ink-muted">{tf("noteHint")}</label>
-            <textarea
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-              maxLength={300}
-              rows={3}
-              className="mt-2 w-full border border-line bg-bg px-3 py-2 text-sm outline-none focus:border-accent"
-              placeholder={tf("notePlaceholder")}
-            />
-            <div className="mt-3 flex gap-2">
-              <button type="submit" disabled={busy} className="btn-primary">
+          <form onSubmit={(e) => void sendRequest(e)} className="pp-note-form">
+            <label className="auth-field">
+              <span className="auth-label">{tf("noteHint")}</span>
+              <textarea
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+                maxLength={300}
+                rows={3}
+                className="auth-input auth-textarea"
+                placeholder={tf("notePlaceholder")}
+              />
+            </label>
+            <div className="pp-note-actions">
+              <button type="submit" disabled={busy} className="btn-primary btn-compact">
                 {tf("sendRequest")}
               </button>
               <button
                 type="button"
-                className="btn-ghost"
+                className="btn-ghost btn-compact"
                 onClick={() => setShowNote(false)}
               >
                 {tf("cancel")}
@@ -286,24 +294,24 @@ export function PublicProfileClient({
             </div>
           </form>
         )}
-      </div>
+      </article>
 
       {profile.tracks ? (
-        <div className="mt-10">
-          <h2 className="font-[family-name:var(--font-display)] text-2xl">
-            {t("studying")}
-          </h2>
-          {profile.roadmap && (
-            <p className="mt-2 text-sm text-ink-muted">
-              {t("roadmapLine", {
-                level: profile.roadmap.level,
-                field: profile.roadmap.field,
-                language: profile.roadmap.language,
-              })}
-            </p>
-          )}
+        <section className="pp-tracks-section">
+          <header className="pp-tracks-head">
+            <h2 className="pp-tracks-title">{t("studying")}</h2>
+            {profile.roadmap && (
+              <p className="pp-tracks-roadmap">
+                {t("roadmapLine", {
+                  level: profile.roadmap.level,
+                  field: profile.roadmap.field,
+                  language: profile.roadmap.language,
+                })}
+              </p>
+            )}
+          </header>
           {profile.tracks.length === 0 ? (
-            <p className="mt-4 text-sm text-ink-muted">{t("noTracks")}</p>
+            <p className="pp-tracks-empty">{t("noTracks")}</p>
           ) : (
             <ul className="pp-track-list">
               {profile.tracks.map((tr, i) => (
@@ -352,9 +360,9 @@ export function PublicProfileClient({
               ))}
             </ul>
           )}
-        </div>
+        </section>
       ) : (
-        <p className="mt-8 text-sm text-ink-muted">{t("privateHint")}</p>
+        <p className="pp-private-hint">{t("privateHint")}</p>
       )}
 
       <ConfirmDialog

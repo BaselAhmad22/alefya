@@ -1,0 +1,1348 @@
+{
+  "trackSlug": "hr-psychometric-style",
+  "count": 22,
+  "questions": [
+    {
+      "id": "hr-psychometric-style:psych-stress:v1",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "stress",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Handle stress?",
+        "ar": "stress؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Generic answer with no research.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates stress for pipeline advancement.",
+        "ar": "يقيس stress للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-stress:v2",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "stress",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Multiple deadlines?",
+        "ar": "deadlines متعددة؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Generic answer with no research.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "إجابة generic بلا research.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates stress for pipeline advancement.",
+        "ar": "يقيس stress للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-stress:v3",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "stress",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Recover from burnout?",
+        "ar": "burnout؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Contradict your resume.",
+          "Negative or defensive tone.",
+          "Generic answer with no research."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "تناقض CV.",
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates stress for pipeline advancement.",
+        "ar": "يقيس stress للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-stress:v4",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "stress",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Work-life boundaries?",
+        "ar": "boundaries؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Contradict your resume.",
+          "Negative or defensive tone."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "تناقض CV.",
+          "tone سلبي أو defensive."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates stress for pipeline advancement.",
+        "ar": "يقيس stress للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-integrity:v1",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "integrity",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Ethical gray area?",
+        "ar": "ethical gray؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Generic answer with no research.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "إجابة generic بلا research.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates integrity for pipeline advancement.",
+        "ar": "يقيس integrity للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-integrity:v2",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "integrity",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Pressure to cut corners?",
+        "ar": "cut corners؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Contradict your resume.",
+          "Negative or defensive tone.",
+          "Generic answer with no research."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "تناقض CV.",
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates integrity for pipeline advancement.",
+        "ar": "يقيس integrity للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-integrity:v3",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "integrity",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Whistleblowing scenario?",
+        "ar": "whistleblowing؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates integrity for pipeline advancement.",
+        "ar": "يقيس integrity للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-integrity:v4",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "integrity",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Admit mistake to client?",
+        "ar": "admit mistake client؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone.",
+          "Generic answer with no research.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates integrity for pipeline advancement.",
+        "ar": "يقيس integrity للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-learn:v1",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "learning",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Learn new skill fast?",
+        "ar": "learn fast؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Generic answer with no research.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates learning for pipeline advancement.",
+        "ar": "يقيس learning للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-learn:v2",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "learning",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Handle steep learning curve?",
+        "ar": "steep curve؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Generic answer with no research.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "إجابة generic بلا research.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates learning for pipeline advancement.",
+        "ar": "يقيس learning للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-learn:v3",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "learning",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Self-study habits?",
+        "ar": "self-study؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Contradict your resume.",
+          "Negative or defensive tone.",
+          "Generic answer with no research."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "تناقض CV.",
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates learning for pipeline advancement.",
+        "ar": "يقيس learning للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-learn:v4",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "learning",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Learn from failure?",
+        "ar": "learn failure؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates learning for pipeline advancement.",
+        "ar": "يقيس learning للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-style:v1",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "work-style",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Independent vs collaborative?",
+        "ar": "independent vs collab؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Generic answer with no research.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "إجابة generic بلا research.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates work-style for pipeline advancement.",
+        "ar": "يقيس work-style للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-style:v2",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "work-style",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Structured vs flexible?",
+        "ar": "structured vs flexible؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Contradict your resume.",
+          "Negative or defensive tone.",
+          "Generic answer with no research."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "تناقض CV.",
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates work-style for pipeline advancement.",
+        "ar": "يقيس work-style للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-style:v3",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "work-style",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Detail vs big picture?",
+        "ar": "detail vs big picture؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates work-style for pipeline advancement.",
+        "ar": "يقيس work-style للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-style:v4",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "work-style",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Preferred manager style?",
+        "ar": "manager style؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Generic answer with no research.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates work-style for pipeline advancement.",
+        "ar": "يقيس work-style للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-motivation:v1",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "intrinsic-drive",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "What motivates you daily?",
+        "ar": "motivates daily؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Generic answer with no research."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "إجابة generic بلا research."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates intrinsic-drive for pipeline advancement.",
+        "ar": "يقيس intrinsic-drive للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-motivation:v2",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "intrinsic-drive",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Demotivators?",
+        "ar": "demotivators؟"
+      },
+      "options": {
+        "en": [
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Generic answer with no research.",
+          "Negative or defensive tone."
+        ],
+        "ar": [
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "إجابة generic بلا research.",
+          "tone سلبي أو defensive."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates intrinsic-drive for pipeline advancement.",
+        "ar": "يقيس intrinsic-drive للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-motivation:v3",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "intrinsic-drive",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Flow state at work?",
+        "ar": "flow state؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Generic answer with no research.",
+          "Negative or defensive tone.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "إجابة generic بلا research.",
+          "tone سلبي أو defensive.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates intrinsic-drive for pipeline advancement.",
+        "ar": "يقيس intrinsic-drive للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-motivation:v4",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "intrinsic-drive",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Energy management?",
+        "ar": "energy management؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates intrinsic-drive for pipeline advancement.",
+        "ar": "يقيس intrinsic-drive للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-judgment:v1",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "judgment",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Quick decision with risk?",
+        "ar": "quick decision risk؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone.",
+          "Generic answer with no research.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates judgment for pipeline advancement.",
+        "ar": "يقيس judgment للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-psychometric-style:psych-judgment:v2",
+      "trackSlug": "hr-psychometric-style",
+      "kind": "judgment",
+      "difficulty": "mid",
+      "competency": "judgment",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Ambiguous instructions?",
+        "ar": "ambiguous instructions؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Negative or defensive tone.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "tone سلبي أو defensive.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates judgment for pipeline advancement.",
+        "ar": "يقيس judgment للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    }
+  ]
+}

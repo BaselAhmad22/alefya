@@ -1,0 +1,18 @@
+{
+  "slug": "10-app-state",
+  "order": 10,
+  "title": {
+    "ar": "حالة التطبيق",
+    "en": "App-wide state"
+  },
+  "description": {
+    "ar": "Provider وRiverpod وBloc",
+    "en": "Provider, Riverpod, and Bloc"
+  },
+  "lessons": [
+    "01-why-app-state.json",
+    "02-provider.json",
+    "03-riverpod.json",
+    "04-bloc-idea.json"
+  ]
+}

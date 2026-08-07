@@ -51,7 +51,7 @@ function OptionCards({
   const locale = useLocale() as Locale;
 
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
+    <div className="wizard-options-grid">
       {options.map((opt, i) => (
         <button
           key={opt.id}
@@ -59,18 +59,12 @@ function OptionCards({
           disabled={disabled}
           onClick={() => onSelect(opt.id)}
           style={animate ? { animationDelay: `${80 + i * 55}ms` } : undefined}
-          className={`${animate ? "wizard-card" : "rounded-[0.9rem]"} border px-4 py-4 text-start transition-all duration-300 ${
-            selected === opt.id
-              ? "border-accent bg-accent/10 shadow-[0_0_0_1px_rgba(217,119,6,0.35)]"
-              : "border-line bg-bg-elevated/40 hover:-translate-y-0.5 hover:border-accent/50 hover:bg-bg-elevated"
-          } disabled:pointer-events-none disabled:opacity-60`}
+          className={`wizard-option-card ${animate ? "wizard-card" : ""} ${
+            selected === opt.id ? "is-selected" : ""
+          }`}
         >
-          <p className="font-[family-name:var(--font-display)] text-lg">
-            {locText(opt.title, locale)}
-          </p>
-          <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-            {locText(opt.summary, locale)}
-          </p>
+          <p className="wizard-option-title">{locText(opt.title, locale)}</p>
+          <p className="wizard-option-summary">{locText(opt.summary, locale)}</p>
         </button>
       ))}
     </div>
@@ -216,18 +210,22 @@ export function RoadmapWizard({
   const busy = phase === "out";
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-      <BrandLogo size={48} className="border border-line" />
-      <h1 className="mt-6 font-[family-name:var(--font-display)] text-3xl sm:text-4xl">
-        {t("title")}
-      </h1>
-      <p className="mt-2 text-ink-muted">{t("subtitle")}</p>
+    <div className="ay-page wizard-shell">
+      <div className="ay-page-ambient" aria-hidden />
+
+      <div className="wizard-layout">
+      <header className="wizard-hero page-hero">
+        <BrandLogo size={48} className="border border-line" />
+        <h1 className="page-title !mt-5">{t("title")}</h1>
+        <p className="page-sub">{t("subtitle")}</p>
+        <hr className="page-hero-rule" />
+      </header>
 
       <nav
-        className="wizard-steps mt-8"
+        className="wizard-steps"
         aria-label={t("step", { n: currentN, total: steps.length })}
       >
-        <ol className="flex w-full items-center">
+        <ol className="wizard-steps-track">
           {steps.map((s, i) => {
             const n = i + 1;
             const done = n < currentN;
@@ -243,17 +241,11 @@ export function RoadmapWizard({
             return (
               <li
                 key={s}
-                className={`flex items-center ${i < steps.length - 1 ? "flex-1" : ""}`}
+                className={`wizard-step ${i < steps.length - 1 ? "has-connector" : ""} ${done ? "is-done" : ""} ${active ? "is-active" : ""}`}
               >
-                <div className="flex flex-col items-center">
+                <div className="wizard-step-node">
                   <span
-                    className={`flex h-8 w-8 items-center justify-center rounded-full border text-[0.75rem] font-semibold transition-all duration-400 ${
-                      done
-                        ? "border-teal bg-teal text-[#042f2e]"
-                        : active
-                          ? "border-accent bg-accent/15 text-accent ring-4 ring-accent/15"
-                          : "border-line/80 bg-bg-elevated text-ink-muted"
-                    }`}
+                    className={`wizard-step-dot ${done ? "is-done" : active ? "is-active" : ""}`}
                   >
                     {done ? (
                       <svg
@@ -276,25 +268,17 @@ export function RoadmapWizard({
                     )}
                   </span>
                   <span
-                    className={`mt-2 whitespace-nowrap text-[0.65rem] sm:text-xs ${
-                      active
-                        ? "font-medium text-ink"
-                        : done
-                          ? "text-teal"
-                          : "text-ink-muted"
-                    }`}
+                    className={`wizard-step-label ${active ? "is-active" : done ? "is-done" : ""}`}
                   >
                     {labels[s]}
                   </span>
                 </div>
-                {i < steps.length - 1 && (
+                {i < steps.length - 1 ? (
                   <span
                     aria-hidden
-                    className={`mx-2 mb-5 h-px min-w-[0.75rem] flex-1 transition-colors duration-500 ${
-                      done ? "bg-teal/60" : "bg-line"
-                    }`}
+                    className={`wizard-step-connector ${done ? "is-done" : ""}`}
                   />
-                )}
+                ) : null}
               </li>
             );
           })}
@@ -311,7 +295,7 @@ export function RoadmapWizard({
       >
         {visibleStep === "level" && (
           <>
-            <h2 className="mb-4 text-xl font-medium">{t("pickLevel")}</h2>
+            <h2 className="wizard-panel-title">{t("pickLevel")}</h2>
             <OptionCards
               options={LEVELS}
               selected={level}
@@ -327,7 +311,7 @@ export function RoadmapWizard({
 
         {visibleStep === "field" && (
           <>
-            <h2 className="mb-4 text-xl font-medium">{t("pickField")}</h2>
+            <h2 className="wizard-panel-title">{t("pickField")}</h2>
             <OptionCards
               options={FIELDS}
               selected={field}
@@ -355,7 +339,7 @@ export function RoadmapWizard({
 
         {visibleStep === "language" && field && (
           <>
-            <h2 className="mb-4 text-xl font-medium">{t("pickLanguage")}</h2>
+            <h2 className="wizard-panel-title">{t("pickLanguage")}</h2>
             <OptionCards
               options={languages}
               selected={language}
@@ -380,7 +364,7 @@ export function RoadmapWizard({
 
         {visibleStep === "framework" && (
           <>
-            <h2 className="mb-4 text-xl font-medium">{t("pickFramework")}</h2>
+            <h2 className="wizard-panel-title">{t("pickFramework")}</h2>
             <OptionCards
               options={frameworks}
               selected={framework}
@@ -404,23 +388,23 @@ export function RoadmapWizard({
 
         {visibleStep === "result" && selectedFw && (
           <>
-            <h2 className="mb-2 text-xl font-medium">{t("yourPlan")}</h2>
-            <p className="text-sm text-ink-muted">{t("planHint")}</p>
-            <ol className="mt-6 space-y-2 border-s border-line ps-5">
+            <h2 className="wizard-panel-title">{t("yourPlan")}</h2>
+            <p className="wizard-panel-hint">{t("planHint")}</p>
+            <ol className="wizard-plan-list">
               {selectedFw.trackSequence.map((slug, i) => (
                 <li
                   key={slug}
-                  className={phase === "in" ? "wizard-card text-sm" : "text-sm"}
+                  className={phase === "in" ? "wizard-card wizard-plan-item" : "wizard-plan-item"}
                   style={
                     phase === "in"
                       ? { animationDelay: `${90 + i * 60}ms` }
                       : undefined
                   }
                 >
-                  <span className="font-mono text-accent">
+                  <span className="journey-row-index">
                     {String(i + 1).padStart(2, "0")}
-                  </span>{" "}
-                  {slug}
+                  </span>
+                  <span className="wizard-plan-slug">{slug}</span>
                 </li>
               ))}
             </ol>
@@ -537,6 +521,7 @@ export function RoadmapWizard({
           )}
         </div>
       )}
+      </div>
     </div>
   );
 }

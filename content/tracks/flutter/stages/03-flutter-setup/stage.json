@@ -1,0 +1,17 @@
+{
+  "slug": "03-flutter-setup",
+  "order": 3,
+  "title": {
+    "ar": "إعداد Flutter",
+    "en": "Flutter setup"
+  },
+  "description": {
+    "ar": "الأدوات وأول مشروع",
+    "en": "Tooling and first project"
+  },
+  "lessons": [
+    "01-sdk-tools.json",
+    "02-first-project.json",
+    "03-hot-reload.json"
+  ]
+}

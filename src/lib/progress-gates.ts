@@ -1,23 +1,29 @@
+import { cache } from "react";
 import { prisma } from "@/lib/prisma";
 import { getTrack, getAllLessons, type Track, type Stage } from "@/lib/content";
 
 export const PASS_SCORE = 75;
 
-export async function getCompletedLessonSlugs(userId: string, trackSlug: string) {
-  const rows = await prisma.progress.findMany({
-    where: { userId, trackSlug },
-    select: { lessonSlug: true },
-  });
-  return new Set(rows.map((r) => r.lessonSlug));
-}
+/** Per-request memoization — same (user, track) hit once across learn/exam/dashboard. */
+export const getCompletedLessonSlugs = cache(
+  async (userId: string, trackSlug: string) => {
+    const rows = await prisma.progress.findMany({
+      where: { userId, trackSlug },
+      select: { lessonSlug: true },
+    });
+    return new Set(rows.map((r) => r.lessonSlug));
+  },
+);
 
-export async function getPassedStages(userId: string, trackSlug: string) {
-  const rows = await prisma.examAttempt.findMany({
-    where: { userId, trackSlug, passed: true },
-    select: { stageSlug: true },
-  });
-  return new Set(rows.map((r) => r.stageSlug));
-}
+export const getPassedStages = cache(
+  async (userId: string, trackSlug: string) => {
+    const rows = await prisma.examAttempt.findMany({
+      where: { userId, trackSlug, passed: true },
+      select: { stageSlug: true },
+    });
+    return new Set(rows.map((r) => r.stageSlug));
+  },
+);
 
 export function isLessonUnlocked(
   track: Track,
@@ -68,22 +74,26 @@ export function nextStage(track: Track, stageSlug: string): Stage | null {
   return track.stages[i + 1];
 }
 
-export async function assertCanAccessLesson(
-  userId: string,
-  trackSlug: string,
-  lessonSlug: string,
-) {
-  const track = getTrack(trackSlug);
-  if (!track) return { ok: false as const, reason: "not_found" as const };
-  const [completed, passedStages] = await Promise.all([
-    getCompletedLessonSlugs(userId, trackSlug),
-    getPassedStages(userId, trackSlug),
-  ]);
-  if (!isLessonUnlocked(track, lessonSlug, completed, passedStages)) {
-    return { ok: false as const, reason: "locked" as const, track, completed, passedStages };
-  }
-  return { ok: true as const, track, completed, passedStages };
-}
+export const assertCanAccessLesson = cache(
+  async (userId: string, trackSlug: string, lessonSlug: string) => {
+    const track = getTrack(trackSlug);
+    if (!track) return { ok: false as const, reason: "not_found" as const };
+    const [completed, passedStages] = await Promise.all([
+      getCompletedLessonSlugs(userId, trackSlug),
+      getPassedStages(userId, trackSlug),
+    ]);
+    if (!isLessonUnlocked(track, lessonSlug, completed, passedStages)) {
+      return {
+        ok: false as const,
+        reason: "locked" as const,
+        track,
+        completed,
+        passedStages,
+      };
+    }
+    return { ok: true as const, track, completed, passedStages };
+  },
+);
 
 /** Where the learner should continue: next unlocked lesson, or stage exam. */
 export function getContinueTarget(

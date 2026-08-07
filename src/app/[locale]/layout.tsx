@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 import { SessionProvider } from "@/components/SessionProvider";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SiteFooterGate } from "@/components/SiteFooterGate";
 import { PageTransition } from "@/components/PageTransition";
 import { NavigationProgress } from "@/components/NavigationProgress";
 import { LazyMessenger } from "@/components/LazyMessenger";
@@ -55,7 +56,9 @@ export default async function LocaleLayout({ children, params }: Props) {
           <main className="flex-1">
             <PageTransition>{children}</PageTransition>
           </main>
-          <SiteFooter />
+          <SiteFooterGate>
+            <SiteFooter />
+          </SiteFooterGate>
           <LazyMessenger />
         </div>
       </SessionProvider>

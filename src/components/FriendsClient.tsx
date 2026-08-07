@@ -41,9 +41,9 @@ export function FriendsClient() {
   const load = useCallback(async () => {
     const prefetched = consumeFriendsPrefetch();
     if (prefetched) {
-      setFriends(prefetched.friends || []);
-      setIncoming(prefetched.incoming || []);
-      setOutgoing(prefetched.outgoing || []);
+      setFriends((prefetched.friends as Friend[]) || []);
+      setIncoming((prefetched.incoming as RequestRow[]) || []);
+      setOutgoing((prefetched.outgoing as RequestRow[]) || []);
       setLoaded(true);
       dispatchFriendsBadgeRefresh();
       return;
@@ -122,7 +122,7 @@ export function FriendsClient() {
   }
 
   return (
-    <div className="friends-page">
+    <div className="friends-shell">
       <div className="friends-tabs" role="tablist">
         <button
           type="button"
@@ -153,7 +153,7 @@ export function FriendsClient() {
       </div>
 
       {!loaded ? (
-        <p className="mt-8 text-sm text-ink-muted">{t("loading")}</p>
+        <p className="friends-loading-text">{t("loading")}</p>
       ) : tab === "friends" ? (
         friends.length === 0 ? (
           <p className="friends-empty">{t("emptyFriends")}</p>
@@ -196,7 +196,7 @@ export function FriendsClient() {
         )
       ) : (
         <div className="friends-requests">
-          <section>
+          <section className="friends-requests-section">
             <h2 className="friends-section-title">{t("incoming")}</h2>
             {incoming.length === 0 ? (
               <p className="friends-empty-inline">{t("emptyIncoming")}</p>
@@ -242,7 +242,7 @@ export function FriendsClient() {
             )}
           </section>
 
-          <section className="mt-8">
+          <section className="friends-requests-section">
             <h2 className="friends-section-title">{t("outgoing")}</h2>
             {outgoing.length === 0 ? (
               <p className="friends-empty-inline">{t("emptyOutgoing")}</p>

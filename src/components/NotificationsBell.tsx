@@ -53,11 +53,15 @@ export function NotificationsBell() {
   const { socket } = useRealtimeSocket();
 
   const load = useCallback(async () => {
-    const res = await fetch("/api/notifications");
-    if (!res.ok) return;
-    const data = await res.json().catch(() => ({}));
-    setUnread(data.unread || 0);
-    setItems(data.notifications || []);
+    try {
+      const res = await fetch("/api/notifications");
+      if (!res.ok) return;
+      const data = await res.json().catch(() => ({}));
+      setUnread(data.unread || 0);
+      setItems(data.notifications || []);
+    } catch {
+      // Server briefly unavailable (HMR / restart).
+    }
   }, []);
 
   useEffect(() => {

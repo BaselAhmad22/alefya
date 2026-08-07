@@ -25,16 +25,23 @@ export async function GET(request: Request) {
     }),
   ]);
 
-  return NextResponse.json({
-    unread,
-    notifications: rows.map((n) => ({
-      id: n.id,
-      type: n.type,
-      payload: JSON.parse(n.payloadJson || "{}") as Record<string, unknown>,
-      readAt: n.readAt,
-      createdAt: n.createdAt,
-    })),
-  });
+  return NextResponse.json(
+    {
+      unread,
+      notifications: rows.map((n) => ({
+        id: n.id,
+        type: n.type,
+        payload: JSON.parse(n.payloadJson || "{}") as Record<string, unknown>,
+        readAt: n.readAt,
+        createdAt: n.createdAt,
+      })),
+    },
+    {
+      headers: {
+        "Cache-Control": "private, max-age=10, stale-while-revalidate=20",
+      },
+    },
+  );
 }
 
 const patchSchema = z.object({

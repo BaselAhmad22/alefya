@@ -14,14 +14,18 @@ export function MessagesNavLink() {
   const { socket } = useRealtimeSocket();
 
   const load = useCallback(async () => {
-    const res = await fetch("/api/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "unread-count" }),
-    });
-    if (!res.ok) return;
-    const data = await res.json().catch(() => ({}));
-    setCount(Number(data.unreadMessages) || 0);
+    try {
+      const res = await fetch("/api/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "unread-count" }),
+      });
+      if (!res.ok) return;
+      const data = await res.json().catch(() => ({}));
+      setCount(Number(data.unreadMessages) || 0);
+    } catch {
+      // Server briefly unavailable (HMR / restart) — keep last count.
+    }
   }, []);
 
   useEffect(() => {

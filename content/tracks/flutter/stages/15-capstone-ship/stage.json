@@ -1,0 +1,18 @@
+{
+  "slug": "15-capstone-ship",
+  "order": 15,
+  "title": {
+    "ar": "مشروع وتسليم",
+    "en": "Capstone & shipping"
+  },
+  "description": {
+    "ar": "من الفكرة إلى المتجر",
+    "en": "From idea to store"
+  },
+  "lessons": [
+    "01-architecture.json",
+    "02-capstone-screens.json",
+    "03-build-release.json",
+    "04-store-checklist.json"
+  ]
+}

@@ -39,7 +39,7 @@ export function LessonActions({
 
   if (completed) {
     return (
-      <span className="inline-flex h-9 items-center gap-2 rounded-full border border-teal/35 px-3.5 text-sm font-medium text-teal">
+      <span className="lesson-complete-badge">
         <svg
           width="14"
           height="14"
@@ -67,7 +67,7 @@ export function LessonActions({
       type="button"
       onClick={() => void mark()}
       disabled={loading}
-      className="inline-flex h-9 shrink-0 items-center rounded-[var(--radius)] bg-accent px-3.5 text-sm font-medium text-[#fff7ed] transition-opacity hover:opacity-90 disabled:opacity-50"
+      className="btn-primary lesson-mark-btn disabled:opacity-50"
     >
       {loading ? "…" : t("markComplete")}
     </button>

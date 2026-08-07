@@ -1,0 +1,1320 @@
+{
+  "trackSlug": "hr-classic",
+  "count": 22,
+  "questions": [
+    {
+      "id": "hr-classic:about-you:v1",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "self-intro",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Tell me about yourself.",
+        "ar": "عرّف بنفسك."
+      },
+      "options": {
+        "en": [
+          "Read resume line by line.",
+          "No link to this job.",
+          "Life story from childhood.",
+          "Present → relevant past → why this role/company → 2 min max."
+        ],
+        "ar": [
+          "اقرأ CV سطراً سطراً.",
+          "لا رابط بالوظيفة.",
+          "قصة حياة من الطفولة.",
+          "حاضر → ماضٍ relevant → لماذا هذا الدور → دقيقتان."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Opening question sets structure and relevance.",
+        "ar": "الافتتاحية تضبط الهيكل."
+      },
+      "recruiterIntent": {
+        "en": "Communication and focus.",
+        "ar": "تواصل وتركيز."
+      },
+      "modelAnswer": {
+        "en": "I'm a [role] with X years in [domain]. Recently I [achievement]. I'm here because [company mission + role fit].",
+        "ar": "أنا [role] بـ X سنوات في [domain]. مؤخراً [achievement]. هنا لأن [mission + fit]."
+      },
+      "redFlags": {
+        "en": [
+          "Too long",
+          "Irrelevant"
+        ],
+        "ar": [
+          "طويل",
+          "غير relevant"
+        ]
+      },
+      "passTip": {
+        "en": "End with why you're excited for THIS role.",
+        "ar": "اختم بحماس لهذا الدور."
+      },
+      "explanation": {
+        "en": "Pitch = relevance not autobiography.",
+        "ar": "Pitch = relevance."
+      },
+      "improvement": {
+        "en": "Record 2-min answer.",
+        "ar": "سجّل دقيقتين."
+      }
+    },
+    {
+      "id": "hr-classic:about-you:v2",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "self-intro",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Walk me through your background.",
+        "ar": "مرّ على خلفيتك."
+      },
+      "options": {
+        "en": [
+          "Present → relevant past → why this role/company → 2 min max.",
+          "No link to this job.",
+          "Read resume line by line.",
+          "Life story from childhood."
+        ],
+        "ar": [
+          "حاضر → ماضٍ relevant → لماذا هذا الدور → دقيقتان.",
+          "لا رابط بالوظيفة.",
+          "اقرأ CV سطراً سطراً.",
+          "قصة حياة من الطفولة."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Opening question sets structure and relevance.",
+        "ar": "الافتتاحية تضبط الهيكل."
+      },
+      "recruiterIntent": {
+        "en": "Communication and focus.",
+        "ar": "تواصل وتركيز."
+      },
+      "modelAnswer": {
+        "en": "I'm a [role] with X years in [domain]. Recently I [achievement]. I'm here because [company mission + role fit].",
+        "ar": "أنا [role] بـ X سنوات في [domain]. مؤخراً [achievement]. هنا لأن [mission + fit]."
+      },
+      "redFlags": {
+        "en": [
+          "Too long",
+          "Irrelevant"
+        ],
+        "ar": [
+          "طويل",
+          "غير relevant"
+        ]
+      },
+      "passTip": {
+        "en": "End with why you're excited for THIS role.",
+        "ar": "اختم بحماس لهذا الدور."
+      },
+      "explanation": {
+        "en": "Pitch = relevance not autobiography.",
+        "ar": "Pitch = relevance."
+      },
+      "improvement": {
+        "en": "Record 2-min answer.",
+        "ar": "سجّل دقيقتين."
+      }
+    },
+    {
+      "id": "hr-classic:about-you:v3",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "self-intro",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Give me your two-minute pitch.",
+        "ar": "اعطني pitch دقيقتين."
+      },
+      "options": {
+        "en": [
+          "Life story from childhood.",
+          "No link to this job.",
+          "Present → relevant past → why this role/company → 2 min max.",
+          "Read resume line by line."
+        ],
+        "ar": [
+          "قصة حياة من الطفولة.",
+          "لا رابط بالوظيفة.",
+          "حاضر → ماضٍ relevant → لماذا هذا الدور → دقيقتان.",
+          "اقرأ CV سطراً سطراً."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Opening question sets structure and relevance.",
+        "ar": "الافتتاحية تضبط الهيكل."
+      },
+      "recruiterIntent": {
+        "en": "Communication and focus.",
+        "ar": "تواصل وتركيز."
+      },
+      "modelAnswer": {
+        "en": "I'm a [role] with X years in [domain]. Recently I [achievement]. I'm here because [company mission + role fit].",
+        "ar": "أنا [role] بـ X سنوات في [domain]. مؤخراً [achievement]. هنا لأن [mission + fit]."
+      },
+      "redFlags": {
+        "en": [
+          "Too long",
+          "Irrelevant"
+        ],
+        "ar": [
+          "طويل",
+          "غير relevant"
+        ]
+      },
+      "passTip": {
+        "en": "End with why you're excited for THIS role.",
+        "ar": "اختم بحماس لهذا الدور."
+      },
+      "explanation": {
+        "en": "Pitch = relevance not autobiography.",
+        "ar": "Pitch = relevance."
+      },
+      "improvement": {
+        "en": "Record 2-min answer.",
+        "ar": "سجّل دقيقتين."
+      }
+    },
+    {
+      "id": "hr-classic:about-you:v4",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "self-intro",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "How would you summarize your career so far?",
+        "ar": "لخّص مسيرتك؟"
+      },
+      "options": {
+        "en": [
+          "Present → relevant past → why this role/company → 2 min max.",
+          "Read resume line by line.",
+          "Life story from childhood.",
+          "No link to this job."
+        ],
+        "ar": [
+          "حاضر → ماضٍ relevant → لماذا هذا الدور → دقيقتان.",
+          "اقرأ CV سطراً سطراً.",
+          "قصة حياة من الطفولة.",
+          "لا رابط بالوظيفة."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Opening question sets structure and relevance.",
+        "ar": "الافتتاحية تضبط الهيكل."
+      },
+      "recruiterIntent": {
+        "en": "Communication and focus.",
+        "ar": "تواصل وتركيز."
+      },
+      "modelAnswer": {
+        "en": "I'm a [role] with X years in [domain]. Recently I [achievement]. I'm here because [company mission + role fit].",
+        "ar": "أنا [role] بـ X سنوات في [domain]. مؤخراً [achievement]. هنا لأن [mission + fit]."
+      },
+      "redFlags": {
+        "en": [
+          "Too long",
+          "Irrelevant"
+        ],
+        "ar": [
+          "طويل",
+          "غير relevant"
+        ]
+      },
+      "passTip": {
+        "en": "End with why you're excited for THIS role.",
+        "ar": "اختم بحماس لهذا الدور."
+      },
+      "explanation": {
+        "en": "Pitch = relevance not autobiography.",
+        "ar": "Pitch = relevance."
+      },
+      "improvement": {
+        "en": "Record 2-min answer.",
+        "ar": "سجّل دقيقتين."
+      }
+    },
+    {
+      "id": "hr-classic:strengths:v1",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "strengths",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "What are your greatest strengths?",
+        "ar": "ما أ greatest strengths؟"
+      },
+      "options": {
+        "en": [
+          "Claim perfection in everything.",
+          "List adjectives without examples.",
+          "Pick 2-3 strengths with brief proof stories tied to job description.",
+          "Strengths unrelated to role."
+        ],
+        "ar": [
+          "كمال في كل شيء.",
+          "صفات بلا أمثلة.",
+          "2-3 strengths مع proof م tied لـ JD.",
+          "strengths غير م related."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Tests self-awareness and role fit.",
+        "ar": "وعي ذاتي و fit."
+      },
+      "recruiterIntent": {
+        "en": "Value proposition.",
+        "ar": "value proposition."
+      },
+      "modelAnswer": {
+        "en": "Strength: systematic debugging. Proof: reduced MTTR 40%. Strength: cross-team communication — shipped X with design/legal.",
+        "ar": "Strength: debugging — MTTR -40%. Strength: cross-team — shipped X."
+      },
+      "redFlags": {
+        "en": [
+          "Humble brag overload"
+        ],
+        "ar": [
+          " humble brag"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Proof beats adjectives.",
+        "ar": "Proof أفضل."
+      },
+      "improvement": {
+        "en": "Map strengths to JD bullets.",
+        "ar": "اربط strengths بـ JD."
+      }
+    },
+    {
+      "id": "hr-classic:strengths:v2",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "strengths",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Why should we hire you?",
+        "ar": "لماذا نوظّفك؟"
+      },
+      "options": {
+        "en": [
+          "Claim perfection in everything.",
+          "Strengths unrelated to role.",
+          "List adjectives without examples.",
+          "Pick 2-3 strengths with brief proof stories tied to job description."
+        ],
+        "ar": [
+          "كمال في كل شيء.",
+          "strengths غير م related.",
+          "صفات بلا أمثلة.",
+          "2-3 strengths مع proof م tied لـ JD."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Tests self-awareness and role fit.",
+        "ar": "وعي ذاتي و fit."
+      },
+      "recruiterIntent": {
+        "en": "Value proposition.",
+        "ar": "value proposition."
+      },
+      "modelAnswer": {
+        "en": "Strength: systematic debugging. Proof: reduced MTTR 40%. Strength: cross-team communication — shipped X with design/legal.",
+        "ar": "Strength: debugging — MTTR -40%. Strength: cross-team — shipped X."
+      },
+      "redFlags": {
+        "en": [
+          "Humble brag overload"
+        ],
+        "ar": [
+          " humble brag"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Proof beats adjectives.",
+        "ar": "Proof أفضل."
+      },
+      "improvement": {
+        "en": "Map strengths to JD bullets.",
+        "ar": "اربط strengths بـ JD."
+      }
+    },
+    {
+      "id": "hr-classic:strengths:v3",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "strengths",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "What makes you stand out?",
+        "ar": "ما يميزك؟"
+      },
+      "options": {
+        "en": [
+          "Pick 2-3 strengths with brief proof stories tied to job description.",
+          "Strengths unrelated to role.",
+          "Claim perfection in everything.",
+          "List adjectives without examples."
+        ],
+        "ar": [
+          "2-3 strengths مع proof م tied لـ JD.",
+          "strengths غير م related.",
+          "كمال في كل شيء.",
+          "صفات بلا أمثلة."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Tests self-awareness and role fit.",
+        "ar": "وعي ذاتي و fit."
+      },
+      "recruiterIntent": {
+        "en": "Value proposition.",
+        "ar": "value proposition."
+      },
+      "modelAnswer": {
+        "en": "Strength: systematic debugging. Proof: reduced MTTR 40%. Strength: cross-team communication — shipped X with design/legal.",
+        "ar": "Strength: debugging — MTTR -40%. Strength: cross-team — shipped X."
+      },
+      "redFlags": {
+        "en": [
+          "Humble brag overload"
+        ],
+        "ar": [
+          " humble brag"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Proof beats adjectives.",
+        "ar": "Proof أفضل."
+      },
+      "improvement": {
+        "en": "Map strengths to JD bullets.",
+        "ar": "اربط strengths بـ JD."
+      }
+    },
+    {
+      "id": "hr-classic:strengths:v4",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "strengths",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Top three strengths for this role?",
+        "ar": "أ top 3 strengths لهذا الدور؟"
+      },
+      "options": {
+        "en": [
+          "List adjectives without examples.",
+          "Pick 2-3 strengths with brief proof stories tied to job description.",
+          "Strengths unrelated to role.",
+          "Claim perfection in everything."
+        ],
+        "ar": [
+          "صفات بلا أمثلة.",
+          "2-3 strengths مع proof م tied لـ JD.",
+          "strengths غير م related.",
+          "كمال في كل شيء."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Tests self-awareness and role fit.",
+        "ar": "وعي ذاتي و fit."
+      },
+      "recruiterIntent": {
+        "en": "Value proposition.",
+        "ar": "value proposition."
+      },
+      "modelAnswer": {
+        "en": "Strength: systematic debugging. Proof: reduced MTTR 40%. Strength: cross-team communication — shipped X with design/legal.",
+        "ar": "Strength: debugging — MTTR -40%. Strength: cross-team — shipped X."
+      },
+      "redFlags": {
+        "en": [
+          "Humble brag overload"
+        ],
+        "ar": [
+          " humble brag"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Proof beats adjectives.",
+        "ar": "Proof أفضل."
+      },
+      "improvement": {
+        "en": "Map strengths to JD bullets.",
+        "ar": "اربط strengths بـ JD."
+      }
+    },
+    {
+      "id": "hr-classic:weakness:v1",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "weakness",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "What's your greatest weakness?",
+        "ar": "ما greatest weakness؟"
+      },
+      "options": {
+        "en": [
+          "I have no weaknesses.",
+          "Fatal flaw for this job.",
+          "Disguised strength only.",
+          "Real weakness (not fatal to role), actions taken, progress — not 'I'm a perfectionist'."
+        ],
+        "ar": [
+          "لا weaknesses.",
+          "fatal flaw.",
+          "strength متنكر.",
+          "weakness حقيقي (ليس fatal)، actions، progress."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Honesty and growth signal.",
+        "ar": "صدق ونمو."
+      },
+      "recruiterIntent": {
+        "en": "Self-awareness.",
+        "ar": "وعي ذاتي."
+      },
+      "modelAnswer": {
+        "en": "Weakness: delegating early. Action: weekly check-ins, RACI on projects. Progress: last project I led 3 workstreams without bottleneck.",
+        "ar": "Weakness: delegation. Action: check-ins, RACI. Progress: 3 workstreams."
+      },
+      "redFlags": {
+        "en": [
+          "Fake weakness"
+        ],
+        "ar": [
+          "weakness مزيف"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Growth story required.",
+        "ar": "قصة نمو."
+      },
+      "improvement": {
+        "en": "Pick non-fatal weakness.",
+        "ar": "weakness non-fatal."
+      }
+    },
+    {
+      "id": "hr-classic:weakness:v2",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "weakness",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "What would your manager say you should improve?",
+        "ar": "ماذا يقول مديرك تحسّن؟"
+      },
+      "options": {
+        "en": [
+          "Disguised strength only.",
+          "Fatal flaw for this job.",
+          "Real weakness (not fatal to role), actions taken, progress — not 'I'm a perfectionist'.",
+          "I have no weaknesses."
+        ],
+        "ar": [
+          "strength متنكر.",
+          "fatal flaw.",
+          "weakness حقيقي (ليس fatal)، actions، progress.",
+          "لا weaknesses."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Honesty and growth signal.",
+        "ar": "صدق ونمو."
+      },
+      "recruiterIntent": {
+        "en": "Self-awareness.",
+        "ar": "وعي ذاتي."
+      },
+      "modelAnswer": {
+        "en": "Weakness: delegating early. Action: weekly check-ins, RACI on projects. Progress: last project I led 3 workstreams without bottleneck.",
+        "ar": "Weakness: delegation. Action: check-ins, RACI. Progress: 3 workstreams."
+      },
+      "redFlags": {
+        "en": [
+          "Fake weakness"
+        ],
+        "ar": [
+          "weakness مزيف"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Growth story required.",
+        "ar": "قصة نمو."
+      },
+      "improvement": {
+        "en": "Pick non-fatal weakness.",
+        "ar": "weakness non-fatal."
+      }
+    },
+    {
+      "id": "hr-classic:weakness:v3",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "weakness",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Area you're actively working on?",
+        "ar": "مجال تعمل عليه؟"
+      },
+      "options": {
+        "en": [
+          "Fatal flaw for this job.",
+          "Real weakness (not fatal to role), actions taken, progress — not 'I'm a perfectionist'.",
+          "I have no weaknesses.",
+          "Disguised strength only."
+        ],
+        "ar": [
+          "fatal flaw.",
+          "weakness حقيقي (ليس fatal)، actions، progress.",
+          "لا weaknesses.",
+          "strength متنكر."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Honesty and growth signal.",
+        "ar": "صدق ونمو."
+      },
+      "recruiterIntent": {
+        "en": "Self-awareness.",
+        "ar": "وعي ذاتي."
+      },
+      "modelAnswer": {
+        "en": "Weakness: delegating early. Action: weekly check-ins, RACI on projects. Progress: last project I led 3 workstreams without bottleneck.",
+        "ar": "Weakness: delegation. Action: check-ins, RACI. Progress: 3 workstreams."
+      },
+      "redFlags": {
+        "en": [
+          "Fake weakness"
+        ],
+        "ar": [
+          "weakness مزيف"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Growth story required.",
+        "ar": "قصة نمو."
+      },
+      "improvement": {
+        "en": "Pick non-fatal weakness.",
+        "ar": "weakness non-fatal."
+      }
+    },
+    {
+      "id": "hr-classic:weakness:v4",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "weakness",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Feedback you've implemented?",
+        "ar": "feedback طبّقته؟"
+      },
+      "options": {
+        "en": [
+          "Real weakness (not fatal to role), actions taken, progress — not 'I'm a perfectionist'.",
+          "I have no weaknesses.",
+          "Disguised strength only.",
+          "Fatal flaw for this job."
+        ],
+        "ar": [
+          "weakness حقيقي (ليس fatal)، actions، progress.",
+          "لا weaknesses.",
+          "strength متنكر.",
+          "fatal flaw."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Honesty and growth signal.",
+        "ar": "صدق ونمو."
+      },
+      "recruiterIntent": {
+        "en": "Self-awareness.",
+        "ar": "وعي ذاتي."
+      },
+      "modelAnswer": {
+        "en": "Weakness: delegating early. Action: weekly check-ins, RACI on projects. Progress: last project I led 3 workstreams without bottleneck.",
+        "ar": "Weakness: delegation. Action: check-ins, RACI. Progress: 3 workstreams."
+      },
+      "redFlags": {
+        "en": [
+          "Fake weakness"
+        ],
+        "ar": [
+          "weakness مزيف"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Growth story required.",
+        "ar": "قصة نمو."
+      },
+      "improvement": {
+        "en": "Pick non-fatal weakness.",
+        "ar": "weakness non-fatal."
+      }
+    },
+    {
+      "id": "hr-classic:why-leave:v1",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "career-move",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Why are you leaving your current job?",
+        "ar": "لماذا تترك وظيفتك؟"
+      },
+      "options": {
+        "en": [
+          "Forward-looking: growth, impact, alignment — never badmouth employer.",
+          "Money only as first reason.",
+          "Trash talk boss/company.",
+          "Vague 'new challenges'."
+        ],
+        "ar": [
+          "forward-looking: نمو، impact — لا badmouth.",
+          "مال فقط.",
+          "badmouth.",
+          "تحديات غامضة."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Red flag check on attitude and stability.",
+        "ar": "red flags."
+      },
+      "recruiterIntent": {
+        "en": "Motivation and professionalism.",
+        "ar": "motivation."
+      },
+      "modelAnswer": {
+        "en": "I've learned X at [company]. I'm seeking [specific growth] that this role offers — [team/product/mission].",
+        "ar": "تعلمت X في [company]. أseek [growth] which this role offers."
+      },
+      "redFlags": {
+        "en": [
+          "Bitter",
+          "Job hopper vague"
+        ],
+        "ar": [
+          "مر",
+          "hopper"
+        ]
+      },
+      "passTip": {
+        "en": "Stay positive — HR screens attitude.",
+        "ar": "إيجابي — HR يفحص attitude."
+      },
+      "explanation": {
+        "en": "Pull toward new role not push away angry.",
+        "ar": "pull not push angry."
+      },
+      "improvement": {
+        "en": "Write 3 forward reasons.",
+        "ar": "3 أسباب forward."
+      }
+    },
+    {
+      "id": "hr-classic:why-leave:v2",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "career-move",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Why did you leave your last role?",
+        "ar": "لماذا تركت آخر دور؟"
+      },
+      "options": {
+        "en": [
+          "Trash talk boss/company.",
+          "Vague 'new challenges'.",
+          "Money only as first reason.",
+          "Forward-looking: growth, impact, alignment — never badmouth employer."
+        ],
+        "ar": [
+          "badmouth.",
+          "تحديات غامضة.",
+          "مال فقط.",
+          "forward-looking: نمو، impact — لا badmouth."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Red flag check on attitude and stability.",
+        "ar": "red flags."
+      },
+      "recruiterIntent": {
+        "en": "Motivation and professionalism.",
+        "ar": "motivation."
+      },
+      "modelAnswer": {
+        "en": "I've learned X at [company]. I'm seeking [specific growth] that this role offers — [team/product/mission].",
+        "ar": "تعلمت X في [company]. أseek [growth] which this role offers."
+      },
+      "redFlags": {
+        "en": [
+          "Bitter",
+          "Job hopper vague"
+        ],
+        "ar": [
+          "مر",
+          "hopper"
+        ]
+      },
+      "passTip": {
+        "en": "Stay positive — HR screens attitude.",
+        "ar": "إيجابي — HR يفحص attitude."
+      },
+      "explanation": {
+        "en": "Pull toward new role not push away angry.",
+        "ar": "pull not push angry."
+      },
+      "improvement": {
+        "en": "Write 3 forward reasons.",
+        "ar": "3 أسباب forward."
+      }
+    },
+    {
+      "id": "hr-classic:why-leave:v3",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "career-move",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "What's missing in your current position?",
+        "ar": "ما الناقص في وظيفتك؟"
+      },
+      "options": {
+        "en": [
+          "Money only as first reason.",
+          "Vague 'new challenges'.",
+          "Forward-looking: growth, impact, alignment — never badmouth employer.",
+          "Trash talk boss/company."
+        ],
+        "ar": [
+          "مال فقط.",
+          "تحديات غامضة.",
+          "forward-looking: نمو، impact — لا badmouth.",
+          "badmouth."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Red flag check on attitude and stability.",
+        "ar": "red flags."
+      },
+      "recruiterIntent": {
+        "en": "Motivation and professionalism.",
+        "ar": "motivation."
+      },
+      "modelAnswer": {
+        "en": "I've learned X at [company]. I'm seeking [specific growth] that this role offers — [team/product/mission].",
+        "ar": "تعلمت X في [company]. أseek [growth] which this role offers."
+      },
+      "redFlags": {
+        "en": [
+          "Bitter",
+          "Job hopper vague"
+        ],
+        "ar": [
+          "مر",
+          "hopper"
+        ]
+      },
+      "passTip": {
+        "en": "Stay positive — HR screens attitude.",
+        "ar": "إيجابي — HR يفحص attitude."
+      },
+      "explanation": {
+        "en": "Pull toward new role not push away angry.",
+        "ar": "pull not push angry."
+      },
+      "improvement": {
+        "en": "Write 3 forward reasons.",
+        "ar": "3 أسباب forward."
+      }
+    },
+    {
+      "id": "hr-classic:why-leave:v4",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "career-move",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "What prompted your job search?",
+        "ar": "ما دفعك للبحث؟"
+      },
+      "options": {
+        "en": [
+          "Vague 'new challenges'.",
+          "Forward-looking: growth, impact, alignment — never badmouth employer.",
+          "Trash talk boss/company.",
+          "Money only as first reason."
+        ],
+        "ar": [
+          "تحديات غامضة.",
+          "forward-looking: نمو، impact — لا badmouth.",
+          "badmouth.",
+          "مال فقط."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Red flag check on attitude and stability.",
+        "ar": "red flags."
+      },
+      "recruiterIntent": {
+        "en": "Motivation and professionalism.",
+        "ar": "motivation."
+      },
+      "modelAnswer": {
+        "en": "I've learned X at [company]. I'm seeking [specific growth] that this role offers — [team/product/mission].",
+        "ar": "تعلمت X في [company]. أseek [growth] which this role offers."
+      },
+      "redFlags": {
+        "en": [
+          "Bitter",
+          "Job hopper vague"
+        ],
+        "ar": [
+          "مر",
+          "hopper"
+        ]
+      },
+      "passTip": {
+        "en": "Stay positive — HR screens attitude.",
+        "ar": "إيجابي — HR يفحص attitude."
+      },
+      "explanation": {
+        "en": "Pull toward new role not push away angry.",
+        "ar": "pull not push angry."
+      },
+      "improvement": {
+        "en": "Write 3 forward reasons.",
+        "ar": "3 أسباب forward."
+      }
+    },
+    {
+      "id": "hr-classic:gap:v1",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "employment-gap",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Explain this gap in your resume.",
+        "ar": "اشرح فجوة في CV."
+      },
+      "options": {
+        "en": [
+          "Brief honest reason + productive use of time + readiness now.",
+          "Lie about dates.",
+          "Over-share personal trauma.",
+          "Blame economy only."
+        ],
+        "ar": [
+          "سبب صادق + استخدام productive + جاهزية.",
+          "كذب تواريخ.",
+          "over-share.",
+          "economy فقط."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Consistency and honesty check.",
+        "ar": "صدق."
+      },
+      "recruiterIntent": {
+        "en": "Stability.",
+        "ar": "استقرار."
+      },
+      "modelAnswer": {
+        "en": "I took 4 months for [cert/family/health — brief]. I completed [course/project] and I'm fully available.",
+        "ar": "4 أشهر [سبب]. أكملت [course]. available."
+      },
+      "redFlags": {
+        "en": [
+          "Dishonesty"
+        ],
+        "ar": [
+          "كذب"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Honest + productive gap is fine.",
+        "ar": "gap صادق OK."
+      },
+      "improvement": {
+        "en": "One-line gap script.",
+        "ar": "script gap."
+      }
+    },
+    {
+      "id": "hr-classic:gap:v2",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "employment-gap",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "What did you do between jobs?",
+        "ar": "ماذا فعلت بين وظيفتين؟"
+      },
+      "options": {
+        "en": [
+          "Lie about dates.",
+          "Over-share personal trauma.",
+          "Blame economy only.",
+          "Brief honest reason + productive use of time + readiness now."
+        ],
+        "ar": [
+          "كذب تواريخ.",
+          "over-share.",
+          "economy فقط.",
+          "سبب صادق + استخدام productive + جاهزية."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Consistency and honesty check.",
+        "ar": "صدق."
+      },
+      "recruiterIntent": {
+        "en": "Stability.",
+        "ar": "استقرار."
+      },
+      "modelAnswer": {
+        "en": "I took 4 months for [cert/family/health — brief]. I completed [course/project] and I'm fully available.",
+        "ar": "4 أشهر [سبب]. أكملت [course]. available."
+      },
+      "redFlags": {
+        "en": [
+          "Dishonesty"
+        ],
+        "ar": [
+          "كذب"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Honest + productive gap is fine.",
+        "ar": "gap صادق OK."
+      },
+      "improvement": {
+        "en": "One-line gap script.",
+        "ar": "script gap."
+      }
+    },
+    {
+      "id": "hr-classic:gap:v3",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "employment-gap",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Why the career break?",
+        "ar": "لماذا career break؟"
+      },
+      "options": {
+        "en": [
+          "Brief honest reason + productive use of time + readiness now.",
+          "Over-share personal trauma.",
+          "Blame economy only.",
+          "Lie about dates."
+        ],
+        "ar": [
+          "سبب صادق + استخدام productive + جاهزية.",
+          "over-share.",
+          "economy فقط.",
+          "كذب تواريخ."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Consistency and honesty check.",
+        "ar": "صدق."
+      },
+      "recruiterIntent": {
+        "en": "Stability.",
+        "ar": "استقرار."
+      },
+      "modelAnswer": {
+        "en": "I took 4 months for [cert/family/health — brief]. I completed [course/project] and I'm fully available.",
+        "ar": "4 أشهر [سبب]. أكملت [course]. available."
+      },
+      "redFlags": {
+        "en": [
+          "Dishonesty"
+        ],
+        "ar": [
+          "كذب"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Honest + productive gap is fine.",
+        "ar": "gap صادق OK."
+      },
+      "improvement": {
+        "en": "One-line gap script.",
+        "ar": "script gap."
+      }
+    },
+    {
+      "id": "hr-classic:gap:v4",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "entry",
+      "competency": "employment-gap",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Six-month gap — what happened?",
+        "ar": "فجوة 6 أشهر؟"
+      },
+      "options": {
+        "en": [
+          "Lie about dates.",
+          "Brief honest reason + productive use of time + readiness now.",
+          "Blame economy only.",
+          "Over-share personal trauma."
+        ],
+        "ar": [
+          "كذب تواريخ.",
+          "سبب صادق + استخدام productive + جاهزية.",
+          "economy فقط.",
+          "over-share."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Consistency and honesty check.",
+        "ar": "صدق."
+      },
+      "recruiterIntent": {
+        "en": "Stability.",
+        "ar": "استقرار."
+      },
+      "modelAnswer": {
+        "en": "I took 4 months for [cert/family/health — brief]. I completed [course/project] and I'm fully available.",
+        "ar": "4 أشهر [سبب]. أكملت [course]. available."
+      },
+      "redFlags": {
+        "en": [
+          "Dishonesty"
+        ],
+        "ar": [
+          "كذب"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Honest + productive gap is fine.",
+        "ar": "gap صادق OK."
+      },
+      "improvement": {
+        "en": "One-line gap script.",
+        "ar": "script gap."
+      }
+    },
+    {
+      "id": "hr-classic:where-5y:v1",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "career-plan",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Where do you see yourself in 5 years?",
+        "ar": "أين ترى نفسك بعد 5 سنوات؟"
+      },
+      "options": {
+        "en": [
+          "Growth aligned with company ladder — not 'your CEO job' or 'don't know'.",
+          "I want your job.",
+          "No ambition.",
+          "Unrelated dream career."
+        ],
+        "ar": [
+          "نمو aligned مع ladder الشركة.",
+          "أريد وظيفتك.",
+          "لا ambition.",
+          "حلم unrelated."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Retention and ambition calibration.",
+        "ar": "retention."
+      },
+      "recruiterIntent": {
+        "en": "Alignment.",
+        "ar": "alignment."
+      },
+      "modelAnswer": {
+        "en": "Deepen as [role], lead larger scope, mentor — paths I see here based on [team growth].",
+        "ar": "تعمق [role]، scope أكبر، mentor — paths هنا."
+      },
+      "redFlags": {
+        "en": [
+          "Misaligned"
+        ],
+        "ar": [
+          "misaligned"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Show commitment to craft.",
+        "ar": "commitment."
+      },
+      "improvement": {
+        "en": "Research company career paths.",
+        "ar": "research paths."
+      }
+    },
+    {
+      "id": "hr-classic:where-5y:v2",
+      "trackSlug": "hr-classic",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "career-plan",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Long-term career goals?",
+        "ar": "أهداف طويلة؟"
+      },
+      "options": {
+        "en": [
+          "I want your job.",
+          "Unrelated dream career.",
+          "No ambition.",
+          "Growth aligned with company ladder — not 'your CEO job' or 'don't know'."
+        ],
+        "ar": [
+          "أريد وظيفتك.",
+          "حلم unrelated.",
+          "لا ambition.",
+          "نمو aligned مع ladder الشركة."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Retention and ambition calibration.",
+        "ar": "retention."
+      },
+      "recruiterIntent": {
+        "en": "Alignment.",
+        "ar": "alignment."
+      },
+      "modelAnswer": {
+        "en": "Deepen as [role], lead larger scope, mentor — paths I see here based on [team growth].",
+        "ar": "تعمق [role]، scope أكبر، mentor — paths هنا."
+      },
+      "redFlags": {
+        "en": [
+          "Misaligned"
+        ],
+        "ar": [
+          "misaligned"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Show commitment to craft.",
+        "ar": "commitment."
+      },
+      "improvement": {
+        "en": "Research company career paths.",
+        "ar": "research paths."
+      }
+    }
+  ]
+}

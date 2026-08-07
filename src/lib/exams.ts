@@ -74,7 +74,13 @@ export function topicOverlap(a: string, b: string) {
   return hit / tb.length;
 }
 
+const examBankCache = new Map<string, ExamQuestion[]>();
+
 function buildBank(track: Track, stage: Stage): ExamQuestion[] {
+  const cacheKey = `${track.slug}:${stage.slug}`;
+  const cached = examBankCache.get(cacheKey);
+  if (cached) return cached;
+
   const bank: ExamQuestion[] = [];
   for (const lesson of stage.lessons) {
     const topic = `${lesson.slug} ${lesson.title.en} ${lesson.title.ar}`;
@@ -386,6 +392,7 @@ function buildBank(track: Track, stage: Stage): ExamQuestion[] {
     },
   });
 
+  examBankCache.set(cacheKey, bank);
   return bank;
 }
 

@@ -1,0 +1,18 @@
+{
+  "slug": "11-networking",
+  "order": 11,
+  "title": {
+    "ar": "الشبكة وJSON",
+    "en": "Networking & JSON"
+  },
+  "description": {
+    "ar": "APIs موثوقة",
+    "en": "Reliable APIs"
+  },
+  "lessons": [
+    "01-http-get.json",
+    "02-json-models.json",
+    "03-error-loading.json",
+    "04-auth-headers.json"
+  ]
+}

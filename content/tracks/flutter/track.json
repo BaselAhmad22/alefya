@@ -6,18 +6,30 @@
     "en": "Flutter"
   },
   "tagline": {
-    "ar": "من Dart حتى تطبيق جوال متعدد المنصات",
-    "en": "From Dart to a cross-platform mobile app"
+    "ar": "من Dart حتى تطبيق جوال جاهز للإطلاق",
+    "en": "From Dart to a shippable cross-platform app"
   },
   "description": {
-    "ar": "مسار Flutter الأشهر عالمياً لبناء iOS وAndroid بقاعدة كود واحدة: Dart، Widgets، الحالة، التنقل، ثم مشروع.",
-    "en": "The world's most popular path for one codebase on iOS & Android: Dart, widgets, state, navigation, then a project."
+    "ar": "مسار Flutter الكامل: Dart، Widgets، التخطيط، التنقل، الحالة، الشبكة، التخزين، الرسوم، الاختبار، ثم مشروع تسليم.",
+    "en": "A complete Flutter path: Dart, widgets, layout, navigation, state, networking, storage, animation, testing, then a shippable project."
   },
   "color": "#02569B",
-  "estimatedHours": 100,
+  "estimatedHours": 180,
   "stages": [
-    "01-dart",
-    "02-widgets",
-    "03-state-project"
+    "01-dart-foundations",
+    "02-dart-oop-async",
+    "03-flutter-setup",
+    "04-widgets-basics",
+    "05-layout-responsive",
+    "06-material-theming",
+    "07-navigation",
+    "08-forms-input",
+    "09-local-state",
+    "10-app-state",
+    "11-networking",
+    "12-persistence",
+    "13-animation-gesture",
+    "14-testing-devtools",
+    "15-capstone-ship"
   ]
 }

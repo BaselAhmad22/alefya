@@ -274,10 +274,11 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
 
   return (
     <div className="profile-page">
-      <header className="profile-header">
-        <p className="profile-kicker">AlefYa</p>
-        <h1 className="profile-title">{t("title")}</h1>
-        <p className="profile-sub">{t("subtitle")}</p>
+      <header className="page-hero profile-header">
+        <p className="page-kicker">AlefYa</p>
+        <h1 className="page-title profile-title">{t("title")}</h1>
+        <p className="page-sub profile-sub">{t("subtitle")}</p>
+        <hr className="page-hero-rule" />
       </header>
 
       <div className={`profile-identity ${passwordOpen ? "is-pw-open" : ""}`}>

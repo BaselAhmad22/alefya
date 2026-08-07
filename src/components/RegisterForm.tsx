@@ -142,9 +142,9 @@ export function RegisterForm() {
       brandLine={t("authBrandLine")}
       brandSub={t("authBrandSub")}
     >
-      <form onSubmit={onSubmit} className="space-y-5">
-        <label className="block space-y-2 text-sm">
-          <span className="font-medium text-ink-muted">{t("username")}</span>
+      <form onSubmit={onSubmit} className="auth-form">
+        <label className="auth-field">
+          <span className="auth-label">{t("username")}</span>
           <input
             name="username"
             type="text"
@@ -153,27 +153,27 @@ export function RegisterForm() {
             onChange={(e) => setUsername(e.target.value)}
             className={`auth-input ${
               usernameStatus === "error"
-                ? "!border-danger"
+                ? "is-error"
                 : usernameStatus === "ok"
-                  ? "!border-teal"
+                  ? "is-ok"
                   : ""
             }`}
           />
           {usernameStatus === "checking" && (
-            <p className="text-xs text-ink-muted">{t("usernameChecking")}</p>
+            <p className="auth-hint">{t("usernameChecking")}</p>
           )}
           {usernameStatus === "ok" && (
-            <p className="text-xs text-teal">✓ {t("usernameAvailable")}</p>
+            <p className="auth-hint is-ok">✓ {t("usernameAvailable")}</p>
           )}
           {usernameError && (
-            <p className="text-xs text-danger" role="alert">
+            <p className="auth-hint is-error" role="alert">
               {usernameError}
             </p>
           )}
         </label>
 
-        <label className="block space-y-2 text-sm">
-          <span className="font-medium text-ink-muted">{t("password")}</span>
+        <label className="auth-field">
+          <span className="auth-label">{t("password")}</span>
           <input
             name="password"
             type="password"
@@ -184,25 +184,16 @@ export function RegisterForm() {
           />
         </label>
 
-        <ul className="space-y-2 text-xs">
+        <ul className="auth-pw-rules" aria-live="polite">
           {PASSWORD_RULES.map((key) => {
             const ok = pwMet[key];
             return (
               <li
                 key={key}
-                className={`flex items-center gap-2.5 transition-colors duration-200 ${
-                  ok ? "text-teal" : "text-ink-muted"
-                }`}
+                className={`auth-pw-rule ${ok ? "is-ok" : ""}`}
               >
-                <span
-                  className={`inline-flex h-5 w-5 items-center justify-center rounded-full border text-[10px] transition-all duration-200 ${
-                    ok
-                      ? "scale-100 border-teal bg-teal/20 text-teal"
-                      : "scale-95 border-line text-transparent"
-                  }`}
-                  aria-hidden
-                >
-                  ✓
+                <span className="auth-pw-rule-mark" aria-hidden>
+                  {ok ? "✓" : ""}
                 </span>
                 {issueLabels[key]}
               </li>
@@ -211,10 +202,7 @@ export function RegisterForm() {
         </ul>
 
         {error && (
-          <p
-            role="alert"
-            className="rounded-[var(--radius)] border border-danger/40 bg-danger/10 px-3 py-2 text-sm text-danger"
-          >
+          <p role="alert" className="auth-alert is-error">
             {error}
           </p>
         )}
@@ -222,16 +210,16 @@ export function RegisterForm() {
         <button
           type="submit"
           disabled={!canSubmit}
-          className="btn-primary w-full"
+          className="btn-primary auth-submit"
         >
           {loading ? "…" : t("registerSubmit")}
         </button>
 
-        <p className="text-center text-sm text-ink-muted">
+        <p className="auth-switch">
           {t("hasAccount")}{" "}
           <Link
             href={`/login${searchParams.get("next") ? `?next=${encodeURIComponent(searchParams.get("next")!)}` : ""}`}
-            className="font-medium text-teal transition-colors hover:text-accent"
+            className="auth-switch-link"
           >
             {t("loginSubmit")}
           </Link>

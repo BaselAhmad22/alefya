@@ -1,0 +1,17 @@
+{
+  "slug": "14-testing-devtools",
+  "order": 14,
+  "title": {
+    "ar": "الاختبار والأدوات",
+    "en": "Testing & DevTools"
+  },
+  "description": {
+    "ar": "ثقة قبل الإطلاق",
+    "en": "Confidence before ship"
+  },
+  "lessons": [
+    "01-unit-tests.json",
+    "02-widget-tests.json",
+    "03-devtools.json"
+  ]
+}

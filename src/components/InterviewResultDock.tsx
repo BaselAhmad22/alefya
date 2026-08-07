@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/routing";
 
 type Props = {
@@ -9,6 +8,7 @@ type Props = {
   retryLabel: string;
   backCategoryLabel: string;
   backAllLabel: string;
+  nextLabel: string;
   categorySlug: string;
   onRetry: () => void;
   tone: "strong" | "ok" | "weak";
@@ -20,48 +20,11 @@ export function InterviewResultDock({
   retryLabel,
   backCategoryLabel,
   backAllLabel,
+  nextLabel,
   categorySlug,
   onRetry,
   tone,
 }: Props) {
-  const [visible, setVisible] = useState(false);
-  const [compact, setCompact] = useState(false);
-  const [atEnd, setAtEnd] = useState(false);
-  const lastY = useRef(0);
-  const idleTimer = useRef<number | null>(null);
-
-  useEffect(() => {
-    const raf = window.requestAnimationFrame(() => setVisible(true));
-    lastY.current = window.scrollY;
-
-    const clearIdle = () => {
-      if (idleTimer.current) window.clearTimeout(idleTimer.current);
-      idleTimer.current = window.setTimeout(() => setCompact(false), 420);
-    };
-
-    const onScroll = () => {
-      const y = window.scrollY;
-      const max =
-        document.documentElement.scrollHeight - window.innerHeight;
-      setAtEnd(max > 40 && y >= max - 48);
-
-      const delta = y - lastY.current;
-      if (Math.abs(delta) > 6) {
-        setCompact(delta > 0 && y > 80);
-        clearIdle();
-      }
-      lastY.current = y;
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", onScroll);
-      if (idleTimer.current) window.clearTimeout(idleTimer.current);
-    };
-  }, []);
-
   const toneClass =
     tone === "strong"
       ? "is-strong"
@@ -70,42 +33,48 @@ export function InterviewResultDock({
         : "is-weak";
 
   return (
-    <div
-      className={`interview-dock ${visible ? "is-visible" : ""} ${
-        compact && !atEnd ? "is-compact" : ""
-      } ${atEnd ? "is-at-end" : ""}`}
-      role="navigation"
-      aria-label={retryLabel}
+    <section
+      className={`interview-result-footer animate-rise ${toneClass}`}
+      aria-label={nextLabel}
     >
-      <div className={`interview-dock-shell ${toneClass}`}>
-        <div className="interview-dock-core">
-          <div className="interview-dock-score">
-            <span className="interview-dock-score-value tabular-nums">
-              {score}
-            </span>
-            <span className="interview-dock-score-label">{scoreLabel}</span>
-          </div>
+      <div className="interview-result-footer-glow" aria-hidden />
 
-          <div className="interview-dock-actions">
-            <button
-              type="button"
-              className="interview-dock-primary"
-              onClick={onRetry}
-            >
-              {retryLabel}
-            </button>
-            <Link
-              href={`/interviews/${categorySlug}`}
-              className="interview-dock-ghost"
-            >
-              {backCategoryLabel}
-            </Link>
-            <Link href="/interviews" className="interview-dock-ghost interview-dock-ghost-muted">
-              {backAllLabel}
-            </Link>
-          </div>
+      <div className="interview-result-footer-score">
+        <span className="interview-result-footer-ring" aria-hidden />
+        <span className="interview-result-footer-score-value tabular-nums">
+          {score}
+        </span>
+        <span className="interview-result-footer-score-label">{scoreLabel}</span>
+      </div>
+
+      <div className="interview-result-footer-copy">
+        <p className="interview-result-footer-kicker">AlefYa</p>
+        <h2 className="interview-result-footer-title">{nextLabel}</h2>
+      </div>
+
+      <div className="interview-result-footer-actions">
+        <button
+          type="button"
+          className="btn-primary interview-result-footer-primary"
+          onClick={onRetry}
+        >
+          {retryLabel}
+        </button>
+        <div className="interview-result-footer-links">
+          <Link
+            href={`/interviews/${categorySlug}`}
+            className="btn-ghost interview-result-footer-ghost"
+          >
+            {backCategoryLabel}
+          </Link>
+          <Link
+            href="/interviews"
+            className="btn-ghost interview-result-footer-ghost"
+          >
+            {backAllLabel}
+          </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

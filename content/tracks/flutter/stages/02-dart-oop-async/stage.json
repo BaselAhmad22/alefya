@@ -1,0 +1,18 @@
+{
+  "slug": "02-dart-oop-async",
+  "order": 2,
+  "title": {
+    "ar": "OOP وAsync في Dart",
+    "en": "Dart OOP & async"
+  },
+  "description": {
+    "ar": "فئات ومستقبلات",
+    "en": "Classes and futures"
+  },
+  "lessons": [
+    "01-classes.json",
+    "02-constructors.json",
+    "03-futures.json",
+    "04-streams.json"
+  ]
+}

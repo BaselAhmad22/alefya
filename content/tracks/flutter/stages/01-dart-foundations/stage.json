@@ -1,0 +1,18 @@
+{
+  "slug": "01-dart-foundations",
+  "order": 1,
+  "title": {
+    "ar": "أساسيات Dart",
+    "en": "Dart foundations"
+  },
+  "description": {
+    "ar": "لغة Flutter من الصفر",
+    "en": "Flutter's language from zero"
+  },
+  "lessons": [
+    "01-why-flutter.json",
+    "02-dart-syntax.json",
+    "03-control-flow.json",
+    "04-collections.json"
+  ]
+}

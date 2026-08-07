@@ -5,6 +5,9 @@ import { getLesson, t as tl } from "@/lib/content";
 import type { Locale } from "@/i18n/config";
 import type { Metadata } from "next";
 
+/** Public share pages — long-lived content cache. */
+export const revalidate = 86400;
+
 type Props = {
   params: Promise<{ locale: string; track: string; lesson: string }>;
 };
@@ -35,21 +38,23 @@ export default async function ShareLessonPage({ params }: Props) {
   const { track, lesson } = found;
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <p className="text-xs uppercase tracking-[0.2em] text-accent">AlefYa</p>
-      <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl">
-        {tl(lesson.title, loc)}
-      </h1>
-      <p className="mt-2 text-ink-muted">{tl(track.title, loc)}</p>
-      <p className="mt-6 text-lg leading-relaxed text-ink-muted">
-        {tl(lesson.summary, loc)}
-      </p>
-      <Link
-        href={`/learn/${trackSlug}/${lessonSlug}`}
-        className="btn-primary mt-8 inline-flex"
-      >
-        {t("share")} →
-      </Link>
+    <div className="ay-page share-lesson-page">
+      <div className="ay-page-ambient" aria-hidden />
+      <header className="page-hero">
+        <p className="page-kicker">AlefYa</p>
+        <h1 className="page-title">{tl(lesson.title, loc)}</h1>
+        <p className="page-sub">{tl(track.title, loc)}</p>
+        <hr className="page-hero-rule" />
+      </header>
+      <div className="share-lesson-card surface-panel">
+        <p className="share-lesson-summary">{tl(lesson.summary, loc)}</p>
+        <Link
+          href={`/learn/${trackSlug}/${lessonSlug}`}
+          className="btn-primary share-lesson-cta"
+        >
+          {t("share")} →
+        </Link>
+      </div>
     </div>
   );
 }

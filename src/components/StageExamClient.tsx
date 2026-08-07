@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { LeaveGuard } from "@/components/LeaveGuard";
 import { PageLoader } from "@/components/PageLoader";
@@ -36,7 +36,8 @@ export function StageExamClient({
 }: Props) {
   const t = useTranslations("exam");
   const locale = useLocale() as "ar" | "en";
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [started, setStarted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [attemptId, setAttemptId] = useState<string | null>(null);
@@ -53,6 +54,7 @@ export function StageExamClient({
 
   async function startExam() {
     setLoading(true);
+    setStarted(true);
     setError(null);
     setResult(null);
     setAnswers({});
@@ -76,11 +78,6 @@ export function StageExamClient({
     setFormat(data.format);
     setQuestions(data.questions || []);
   }
-
-  useEffect(() => {
-    void startExam();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [trackSlug, stageSlug]);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -138,6 +135,40 @@ export function StageExamClient({
         }}
         onRetry={() => void startExam()}
       />
+    );
+  }
+
+  if (!started) {
+    return (
+      <section className="exam-intro" aria-labelledby="exam-intro-title">
+        <div className="exam-intro-card">
+          <p className="exam-intro-kicker">{stageTitle}</p>
+          <h2 id="exam-intro-title" className="exam-intro-title">
+            {t("introTitle")}
+          </h2>
+          <p className="exam-intro-lead">{t("introLead")}</p>
+
+          <ul className="exam-intro-points">
+            <li>{t("introPointPass")}</li>
+            <li>{t("introPointMixed")}</li>
+            <li>{t("introPointRetry")}</li>
+            <li>{t("introPointFocus")}</li>
+          </ul>
+
+          <div className="exam-intro-actions">
+            <button
+              type="button"
+              className="btn-primary"
+              onClick={() => void startExam()}
+            >
+              {t("beginExam")}
+            </button>
+            <Link href={`/tracks/${trackSlug}`} className="btn-ghost">
+              {t("backToTrack")}
+            </Link>
+          </div>
+        </div>
+      </section>
     );
   }
 
@@ -324,27 +355,46 @@ export function StageExamClient({
   return (
     <>
       {leaveGuard}
-      <form onSubmit={onSubmit} className="exam-taking space-y-8 pb-28">
-        <div className="flex flex-wrap items-center gap-3 text-xs text-ink-muted">
-          <span>
-            {format === "mixed"
-              ? t("formatMixed")
-              : format === "mcq"
-                ? t("formatMcq")
-                : t("formatWritten")}
-          </span>
-          <span>·</span>
-          <span>{stageTitle}</span>
-          <span>·</span>
-          <span>{t("questionCount", { n: questions.length })}</span>
+      <form onSubmit={onSubmit} className="exam-taking space-y-7 pb-28">
+        <div className="exam-taking-header surface-panel">
+          <div className="exam-taking-meta">
+            <span className="exam-meta-pill">
+              {format === "mixed"
+                ? t("formatMixed")
+                : format === "mcq"
+                  ? t("formatMcq")
+                  : t("formatWritten")}
+            </span>
+            <span className="exam-meta-dot" aria-hidden>·</span>
+            <span className="exam-meta-stage">{stageTitle}</span>
+            <span className="exam-meta-dot" aria-hidden>·</span>
+            <span className="exam-meta-count">
+              {t("questionCount", { n: questions.length })}
+            </span>
+          </div>
+          <div className="exam-taking-progress" aria-hidden>
+            <span style={{ width: `${progressPct}%` }} />
+          </div>
+          <p className="exam-taking-progress-label">
+            {t("answeredProgress", {
+              answered: answeredCount,
+              total: questions.length,
+            })}
+          </p>
         </div>
 
-        {questions.map((q, i) => (
-          <fieldset key={q.id} className="space-y-3 border-b border-line pb-6">
-            <legend className="text-base font-medium">
-              <span className="me-2 text-accent">{i + 1}.</span>
-              {q.prompt}
+        <div className="exam-question-list">
+          {questions.map((q, i) => (
+          <fieldset key={q.id} className="exam-question-card">
+            <legend className="sr-only">
+              {t("questionN", { n: i + 1 })}
             </legend>
+            <div className="exam-question-head">
+              <span className="exam-question-num" aria-hidden>
+                {i + 1}
+              </span>
+              <p className="exam-question-prompt">{q.prompt}</p>
+            </div>
             {q.kind === "mcq" && q.options ? (
               <div className="quiz-choices">
                 {q.options.map((opt, oi) => (
@@ -386,7 +436,8 @@ export function StageExamClient({
               />
             )}
           </fieldset>
-        ))}
+          ))}
+        </div>
 
         {error && <p className="text-sm text-danger">{error}</p>}
 

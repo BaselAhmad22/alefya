@@ -1,0 +1,18 @@
+{
+  "slug": "07-navigation",
+  "order": 7,
+  "title": {
+    "ar": "التنقل والمسارات",
+    "en": "Navigation & routes"
+  },
+  "description": {
+    "ar": "بين الشاشات بأمان",
+    "en": "Move between screens safely"
+  },
+  "lessons": [
+    "01-navigator-stack.json",
+    "02-named-routes.json",
+    "03-pass-args.json",
+    "04-go-router-intro.json"
+  ]
+}

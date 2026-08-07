@@ -1,0 +1,1438 @@
+{
+  "trackSlug": "hr-situational",
+  "count": 24,
+  "questions": [
+    {
+      "id": "hr-situational:ethics:v1",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "ethics",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "What would you do if a colleague asked you to hide a mistake from a client?",
+        "ar": "ماذا تفعل لو طلب زميل إخفاء خطأ عن عميل؟"
+      },
+      "options": {
+        "en": [
+          "Acknowledge stakes, escalate appropriately, protect stakeholders, document.",
+          "Quit immediately with no process.",
+          "Publicly confront without facts.",
+          "Ignore it to stay popular."
+        ],
+        "ar": [
+          "اعترف بالمخاطر، escalate مناسب، احمِ أصحاب المصلحة، وثّق.",
+          "استقيل فوراً بلا عملية.",
+          "مواجهة علنية بلا أدلة.",
+          "تجاهل للشعبية."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "SJT tests judgment when rules conflict with pressure.",
+        "ar": "SJT يختبر الحكم عند تعارض القواعد والضغط."
+      },
+      "recruiterIntent": {
+        "en": "Integrity and escalation.",
+        "ar": "نزاهة و escalation."
+      },
+      "modelAnswer": {
+        "en": "Private conversation → document → involve HR/legal per policy → protect client.",
+        "ar": "محادسة خاصة → توثيق → HR/legal حسب السياسة → حماية العميل."
+      },
+      "redFlags": {
+        "en": [
+          "Cover-up",
+          "Hero vigilante"
+        ],
+        "ar": [
+          "تستر",
+          "بطل منفرد"
+        ]
+      },
+      "passTip": {
+        "en": "Show you know internal channels.",
+        "ar": "أظهر معرفتك بالقنوات الداخلية."
+      },
+      "explanation": {
+        "en": "Process + integrity passes HR.",
+        "ar": "عملية + نزاهة يمرّان HR."
+      },
+      "improvement": {
+        "en": "Review company speak-up policy.",
+        "ar": "راجع speak-up policy."
+      }
+    },
+    {
+      "id": "hr-situational:ethics:v2",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "ethics",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "You discover your manager inflated metrics — your move?",
+        "ar": "اكتشفت أن مديرك بالغ في الأرقام — ماذا؟"
+      },
+      "options": {
+        "en": [
+          "Ignore it to stay popular.",
+          "Quit immediately with no process.",
+          "Acknowledge stakes, escalate appropriately, protect stakeholders, document.",
+          "Publicly confront without facts."
+        ],
+        "ar": [
+          "تجاهل للشعبية.",
+          "استقيل فوراً بلا عملية.",
+          "اعترف بالمخاطر، escalate مناسب، احمِ أصحاب المصلحة، وثّق.",
+          "مواجهة علنية بلا أدلة."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "SJT tests judgment when rules conflict with pressure.",
+        "ar": "SJT يختبر الحكم عند تعارض القواعد والضغط."
+      },
+      "recruiterIntent": {
+        "en": "Integrity and escalation.",
+        "ar": "نزاهة و escalation."
+      },
+      "modelAnswer": {
+        "en": "Private conversation → document → involve HR/legal per policy → protect client.",
+        "ar": "محادسة خاصة → توثيق → HR/legal حسب السياسة → حماية العميل."
+      },
+      "redFlags": {
+        "en": [
+          "Cover-up",
+          "Hero vigilante"
+        ],
+        "ar": [
+          "تستر",
+          "بطل منفرد"
+        ]
+      },
+      "passTip": {
+        "en": "Show you know internal channels.",
+        "ar": "أظهر معرفتك بالقنوات الداخلية."
+      },
+      "explanation": {
+        "en": "Process + integrity passes HR.",
+        "ar": "عملية + نزاهة يمرّان HR."
+      },
+      "improvement": {
+        "en": "Review company speak-up policy.",
+        "ar": "راجع speak-up policy."
+      }
+    },
+    {
+      "id": "hr-situational:ethics:v3",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "ethics",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "A vendor offers a gift before contract renewal — response?",
+        "ar": "مورّد يقدم هدية قبل تجديد العقد؟"
+      },
+      "options": {
+        "en": [
+          "Acknowledge stakes, escalate appropriately, protect stakeholders, document.",
+          "Publicly confront without facts.",
+          "Ignore it to stay popular.",
+          "Quit immediately with no process."
+        ],
+        "ar": [
+          "اعترف بالمخاطر، escalate مناسب، احمِ أصحاب المصلحة، وثّق.",
+          "مواجهة علنية بلا أدلة.",
+          "تجاهل للشعبية.",
+          "استقيل فوراً بلا عملية."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "SJT tests judgment when rules conflict with pressure.",
+        "ar": "SJT يختبر الحكم عند تعارض القواعد والضغط."
+      },
+      "recruiterIntent": {
+        "en": "Integrity and escalation.",
+        "ar": "نزاهة و escalation."
+      },
+      "modelAnswer": {
+        "en": "Private conversation → document → involve HR/legal per policy → protect client.",
+        "ar": "محادسة خاصة → توثيق → HR/legal حسب السياسة → حماية العميل."
+      },
+      "redFlags": {
+        "en": [
+          "Cover-up",
+          "Hero vigilante"
+        ],
+        "ar": [
+          "تستر",
+          "بطل منفرد"
+        ]
+      },
+      "passTip": {
+        "en": "Show you know internal channels.",
+        "ar": "أظهر معرفتك بالقنوات الداخلية."
+      },
+      "explanation": {
+        "en": "Process + integrity passes HR.",
+        "ar": "عملية + نزاهة يمرّان HR."
+      },
+      "improvement": {
+        "en": "Review company speak-up policy.",
+        "ar": "راجع speak-up policy."
+      }
+    },
+    {
+      "id": "hr-situational:ethics:v4",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "ethics",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "You see someone bypass security for convenience — action?",
+        "ar": "ترى أحداً يتجاوز الأمان للراحة؟"
+      },
+      "options": {
+        "en": [
+          "Ignore it to stay popular.",
+          "Quit immediately with no process.",
+          "Publicly confront without facts.",
+          "Acknowledge stakes, escalate appropriately, protect stakeholders, document."
+        ],
+        "ar": [
+          "تجاهل للشعبية.",
+          "استقيل فوراً بلا عملية.",
+          "مواجهة علنية بلا أدلة.",
+          "اعترف بالمخاطر، escalate مناسب، احمِ أصحاب المصلحة، وثّق."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "SJT tests judgment when rules conflict with pressure.",
+        "ar": "SJT يختبر الحكم عند تعارض القواعد والضغط."
+      },
+      "recruiterIntent": {
+        "en": "Integrity and escalation.",
+        "ar": "نزاهة و escalation."
+      },
+      "modelAnswer": {
+        "en": "Private conversation → document → involve HR/legal per policy → protect client.",
+        "ar": "محادسة خاصة → توثيق → HR/legal حسب السياسة → حماية العميل."
+      },
+      "redFlags": {
+        "en": [
+          "Cover-up",
+          "Hero vigilante"
+        ],
+        "ar": [
+          "تستر",
+          "بطل منفرد"
+        ]
+      },
+      "passTip": {
+        "en": "Show you know internal channels.",
+        "ar": "أظهر معرفتك بالقنوات الداخلية."
+      },
+      "explanation": {
+        "en": "Process + integrity passes HR.",
+        "ar": "عملية + نزاهة يمرّان HR."
+      },
+      "improvement": {
+        "en": "Review company speak-up policy.",
+        "ar": "راجع speak-up policy."
+      }
+    },
+    {
+      "id": "hr-situational:priority:v1",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "prioritization",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Two executives want conflicting deliverables today — what do you do?",
+        "ar": "Executiveان يريدان deliverables متعارضة اليوم؟"
+      },
+      "options": {
+        "en": [
+          "Clarify impact, communicate trade-offs, get explicit decision from owner.",
+          "Miss all deadlines.",
+          "Pick favorites without data.",
+          "Work silently on everything."
+        ],
+        "ar": [
+          "وضّح الأثر، trade-offs، قرار صريح من المالك.",
+          "فوّت كل المواعيد.",
+          "اختر المفضلين.",
+          "اعمل كل شيء بصمت."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Managers need transparent trade-off thinking.",
+        "ar": "المديرون يريدون trade-offs شفافة."
+      },
+      "recruiterIntent": {
+        "en": "Judgment and communication.",
+        "ar": "حكم وتواصل."
+      },
+      "modelAnswer": {
+        "en": "Impact matrix → sync with both execs → written priority → update blocked teams.",
+        "ar": "Impact matrix → sync → priority مكتوب → update الفرق."
+      },
+      "redFlags": {
+        "en": [
+          "No communication"
+        ],
+        "ar": [
+          "لا تواصل"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Escalate with options not panic.",
+        "ar": "Escalate بخيارات لا ذعر."
+      },
+      "improvement": {
+        "en": "Practice impact/urgency grid.",
+        "ar": "تدرب على impact/urgency."
+      }
+    },
+    {
+      "id": "hr-situational:priority:v2",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "prioritization",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Critical bug vs demo for investor — choose how?",
+        "ar": "bug حرج vs demo لمستثمر؟"
+      },
+      "options": {
+        "en": [
+          "Work silently on everything.",
+          "Miss all deadlines.",
+          "Clarify impact, communicate trade-offs, get explicit decision from owner.",
+          "Pick favorites without data."
+        ],
+        "ar": [
+          "اعمل كل شيء بصمت.",
+          "فوّت كل المواعيد.",
+          "وضّح الأثر، trade-offs، قرار صريح من المالك.",
+          "اختر المفضلين."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Managers need transparent trade-off thinking.",
+        "ar": "المديرون يريدون trade-offs شفافة."
+      },
+      "recruiterIntent": {
+        "en": "Judgment and communication.",
+        "ar": "حكم وتواصل."
+      },
+      "modelAnswer": {
+        "en": "Impact matrix → sync with both execs → written priority → update blocked teams.",
+        "ar": "Impact matrix → sync → priority مكتوب → update الفرق."
+      },
+      "redFlags": {
+        "en": [
+          "No communication"
+        ],
+        "ar": [
+          "لا تواصل"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Escalate with options not panic.",
+        "ar": "Escalate بخيارات لا ذعر."
+      },
+      "improvement": {
+        "en": "Practice impact/urgency grid.",
+        "ar": "تدرب على impact/urgency."
+      }
+    },
+    {
+      "id": "hr-situational:priority:v3",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "prioritization",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Your task blocks three teams — they're waiting — approach?",
+        "ar": "مهمتك تعطل 3 فرق — ماذا؟"
+      },
+      "options": {
+        "en": [
+          "Clarify impact, communicate trade-offs, get explicit decision from owner.",
+          "Pick favorites without data.",
+          "Work silently on everything.",
+          "Miss all deadlines."
+        ],
+        "ar": [
+          "وضّح الأثر، trade-offs، قرار صريح من المالك.",
+          "اختر المفضلين.",
+          "اعمل كل شيء بصمت.",
+          "فوّت كل المواعيد."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Managers need transparent trade-off thinking.",
+        "ar": "المديرون يريدون trade-offs شفافة."
+      },
+      "recruiterIntent": {
+        "en": "Judgment and communication.",
+        "ar": "حكم وتواصل."
+      },
+      "modelAnswer": {
+        "en": "Impact matrix → sync with both execs → written priority → update blocked teams.",
+        "ar": "Impact matrix → sync → priority مكتوب → update الفرق."
+      },
+      "redFlags": {
+        "en": [
+          "No communication"
+        ],
+        "ar": [
+          "لا تواصل"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Escalate with options not panic.",
+        "ar": "Escalate بخيارات لا ذعر."
+      },
+      "improvement": {
+        "en": "Practice impact/urgency grid.",
+        "ar": "تدرب على impact/urgency."
+      }
+    },
+    {
+      "id": "hr-situational:priority:v4",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "prioritization",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Scope creep mid-sprint — response?",
+        "ar": "scope creep منتصف sprint؟"
+      },
+      "options": {
+        "en": [
+          "Work silently on everything.",
+          "Miss all deadlines.",
+          "Pick favorites without data.",
+          "Clarify impact, communicate trade-offs, get explicit decision from owner."
+        ],
+        "ar": [
+          "اعمل كل شيء بصمت.",
+          "فوّت كل المواعيد.",
+          "اختر المفضلين.",
+          "وضّح الأثر، trade-offs، قرار صريح من المالك."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Managers need transparent trade-off thinking.",
+        "ar": "المديرون يريدون trade-offs شفافة."
+      },
+      "recruiterIntent": {
+        "en": "Judgment and communication.",
+        "ar": "حكم وتواصل."
+      },
+      "modelAnswer": {
+        "en": "Impact matrix → sync with both execs → written priority → update blocked teams.",
+        "ar": "Impact matrix → sync → priority مكتوب → update الفرق."
+      },
+      "redFlags": {
+        "en": [
+          "No communication"
+        ],
+        "ar": [
+          "لا تواصل"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Escalate with options not panic.",
+        "ar": "Escalate بخيارات لا ذعر."
+      },
+      "improvement": {
+        "en": "Practice impact/urgency grid.",
+        "ar": "تدرب على impact/urgency."
+      }
+    },
+    {
+      "id": "hr-situational:conflict-sit:v1",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "entry",
+      "competency": "conflict",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Teammate takes credit for your work in a meeting — response?",
+        "ar": "زميل ينسب عملك في اجتماع؟"
+      },
+      "options": {
+        "en": [
+          "Argue loudly in the meeting.",
+          "Throw teammate under bus.",
+          "Silent resentment later.",
+          "Stay professional, de-escalate, seek facts, propose path forward."
+        ],
+        "ar": [
+          "جدال بصوت عالٍ.",
+          "القِ الزميل تحت الحافلة.",
+          "استياء صامت.",
+          "احتراف، de-escalate، حقائق، مسار."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Client-facing poise matters.",
+        "ar": "الهدوء أمام العميل مهم."
+      },
+      "recruiterIntent": {
+        "en": "Emotional intelligence.",
+        "ar": "ذكاء عاطفي."
+      },
+      "modelAnswer": {
+        "en": "Acknowledge client → clarify facts offline → joint solution → follow-up email.",
+        "ar": "اعترف بالعميل → حقائق offline → حل مشترك → email."
+      },
+      "redFlags": {
+        "en": [
+          "Public blame"
+        ],
+        "ar": [
+          "لوم علني"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Professional de-escalation.",
+        "ar": "de-escalation احترافي."
+      },
+      "improvement": {
+        "en": "Role-play angry client.",
+        "ar": "Role-play عميل غاضب."
+      }
+    },
+    {
+      "id": "hr-situational:conflict-sit:v2",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "entry",
+      "competency": "conflict",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Client is angry on a call — you're not at fault — what do you do?",
+        "ar": "عميل غاضب ولست المخطئ؟"
+      },
+      "options": {
+        "en": [
+          "Silent resentment later.",
+          "Throw teammate under bus.",
+          "Stay professional, de-escalate, seek facts, propose path forward.",
+          "Argue loudly in the meeting."
+        ],
+        "ar": [
+          "استياء صامت.",
+          "القِ الزميل تحت الحافلة.",
+          "احتراف، de-escalate، حقائق، مسار.",
+          "جدال بصوت عالٍ."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Client-facing poise matters.",
+        "ar": "الهدوء أمام العميل مهم."
+      },
+      "recruiterIntent": {
+        "en": "Emotional intelligence.",
+        "ar": "ذكاء عاطفي."
+      },
+      "modelAnswer": {
+        "en": "Acknowledge client → clarify facts offline → joint solution → follow-up email.",
+        "ar": "اعترف بالعميل → حقائق offline → حل مشترك → email."
+      },
+      "redFlags": {
+        "en": [
+          "Public blame"
+        ],
+        "ar": [
+          "لوم علني"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Professional de-escalation.",
+        "ar": "de-escalation احترافي."
+      },
+      "improvement": {
+        "en": "Role-play angry client.",
+        "ar": "Role-play عميل غاضب."
+      }
+    },
+    {
+      "id": "hr-situational:conflict-sit:v3",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "entry",
+      "competency": "conflict",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Peer keeps missing handoffs — your steps?",
+        "ar": "زميل يفوّت handoffs؟"
+      },
+      "options": {
+        "en": [
+          "Throw teammate under bus.",
+          "Stay professional, de-escalate, seek facts, propose path forward.",
+          "Argue loudly in the meeting.",
+          "Silent resentment later."
+        ],
+        "ar": [
+          "القِ الزميل تحت الحافلة.",
+          "احتراف، de-escalate، حقائق، مسار.",
+          "جدال بصوت عالٍ.",
+          "استياء صامت."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Client-facing poise matters.",
+        "ar": "الهدوء أمام العميل مهم."
+      },
+      "recruiterIntent": {
+        "en": "Emotional intelligence.",
+        "ar": "ذكاء عاطفي."
+      },
+      "modelAnswer": {
+        "en": "Acknowledge client → clarify facts offline → joint solution → follow-up email.",
+        "ar": "اعترف بالعميل → حقائق offline → حل مشترك → email."
+      },
+      "redFlags": {
+        "en": [
+          "Public blame"
+        ],
+        "ar": [
+          "لوم علني"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Professional de-escalation.",
+        "ar": "de-escalation احترافي."
+      },
+      "improvement": {
+        "en": "Role-play angry client.",
+        "ar": "Role-play عميل غاضب."
+      }
+    },
+    {
+      "id": "hr-situational:conflict-sit:v4",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "entry",
+      "competency": "conflict",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Disagreement on technical approach in front of client?",
+        "ar": "خلاف تقني أمام عميل؟"
+      },
+      "options": {
+        "en": [
+          "Stay professional, de-escalate, seek facts, propose path forward.",
+          "Argue loudly in the meeting.",
+          "Silent resentment later.",
+          "Throw teammate under bus."
+        ],
+        "ar": [
+          "احتراف، de-escalate، حقائق، مسار.",
+          "جدال بصوت عالٍ.",
+          "استياء صامت.",
+          "القِ الزميل تحت الحافلة."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Client-facing poise matters.",
+        "ar": "الهدوء أمام العميل مهم."
+      },
+      "recruiterIntent": {
+        "en": "Emotional intelligence.",
+        "ar": "ذكاء عاطفي."
+      },
+      "modelAnswer": {
+        "en": "Acknowledge client → clarify facts offline → joint solution → follow-up email.",
+        "ar": "اعترف بالعميل → حقائق offline → حل مشترك → email."
+      },
+      "redFlags": {
+        "en": [
+          "Public blame"
+        ],
+        "ar": [
+          "لوم علني"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Professional de-escalation.",
+        "ar": "de-escalation احترافي."
+      },
+      "improvement": {
+        "en": "Role-play angry client.",
+        "ar": "Role-play عميل غاضب."
+      }
+    },
+    {
+      "id": "hr-situational:deadline:v1",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "senior",
+      "competency": "deadlines",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "You realize you cannot meet a committed date — when/how tell manager?",
+        "ar": "لا تستطيع الموعد — متى/كيف تخبر المدير؟"
+      },
+      "options": {
+        "en": [
+          "Early transparency, options with trade-offs, no surprise failures.",
+          "Blame team publicly.",
+          "Ship broken silently.",
+          "Wait until deadline day."
+        ],
+        "ar": [
+          "شفافية مبكرة، خيارات، لا مفاجآت.",
+          "الوم الفريق علنياً.",
+          "سلّم معطوباً.",
+          "انتظر يوم الموعد."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Surprises destroy trust.",
+        "ar": "المفاجآت تدمر الثقة."
+      },
+      "recruiterIntent": {
+        "en": "Ownership and planning.",
+        "ar": "ownership وتخطيط."
+      },
+      "modelAnswer": {
+        "en": "48h early flag → scope cut options → risk log → agree new date.",
+        "ar": "flag قبل 48h → cut scope → risk log → تاريخ جديد."
+      },
+      "redFlags": {
+        "en": [
+          "Surprises"
+        ],
+        "ar": [
+          "مفاجآت"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Early escalation is strength.",
+        "ar": "Escalation مبكر قوة."
+      },
+      "improvement": {
+        "en": "Template for bad-news updates.",
+        "ar": "قالب أخبار سيئة."
+      }
+    },
+    {
+      "id": "hr-situational:deadline:v2",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "senior",
+      "competency": "deadlines",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Quality vs ship-on-time pressure — approach?",
+        "ar": "جودة vs التسليم في الوقت؟"
+      },
+      "options": {
+        "en": [
+          "Wait until deadline day.",
+          "Blame team publicly.",
+          "Early transparency, options with trade-offs, no surprise failures.",
+          "Ship broken silently."
+        ],
+        "ar": [
+          "انتظر يوم الموعد.",
+          "الوم الفريق علنياً.",
+          "شفافية مبكرة، خيارات، لا مفاجآت.",
+          "سلّم معطوباً."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Surprises destroy trust.",
+        "ar": "المفاجآت تدمر الثقة."
+      },
+      "recruiterIntent": {
+        "en": "Ownership and planning.",
+        "ar": "ownership وتخطيط."
+      },
+      "modelAnswer": {
+        "en": "48h early flag → scope cut options → risk log → agree new date.",
+        "ar": "flag قبل 48h → cut scope → risk log → تاريخ جديد."
+      },
+      "redFlags": {
+        "en": [
+          "Surprises"
+        ],
+        "ar": [
+          "مفاجآت"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Early escalation is strength.",
+        "ar": "Escalation مبكر قوة."
+      },
+      "improvement": {
+        "en": "Template for bad-news updates.",
+        "ar": "قالب أخبار سيئة."
+      }
+    },
+    {
+      "id": "hr-situational:deadline:v3",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "senior",
+      "competency": "deadlines",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Team member hides they're behind — you notice — action?",
+        "ar": "عضو يخفي تأخره — ماذا؟"
+      },
+      "options": {
+        "en": [
+          "Ship broken silently.",
+          "Wait until deadline day.",
+          "Early transparency, options with trade-offs, no surprise failures.",
+          "Blame team publicly."
+        ],
+        "ar": [
+          "سلّم معطوباً.",
+          "انتظر يوم الموعد.",
+          "شفافية مبكرة، خيارات، لا مفاجآت.",
+          "الوم الفريق علنياً."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Surprises destroy trust.",
+        "ar": "المفاجآت تدمر الثقة."
+      },
+      "recruiterIntent": {
+        "en": "Ownership and planning.",
+        "ar": "ownership وتخطيط."
+      },
+      "modelAnswer": {
+        "en": "48h early flag → scope cut options → risk log → agree new date.",
+        "ar": "flag قبل 48h → cut scope → risk log → تاريخ جديد."
+      },
+      "redFlags": {
+        "en": [
+          "Surprises"
+        ],
+        "ar": [
+          "مفاجآت"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Early escalation is strength.",
+        "ar": "Escalation مبكر قوة."
+      },
+      "improvement": {
+        "en": "Template for bad-news updates.",
+        "ar": "قالب أخبار سيئة."
+      }
+    },
+    {
+      "id": "hr-situational:deadline:v4",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "senior",
+      "competency": "deadlines",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Weekend work request before launch — response?",
+        "ar": "عمل weekend قبل launch؟"
+      },
+      "options": {
+        "en": [
+          "Ship broken silently.",
+          "Blame team publicly.",
+          "Wait until deadline day.",
+          "Early transparency, options with trade-offs, no surprise failures."
+        ],
+        "ar": [
+          "سلّم معطوباً.",
+          "الوم الفريق علنياً.",
+          "انتظر يوم الموعد.",
+          "شفافية مبكرة، خيارات، لا مفاجآت."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Surprises destroy trust.",
+        "ar": "المفاجآت تدمر الثقة."
+      },
+      "recruiterIntent": {
+        "en": "Ownership and planning.",
+        "ar": "ownership وتخطيط."
+      },
+      "modelAnswer": {
+        "en": "48h early flag → scope cut options → risk log → agree new date.",
+        "ar": "flag قبل 48h → cut scope → risk log → تاريخ جديد."
+      },
+      "redFlags": {
+        "en": [
+          "Surprises"
+        ],
+        "ar": [
+          "مفاجآت"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Early escalation is strength.",
+        "ar": "Escalation مبكر قوة."
+      },
+      "improvement": {
+        "en": "Template for bad-news updates.",
+        "ar": "قالب أخبار سيئة."
+      }
+    },
+    {
+      "id": "hr-situational:remote:v1",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "remote-work",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Timezone gap causes missed messages — fix?",
+        "ar": "فجوة timezone تسبب missed messages؟"
+      },
+      "options": {
+        "en": [
+          "Assume good intent, over-communicate, propose structure (sync/doc).",
+          "Demand synchronous always.",
+          "Complain to others only.",
+          "Go silent and disengage."
+        ],
+        "ar": [
+          "good intent، over-communicate، هيكل.",
+          "sync دائماً.",
+          "شكوى للآخرين فقط.",
+          "صمت وانقطاع."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Remote judgment is common post-2020.",
+        "ar": "حكم remote شائع."
+      },
+      "recruiterIntent": {
+        "en": "Communication norms.",
+        "ar": "معايير تواصل."
+      },
+      "modelAnswer": {
+        "en": "1:1 → shared doc → core hours → call if 3+ async loops.",
+        "ar": "1:1 → doc → core hours → call بعد 3 loops."
+      },
+      "redFlags": {
+        "en": [
+          "Passive aggressive"
+        ],
+        "ar": [
+          "passive aggressive"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure fixes remote friction.",
+        "ar": "هيكل يصلح remote."
+      },
+      "improvement": {
+        "en": "Share your remote working agreement.",
+        "ar": "شارك working agreement."
+      }
+    },
+    {
+      "id": "hr-situational:remote:v2",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "remote-work",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Teammate never turns camera on and seems disengaged?",
+        "ar": "زميل بلا camera ويبدو منقطعاً؟"
+      },
+      "options": {
+        "en": [
+          "Complain to others only.",
+          "Go silent and disengage.",
+          "Demand synchronous always.",
+          "Assume good intent, over-communicate, propose structure (sync/doc)."
+        ],
+        "ar": [
+          "شكوى للآخرين فقط.",
+          "صمت وانقطاع.",
+          "sync دائماً.",
+          "good intent، over-communicate، هيكل."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Remote judgment is common post-2020.",
+        "ar": "حكم remote شائع."
+      },
+      "recruiterIntent": {
+        "en": "Communication norms.",
+        "ar": "معايير تواصل."
+      },
+      "modelAnswer": {
+        "en": "1:1 → shared doc → core hours → call if 3+ async loops.",
+        "ar": "1:1 → doc → core hours → call بعد 3 loops."
+      },
+      "redFlags": {
+        "en": [
+          "Passive aggressive"
+        ],
+        "ar": [
+          "passive aggressive"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure fixes remote friction.",
+        "ar": "هيكل يصلح remote."
+      },
+      "improvement": {
+        "en": "Share your remote working agreement.",
+        "ar": "شارك working agreement."
+      }
+    },
+    {
+      "id": "hr-situational:remote:v3",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "remote-work",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "You're overloaded but manager can't see it remotely?",
+        "ar": "محمّل والمدير لا يرى remotely؟"
+      },
+      "options": {
+        "en": [
+          "Demand synchronous always.",
+          "Go silent and disengage.",
+          "Assume good intent, over-communicate, propose structure (sync/doc).",
+          "Complain to others only."
+        ],
+        "ar": [
+          "sync دائماً.",
+          "صمت وانقطاع.",
+          "good intent، over-communicate، هيكل.",
+          "شكوى للآخرين فقط."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Remote judgment is common post-2020.",
+        "ar": "حكم remote شائع."
+      },
+      "recruiterIntent": {
+        "en": "Communication norms.",
+        "ar": "معايير تواصل."
+      },
+      "modelAnswer": {
+        "en": "1:1 → shared doc → core hours → call if 3+ async loops.",
+        "ar": "1:1 → doc → core hours → call بعد 3 loops."
+      },
+      "redFlags": {
+        "en": [
+          "Passive aggressive"
+        ],
+        "ar": [
+          "passive aggressive"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure fixes remote friction.",
+        "ar": "هيكل يصلح remote."
+      },
+      "improvement": {
+        "en": "Share your remote working agreement.",
+        "ar": "شارك working agreement."
+      }
+    },
+    {
+      "id": "hr-situational:remote:v4",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "mid",
+      "competency": "remote-work",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Async disagreement goes in circles on Slack?",
+        "ar": "خلاف async دائري على Slack؟"
+      },
+      "options": {
+        "en": [
+          "Go silent and disengage.",
+          "Assume good intent, over-communicate, propose structure (sync/doc).",
+          "Complain to others only.",
+          "Demand synchronous always."
+        ],
+        "ar": [
+          "صمت وانقطاع.",
+          "good intent، over-communicate، هيكل.",
+          "شكوى للآخرين فقط.",
+          "sync دائماً."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Remote judgment is common post-2020.",
+        "ar": "حكم remote شائع."
+      },
+      "recruiterIntent": {
+        "en": "Communication norms.",
+        "ar": "معايير تواصل."
+      },
+      "modelAnswer": {
+        "en": "1:1 → shared doc → core hours → call if 3+ async loops.",
+        "ar": "1:1 → doc → core hours → call بعد 3 loops."
+      },
+      "redFlags": {
+        "en": [
+          "Passive aggressive"
+        ],
+        "ar": [
+          "passive aggressive"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure fixes remote friction.",
+        "ar": "هيكل يصلح remote."
+      },
+      "improvement": {
+        "en": "Share your remote working agreement.",
+        "ar": "شارك working agreement."
+      }
+    },
+    {
+      "id": "hr-situational:customer:v1",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "senior",
+      "competency": "customer",
+      "interviewStage": "final",
+      "prompt": {
+        "en": "Client demands out-of-scope work for free?",
+        "ar": "عميل يريد out-of-scope مجاناً؟"
+      },
+      "options": {
+        "en": [
+          "Empathize, restate scope/contract, offer alternatives, escalate if needed.",
+          "Yes to everything.",
+          "Rude no.",
+          "Ghost the client."
+        ],
+        "ar": [
+          "تعاطف، scope، بدائل، escalate.",
+          "نعم لكل شيء.",
+          "لا فظ.",
+          "تجاهل العميل."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Senior roles protect margin and relationships.",
+        "ar": "Senior يحمي margin والعلاقات."
+      },
+      "recruiterIntent": {
+        "en": "Negotiation and boundaries.",
+        "ar": "تفاوض وحدود."
+      },
+      "modelAnswer": {
+        "en": "Acknowledge need → written scope → phased option with cost/date → exec if needed.",
+        "ar": "need → scope مكتوب → phased + cost → exec."
+      },
+      "redFlags": {
+        "en": [
+          "People pleaser",
+          "Aggressive"
+        ],
+        "ar": [
+          "إرضاء",
+          "عدواني"
+        ]
+      },
+      "passTip": {
+        "en": "Final rounds test client maturity.",
+        "ar": "النهائية تختبر نضج العميل."
+      },
+      "explanation": {
+        "en": "Boundaries + options win.",
+        "ar": "حدود + خيارات."
+      },
+      "improvement": {
+        "en": "Prepare one 'say no' script.",
+        "ar": "script «لا»."
+      }
+    },
+    {
+      "id": "hr-situational:customer:v2",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "senior",
+      "competency": "customer",
+      "interviewStage": "final",
+      "prompt": {
+        "en": "You must say no to a key account — how?",
+        "ar": "يجب قول لا لحساب رئيسي؟"
+      },
+      "options": {
+        "en": [
+          "Yes to everything.",
+          "Rude no.",
+          "Ghost the client.",
+          "Empathize, restate scope/contract, offer alternatives, escalate if needed."
+        ],
+        "ar": [
+          "نعم لكل شيء.",
+          "لا فظ.",
+          "تجاهل العميل.",
+          "تعاطف، scope، بدائل، escalate."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Senior roles protect margin and relationships.",
+        "ar": "Senior يحمي margin والعلاقات."
+      },
+      "recruiterIntent": {
+        "en": "Negotiation and boundaries.",
+        "ar": "تفاوض وحدود."
+      },
+      "modelAnswer": {
+        "en": "Acknowledge need → written scope → phased option with cost/date → exec if needed.",
+        "ar": "need → scope مكتوب → phased + cost → exec."
+      },
+      "redFlags": {
+        "en": [
+          "People pleaser",
+          "Aggressive"
+        ],
+        "ar": [
+          "إرضاء",
+          "عدواني"
+        ]
+      },
+      "passTip": {
+        "en": "Final rounds test client maturity.",
+        "ar": "النهائية تختبر نضج العميل."
+      },
+      "explanation": {
+        "en": "Boundaries + options win.",
+        "ar": "حدود + خيارات."
+      },
+      "improvement": {
+        "en": "Prepare one 'say no' script.",
+        "ar": "script «لا»."
+      }
+    },
+    {
+      "id": "hr-situational:customer:v3",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "senior",
+      "competency": "customer",
+      "interviewStage": "final",
+      "prompt": {
+        "en": "Bug affects one big client only — prioritize?",
+        "ar": "bug لعميل كبير فقط؟"
+      },
+      "options": {
+        "en": [
+          "Empathize, restate scope/contract, offer alternatives, escalate if needed.",
+          "Rude no.",
+          "Ghost the client.",
+          "Yes to everything."
+        ],
+        "ar": [
+          "تعاطف، scope، بدائل، escalate.",
+          "لا فظ.",
+          "تجاهل العميل.",
+          "نعم لكل شيء."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Senior roles protect margin and relationships.",
+        "ar": "Senior يحمي margin والعلاقات."
+      },
+      "recruiterIntent": {
+        "en": "Negotiation and boundaries.",
+        "ar": "تفاوض وحدود."
+      },
+      "modelAnswer": {
+        "en": "Acknowledge need → written scope → phased option with cost/date → exec if needed.",
+        "ar": "need → scope مكتوب → phased + cost → exec."
+      },
+      "redFlags": {
+        "en": [
+          "People pleaser",
+          "Aggressive"
+        ],
+        "ar": [
+          "إرضاء",
+          "عدواني"
+        ]
+      },
+      "passTip": {
+        "en": "Final rounds test client maturity.",
+        "ar": "النهائية تختبر نضج العميل."
+      },
+      "explanation": {
+        "en": "Boundaries + options win.",
+        "ar": "حدود + خيارات."
+      },
+      "improvement": {
+        "en": "Prepare one 'say no' script.",
+        "ar": "script «لا»."
+      }
+    },
+    {
+      "id": "hr-situational:customer:v4",
+      "trackSlug": "hr-situational",
+      "kind": "situational",
+      "difficulty": "senior",
+      "competency": "customer",
+      "interviewStage": "final",
+      "prompt": {
+        "en": "Client asks for unrealistic timeline — response?",
+        "ar": "جدول غير واقعي؟"
+      },
+      "options": {
+        "en": [
+          "Yes to everything.",
+          "Empathize, restate scope/contract, offer alternatives, escalate if needed.",
+          "Ghost the client.",
+          "Rude no."
+        ],
+        "ar": [
+          "نعم لكل شيء.",
+          "تعاطف، scope، بدائل، escalate.",
+          "تجاهل العميل.",
+          "لا فظ."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Senior roles protect margin and relationships.",
+        "ar": "Senior يحمي margin والعلاقات."
+      },
+      "recruiterIntent": {
+        "en": "Negotiation and boundaries.",
+        "ar": "تفاوض وحدود."
+      },
+      "modelAnswer": {
+        "en": "Acknowledge need → written scope → phased option with cost/date → exec if needed.",
+        "ar": "need → scope مكتوب → phased + cost → exec."
+      },
+      "redFlags": {
+        "en": [
+          "People pleaser",
+          "Aggressive"
+        ],
+        "ar": [
+          "إرضاء",
+          "عدواني"
+        ]
+      },
+      "passTip": {
+        "en": "Final rounds test client maturity.",
+        "ar": "النهائية تختبر نضج العميل."
+      },
+      "explanation": {
+        "en": "Boundaries + options win.",
+        "ar": "حدود + خيارات."
+      },
+      "improvement": {
+        "en": "Prepare one 'say no' script.",
+        "ar": "script «لا»."
+      }
+    }
+  ]
+}

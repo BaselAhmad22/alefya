@@ -1,0 +1,17 @@
+{
+  "slug": "13-animation-gesture",
+  "order": 13,
+  "title": {
+    "ar": "الرسوم والإيماءات",
+    "en": "Animation & gestures"
+  },
+  "description": {
+    "ar": "حركة هادفة",
+    "en": "Meaningful motion"
+  },
+  "lessons": [
+    "01-implicit-anim.json",
+    "02-animation-controller.json",
+    "03-gestures.json"
+  ]
+}

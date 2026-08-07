@@ -1,0 +1,1666 @@
+{
+  "trackSlug": "hr-behavioral",
+  "count": 28,
+  "questions": [
+    {
+      "id": "hr-behavioral:leadership:v1",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "leadership",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Tell me about a time you led without formal authority.",
+        "ar": "احكِ عن قيادة دون سلطة رسمية."
+      },
+      "options": {
+        "en": [
+          "Answer hypothetically with no real story.",
+          "Use STAR with I-statements and a measurable Result.",
+          "Speak only about 'we' with no personal actions.",
+          "Blame the team for failure."
+        ],
+        "ar": [
+          "أجب افتراضياً بلا قصة حقيقية.",
+          "استخدم STAR بجمل «أنا» وResult قابل للقياس.",
+          "تحدّث عن «نحن» فقط بلا أفعال شخصية.",
+          "الوم الفريق على الفشل."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Structured interviews use past behavior to predict future performance — this is standard HR and hiring-manager practice.",
+        "ar": "المقابلات المنظمة تستخدم السلوك السابق للتنبؤ بالأداء — ممارسة HR ومدير التوظيف القياسية."
+      },
+      "recruiterIntent": {
+        "en": "Leadership and influence.",
+        "ar": "القيادة والتأثير."
+      },
+      "modelAnswer": {
+        "en": "STAR: war room, clear roles, shipped on time, zero P1.",
+        "ar": "STAR: war room، أدوار واضحة، تسليم في الموعد، صفر P1."
+      },
+      "redFlags": {
+        "en": [
+          "No I-statements",
+          "No metrics"
+        ],
+        "ar": [
+          "لا «أنا»",
+          "لا أرقام"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "STAR + metrics builds trust for manager rounds.",
+        "ar": "STAR + أرقام يبني ثقة لجولة Manager."
+      },
+      "improvement": {
+        "en": "Time your story to 90 seconds.",
+        "ar": "قِس قصتك 90 ثانية."
+      }
+    },
+    {
+      "id": "hr-behavioral:leadership:v2",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "leadership",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Describe motivating a team under a tight deadline.",
+        "ar": "صف تحفيز فريق تحت موعد نهائي ضيق."
+      },
+      "options": {
+        "en": [
+          "Use STAR with I-statements and a measurable Result.",
+          "Speak only about 'we' with no personal actions.",
+          "Blame the team for failure.",
+          "Answer hypothetically with no real story."
+        ],
+        "ar": [
+          "استخدم STAR بجمل «أنا» وResult قابل للقياس.",
+          "تحدّث عن «نحن» فقط بلا أفعال شخصية.",
+          "الوم الفريق على الفشل.",
+          "أجب افتراضياً بلا قصة حقيقية."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Structured interviews use past behavior to predict future performance — this is standard HR and hiring-manager practice.",
+        "ar": "المقابلات المنظمة تستخدم السلوك السابق للتنبؤ بالأداء — ممارسة HR ومدير التوظيف القياسية."
+      },
+      "recruiterIntent": {
+        "en": "Leadership and influence.",
+        "ar": "القيادة والتأثير."
+      },
+      "modelAnswer": {
+        "en": "STAR: war room, clear roles, shipped on time, zero P1.",
+        "ar": "STAR: war room، أدوار واضحة، تسليم في الموعد، صفر P1."
+      },
+      "redFlags": {
+        "en": [
+          "No I-statements",
+          "No metrics"
+        ],
+        "ar": [
+          "لا «أنا»",
+          "لا أرقام"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "STAR + metrics builds trust for manager rounds.",
+        "ar": "STAR + أرقام يبني ثقة لجولة Manager."
+      },
+      "improvement": {
+        "en": "Time your story to 90 seconds.",
+        "ar": "قِس قصتك 90 ثانية."
+      }
+    },
+    {
+      "id": "hr-behavioral:leadership:v3",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "leadership",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Give an example of coordinating conflicting priorities.",
+        "ar": "أعطِ مثالاً على تنسيق أولويات متعارضة."
+      },
+      "options": {
+        "en": [
+          "Speak only about 'we' with no personal actions.",
+          "Blame the team for failure.",
+          "Answer hypothetically with no real story.",
+          "Use STAR with I-statements and a measurable Result."
+        ],
+        "ar": [
+          "تحدّث عن «نحن» فقط بلا أفعال شخصية.",
+          "الوم الفريق على الفشل.",
+          "أجب افتراضياً بلا قصة حقيقية.",
+          "استخدم STAR بجمل «أنا» وResult قابل للقياس."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Structured interviews use past behavior to predict future performance — this is standard HR and hiring-manager practice.",
+        "ar": "المقابلات المنظمة تستخدم السلوك السابق للتنبؤ بالأداء — ممارسة HR ومدير التوظيف القياسية."
+      },
+      "recruiterIntent": {
+        "en": "Leadership and influence.",
+        "ar": "القيادة والتأثير."
+      },
+      "modelAnswer": {
+        "en": "STAR: war room, clear roles, shipped on time, zero P1.",
+        "ar": "STAR: war room، أدوار واضحة، تسليم في الموعد، صفر P1."
+      },
+      "redFlags": {
+        "en": [
+          "No I-statements",
+          "No metrics"
+        ],
+        "ar": [
+          "لا «أنا»",
+          "لا أرقام"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "STAR + metrics builds trust for manager rounds.",
+        "ar": "STAR + أرقام يبني ثقة لجولة Manager."
+      },
+      "improvement": {
+        "en": "Time your story to 90 seconds.",
+        "ar": "قِس قصتك 90 ثانية."
+      }
+    },
+    {
+      "id": "hr-behavioral:leadership:v4",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "leadership",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Share when you took ownership beyond your role.",
+        "ar": "شارك امتلاكك مسؤولية خارج دورك."
+      },
+      "options": {
+        "en": [
+          "Use STAR with I-statements and a measurable Result.",
+          "Blame the team for failure.",
+          "Answer hypothetically with no real story.",
+          "Speak only about 'we' with no personal actions."
+        ],
+        "ar": [
+          "استخدم STAR بجمل «أنا» وResult قابل للقياس.",
+          "الوم الفريق على الفشل.",
+          "أجب افتراضياً بلا قصة حقيقية.",
+          "تحدّث عن «نحن» فقط بلا أفعال شخصية."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Structured interviews use past behavior to predict future performance — this is standard HR and hiring-manager practice.",
+        "ar": "المقابلات المنظمة تستخدم السلوك السابق للتنبؤ بالأداء — ممارسة HR ومدير التوظيف القياسية."
+      },
+      "recruiterIntent": {
+        "en": "Leadership and influence.",
+        "ar": "القيادة والتأثير."
+      },
+      "modelAnswer": {
+        "en": "STAR: war room, clear roles, shipped on time, zero P1.",
+        "ar": "STAR: war room، أدوار واضحة، تسليم في الموعد، صفر P1."
+      },
+      "redFlags": {
+        "en": [
+          "No I-statements",
+          "No metrics"
+        ],
+        "ar": [
+          "لا «أنا»",
+          "لا أرقام"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "STAR + metrics builds trust for manager rounds.",
+        "ar": "STAR + أرقام يبني ثقة لجولة Manager."
+      },
+      "improvement": {
+        "en": "Time your story to 90 seconds.",
+        "ar": "قِس قصتك 90 ثانية."
+      }
+    },
+    {
+      "id": "hr-behavioral:teamwork:v1",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "entry",
+      "competency": "teamwork",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Tell me about a difficult teammate.",
+        "ar": "احكِ عن زميل صعب."
+      },
+      "options": {
+        "en": [
+          "Gossip or label them negatively.",
+          "Avoid the person entirely.",
+          "Show empathy, your constructive action, and positive outcome.",
+          "Claim zero conflict ever."
+        ],
+        "ar": [
+          "غيبة أو وصف سلبي.",
+          "تجنّب الشخص تماماً.",
+          "أظهر تعاطفاً، فعلك البنّاء، ونتيجة إيجابية.",
+          "ادّعِ صفر صراع."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Teams need repairers not avoiders.",
+        "ar": "الفرق تحتاج من يصلح لا يتجنب."
+      },
+      "recruiterIntent": {
+        "en": "Collaboration under friction.",
+        "ar": "تعاون تحت احتكاك."
+      },
+      "modelAnswer": {
+        "en": "Disagreement → sync → phased MVP → continued partnership.",
+        "ar": "خلاف → sync → MVP مرحلي → شراكة مستمرة."
+      },
+      "redFlags": {
+        "en": [
+          "Always right"
+        ],
+        "ar": [
+          "دائماً على حق"
+        ]
+      },
+      "passTip": {
+        "en": "De-escalation stories pass HR to hiring manager.",
+        "ar": "قصص de-escalation تمرّك لمدير التوظيف."
+      },
+      "explanation": {
+        "en": "Constructive resolution beats blame.",
+        "ar": "حل بنّاء أفضل من اللوم."
+      },
+      "improvement": {
+        "en": "One story ending in mutual respect.",
+        "ar": "قصة تنتهي باحترام متبادل."
+      }
+    },
+    {
+      "id": "hr-behavioral:teamwork:v2",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "entry",
+      "competency": "teamwork",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Describe cross-team collaboration.",
+        "ar": "صف تعاوناً بين فرق."
+      },
+      "options": {
+        "en": [
+          "Gossip or label them negatively.",
+          "Claim zero conflict ever.",
+          "Avoid the person entirely.",
+          "Show empathy, your constructive action, and positive outcome."
+        ],
+        "ar": [
+          "غيبة أو وصف سلبي.",
+          "ادّعِ صفر صراع.",
+          "تجنّب الشخص تماماً.",
+          "أظهر تعاطفاً، فعلك البنّاء، ونتيجة إيجابية."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Teams need repairers not avoiders.",
+        "ar": "الفرق تحتاج من يصلح لا يتجنب."
+      },
+      "recruiterIntent": {
+        "en": "Collaboration under friction.",
+        "ar": "تعاون تحت احتكاك."
+      },
+      "modelAnswer": {
+        "en": "Disagreement → sync → phased MVP → continued partnership.",
+        "ar": "خلاف → sync → MVP مرحلي → شراكة مستمرة."
+      },
+      "redFlags": {
+        "en": [
+          "Always right"
+        ],
+        "ar": [
+          "دائماً على حق"
+        ]
+      },
+      "passTip": {
+        "en": "De-escalation stories pass HR to hiring manager.",
+        "ar": "قصص de-escalation تمرّك لمدير التوظيف."
+      },
+      "explanation": {
+        "en": "Constructive resolution beats blame.",
+        "ar": "حل بنّاء أفضل من اللوم."
+      },
+      "improvement": {
+        "en": "One story ending in mutual respect.",
+        "ar": "قصة تنتهي باحترام متبادل."
+      }
+    },
+    {
+      "id": "hr-behavioral:teamwork:v3",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "entry",
+      "competency": "teamwork",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Share supporting a struggling colleague.",
+        "ar": "شارك دعم زميل يعاني."
+      },
+      "options": {
+        "en": [
+          "Show empathy, your constructive action, and positive outcome.",
+          "Claim zero conflict ever.",
+          "Gossip or label them negatively.",
+          "Avoid the person entirely."
+        ],
+        "ar": [
+          "أظهر تعاطفاً، فعلك البنّاء، ونتيجة إيجابية.",
+          "ادّعِ صفر صراع.",
+          "غيبة أو وصف سلبي.",
+          "تجنّب الشخص تماماً."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Teams need repairers not avoiders.",
+        "ar": "الفرق تحتاج من يصلح لا يتجنب."
+      },
+      "recruiterIntent": {
+        "en": "Collaboration under friction.",
+        "ar": "تعاون تحت احتكاك."
+      },
+      "modelAnswer": {
+        "en": "Disagreement → sync → phased MVP → continued partnership.",
+        "ar": "خلاف → sync → MVP مرحلي → شراكة مستمرة."
+      },
+      "redFlags": {
+        "en": [
+          "Always right"
+        ],
+        "ar": [
+          "دائماً على حق"
+        ]
+      },
+      "passTip": {
+        "en": "De-escalation stories pass HR to hiring manager.",
+        "ar": "قصص de-escalation تمرّك لمدير التوظيف."
+      },
+      "explanation": {
+        "en": "Constructive resolution beats blame.",
+        "ar": "حل بنّاء أفضل من اللوم."
+      },
+      "improvement": {
+        "en": "One story ending in mutual respect.",
+        "ar": "قصة تنتهي باحترام متبادل."
+      }
+    },
+    {
+      "id": "hr-behavioral:teamwork:v4",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "entry",
+      "competency": "teamwork",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Give an example of compromise for team success.",
+        "ar": "أعطِ مثالاً على تنازل للفريق."
+      },
+      "options": {
+        "en": [
+          "Avoid the person entirely.",
+          "Claim zero conflict ever.",
+          "Show empathy, your constructive action, and positive outcome.",
+          "Gossip or label them negatively."
+        ],
+        "ar": [
+          "تجنّب الشخص تماماً.",
+          "ادّعِ صفر صراع.",
+          "أظهر تعاطفاً، فعلك البنّاء، ونتيجة إيجابية.",
+          "غيبة أو وصف سلبي."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Teams need repairers not avoiders.",
+        "ar": "الفرق تحتاج من يصلح لا يتجنب."
+      },
+      "recruiterIntent": {
+        "en": "Collaboration under friction.",
+        "ar": "تعاون تحت احتكاك."
+      },
+      "modelAnswer": {
+        "en": "Disagreement → sync → phased MVP → continued partnership.",
+        "ar": "خلاف → sync → MVP مرحلي → شراكة مستمرة."
+      },
+      "redFlags": {
+        "en": [
+          "Always right"
+        ],
+        "ar": [
+          "دائماً على حق"
+        ]
+      },
+      "passTip": {
+        "en": "De-escalation stories pass HR to hiring manager.",
+        "ar": "قصص de-escalation تمرّك لمدير التوظيف."
+      },
+      "explanation": {
+        "en": "Constructive resolution beats blame.",
+        "ar": "حل بنّاء أفضل من اللوم."
+      },
+      "improvement": {
+        "en": "One story ending in mutual respect.",
+        "ar": "قصة تنتهي باحترام متبادل."
+      }
+    },
+    {
+      "id": "hr-behavioral:failure:v1",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "failure",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Tell me about a time you failed.",
+        "ar": "احكِ عن فشل."
+      },
+      "options": {
+        "en": [
+          "Own it, show learning and behavior change.",
+          "I never fail.",
+          "Blame externals only.",
+          "Minimize impact."
+        ],
+        "ar": [
+          "امتلكه، أظهر تعلماً وتغيير سلوك.",
+          "لا أفشل أبداً.",
+          "الوم خارجيات فقط.",
+          "قلّل الأثر."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Self-awareness over perfection.",
+        "ar": "وعي ذاتي لا كمال."
+      },
+      "recruiterIntent": {
+        "en": "Accountability and growth.",
+        "ar": "مسؤولية ونمو."
+      },
+      "modelAnswer": {
+        "en": "Rollback, runbook, checklist — no repeat 12mo.",
+        "ar": "rollback، runbook، checklist — لا تكرار 12 شهر."
+      },
+      "redFlags": {
+        "en": [
+          "No learning"
+        ],
+        "ar": [
+          "لا تعلّم"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Honest failure + fix = trustworthy.",
+        "ar": "فشل صادق + إصلاح = موثوق."
+      },
+      "improvement": {
+        "en": "End with process change.",
+        "ar": "اختم بتغيير عملية."
+      }
+    },
+    {
+      "id": "hr-behavioral:failure:v2",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "failure",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Describe a mistake affecting others.",
+        "ar": "صف خطأ أثر على الآخرين."
+      },
+      "options": {
+        "en": [
+          "I never fail.",
+          "Blame externals only.",
+          "Minimize impact.",
+          "Own it, show learning and behavior change."
+        ],
+        "ar": [
+          "لا أفشل أبداً.",
+          "الوم خارجيات فقط.",
+          "قلّل الأثر.",
+          "امتلكه، أظهر تعلماً وتغيير سلوك."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Self-awareness over perfection.",
+        "ar": "وعي ذاتي لا كمال."
+      },
+      "recruiterIntent": {
+        "en": "Accountability and growth.",
+        "ar": "مسؤولية ونمو."
+      },
+      "modelAnswer": {
+        "en": "Rollback, runbook, checklist — no repeat 12mo.",
+        "ar": "rollback، runbook، checklist — لا تكرار 12 شهر."
+      },
+      "redFlags": {
+        "en": [
+          "No learning"
+        ],
+        "ar": [
+          "لا تعلّم"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Honest failure + fix = trustworthy.",
+        "ar": "فشل صادق + إصلاح = موثوق."
+      },
+      "improvement": {
+        "en": "End with process change.",
+        "ar": "اختم بتغيير عملية."
+      }
+    },
+    {
+      "id": "hr-behavioral:failure:v3",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "failure",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Share a project that missed goals.",
+        "ar": "شارك مشروعاً فاتته الأهداف."
+      },
+      "options": {
+        "en": [
+          "Own it, show learning and behavior change.",
+          "Blame externals only.",
+          "Minimize impact.",
+          "I never fail."
+        ],
+        "ar": [
+          "امتلكه، أظهر تعلماً وتغيير سلوك.",
+          "الوم خارجيات فقط.",
+          "قلّل الأثر.",
+          "لا أفشل أبداً."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Self-awareness over perfection.",
+        "ar": "وعي ذاتي لا كمال."
+      },
+      "recruiterIntent": {
+        "en": "Accountability and growth.",
+        "ar": "مسؤولية ونمو."
+      },
+      "modelAnswer": {
+        "en": "Rollback, runbook, checklist — no repeat 12mo.",
+        "ar": "rollback، runbook، checklist — لا تكرار 12 شهر."
+      },
+      "redFlags": {
+        "en": [
+          "No learning"
+        ],
+        "ar": [
+          "لا تعلّم"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Honest failure + fix = trustworthy.",
+        "ar": "فشل صادق + إصلاح = موثوق."
+      },
+      "improvement": {
+        "en": "End with process change.",
+        "ar": "اختم بتغيير عملية."
+      }
+    },
+    {
+      "id": "hr-behavioral:failure:v4",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "failure",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Give hard feedback you received.",
+        "ar": "أعطِ feedback صعباً تلقيته."
+      },
+      "options": {
+        "en": [
+          "I never fail.",
+          "Own it, show learning and behavior change.",
+          "Minimize impact.",
+          "Blame externals only."
+        ],
+        "ar": [
+          "لا أفشل أبداً.",
+          "امتلكه، أظهر تعلماً وتغيير سلوك.",
+          "قلّل الأثر.",
+          "الوم خارجيات فقط."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Self-awareness over perfection.",
+        "ar": "وعي ذاتي لا كمال."
+      },
+      "recruiterIntent": {
+        "en": "Accountability and growth.",
+        "ar": "مسؤولية ونمو."
+      },
+      "modelAnswer": {
+        "en": "Rollback, runbook, checklist — no repeat 12mo.",
+        "ar": "rollback، runbook، checklist — لا تكرار 12 شهر."
+      },
+      "redFlags": {
+        "en": [
+          "No learning"
+        ],
+        "ar": [
+          "لا تعلّم"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Honest failure + fix = trustworthy.",
+        "ar": "فشل صادق + إصلاح = موثوق."
+      },
+      "improvement": {
+        "en": "End with process change.",
+        "ar": "اختم بتغيير عملية."
+      }
+    },
+    {
+      "id": "hr-behavioral:pressure:v1",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "senior",
+      "competency": "pressure",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Work under extreme pressure?",
+        "ar": "عمل تحت ضغط شديد؟"
+      },
+      "options": {
+        "en": [
+          "Pressure makes me quit.",
+          "Hide bad news.",
+          "Triage, communicate, sustainable outcome — not hero burnout.",
+          "Only answer: 80h weeks."
+        ],
+        "ar": [
+          "الضغط يجعلني أستقيل.",
+          "أخفِ الأخبار السيئة.",
+          "Triage، تواصل، نتيجة مستدامة — لا burnout.",
+          "80 ساعة فقط."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Senior = calm prioritization.",
+        "ar": "Senior = ترتيب هادئ."
+      },
+      "recruiterIntent": {
+        "en": "Judgment and communication.",
+        "ar": "حكم وتواصل."
+      },
+      "modelAnswer": {
+        "en": "Outage: triage, 30-min updates, MTTR 47min.",
+        "ar": "Outage: triage، تحديث 30 دقيقة، MTTR 47."
+      },
+      "redFlags": {
+        "en": [
+          "Chaos"
+        ],
+        "ar": [
+          "فوضى"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure under pressure signals readiness.",
+        "ar": "هيكل تحت ضغط = جاهزية."
+      },
+      "improvement": {
+        "en": "Add time/revenue metric.",
+        "ar": "أضف metric وقت/ revenue."
+      }
+    },
+    {
+      "id": "hr-behavioral:pressure:v2",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "senior",
+      "competency": "pressure",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Everything urgent — how prioritize?",
+        "ar": "كل شيء عاجل — كيف رتّبت؟"
+      },
+      "options": {
+        "en": [
+          "Triage, communicate, sustainable outcome — not hero burnout.",
+          "Only answer: 80h weeks.",
+          "Pressure makes me quit.",
+          "Hide bad news."
+        ],
+        "ar": [
+          "Triage، تواصل، نتيجة مستدامة — لا burnout.",
+          "80 ساعة فقط.",
+          "الضغط يجعلني أستقيل.",
+          "أخفِ الأخبار السيئة."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Senior = calm prioritization.",
+        "ar": "Senior = ترتيب هادئ."
+      },
+      "recruiterIntent": {
+        "en": "Judgment and communication.",
+        "ar": "حكم وتواصل."
+      },
+      "modelAnswer": {
+        "en": "Outage: triage, 30-min updates, MTTR 47min.",
+        "ar": "Outage: triage، تحديث 30 دقيقة، MTTR 47."
+      },
+      "redFlags": {
+        "en": [
+          "Chaos"
+        ],
+        "ar": [
+          "فوضى"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure under pressure signals readiness.",
+        "ar": "هيكل تحت ضغط = جاهزية."
+      },
+      "improvement": {
+        "en": "Add time/revenue metric.",
+        "ar": "أضف metric وقت/ revenue."
+      }
+    },
+    {
+      "id": "hr-behavioral:pressure:v3",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "senior",
+      "competency": "pressure",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Crisis with multiple stakeholders?",
+        "ar": "أزمة وأصحاب مصلحة متعددون؟"
+      },
+      "options": {
+        "en": [
+          "Pressure makes me quit.",
+          "Hide bad news.",
+          "Only answer: 80h weeks.",
+          "Triage, communicate, sustainable outcome — not hero burnout."
+        ],
+        "ar": [
+          "الضغط يجعلني أستقيل.",
+          "أخفِ الأخبار السيئة.",
+          "80 ساعة فقط.",
+          "Triage، تواصل، نتيجة مستدامة — لا burnout."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Senior = calm prioritization.",
+        "ar": "Senior = ترتيب هادئ."
+      },
+      "recruiterIntent": {
+        "en": "Judgment and communication.",
+        "ar": "حكم وتواصل."
+      },
+      "modelAnswer": {
+        "en": "Outage: triage, 30-min updates, MTTR 47min.",
+        "ar": "Outage: triage، تحديث 30 دقيقة، MTTR 47."
+      },
+      "redFlags": {
+        "en": [
+          "Chaos"
+        ],
+        "ar": [
+          "فوضى"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure under pressure signals readiness.",
+        "ar": "هيكل تحت ضغط = جاهزية."
+      },
+      "improvement": {
+        "en": "Add time/revenue metric.",
+        "ar": "أضف metric وقت/ revenue."
+      }
+    },
+    {
+      "id": "hr-behavioral:pressure:v4",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "senior",
+      "competency": "pressure",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Calm when others panicked?",
+        "ar": "هادئ بينما الآخرون في ذعر؟"
+      },
+      "options": {
+        "en": [
+          "Only answer: 80h weeks.",
+          "Hide bad news.",
+          "Triage, communicate, sustainable outcome — not hero burnout.",
+          "Pressure makes me quit."
+        ],
+        "ar": [
+          "80 ساعة فقط.",
+          "أخفِ الأخبار السيئة.",
+          "Triage، تواصل، نتيجة مستدامة — لا burnout.",
+          "الضغط يجعلني أستقيل."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Senior = calm prioritization.",
+        "ar": "Senior = ترتيب هادئ."
+      },
+      "recruiterIntent": {
+        "en": "Judgment and communication.",
+        "ar": "حكم وتواصل."
+      },
+      "modelAnswer": {
+        "en": "Outage: triage, 30-min updates, MTTR 47min.",
+        "ar": "Outage: triage، تحديث 30 دقيقة، MTTR 47."
+      },
+      "redFlags": {
+        "en": [
+          "Chaos"
+        ],
+        "ar": [
+          "فوضى"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure under pressure signals readiness.",
+        "ar": "هيكل تحت ضغط = جاهزية."
+      },
+      "improvement": {
+        "en": "Add time/revenue metric.",
+        "ar": "أضف metric وقت/ revenue."
+      }
+    },
+    {
+      "id": "hr-behavioral:problem-solving:v1",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "problem-solving",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Solve a complex problem?",
+        "ar": "حل مشكلة معقدة؟"
+      },
+      "options": {
+        "en": [
+          "Full solo credit.",
+          "Jump to solution.",
+          "Frame problem, test hypotheses, validate with data.",
+          "Can't explain reasoning."
+        ],
+        "ar": [
+          "كل الفضل لي.",
+          "اقفز للحل.",
+          "صغ المشكلة، اختبر فرضيات، تحقق بالبيانات.",
+          "لا أشرح التفكير."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Structured interviews use past behavior to predict future performance — this is standard HR and hiring-manager practice.",
+        "ar": "المقابلات المنظمة تستخدم السلوك السابق للتنبؤ بالأداء — ممارسة HR ومدير التوظيف القياسية."
+      },
+      "recruiterIntent": {
+        "en": "Analytical thinking.",
+        "ar": "تفكير تحليلي."
+      },
+      "modelAnswer": {
+        "en": "Funnel data → 3 hypotheses → A/B → +4.2% conversion.",
+        "ar": "Funnel → 3 فرضيات → A/B → +4.2%."
+      },
+      "redFlags": {
+        "en": [
+          "No data"
+        ],
+        "ar": [
+          "لا بيانات"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure beats IQ bragging.",
+        "ar": "هيكل أفضل من التباهي."
+      },
+      "improvement": {
+        "en": "Before/after metrics.",
+        "ar": "Before/after metrics."
+      }
+    },
+    {
+      "id": "hr-behavioral:problem-solving:v2",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "problem-solving",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Fix what others couldn't?",
+        "ar": "أصلح ما لم يستطع الآخرون؟"
+      },
+      "options": {
+        "en": [
+          "Full solo credit.",
+          "Can't explain reasoning.",
+          "Jump to solution.",
+          "Frame problem, test hypotheses, validate with data."
+        ],
+        "ar": [
+          "كل الفضل لي.",
+          "لا أشرح التفكير.",
+          "اقفز للحل.",
+          "صغ المشكلة، اختبر فرضيات، تحقق بالبيانات."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Structured interviews use past behavior to predict future performance — this is standard HR and hiring-manager practice.",
+        "ar": "المقابلات المنظمة تستخدم السلوك السابق للتنبؤ بالأداء — ممارسة HR ومدير التوظيف القياسية."
+      },
+      "recruiterIntent": {
+        "en": "Analytical thinking.",
+        "ar": "تفكير تحليلي."
+      },
+      "modelAnswer": {
+        "en": "Funnel data → 3 hypotheses → A/B → +4.2% conversion.",
+        "ar": "Funnel → 3 فرضيات → A/B → +4.2%."
+      },
+      "redFlags": {
+        "en": [
+          "No data"
+        ],
+        "ar": [
+          "لا بيانات"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure beats IQ bragging.",
+        "ar": "هيكل أفضل من التباهي."
+      },
+      "improvement": {
+        "en": "Before/after metrics.",
+        "ar": "Before/after metrics."
+      }
+    },
+    {
+      "id": "hr-behavioral:problem-solving:v3",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "problem-solving",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Data changed your assumption?",
+        "ar": "البيانات غيّرت افتراضك؟"
+      },
+      "options": {
+        "en": [
+          "Frame problem, test hypotheses, validate with data.",
+          "Can't explain reasoning.",
+          "Full solo credit.",
+          "Jump to solution."
+        ],
+        "ar": [
+          "صغ المشكلة، اختبر فرضيات، تحقق بالبيانات.",
+          "لا أشرح التفكير.",
+          "كل الفضل لي.",
+          "اقفز للحل."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Structured interviews use past behavior to predict future performance — this is standard HR and hiring-manager practice.",
+        "ar": "المقابلات المنظمة تستخدم السلوك السابق للتنبؤ بالأداء — ممارسة HR ومدير التوظيف القياسية."
+      },
+      "recruiterIntent": {
+        "en": "Analytical thinking.",
+        "ar": "تفكير تحليلي."
+      },
+      "modelAnswer": {
+        "en": "Funnel data → 3 hypotheses → A/B → +4.2% conversion.",
+        "ar": "Funnel → 3 فرضيات → A/B → +4.2%."
+      },
+      "redFlags": {
+        "en": [
+          "No data"
+        ],
+        "ar": [
+          "لا بيانات"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure beats IQ bragging.",
+        "ar": "هيكل أفضل من التباهي."
+      },
+      "improvement": {
+        "en": "Before/after metrics.",
+        "ar": "Before/after metrics."
+      }
+    },
+    {
+      "id": "hr-behavioral:problem-solving:v4",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "mid",
+      "competency": "problem-solving",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Creative solution example?",
+        "ar": "حل إبداعي؟"
+      },
+      "options": {
+        "en": [
+          "Jump to solution.",
+          "Can't explain reasoning.",
+          "Frame problem, test hypotheses, validate with data.",
+          "Full solo credit."
+        ],
+        "ar": [
+          "اقفز للحل.",
+          "لا أشرح التفكير.",
+          "صغ المشكلة، اختبر فرضيات، تحقق بالبيانات.",
+          "كل الفضل لي."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Structured interviews use past behavior to predict future performance — this is standard HR and hiring-manager practice.",
+        "ar": "المقابلات المنظمة تستخدم السلوك السابق للتنبؤ بالأداء — ممارسة HR ومدير التوظيف القياسية."
+      },
+      "recruiterIntent": {
+        "en": "Analytical thinking.",
+        "ar": "تفكير تحليلي."
+      },
+      "modelAnswer": {
+        "en": "Funnel data → 3 hypotheses → A/B → +4.2% conversion.",
+        "ar": "Funnel → 3 فرضيات → A/B → +4.2%."
+      },
+      "redFlags": {
+        "en": [
+          "No data"
+        ],
+        "ar": [
+          "لا بيانات"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Structure beats IQ bragging.",
+        "ar": "هيكل أفضل من التباهي."
+      },
+      "improvement": {
+        "en": "Before/after metrics.",
+        "ar": "Before/after metrics."
+      }
+    },
+    {
+      "id": "hr-behavioral:adaptability:v1",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "entry",
+      "competency": "adaptability",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Adapt to major change?",
+        "ar": "تكيف مع تغيير كبير؟"
+      },
+      "options": {
+        "en": [
+          "Pretend it was effortless.",
+          "Only criticize leadership.",
+          "Reaction, learning steps, help others adapt.",
+          "Resist all change."
+        ],
+        "ar": [
+          "ادّعِ سهولة.",
+          "أنتقد القيادة فقط.",
+          "رد فعل، تعلم، مساعدة الآخرين.",
+          "أقاوم كل التغيير."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Change is constant.",
+        "ar": "التغيير مستمر."
+      },
+      "recruiterIntent": {
+        "en": "Growth mindset.",
+        "ar": "عقلية نمو."
+      },
+      "modelAnswer": {
+        "en": "Course + pairing + docs → service in sprint 3.",
+        "ar": "دورة + pairing + docs → service sprint 3."
+      },
+      "redFlags": {
+        "en": [
+          "Rigid"
+        ],
+        "ar": [
+          "جمود"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Learning + helping others = strong signal.",
+        "ar": "تعلم + مساعدة = إشارة قوية."
+      },
+      "improvement": {
+        "en": "One pivot story.",
+        "ar": "قصة pivot."
+      }
+    },
+    {
+      "id": "hr-behavioral:adaptability:v2",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "entry",
+      "competency": "adaptability",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Learn new tool quickly?",
+        "ar": "تعلم أداة بسرعة؟"
+      },
+      "options": {
+        "en": [
+          "Only criticize leadership.",
+          "Reaction, learning steps, help others adapt.",
+          "Resist all change.",
+          "Pretend it was effortless."
+        ],
+        "ar": [
+          "أنتقد القيادة فقط.",
+          "رد فعل، تعلم، مساعدة الآخرين.",
+          "أقاوم كل التغيير.",
+          "ادّعِ سهولة."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Change is constant.",
+        "ar": "التغيير مستمر."
+      },
+      "recruiterIntent": {
+        "en": "Growth mindset.",
+        "ar": "عقلية نمو."
+      },
+      "modelAnswer": {
+        "en": "Course + pairing + docs → service in sprint 3.",
+        "ar": "دورة + pairing + docs → service sprint 3."
+      },
+      "redFlags": {
+        "en": [
+          "Rigid"
+        ],
+        "ar": [
+          "جمود"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Learning + helping others = strong signal.",
+        "ar": "تعلم + مساعدة = إشارة قوية."
+      },
+      "improvement": {
+        "en": "One pivot story.",
+        "ar": "قصة pivot."
+      }
+    },
+    {
+      "id": "hr-behavioral:adaptability:v3",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "entry",
+      "competency": "adaptability",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Priorities shifted suddenly?",
+        "ar": "أولويات تغيرت فجأة؟"
+      },
+      "options": {
+        "en": [
+          "Reaction, learning steps, help others adapt.",
+          "Resist all change.",
+          "Pretend it was effortless.",
+          "Only criticize leadership."
+        ],
+        "ar": [
+          "رد فعل، تعلم، مساعدة الآخرين.",
+          "أقاوم كل التغيير.",
+          "ادّعِ سهولة.",
+          "أنتقد القيادة فقط."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Change is constant.",
+        "ar": "التغيير مستمر."
+      },
+      "recruiterIntent": {
+        "en": "Growth mindset.",
+        "ar": "عقلية نمو."
+      },
+      "modelAnswer": {
+        "en": "Course + pairing + docs → service in sprint 3.",
+        "ar": "دورة + pairing + docs → service sprint 3."
+      },
+      "redFlags": {
+        "en": [
+          "Rigid"
+        ],
+        "ar": [
+          "جمود"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Learning + helping others = strong signal.",
+        "ar": "تعلم + مساعدة = إشارة قوية."
+      },
+      "improvement": {
+        "en": "One pivot story.",
+        "ar": "قصة pivot."
+      }
+    },
+    {
+      "id": "hr-behavioral:adaptability:v4",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "entry",
+      "competency": "adaptability",
+      "interviewStage": "hr",
+      "prompt": {
+        "en": "Positive during change?",
+        "ar": "إيجابي أثناء التغيير؟"
+      },
+      "options": {
+        "en": [
+          "Resist all change.",
+          "Pretend it was effortless.",
+          "Only criticize leadership.",
+          "Reaction, learning steps, help others adapt."
+        ],
+        "ar": [
+          "أقاوم كل التغيير.",
+          "ادّعِ سهولة.",
+          "أنتقد القيادة فقط.",
+          "رد فعل، تعلم، مساعدة الآخرين."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Change is constant.",
+        "ar": "التغيير مستمر."
+      },
+      "recruiterIntent": {
+        "en": "Growth mindset.",
+        "ar": "عقلية نمو."
+      },
+      "modelAnswer": {
+        "en": "Course + pairing + docs → service in sprint 3.",
+        "ar": "دورة + pairing + docs → service sprint 3."
+      },
+      "redFlags": {
+        "en": [
+          "Rigid"
+        ],
+        "ar": [
+          "جمود"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Learning + helping others = strong signal.",
+        "ar": "تعلم + مساعدة = إشارة قوية."
+      },
+      "improvement": {
+        "en": "One pivot story.",
+        "ar": "قصة pivot."
+      }
+    },
+    {
+      "id": "hr-behavioral:initiative:v1",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "senior",
+      "competency": "initiative",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Improve something unprompted?",
+        "ar": "حسّنت شيئاً دون طلب؟"
+      },
+      "options": {
+        "en": [
+          "No impact described.",
+          "Waited for perfect conditions.",
+          "Gap noticed, alignment, execution, measured impact.",
+          "Changed prod without approval."
+        ],
+        "ar": [
+          "لا أثر.",
+          "انتظرت الكمال.",
+          "فجوة، موافقة، تنفيذ، أثر.",
+          "غيّرت prod بلا موافقة."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Proactive hires reduce manager load.",
+        "ar": "الاستباق يخفف عبء المدير."
+      },
+      "recruiterIntent": {
+        "en": "Ownership.",
+        "ar": "ownership."
+      },
+      "modelAnswer": {
+        "en": "CI pitch → POC → training → errors -70%.",
+        "ar": "CI pitch → POC → training → -70%."
+      },
+      "redFlags": {
+        "en": [
+          "Reckless"
+        ],
+        "ar": [
+          "متهور"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Aligned initiative wins.",
+        "ar": "مبادرة متوافقة."
+      },
+      "improvement": {
+        "en": "2 initiatives with numbers.",
+        "ar": "مبادرتان بأرقام."
+      }
+    },
+    {
+      "id": "hr-behavioral:initiative:v2",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "senior",
+      "competency": "initiative",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Spotted risk early?",
+        "ar": "اكتشفت مخاطرة مبكراً؟"
+      },
+      "options": {
+        "en": [
+          "Waited for perfect conditions.",
+          "Gap noticed, alignment, execution, measured impact.",
+          "Changed prod without approval.",
+          "No impact described."
+        ],
+        "ar": [
+          "انتظرت الكمال.",
+          "فجوة، موافقة، تنفيذ، أثر.",
+          "غيّرت prod بلا موافقة.",
+          "لا أثر."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Proactive hires reduce manager load.",
+        "ar": "الاستباق يخفف عبء المدير."
+      },
+      "recruiterIntent": {
+        "en": "Ownership.",
+        "ar": "ownership."
+      },
+      "modelAnswer": {
+        "en": "CI pitch → POC → training → errors -70%.",
+        "ar": "CI pitch → POC → training → -70%."
+      },
+      "redFlags": {
+        "en": [
+          "Reckless"
+        ],
+        "ar": [
+          "متهور"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Aligned initiative wins.",
+        "ar": "مبادرة متوافقة."
+      },
+      "improvement": {
+        "en": "2 initiatives with numbers.",
+        "ar": "مبادرتان بأرقام."
+      }
+    },
+    {
+      "id": "hr-behavioral:initiative:v3",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "senior",
+      "competency": "initiative",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Idea that saved time/money?",
+        "ar": "فكرة وفّرت وقت/مال؟"
+      },
+      "options": {
+        "en": [
+          "Gap noticed, alignment, execution, measured impact.",
+          "Changed prod without approval.",
+          "No impact described.",
+          "Waited for perfect conditions."
+        ],
+        "ar": [
+          "فجوة، موافقة، تنفيذ، أثر.",
+          "غيّرت prod بلا موافقة.",
+          "لا أثر.",
+          "انتظرت الكمال."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Proactive hires reduce manager load.",
+        "ar": "الاستباق يخفف عبء المدير."
+      },
+      "recruiterIntent": {
+        "en": "Ownership.",
+        "ar": "ownership."
+      },
+      "modelAnswer": {
+        "en": "CI pitch → POC → training → errors -70%.",
+        "ar": "CI pitch → POC → training → -70%."
+      },
+      "redFlags": {
+        "en": [
+          "Reckless"
+        ],
+        "ar": [
+          "متهور"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Aligned initiative wins.",
+        "ar": "مبادرة متوافقة."
+      },
+      "improvement": {
+        "en": "2 initiatives with numbers.",
+        "ar": "مبادرتان بأرقام."
+      }
+    },
+    {
+      "id": "hr-behavioral:initiative:v4",
+      "trackSlug": "hr-behavioral",
+      "kind": "behavioral",
+      "difficulty": "senior",
+      "competency": "initiative",
+      "interviewStage": "manager",
+      "prompt": {
+        "en": "Beyond expectations?",
+        "ar": "تجاوزت التوقعات؟"
+      },
+      "options": {
+        "en": [
+          "Changed prod without approval.",
+          "No impact described.",
+          "Waited for perfect conditions.",
+          "Gap noticed, alignment, execution, measured impact."
+        ],
+        "ar": [
+          "غيّرت prod بلا موافقة.",
+          "لا أثر.",
+          "انتظرت الكمال.",
+          "فجوة، موافقة، تنفيذ، أثر."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Proactive hires reduce manager load.",
+        "ar": "الاستباق يخفف عبء المدير."
+      },
+      "recruiterIntent": {
+        "en": "Ownership.",
+        "ar": "ownership."
+      },
+      "modelAnswer": {
+        "en": "CI pitch → POC → training → errors -70%.",
+        "ar": "CI pitch → POC → training → -70%."
+      },
+      "redFlags": {
+        "en": [
+          "Reckless"
+        ],
+        "ar": [
+          "متهور"
+        ]
+      },
+      "passTip": {
+        "en": "End with a measurable result, then ask what the next interview stage focuses on.",
+        "ar": "اختم بنتيجة قابلة للقياس، ثم اسأل عن تركيز المرحلة التالية."
+      },
+      "explanation": {
+        "en": "Aligned initiative wins.",
+        "ar": "مبادرة متوافقة."
+      },
+      "improvement": {
+        "en": "2 initiatives with numbers.",
+        "ar": "مبادرتان بأرقام."
+      }
+    }
+  ]
+}

@@ -15,10 +15,14 @@ export function FriendsNavLink() {
   const { socket } = useRealtimeSocket();
 
   const load = useCallback(async () => {
-    const res = await fetch("/api/friends");
-    if (!res.ok) return;
-    const data = await res.json().catch(() => ({}));
-    setCount(Number(data.incomingCount) || 0);
+    try {
+      const res = await fetch("/api/friends");
+      if (!res.ok) return;
+      const data = await res.json().catch(() => ({}));
+      setCount(Number(data.incomingCount) || 0);
+    } catch {
+      // Server briefly unavailable (HMR / restart) — keep last count.
+    }
   }, []);
 
   useEffect(() => {

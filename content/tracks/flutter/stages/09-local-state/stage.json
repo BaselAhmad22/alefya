@@ -1,0 +1,17 @@
+{
+  "slug": "09-local-state",
+  "order": 9,
+  "title": {
+    "ar": "الحالة المحلية",
+    "en": "Local state"
+  },
+  "description": {
+    "ar": "setState بوعي",
+    "en": "setState with intent"
+  },
+  "lessons": [
+    "01-setstate-discipline.json",
+    "02-lifting-state.json",
+    "03-inherited-widget.json"
+  ]
+}

@@ -1,0 +1,1226 @@
+{
+  "trackSlug": "hr-motivation",
+  "count": 20,
+  "questions": [
+    {
+      "id": "hr-motivation:mot-role:v1",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "role-fit",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Why this role?",
+        "ar": "لماذا هذا الدور؟"
+      },
+      "options": {
+        "en": [
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Generic answer with no research.",
+          "Negative or defensive tone."
+        ],
+        "ar": [
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "إجابة generic بلا research.",
+          "tone سلبي أو defensive."
+        ]
+      },
+      "correctIndex": 1,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates role-fit for pipeline advancement.",
+        "ar": "يقيس role-fit للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-role:v2",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "role-fit",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "What excites you about the job description?",
+        "ar": "ما يثيرك في JD؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Generic answer with no research.",
+          "Negative or defensive tone.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "إجابة generic بلا research.",
+          "tone سلبي أو defensive.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates role-fit for pipeline advancement.",
+        "ar": "يقيس role-fit للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-role:v3",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "role-fit",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "How does this match your skills?",
+        "ar": "كيف يلائم مهاراتك؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates role-fit for pipeline advancement.",
+        "ar": "يقيس role-fit للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-role:v4",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "role-fit",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Why apply now?",
+        "ar": "لماذا التقديم الآن؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Generic answer with no research."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "إجابة generic بلا research."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates role-fit for pipeline advancement.",
+        "ar": "يقيس role-fit للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-company:v1",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "company-fit",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Why our company?",
+        "ar": "لماذا شركتنا؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Generic answer with no research.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates company-fit for pipeline advancement.",
+        "ar": "يقيس company-fit للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-company:v2",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "company-fit",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "What do you know about us?",
+        "ar": "ماذا تعرف عنا؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Generic answer with no research.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "إجابة generic بلا research.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates company-fit for pipeline advancement.",
+        "ar": "يقيس company-fit للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-company:v3",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "company-fit",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Which of our values resonates?",
+        "ar": "أي value  resonates؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Contradict your resume.",
+          "Negative or defensive tone.",
+          "Generic answer with no research."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "تناقض CV.",
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates company-fit for pipeline advancement.",
+        "ar": "يقيس company-fit للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-company:v4",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "company-fit",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Why not a competitor?",
+        "ar": "لماذا ليس competitor؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates company-fit for pipeline advancement.",
+        "ar": "يقيس company-fit للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-remote:v1",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "work-model",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Preference remote/hybrid/office?",
+        "ar": "remote/hybrid/office؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates work-model for pipeline advancement.",
+        "ar": "يقيس work-model للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-remote:v2",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "work-model",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "How do you stay productive remote?",
+        "ar": "productive remote؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone.",
+          "Generic answer with no research.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates work-model for pipeline advancement.",
+        "ar": "يقيس work-model للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-remote:v3",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "work-model",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Timezone collaboration?",
+        "ar": "timezone؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Negative or defensive tone.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "tone سلبي أو defensive.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates work-model for pipeline advancement.",
+        "ar": "يقيس work-model للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-remote:v4",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "work-model",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Home office setup?",
+        "ar": "home office؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Generic answer with no research."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "إجابة generic بلا research."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates work-model for pipeline advancement.",
+        "ar": "يقيس work-model للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-career:v1",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "career-direction",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Career direction next 2 years?",
+        "ar": "اتجاه 2 سنوات؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates career-direction for pipeline advancement.",
+        "ar": "يقيس career-direction للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-career:v2",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "career-direction",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "What are you optimizing for?",
+        "ar": "ماذا optimize؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone.",
+          "Generic answer with no research.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates career-direction for pipeline advancement.",
+        "ar": "يقيس career-direction للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-career:v3",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "career-direction",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Why leave stable job?",
+        "ar": "لماذا تترك stable؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Negative or defensive tone.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "tone سلبي أو defensive.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates career-direction for pipeline advancement.",
+        "ar": "يقيس career-direction للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-career:v4",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "career-direction",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "What would make you stay long-term?",
+        "ar": "ما يجعلك تبقى؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Generic answer with no research."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "إجابة generic بلا research."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates career-direction for pipeline advancement.",
+        "ar": "يقيس career-direction للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-industry:v1",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "industry-interest",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Why this industry?",
+        "ar": "لماذا هذا industry؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates industry-interest for pipeline advancement.",
+        "ar": "يقيس industry-interest للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-industry:v2",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "industry-interest",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Trends you follow?",
+        "ar": "trends؟"
+      },
+      "options": {
+        "en": [
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Negative or defensive tone.",
+          "Generic answer with no research.",
+          "Contradict your resume."
+        ],
+        "ar": [
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "tone سلبي أو defensive.",
+          "إجابة generic بلا research.",
+          "تناقض CV."
+        ]
+      },
+      "correctIndex": 0,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates industry-interest for pipeline advancement.",
+        "ar": "يقيس industry-interest للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-industry:v3",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "industry-interest",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "How stay current?",
+        "ar": "كيف تبقى current؟"
+      },
+      "options": {
+        "en": [
+          "Generic answer with no research.",
+          "Contradict your resume.",
+          "Negative or defensive tone.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
+        ],
+        "ar": [
+          "إجابة generic بلا research.",
+          "تناقض CV.",
+          "tone سلبي أو defensive.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+        ]
+      },
+      "correctIndex": 3,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates industry-interest for pipeline advancement.",
+        "ar": "يقيس industry-interest للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    },
+    {
+      "id": "hr-motivation:mot-industry:v4",
+      "trackSlug": "hr-motivation",
+      "kind": "motivational",
+      "difficulty": "mid",
+      "competency": "industry-interest",
+      "interviewStage": "screening",
+      "prompt": {
+        "en": "Risk if industry shifts?",
+        "ar": "risk industry shift؟"
+      },
+      "options": {
+        "en": [
+          "Negative or defensive tone.",
+          "Contradict your resume.",
+          "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+          "Generic answer with no research."
+        ],
+        "ar": [
+          "tone سلبي أو defensive.",
+          "تناقض CV.",
+          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
+          "إجابة generic بلا research."
+        ]
+      },
+      "correctIndex": 2,
+      "whyAsked": {
+        "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+      },
+      "recruiterIntent": {
+        "en": "Evaluates industry-interest for pipeline advancement.",
+        "ar": "يقيس industry-interest للتقدم في pipeline."
+      },
+      "modelAnswer": {
+        "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+      },
+      "redFlags": {
+        "en": [
+          "Unprepared",
+          "Negative"
+        ],
+        "ar": [
+          "غير م prepared",
+          "سلبي"
+        ]
+      },
+      "passTip": {
+        "en": "Ask what the next interview stage assesses and prepare one story for it.",
+        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+      },
+      "explanation": {
+        "en": "Specific, researched answers advance to hiring manager.",
+        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+      },
+      "improvement": {
+        "en": "Research company + write 3 bullet pitch.",
+        "ar": "research + 3 bullet pitch."
+      }
+    }
+  ]
+}

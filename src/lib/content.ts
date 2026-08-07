@@ -50,21 +50,41 @@ const CONTENT_ROOT = path.join(process.cwd(), "content", "tracks");
 
 const trackCache = new Map<string, Track | null>();
 const trackMetaCache = new Map<string, TrackMeta | null>();
+let trackSlugsCache: string[] | null = null;
+const trackExistsCache = new Map<string, boolean>();
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
 }
 
 export function getTrackSlugs(): string[] {
-  if (!fs.existsSync(CONTENT_ROOT)) return [];
-  return fs
+  if (trackSlugsCache) return trackSlugsCache;
+  if (!fs.existsSync(CONTENT_ROOT)) {
+    trackSlugsCache = [];
+    return trackSlugsCache;
+  }
+  trackSlugsCache = fs
     .readdirSync(CONTENT_ROOT, { withFileTypes: true })
     .filter((d) => d.isDirectory())
     .map((d) => d.name);
+  return trackSlugsCache;
 }
 
 export function trackExists(slug: string): boolean {
-  return fs.existsSync(path.join(CONTENT_ROOT, slug, "track.json"));
+  if (trackExistsCache.has(slug)) return trackExistsCache.get(slug)!;
+  if (trackCache.has(slug)) {
+    const ok = trackCache.get(slug) !== null;
+    trackExistsCache.set(slug, ok);
+    return ok;
+  }
+  if (trackMetaCache.has(slug)) {
+    const ok = trackMetaCache.get(slug) !== null;
+    trackExistsCache.set(slug, ok);
+    return ok;
+  }
+  const ok = fs.existsSync(path.join(CONTENT_ROOT, slug, "track.json"));
+  trackExistsCache.set(slug, ok);
+  return ok;
 }
 
 export function getTrackMeta(slug: string): TrackMeta | null {

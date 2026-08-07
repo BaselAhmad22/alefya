@@ -26,7 +26,8 @@ export default async function ProfilePage({ params }: Props) {
   if (!user) redirect(`/${locale}/login`);
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
+    <main className="ay-page profile-ay-page">
+      <div className="ay-page-ambient" aria-hidden />
       <ProfileForm
         initialUsername={user.username}
         initialLevel={user.roadmap?.level || null}

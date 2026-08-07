@@ -10,7 +10,7 @@ export async function FaqSection() {
 
   return (
     <section className="faq-home">
-      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
+      <div className="page-container py-16 sm:py-20">
         <Reveal>
           <div className="faq-home-head">
             <p className="faq-kicker">{t("homeKicker")}</p>

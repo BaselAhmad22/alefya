@@ -63,12 +63,20 @@ export async function GET(request: Request) {
     user: r.toUser,
   }));
 
-  return NextResponse.json({
-    friends,
-    incoming,
-    outgoing,
-    incomingCount: incoming.length,
-  });
+  return NextResponse.json(
+    {
+      friends,
+      incoming,
+      outgoing,
+      incomingCount: incoming.length,
+    },
+    {
+      headers: {
+        // Short private browser cache — badge polls hit less often.
+        "Cache-Control": "private, max-age=15, stale-while-revalidate=30",
+      },
+    },
+  );
 }
 
 export async function DELETE(request: Request) {

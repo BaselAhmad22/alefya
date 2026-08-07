@@ -844,10 +844,18 @@ export function MessagesClient() {
     <div className="chat-shell">
       <aside className="chat-sidebar">
         <div className="chat-sidebar-head">
-          <p className="chat-sidebar-title">{t("chats")}</p>
+          <p className="chat-sidebar-kicker">AlefYa</p>
+          <div className="chat-sidebar-head-row">
+            <p className="chat-sidebar-title">{t("chats")}</p>
+            {conversations.length > 0 ? (
+              <span className="chat-sidebar-count">{conversations.length}</span>
+            ) : null}
+          </div>
         </div>
         {conversations.length === 0 ? (
-          <p className="chat-empty-side">{t("empty")}</p>
+          <div className="chat-empty-side">
+            <p className="chat-empty-side-title">{t("empty")}</p>
+          </div>
         ) : (
           <ul className="chat-conv-list chat-scroll">
             {conversations.map((c) => {
@@ -939,23 +947,30 @@ export function MessagesClient() {
 
       <section className="chat-main">
         <header className="chat-main-head">
-          <div>
-            <p className="chat-peer">
-              {peerName ? (
-                <Link href={`/u/${peerName}`}>@{peerName}</Link>
-              ) : (
-                t("select")
-              )}
-            </p>
-            <p className="chat-status">
-              {typing ? (
-                <span className="chat-typing-label">{t("typing")}</span>
-              ) : live ? (
-                t("online")
-              ) : (
-                t("connecting")
-              )}
-            </p>
+          <div className="chat-main-head-copy">
+            {peerName ? (
+              <span className="chat-avatar chat-peer-avatar" aria-hidden>
+                {peerName.slice(0, 1).toUpperCase()}
+              </span>
+            ) : null}
+            <div className="chat-main-head-text">
+              <p className="chat-peer">
+                {peerName ? (
+                  <Link href={`/u/${peerName}`}>@{peerName}</Link>
+                ) : (
+                  t("select")
+                )}
+              </p>
+              <p className="chat-status">
+                {typing ? (
+                  <span className="chat-typing-label">{t("typing")}</span>
+                ) : live ? (
+                  t("online")
+                ) : (
+                  t("connecting")
+                )}
+              </p>
+            </div>
           </div>
           <span className={`chat-live-dot ${live ? "is-on" : ""}`} aria-hidden />
         </header>
@@ -968,9 +983,15 @@ export function MessagesClient() {
           }}
         >
           {!activeId ? (
-            <p className="chat-thread-empty">{t("select")}</p>
+            <div className="chat-thread-empty">
+              <p className="chat-thread-empty-kicker">AlefYa</p>
+              <p className="chat-thread-empty-title">{t("select")}</p>
+            </div>
           ) : messages.length === 0 ? (
-            <p className="chat-thread-empty">{t("startChat")}</p>
+            <div className="chat-thread-empty">
+              <p className="chat-thread-empty-kicker">@{peerName}</p>
+              <p className="chat-thread-empty-title">{t("startChat")}</p>
+            </div>
           ) : (
             messages.map((m) => {
               const mine = m.sender.id === myId;

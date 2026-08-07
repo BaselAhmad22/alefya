@@ -1,0 +1,15 @@
+{
+  "tracks": {
+    "hr-behavioral": 28,
+    "hr-situational": 24,
+    "hr-classic": 22,
+    "hr-motivation": 20,
+    "hr-communication": 22,
+    "hr-leadership": 20,
+    "hr-psychometric-style": 22,
+    "hr-culture-values": 20,
+    "hr-salary-negotiation": 18,
+    "hr-screening-recruiter": 24
+  },
+  "total": 220
+}

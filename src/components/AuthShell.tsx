@@ -17,69 +17,40 @@ export function AuthShell({
   brandSub,
 }: Props) {
   return (
-    <div className="relative mx-auto grid min-h-[calc(100vh-8rem)] max-w-6xl overflow-hidden lg:grid-cols-[1.05fr_0.95fr]">
-      <aside className="relative hidden overflow-hidden border-e border-line lg:flex lg:flex-col lg:justify-between lg:p-10">
-        <div
-          className="pointer-events-none absolute -start-20 top-10 h-72 w-72 rounded-full bg-teal/25 blur-3xl animate-ambient"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute -end-10 bottom-16 h-64 w-64 rounded-full bg-accent/20 blur-3xl animate-ambient"
-          style={{ animationDelay: "1.5s" }}
-          aria-hidden
-        />
-        <div className="relative z-10">
-          <Link href="/" className="inline-flex items-center gap-3">
-            <BrandLogo
-              size={52}
-              className="border border-teal/30 shadow-[0_0_32px_rgba(20,184,166,0.25)]"
-            />
+    <div className="auth-shell">
+      <aside className="auth-brand">
+        <div className="auth-brand-glow auth-brand-glow-a" aria-hidden />
+        <div className="auth-brand-glow auth-brand-glow-b" aria-hidden />
+        <div className="auth-brand-top">
+          <Link href="/" className="auth-brand-logo-link">
+            <BrandLogo size={52} className="auth-brand-logo" />
             <span>
-              <span
-                className="block font-[family-name:var(--font-display)] text-2xl text-ink"
-                lang="ar"
-              >
+              <span className="auth-brand-name" lang="ar">
                 ألف ياء
               </span>
-              <span className="text-[10px] uppercase tracking-[0.28em] text-ink-muted">
-                AlefYa
-              </span>
+              <span className="auth-brand-tag">AlefYa</span>
             </span>
           </Link>
         </div>
-        <div className="relative z-10 max-w-md animate-rise">
-          <p className="font-[family-name:var(--font-display)] text-4xl leading-tight text-ink sm:text-5xl">
-            {brandLine}
-          </p>
-          <div className="accent-rule mt-5 max-w-[9rem]" />
-          <p className="mt-5 text-base leading-relaxed text-ink-muted">
-            {brandSub}
-          </p>
+        <div className="auth-brand-copy animate-rise">
+          <p className="auth-brand-line">{brandLine}</p>
+          <div className="page-hero-rule auth-brand-rule" />
+          <p className="auth-brand-sub">{brandSub}</p>
         </div>
-        <p className="relative z-10 text-xs text-ink-muted/70">
-          Alef → Ya · ordered learning
-        </p>
+        <p className="auth-brand-foot">Alef → Ya · ordered learning</p>
       </aside>
 
-      <section className="relative flex items-center justify-center px-4 py-12 sm:px-8">
-        <div
-          className="pointer-events-none absolute inset-0 lg:hidden"
-          aria-hidden
-        >
-          <div className="absolute start-0 top-0 h-48 w-48 rounded-full bg-teal/20 blur-3xl" />
-          <div className="absolute end-0 bottom-20 h-40 w-40 rounded-full bg-accent/15 blur-3xl" />
-        </div>
-        <div className="glass-card relative z-10 w-full max-w-md animate-rise p-7 sm:p-9">
-          <div className="mb-6 lg:hidden">
-            <BrandLogo size={44} className="border border-line" />
+      <section className="auth-panel-wrap">
+        <div className="auth-panel animate-rise">
+          <div className="auth-panel-brand-mobile">
+            <BrandLogo size={44} className="auth-brand-logo" />
           </div>
-          <h1 className="font-[family-name:var(--font-display)] text-3xl leading-tight text-ink">
-            {title}
-          </h1>
-          <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-            {subtitle}
-          </p>
-          <div className="mt-8">{children}</div>
+          <header className="auth-panel-head">
+            <p className="page-kicker">AlefYa</p>
+            <h1 className="auth-panel-title">{title}</h1>
+            <p className="auth-panel-sub">{subtitle}</p>
+          </header>
+          <div className="auth-panel-body">{children}</div>
         </div>
       </section>
     </div>

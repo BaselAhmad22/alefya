@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { CSSProperties } from "react";
 import { Link } from "@/i18n/routing";
 import { getAllCategories } from "@/lib/categories";
 import { trackExists, t as tl } from "@/lib/content";
@@ -21,40 +22,34 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-line">
-        <div
-          className="pointer-events-none absolute -start-24 top-16 h-72 w-72 rounded-full opacity-30 blur-3xl animate-float"
-          style={{ background: "rgba(232,165,75,0.25)" }}
-        />
-        <div
-          className="pointer-events-none absolute -end-16 bottom-10 h-64 w-64 rounded-full opacity-25 blur-3xl animate-float"
-          style={{ background: "rgba(61,186,156,0.2)", animationDelay: "1.2s" }}
-        />
+      <section className="home-hero relative border-b border-line/80">
+        <div className="home-hero-glow home-hero-glow-a" aria-hidden />
+        <div className="home-hero-glow home-hero-glow-b" aria-hidden />
 
-        <div className="relative mx-auto grid min-h-[82vh] max-w-6xl items-center gap-10 px-4 py-20 lg:grid-cols-[1.15fr_0.85fr] sm:px-6">
+        <div className="page-container relative grid min-h-[86vh] items-center gap-12 py-20 lg:grid-cols-[1.12fr_0.88fr]">
           <div>
             <div className="animate-rise mb-6 inline-flex items-center gap-4">
               <BrandLogo
-                size={72}
+                size={76}
                 priority
-                className="border border-accent/30 shadow-[0_0_40px_rgba(232,165,75,0.18)]"
+                className="border border-accent/35 shadow-[0_0_48px_rgba(232,165,75,0.22)]"
               />
-              <span className="hidden text-xs text-ink-muted sm:block">
+              <span className="hidden text-xs tracking-[0.18em] text-ink-muted uppercase sm:block">
                 Alef → Ya
               </span>
             </div>
             <p
               className={`animate-clip font-brand text-accent ${
                 loc === "ar"
-                  ? "text-[clamp(3.25rem,11vw,6.5rem)] leading-[1.05]"
-                  : "font-[family-name:var(--font-display)] text-[clamp(4.5rem,14vw,9.5rem)] leading-[0.85] tracking-tight"
+                  ? "text-[clamp(3.4rem,11vw,6.75rem)] leading-[1.05]"
+                  : "font-[family-name:var(--font-display)] text-[clamp(4.75rem,14vw,9.75rem)] leading-[0.84] tracking-tight"
               }`}
             >
               {t("brand")}
             </p>
-            <div className="mt-3 h-px w-24 origin-start bg-teal animate-rise-delay" />
+            <div className="mt-3 h-px w-28 origin-start bg-gradient-to-r from-teal-bright via-accent to-transparent animate-rise-delay" />
             <h1
-              className={`animate-rise-delay mt-7 max-w-xl font-medium text-ink ${
+              className={`animate-rise-delay mt-7 max-w-xl font-medium text-ink-heading ${
                 loc === "ar"
                   ? "text-xl leading-[1.55] sm:text-2xl"
                   : "text-2xl leading-snug sm:text-3xl"
@@ -89,22 +84,25 @@ export default async function HomePage({ params }: Props) {
             </div>
           </div>
 
-          <div className="animate-rise-delay-2 relative hidden lg:block">
-            <div className="surface-panel relative p-8">
+          <div className="home-cat-preview animate-rise-delay-2 hidden lg:block">
+            <div className="surface-panel home-cat-preview-panel p-8">
               <div className="mb-5 flex items-center gap-3">
                 <BrandLogo size={44} className="border border-line" />
-                  <p className="text-xs text-ink-muted">
-                    {tc("label")}
-                  </p>
+                <p className="page-kicker" style={{ letterSpacing: "0.14em" }}>
+                  {tc("label")}
+                </p>
               </div>
               <ol className="mt-6 space-y-4">
                 {categories.slice(0, 5).map((cat, i) => (
-                  <li key={cat.slug} className="flex items-start gap-4">
-                    <span className="font-mono text-sm text-accent">
+                  <li
+                    key={cat.slug}
+                    className="journey-row !grid-cols-[auto_minmax(0,1fr)] !gap-4 !p-3.5"
+                  >
+                    <span className="journey-row-index">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <p className="font-[family-name:var(--font-display)] text-xl">
+                      <p className="font-[family-name:var(--font-display)] text-xl text-ink-heading">
                         {tl(cat.title, loc)}
                       </p>
                       <p className="text-sm text-ink-muted">
@@ -116,7 +114,7 @@ export default async function HomePage({ params }: Props) {
                   </li>
                 ))}
               </ol>
-              <div className="pointer-events-none absolute -bottom-3 -end-3 border border-accent/40 bg-bg p-1 shadow-lg">
+              <div className="home-cat-preview-badge" aria-hidden>
                 <BrandLogo size={56} />
               </div>
             </div>
@@ -124,36 +122,59 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <section className="ay-page">
+        <div className="ay-page-ambient" aria-hidden />
         <Reveal>
-          <h2 className="font-[family-name:var(--font-display)] text-3xl text-ink sm:text-4xl">
-            {tc("title")}
-          </h2>
+          <header className="page-hero !mb-8">
+            <p className="page-kicker">{tc("label")}</p>
+            <h2 className="page-title">{tc("title")}</h2>
+            <hr className="page-hero-rule" />
+          </header>
         </Reveal>
-        <div className="mt-8 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="catalog-grid">
           {categories.map((cat, i) => {
             const trackCount = cat.trackSlugs.filter((s) => trackExists(s)).length;
             return (
               <Reveal key={cat.slug} delay={i * 70} className="h-full">
                 <Link
                   href={`/categories/${cat.slug}`}
-                  className="surface-panel group relative flex h-full min-h-[11.5rem] flex-col overflow-hidden p-6 transition hover:border-teal/40"
+                  className="catalog-card h-full"
+                  style={
+                    {
+                      ["--card-accent"]:
+                        i % 3 === 0
+                          ? "var(--teal)"
+                          : i % 3 === 1
+                            ? "var(--accent)"
+                            : "#2dd4bf",
+                    } as CSSProperties
+                  }
                 >
-                  <p className="text-xs text-ink-muted">
+                  <p className="catalog-card-meta">
                     {trackCount > 0
                       ? `${trackCount} ${tc("tracksCount")}`
                       : tc("comingSoon")}
                   </p>
-                  <h3 className="mt-3 font-[family-name:var(--font-display)] text-2xl text-ink transition-colors group-hover:text-accent">
-                    {tl(cat.title, loc)}
-                  </h3>
+                  <h3 className="catalog-card-title">{tl(cat.title, loc)}</h3>
                   <p
-                    className={`mt-2 line-clamp-2 min-h-[2.75rem] text-sm text-ink-muted ${
-                      loc === "ar" ? "leading-[1.7]" : "leading-relaxed"
+                    className={`catalog-card-desc line-clamp-2 ${
+                      loc === "ar" ? "leading-[1.7]" : ""
                     }`}
                   >
                     {tl(cat.description, loc)}
                   </p>
+                  <span className="catalog-card-go">
+                    {tc("title")}
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+                      <path
+                        d="M3 7h8M7.5 3.5 11 7l-3.5 3.5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
                 </Link>
               </Reveal>
             );
@@ -162,7 +183,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       <section className="home-interview">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-[var(--page-max)] px-[var(--page-gutter)] py-16 sm:py-20">
           <Reveal className="home-interview-reveal">
             <div className="home-interview-panel">
               <div className="home-interview-glow" aria-hidden />

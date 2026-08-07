@@ -13,6 +13,7 @@ import { getCategoryForTrack } from "@/lib/categories";
 import type { Locale } from "@/i18n/config";
 import { Reveal } from "@/components/Reveal";
 import { StartTrackButton } from "@/components/StartTrackButton";
+import { LeaveTrackButton } from "@/components/LeaveTrackButton";
 import { ClassmatesPanel } from "@/components/ClassmatesPanel";
 import {
   getContinueTarget,
@@ -83,66 +84,68 @@ export default async function TrackPage({ params }: Props) {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div className="ay-page track-detail">
+      <div className="ay-page-ambient" aria-hidden />
+
       {category && (
         <Link
           href={`/categories/${category.slug}`}
-          className="text-sm text-ink-muted transition-colors hover:text-accent"
+          className="inline-flex text-sm text-ink-muted transition-colors hover:text-accent"
         >
           ← {tl(category.title, loc)}
         </Link>
       )}
 
-      <div className="mt-4 animate-rise flex flex-col gap-8 border-b border-line pb-10 lg:flex-row lg:items-end lg:justify-between">
-        <div className="max-w-3xl">
-          <div className="accent-rule mb-4 max-w-[4rem]" />
-          <p className="text-xs uppercase tracking-[0.2em] text-ink-muted">
-            {track.stages.length} {t("stages")} · {total} {t("lessons")}
-          </p>
-          <h1 className="mt-2 font-[family-name:var(--font-display)] text-4xl sm:text-5xl">
-            {tl(track.title, loc)}
-          </h1>
-          <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-            {tl(track.description, loc)}
-          </p>
-          <p className="mt-3 text-sm text-ink-muted">{t("linearHint")}</p>
-        </div>
-        <div className="flex flex-col items-start gap-3 lg:items-end">
-          {session?.user && enrolled && (
-            <div className="w-full min-w-[220px]">
-              <div className="mb-1.5 flex justify-between text-xs text-ink-muted">
-                <span>{t("progress")}</span>
-                <span>
-                  {completedCount}/{total} · {pct}%
-                </span>
+      <header className="track-detail-hero page-hero mt-6">
+        <div className="track-detail-hero-grid">
+          <div className="track-detail-hero-copy">
+            <p className="page-kicker">
+              {track.stages.length} {t("stages")} · {total} {t("lessons")}
+            </p>
+            <h1 className="page-title">{tl(track.title, loc)}</h1>
+            <p className="page-sub">{tl(track.description, loc)}</p>
+            <p className="track-detail-hint">{t("linearHint")}</p>
+            <hr className="page-hero-rule" />
+          </div>
+          <div className="track-detail-hero-actions">
+            {session?.user && enrolled && (
+              <div className="track-detail-progress">
+                <div className="track-detail-progress-head">
+                  <span>{t("progress")}</span>
+                  <span>
+                    {completedCount}/{total} · {pct}%
+                  </span>
+                </div>
+                <div className="track-detail-progress-bar" aria-hidden>
+                  <span style={{ width: `${pct}%` }} />
+                </div>
               </div>
-              <div className="h-1.5 overflow-hidden bg-bg-soft">
-                <div
-                  className="h-full bg-teal transition-all duration-700"
-                  style={{ width: `${pct}%` }}
+            )}
+            {firstLesson && (
+              <div className="track-detail-cta-row">
+                <StartTrackButton
+                  trackSlug={track.slug}
+                  continueHref={continueHref}
+                  alreadyStarted={enrolled}
+                  labelStart={t("start")}
+                  labelContinue={
+                    continueTarget.type === "exam" ? te("takeExam") : t("continue")
+                  }
                 />
+                {session?.user && enrolled ? (
+                  <LeaveTrackButton trackSlug={track.slug} />
+                ) : null}
               </div>
-            </div>
-          )}
-          {firstLesson && (
-            <StartTrackButton
-              trackSlug={track.slug}
-              continueHref={continueHref}
-              alreadyStarted={enrolled}
-              labelStart={t("start")}
-              labelContinue={
-                continueTarget.type === "exam" ? te("takeExam") : t("continue")
-              }
-            />
-          )}
-          {!session?.user && (
-            <p className="max-w-xs text-xs text-ink-muted">{t("needAccount")}</p>
-          )}
+            )}
+            {!session?.user && (
+              <p className="track-detail-hint">{t("needAccount")}</p>
+            )}
+          </div>
         </div>
-      </div>
+      </header>
 
       <div className="track-layout mt-10">
-        <ol className="track-stages space-y-12">
+        <ol className="track-stages">
           {track.stages.map((stage, stageIndex) => {
             const examUnlocked = isStageExamUnlocked(
               track,
@@ -154,21 +157,17 @@ export default async function TrackPage({ params }: Props) {
 
             return (
               <Reveal key={stage.slug} delay={stageIndex * 40}>
-                <li>
-                  <div className="mb-5 flex items-baseline gap-3">
-                    <span className="font-mono text-sm text-accent">
+                <li className="track-stage">
+                  <div className="track-stage-head">
+                    <span className="track-stage-index">
                       {String(stageIndex + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <h2 className="font-[family-name:var(--font-display)] text-2xl">
-                        {tl(stage.title, loc)}
-                      </h2>
-                      <p className="text-sm text-ink-muted">
-                        {tl(stage.description, loc)}
-                      </p>
+                      <h2 className="track-stage-title">{tl(stage.title, loc)}</h2>
+                      <p className="track-stage-desc">{tl(stage.description, loc)}</p>
                     </div>
                   </div>
-                  <ol className="space-y-1 border-s border-line ms-3 ps-5">
+                  <ol className="track-stage-lessons">
                     {stage.lessons.map((lesson) => {
                       const done = completedSlugs.has(lesson.slug);
                       const unlocked =
@@ -181,64 +180,60 @@ export default async function TrackPage({ params }: Props) {
                           passedStages,
                         );
                       const inner = (
-                        <span className="flex w-full items-center justify-between gap-4 py-2.5">
-                          <span className="flex items-center gap-3">
+                        <span className="track-lesson-row">
+                          <span className="track-lesson-main">
                             <span
-                              className={`h-2 w-2 shrink-0 rounded-full ${
-                                done ? "bg-teal" : "bg-line"
-                              }`}
+                              className={`track-lesson-dot ${done ? "is-done" : unlocked ? "is-unlocked" : "is-locked"}`}
                             />
                             <span
-                              className={
+                              className={`track-lesson-title ${
                                 done
-                                  ? "text-ink-muted"
+                                  ? "is-done"
                                   : !unlocked && enrolled
-                                    ? "text-ink-muted/50"
+                                    ? "is-locked"
                                     : ""
-                              }
+                              }`}
                             >
                               {tl(lesson.title, loc)}
                               {!unlocked && enrolled ? ` · ${t("locked")}` : ""}
                             </span>
                           </span>
-                          <span className="shrink-0 text-xs text-ink-muted">
-                            {lesson.duration}m
-                          </span>
+                          <span className="track-lesson-duration">{lesson.duration}m</span>
                         </span>
                       );
 
                       return (
-                        <li key={lesson.slug}>
+                        <li key={lesson.slug} className="track-lesson-item">
                           {unlocked ? (
                             <Link
                               href={`/learn/${track.slug}/${lesson.slug}`}
-                              className="group block transition-colors hover:text-accent"
+                              className="track-lesson-link"
                             >
                               {inner}
                             </Link>
                           ) : (
-                            <div className="opacity-70">{inner}</div>
+                            <div className="track-lesson-link is-disabled">{inner}</div>
                           )}
                         </li>
                       );
                     })}
-                    <li className="pt-2">
+                    <li className="track-exam-item">
                       {examPassed ? (
-                        <span className="flex items-center gap-3 py-2.5 text-sm text-teal">
-                          <span className="h-2 w-2 rounded-full bg-teal" />
+                        <span className="track-exam-row is-passed">
+                          <span className="track-lesson-dot is-done" />
                           {te("examPassedBadge")}
                         </span>
                       ) : examUnlocked && enrolled ? (
                         <Link
                           href={`/exam/${track.slug}/${stage.slug}`}
-                          className="flex items-center gap-3 py-2.5 text-sm text-accent hover:underline"
+                          className="track-exam-row is-unlocked"
                         >
-                          <span className="h-2 w-2 rounded-full bg-accent" />
+                          <span className="track-lesson-dot is-exam" />
                           {te("takeExam")} · {PASS_SCORE}+
                         </Link>
                       ) : (
-                        <span className="flex items-center gap-3 py-2.5 text-sm text-ink-muted/50">
-                          <span className="h-2 w-2 rounded-full bg-line" />
+                        <span className="track-exam-row is-locked">
+                          <span className="track-lesson-dot is-locked" />
                           {te("examLocked")}
                         </span>
                       )}
@@ -259,3 +254,4 @@ export default async function TrackPage({ params }: Props) {
     </div>
   );
 }
+

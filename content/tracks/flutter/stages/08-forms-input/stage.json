@@ -1,0 +1,17 @@
+{
+  "slug": "08-forms-input",
+  "order": 8,
+  "title": {
+    "ar": "النماذج والإدخال",
+    "en": "Forms & input"
+  },
+  "description": {
+    "ar": "تحقق وإرسال",
+    "en": "Validate and submit"
+  },
+  "lessons": [
+    "01-text-fields.json",
+    "02-form-validate.json",
+    "03-focus-keyboard.json"
+  ]
+}

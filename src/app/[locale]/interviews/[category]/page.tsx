@@ -22,51 +22,51 @@ export default async function InterviewCategoryPage({ params }: Props) {
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
   return (
-    <div className="interview-hub mx-auto max-w-6xl px-4 py-12 sm:px-6">
-      <Link
-        href="/interviews"
-        className="text-sm text-ink-muted transition-colors hover:text-accent"
-      >
-        ← {t("backAll")}
+    <div className="ay-page interview-hub">
+      <div className="ay-page-ambient" aria-hidden />
+
+      <Link href="/interviews/tech" className="exam-back-link">
+        <span className="exam-back-chip rtl:rotate-180" aria-hidden>
+          ←
+        </span>
+        {t("backTechSection")}
       </Link>
 
-      <div className="mt-6 animate-rise">
-        <div className="accent-rule mb-4 max-w-[4rem]" />
-        <h1 className="font-[family-name:var(--font-display)] text-4xl sm:text-5xl">
-          {tl(category.title, loc)}
-        </h1>
-        <p className="mt-3 max-w-2xl text-lg text-ink-muted">
-          {t("categoryHint")}
-        </p>
-      </div>
+      <header className="page-hero mt-6">
+        <p className="page-kicker">{t("label")}</p>
+        <h1 className="page-title">{tl(category.title, loc)}</h1>
+        <p className="page-sub">{t("categoryHint")}</p>
+        <hr className="page-hero-rule" />
+      </header>
 
       {tracks.length === 0 ? (
-        <div className="mt-12 border border-line bg-bg-elevated/40 p-8">
+        <div className="catalog-empty mt-10 rounded-2xl">
           <p className="text-ink-muted">{t("emptyCategory")}</p>
         </div>
       ) : (
-        <div className="mt-12 grid gap-5">
+        <div className="mt-10 journey-grid">
           {tracks.map((track, i) => {
             const q = getInterviewQuestionCount(track.slug);
             return (
               <Reveal key={track.slug} delay={i * 70}>
-                <div className="surface-panel flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <h2 className="font-[family-name:var(--font-display)] text-2xl">
-                      {tl(track.title, loc)}
-                    </h2>
-                    <p className="mt-2 text-ink-muted">{tl(track.tagline, loc)}</p>
-                    <p className="mt-3 text-sm text-accent">
+                <Link
+                  href={`/interviews/${categorySlug}/${track.slug}`}
+                  className="journey-row interview-track-row"
+                >
+                  <span className="journey-row-index">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="journey-row-body min-w-0">
+                    <h2 className="journey-row-title">{tl(track.title, loc)}</h2>
+                    <p className="journey-row-meta">{tl(track.tagline, loc)}</p>
+                    <p className="journey-row-meta !mt-1 !text-accent">
                       {t("bankSize", { count: q })}
                     </p>
                   </div>
-                  <Link
-                    href={`/interviews/${categorySlug}/${track.slug}`}
-                    className="btn-primary shrink-0 self-start sm:self-center"
-                  >
+                  <span className="btn-primary interview-track-cta shrink-0 self-start sm:self-center">
                     {t("startSession")}
-                  </Link>
-                </div>
+                  </span>
+                </Link>
               </Reveal>
             );
           })}
@@ -75,3 +75,4 @@ export default async function InterviewCategoryPage({ params }: Props) {
     </div>
   );
 }
+

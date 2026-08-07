@@ -10,17 +10,19 @@ import { PageLoader } from "@/components/PageLoader";
 
 type PublicQ = {
   id: string;
-  kind: "mcq" | "scenario";
-  difficulty: "junior" | "mid" | "senior";
+  kind: string;
+  difficulty: string;
   topic: string;
   prompt: string;
   options: string[];
+  competency?: string;
+  interviewStage?: string;
 };
 
 type ResultItem = {
   id: string;
-  kind: "mcq" | "scenario";
-  difficulty: "junior" | "mid" | "senior";
+  kind: string;
+  difficulty: string;
   topic: string;
   prompt: string;
   options: string[];
@@ -30,11 +32,19 @@ type ResultItem = {
   explanation: string;
   why: string;
   improvement: string;
+  competency?: string;
+  interviewStage?: string;
+  whyAsked?: string;
+  recruiterIntent?: string;
+  modelAnswer?: string;
+  redFlags?: string[];
+  passTip?: string;
 };
 
 type DifficultyChoice = "junior" | "mid" | "senior" | "mixed";
 
 type Props = {
+  domain?: "tech" | "hr";
   trackSlug: string;
   trackTitle: string;
   categorySlug: string;
@@ -42,12 +52,16 @@ type Props = {
 };
 
 export function InterviewSessionClient({
+  domain = "tech",
   trackSlug,
   trackTitle,
   categorySlug,
   bankSize,
 }: Props) {
   const t = useTranslations("interviews");
+  const th = useTranslations("hrInterviews");
+  const isHr = domain === "hr";
+  const apiPath = isHr ? "/api/interviews/hr" : "/api/interviews";
   const locale = useLocale() as "ar" | "en";
   const [phase, setPhase] = useState<"setup" | "quiz" | "result">("setup");
   const [difficulty, setDifficulty] = useState<DifficultyChoice>("mixed");
@@ -61,6 +75,7 @@ export function InterviewSessionClient({
     score: number;
     total: number;
     correct: number;
+    verdict?: "strong" | "ok" | "weak";
     strengths?: string[];
     weaknesses?: string[];
     summary?: string;
@@ -77,7 +92,7 @@ export function InterviewSessionClient({
     setAnswers({});
     setIndex(0);
     try {
-      const res = await fetch("/api/interviews", {
+      const res = await fetch(apiPath, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -144,7 +159,7 @@ export function InterviewSessionClient({
     setSubmitting(true);
     setError(null);
     try {
-      const res = await fetch("/api/interviews", {
+      const res = await fetch(apiPath, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -214,36 +229,67 @@ export function InterviewSessionClient({
     />
   );
 
+  function kindLabel(kind: string) {
+    if (!isHr) return t(`kind_${kind as "mcq" | "scenario"}`);
+    return th(`kind_${kind as "behavioral" | "situational" | "motivational" | "judgment"}`);
+  }
+
+  function diffLabel(diff: string) {
+    if (!isHr) return t(`diff_${diff as "junior" | "mid" | "senior"}`);
+    if (diff === "entry") return th("diff_entry");
+    if (diff === "executive") return th("diff_executive");
+    return th(`diff_${diff as "mid" | "senior"}`);
+  }
+
   if (phase === "setup" || (phase === "quiz" && loading)) {
     const levels: { id: DifficultyChoice; title: string; hint: string }[] = [
-      { id: "junior", title: t("diff_junior"), hint: t("diffHintJunior") },
-      { id: "mid", title: t("diff_mid"), hint: t("diffHintMid") },
-      { id: "senior", title: t("diff_senior"), hint: t("diffHintSenior") },
-      { id: "mixed", title: t("diff_mixed"), hint: t("diffHintMixed") },
+      {
+        id: "junior",
+        title: isHr ? th("diff_entry") : t("diff_junior"),
+        hint: isHr ? th("diffHintEntry") : t("diffHintJunior"),
+      },
+      {
+        id: "mid",
+        title: isHr ? th("diff_mid") : t("diff_mid"),
+        hint: isHr ? th("diffHintMid") : t("diffHintMid"),
+      },
+      {
+        id: "senior",
+        title: isHr ? th("diff_senior") : t("diff_senior"),
+        hint: isHr ? th("diffHintSenior") : t("diffHintSenior"),
+      },
+      {
+        id: "mixed",
+        title: t("diff_mixed"),
+        hint: isHr ? th("diffHintMixed") : t("diffHintMixed"),
+      },
     ];
 
     return (
       <>
         {leaveGuard}
         {resetDialog}
-      <div className="interview-shell mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <div className="ay-page ay-page-focus interview-shell">
+        <div className="ay-page-ambient" aria-hidden />
         <Link
-          href={`/interviews/${categorySlug}`}
-          className="text-sm text-ink-muted transition-colors hover:text-accent"
+          href={
+            isHr
+              ? `/interviews/hr/${trackSlug}`
+              : `/interviews/${categorySlug}`
+          }
+          className="exam-back-link"
         >
-          ← {t("backCategory")}
+          <span className="exam-back-chip rtl:rotate-180" aria-hidden>←</span>
+          {t("backCategory")}
         </Link>
-        <div className="mt-6 animate-rise">
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">
-            {t("setupLabel")}
-          </p>
-          <h1 className="mt-3 font-[family-name:var(--font-display)] text-3xl sm:text-4xl">
-            {trackTitle}
-          </h1>
-          <p className="mt-3 max-w-xl text-ink-muted">{t("setupHint")}</p>
-        </div>
+        <header className="page-hero animate-rise">
+          <p className="page-kicker">{t("setupLabel")}</p>
+          <h1 className="page-title">{trackTitle}</h1>
+          <p className="page-sub">{t("setupHint")}</p>
+          <hr className="page-hero-rule" />
+        </header>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2">
+        <div className="interview-diff-grid">
           {levels.map((level, i) => (
             <button
               key={level.id}
@@ -300,40 +346,43 @@ export function InterviewSessionClient({
     const ok = result.score >= 60;
     const tone = strong ? "strong" : ok ? "ok" : "weak";
     return (
-      <div className="interview-shell interview-shell-result mx-auto max-w-3xl px-4 py-10 sm:px-6">
-        <div className="interview-result animate-rise">
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">
-            {t("sessionDone")}
-          </p>
-          <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl sm:text-5xl">
-            {trackTitle}
-          </h1>
-          <div className="mt-8 flex flex-wrap items-end gap-6">
+      <div className="ay-page ay-page-focus interview-shell interview-shell-result">
+        <div className="ay-page-ambient" aria-hidden />
+        <div className="interview-result-hero animate-rise">
+          <p className="page-kicker">{t("sessionDone")}</p>
+          <h1 className="page-title !text-3xl sm:!text-4xl">{trackTitle}</h1>
+          <div className="interview-result-score-row">
             <div>
               <p
-                className={`font-[family-name:var(--font-display)] text-6xl tabular-nums ${
-                  strong ? "text-teal" : ok ? "text-accent" : "text-danger"
+                className={`interview-result-score ${
+                  strong ? "is-strong" : ok ? "is-ok" : "is-weak"
                 }`}
               >
                 {result.score}
               </p>
-              <p className="mt-1 text-sm text-ink-muted">{t("scoreLabel")}</p>
+              <p className="interview-result-score-label">{t("scoreLabel")}</p>
             </div>
-            <div className="text-sm text-ink-muted">
+            <div className="interview-result-verdict">
               <p>
                 {t("correctCount", {
                   correct: result.correct,
                   total: result.total,
                 })}
               </p>
-              <p className="mt-1">
-                {strong ? t("verdictStrong") : ok ? t("verdictOk") : t("verdictWeak")}
+              <p>
+                {isHr && result.verdict
+                  ? th(`verdict_${result.verdict}`)
+                  : strong
+                    ? t("verdictStrong")
+                    : ok
+                      ? t("verdictOk")
+                      : t("verdictWeak")}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 space-y-4 pb-[7.5rem]">
+        <div className="interview-review-body">
           {result.summary ? (
             <section className="exam-report-card exam-report-card-in">
               <h2 className="font-[family-name:var(--font-display)] text-xl">
@@ -367,9 +416,7 @@ export function InterviewSessionClient({
             </div>
           ) : null}
 
-          <h2 className="font-[family-name:var(--font-display)] text-2xl">
-            {t("reviewTitle")}
-          </h2>
+          <h2 className="interview-review-heading">{t("reviewTitle")}</h2>
           {result.items.map((item, i) => (
             <article
               key={item.id}
@@ -378,41 +425,95 @@ export function InterviewSessionClient({
               }`}
               style={{ animationDelay: `${Math.min(i, 12) * 45}ms` }}
             >
-              <div className="flex flex-wrap items-center gap-2 text-[0.7rem] uppercase tracking-wide text-ink-muted">
+              <div className="interview-review-meta">
                 <span>{t("questionN", { n: i + 1 })}</span>
-                <span>·</span>
-                <span>{t(`kind_${item.kind}`)}</span>
-                <span>·</span>
-                <span>{t(`diff_${item.difficulty}`)}</span>
+                <span aria-hidden>·</span>
+                <span>{kindLabel(item.kind)}</span>
+                <span aria-hidden>·</span>
+                <span>{diffLabel(item.difficulty)}</span>
+                {isHr && item.interviewStage ? (
+                  <>
+                    <span aria-hidden>·</span>
+                    <span>{th(`stage_${item.interviewStage}`)}</span>
+                  </>
+                ) : null}
               </div>
-              <p className="mt-3 text-base leading-relaxed">{item.prompt}</p>
-              <ul className="mt-4 space-y-2">
+              <p className="interview-review-prompt">{item.prompt}</p>
+              <ul className="interview-review-options">
                 {item.options.map((opt, oi) => {
                   const isCorrect = oi === item.correctIndex;
                   const isSelected = oi === item.selectedIndex;
                   return (
                     <li
                       key={oi}
-                      className={`rounded border px-3 py-2 text-sm ${
+                      className={`interview-review-option ${
                         isCorrect
-                          ? "border-teal/50 bg-teal/10 text-ink"
+                          ? "is-correct"
                           : isSelected
-                            ? "border-danger/40 bg-danger/10"
-                            : "border-line/60 text-ink-muted"
+                            ? "is-wrong"
+                            : ""
                       }`}
                     >
                       {opt}
                       {isCorrect && (
-                        <span className="ms-2 text-xs text-teal">{t("correctTag")}</span>
+                        <span className="interview-review-tag is-correct">{t("correctTag")}</span>
                       )}
                       {isSelected && !isCorrect && (
-                        <span className="ms-2 text-xs text-danger">{t("yourAnswer")}</span>
+                        <span className="interview-review-tag is-wrong">{t("yourAnswer")}</span>
                       )}
                     </li>
                   );
                 })}
               </ul>
-              <dl className="mt-4 space-y-3 border-t border-line/50 pt-3 text-sm">
+              {isHr ? (
+                <dl className="interview-review-dl hr-result-sections">
+                  {item.whyAsked ? (
+                    <div className="hr-result-section">
+                      <dt>{th("whyAsked")}</dt>
+                      <dd>{item.whyAsked}</dd>
+                    </div>
+                  ) : null}
+                  {item.recruiterIntent ? (
+                    <div className="hr-result-section">
+                      <dt>{th("recruiterIntent")}</dt>
+                      <dd>{item.recruiterIntent}</dd>
+                    </div>
+                  ) : null}
+                  {item.modelAnswer ? (
+                    <div className="hr-result-section is-highlight">
+                      <dt>{th("modelAnswer")}</dt>
+                      <dd>{item.modelAnswer}</dd>
+                    </div>
+                  ) : null}
+                  {item.redFlags?.length ? (
+                    <div className="hr-result-section">
+                      <dt>{th("redFlags")}</dt>
+                      <dd>
+                        <ul className="list-disc ps-5">
+                          {item.redFlags.map((flag, fi) => (
+                            <li key={fi}>{flag}</li>
+                          ))}
+                        </ul>
+                      </dd>
+                    </div>
+                  ) : null}
+                  {item.passTip ? (
+                    <div className="hr-result-section is-pass">
+                      <dt>{th("passTip")}</dt>
+                      <dd>{item.passTip}</dd>
+                    </div>
+                  ) : null}
+                  <div className="hr-result-section">
+                    <dt>{t("why")}</dt>
+                    <dd>{item.why || item.explanation}</dd>
+                  </div>
+                  <div className="hr-result-section">
+                    <dt>{t("improvement")}</dt>
+                    <dd>{item.improvement}</dd>
+                  </div>
+                </dl>
+              ) : (
+              <dl className="interview-review-dl">
                 <div>
                   <dt className="text-xs font-medium text-ink-muted">{t("why")}</dt>
                   <dd className="mt-1 leading-6 text-ink-muted">
@@ -428,20 +529,22 @@ export function InterviewSessionClient({
                   </dd>
                 </div>
               </dl>
+              )}
             </article>
           ))}
-        </div>
 
-        <InterviewResultDock
-          score={result.score}
-          scoreLabel={t("scoreLabel")}
-          retryLabel={t("retry")}
-          backCategoryLabel={t("backCategory")}
-          backAllLabel={t("backAll")}
-          categorySlug={categorySlug}
-          onRetry={resetToSetup}
-          tone={tone}
-        />
+          <InterviewResultDock
+            score={result.score}
+            scoreLabel={t("scoreLabel")}
+            retryLabel={t("retry")}
+            backCategoryLabel={t("backCategory")}
+            backAllLabel={t("backAll")}
+            nextLabel={t("resultNext")}
+            categorySlug={isHr ? "hr" : categorySlug}
+            onRetry={resetToSetup}
+            tone={tone}
+          />
+        </div>
       </div>
     );
   }
@@ -467,20 +570,20 @@ export function InterviewSessionClient({
     <>
       {leaveGuard}
       {resetDialog}
-    <div className="interview-shell mx-auto max-w-3xl px-4 py-8 sm:px-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
+    <div className="ay-page ay-page-focus interview-shell">
+      <div className="ay-page-ambient" aria-hidden />
+      <div className="interview-quiz-header">
         <div>
           <button
             type="button"
             onClick={requestReset}
-            className="text-sm text-ink-muted transition-colors hover:text-accent"
+            className="exam-back-link !inline-flex"
           >
-            ← {t("changeDifficulty")}
+            <span className="exam-back-chip rtl:rotate-180" aria-hidden>←</span>
+            {t("changeDifficulty")}
           </button>
-          <h1 className="mt-3 font-[family-name:var(--font-display)] text-3xl sm:text-4xl">
-            {trackTitle}
-          </h1>
-          <p className="mt-1 text-sm text-ink-muted">
+          <h1 className="page-title !mt-3 !text-2xl sm:!text-3xl">{trackTitle}</h1>
+          <p className="interview-quiz-progress">
             {t("progressLabel", {
               current: index + 1,
               total: questions.length,
@@ -488,23 +591,23 @@ export function InterviewSessionClient({
             })}
           </p>
         </div>
-        <div className="text-end text-xs uppercase tracking-wide text-ink-muted">
-          <p>{t(`kind_${current.kind}`)}</p>
-          <p className="mt-1 text-accent">{t(`diff_${current.difficulty}`)}</p>
+        <div className="interview-quiz-badges">
+          <span className="exam-meta-pill">{kindLabel(current.kind)}</span>
+          <span className="exam-meta-pill is-accent">{diffLabel(current.difficulty)}</span>
         </div>
       </div>
 
-      <div className="interview-progress mt-6" aria-hidden>
+      <div className="interview-progress" aria-hidden>
         <span style={{ width: `${progress}%` }} />
       </div>
 
-      {error && <p className="mt-4 text-sm text-danger">{error}</p>}
+      {error && <p className="interview-quiz-error">{error}</p>}
 
-      <div key={current.id} className="interview-question mt-8">
-        <p className="text-xs uppercase tracking-[0.18em] text-ink-muted">
+      <div key={current.id} className="interview-question">
+        <p className="interview-question-kicker">
           {t("questionN", { n: index + 1 })}
         </p>
-        <h2 className="mt-3 text-xl leading-relaxed sm:text-2xl">{current.prompt}</h2>
+        <h2 className="interview-question-title">{current.prompt}</h2>
 
         <div className="mt-8 space-y-3">
           {current.options.map((opt, oi) => {
@@ -527,7 +630,7 @@ export function InterviewSessionClient({
           })}
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
+        <div className="interview-quiz-nav">
           <button
             type="button"
             disabled={index === 0 || submitting}
@@ -549,7 +652,7 @@ export function InterviewSessionClient({
           </button>
         </div>
         {isLast && !canFinish && (
-          <p className="mt-3 text-sm text-ink-muted">{t("answerAll")}</p>
+          <p className="interview-quiz-hint">{t("answerAll")}</p>
         )}
       </div>
     </div>

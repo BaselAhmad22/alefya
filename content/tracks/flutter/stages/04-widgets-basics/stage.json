@@ -1,0 +1,18 @@
+{
+  "slug": "04-widgets-basics",
+  "order": 4,
+  "title": {
+    "ar": "أساسيات Widgets",
+    "en": "Widget basics"
+  },
+  "description": {
+    "ar": "كل شيء Widget",
+    "en": "Everything is a widget"
+  },
+  "lessons": [
+    "01-widget-tree.json",
+    "02-stateless.json",
+    "03-stateful.json",
+    "04-keys.json"
+  ]
+}

@@ -40,3 +40,41 @@ export function getInterviewQuestionCountByDifficulty(
   if (!difficulty) return packs * INTERVIEW_VARIANT_COUNT;
   return packs * INTERVIEW_VARIANTS_PER_DIFFICULTY;
 }
+
+/** HR interview banks — sync with content/interviews/hr/index.json */
+export const HR_INTERVIEW_COUNTS: Record<string, number> = {
+  "hr-behavioral": 28,
+  "hr-situational": 24,
+  "hr-classic": 22,
+  "hr-motivation": 20,
+  "hr-communication": 22,
+  "hr-leadership": 20,
+  "hr-psychometric-style": 22,
+  "hr-culture-values": 20,
+  "hr-salary-negotiation": 18,
+  "hr-screening-recruiter": 24,
+};
+
+export function getHrInterviewQuestionCount(trackSlug: string): number {
+  return HR_INTERVIEW_COUNTS[trackSlug] ?? 0;
+}
+
+export function getHrInterviewQuestionCountByDifficulty(
+  trackSlug: string,
+  difficulty?: "entry" | "mid" | "senior" | "executive" | "junior",
+): number {
+  const total = getHrInterviewQuestionCount(trackSlug);
+  if (!total || !difficulty) return total;
+  if (difficulty === "junior") difficulty = "entry";
+  const ratios: Record<string, number> = {
+    entry: 0.35,
+    mid: 0.35,
+    senior: 0.2,
+    executive: 0.1,
+  };
+  return Math.max(1, Math.round(total * (ratios[difficulty] ?? 0.25)));
+}
+
+export function getTotalHrQuestionCount(): number {
+  return Object.values(HR_INTERVIEW_COUNTS).reduce((n, c) => n + c, 0);
+}

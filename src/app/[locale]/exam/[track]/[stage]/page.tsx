@@ -59,26 +59,30 @@ export default async function ExamPage({ params }: Props) {
     : `/tracks/${trackSlug}`;
 
   return (
-    <main className="mx-auto min-h-[calc(100vh-4rem)] max-w-4xl px-4 py-10 sm:px-6">
+    <main className="ay-page ay-page-focus exam-page min-h-[calc(100vh-4rem)]">
+      <div className="ay-page-ambient" aria-hidden />
       <Link
         href={`/tracks/${trackSlug}`}
-        className="text-sm text-ink-muted transition-colors hover:text-accent"
+        className="exam-back-link"
       >
-        ← {t("backToTrack")}
+        <span className="exam-back-chip rtl:rotate-180" aria-hidden>←</span>
+        {t("backToTrack")}
       </Link>
-      <h1 className="mt-6 font-[family-name:var(--font-display)] text-3xl sm:text-4xl">
-        {t("title")}
-      </h1>
-      <p className="mt-2 text-ink-muted">
-        {t("subtitle", {
-          stage: tl(stage.title, loc),
-          pass: PASS_SCORE,
-        })}
-      </p>
-      {passedStages.has(stageSlug) && (
-        <p className="mt-4 text-sm text-teal">{t("alreadyPassed")}</p>
-      )}
-      <div className="mt-10">
+      <header className="page-hero">
+        <p className="page-kicker">{tl(track.title, loc)}</p>
+        <h1 className="page-title">{t("title")}</h1>
+        <p className="page-sub">
+          {t("subtitle", {
+            stage: tl(stage.title, loc),
+            pass: PASS_SCORE,
+          })}
+        </p>
+        {passedStages.has(stageSlug) && (
+          <p className="exam-passed-badge">{t("alreadyPassed")}</p>
+        )}
+        <hr className="page-hero-rule" />
+      </header>
+      <div className="exam-body">
         <StageExamClient
           trackSlug={trackSlug}
           stageSlug={stageSlug}

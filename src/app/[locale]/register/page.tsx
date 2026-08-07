@@ -10,10 +10,11 @@ export default async function RegisterPage({ params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <div className="mx-auto flex max-w-6xl px-4 py-16 sm:px-6">
+    <div className="auth-page">
+      <div className="auth-page-ambient" aria-hidden />
       <Suspense
         fallback={
-          <div className="mx-auto flex w-full max-w-md justify-center py-16">
+          <div className="auth-page-loader">
             <PageLoader />
           </div>
         }

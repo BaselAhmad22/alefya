@@ -40,3 +40,21 @@ OPENAI_MODEL=gpt-4o-mini
 ## الحسابات والتقدّم
 
 سجّل حساباً، أكمل دروساً، وتابع تقدّمك من لوحة التحكم.
+
+## النشر المجاني (Render + Neon)
+
+النشر يعتمد على خدمتين مجانيتين على [Render](https://render.com) وقاعدة [Neon](https://neon.tech) Postgres:
+
+| خدمة | الدور |
+|------|--------|
+| `alefya-web` | Next.js |
+| `alefya-realtime` | Socket.io |
+
+1. أنشئ مشروع Neon مجاني وانسخ `DATABASE_URL` (connection string مع `sslmode=require`).
+2. ادفع الريبو إلى GitHub ثم من Render: **New → Blueprint** واختر `render.yaml`.
+3. عيّن `DATABASE_URL` على الخدمتين (ونفس `AUTH_SECRET` يُنسخ تلقائياً عبر الـ Blueprint).
+4. الروابط المتوقعة:
+   - الموقع: `https://alefya-web.onrender.com`
+   - Realtime: `https://alefya-realtime.onrender.com`
+
+**ملاحظة:** على الخطة المجانية تنام الخدمة بعد ~15 دقيقة خمول؛ أول زيارة بعدها قد تستغرق 30–60 ثانية (cold start). ملفات رفع الشات على القرص مؤقتة وتضيع عند إعادة النشر.

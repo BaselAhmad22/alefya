@@ -58,12 +58,13 @@ export default async function ExamReportPage({ params }: Props) {
       : null;
 
   return (
-    <main className="exam-result-page mx-auto max-w-3xl px-4 py-12 pb-28 sm:px-6">
+    <main className="ay-page ay-page-focus exam-report-page pb-28">
+      <div className="ay-page-ambient" aria-hidden />
       <div
         className={`exam-result-hero ${attempt.passed ? "is-pass" : "is-fail"}`}
       >
         <p className="exam-result-kicker">{t("reportSummary")}</p>
-        <h1 className="exam-result-score !text-4xl sm:!text-5xl">
+        <h1 className="exam-result-score">
           {attempt.score}
           <span>/100</span>
         </h1>
@@ -73,16 +74,14 @@ export default async function ExamReportPage({ params }: Props) {
       </div>
 
       {report ? (
-        <div className="mt-8 space-y-6">
+        <div className="exam-report-body">
           <section className="exam-report-card exam-report-card-in">
-            <p className="leading-relaxed text-ink">{report.summary}</p>
+            <p className="exam-report-summary">{report.summary}</p>
           </section>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="exam-report-grid">
             <div className="exam-report-card exam-report-card-in is-strength">
-              <p className="text-xs uppercase tracking-wider text-teal">
-                {t("strengths")}
-              </p>
-              <ul className="mt-2 list-disc ps-5 text-sm">
+              <p className="exam-report-card-label">{t("strengths")}</p>
+              <ul className="exam-report-list">
                 {report.strengths.map((s) => (
                   <li key={s}>{s}</li>
                 ))}
@@ -92,17 +91,15 @@ export default async function ExamReportPage({ params }: Props) {
               className="exam-report-card exam-report-card-in is-weak"
               style={{ animationDelay: "60ms" }}
             >
-              <p className="text-xs uppercase tracking-wider text-accent">
-                {t("weaknesses")}
-              </p>
-              <ul className="mt-2 list-disc ps-5 text-sm">
+              <p className="exam-report-card-label is-weak">{t("weaknesses")}</p>
+              <ul className="exam-report-list">
                 {report.weaknesses.map((s) => (
                   <li key={s}>{s}</li>
                 ))}
               </ul>
             </div>
           </div>
-          <ul className="space-y-4">
+          <ol className="exam-report-notes">
             {report.items.map((item, i) => (
               <li
                 key={item.id}
@@ -111,33 +108,45 @@ export default async function ExamReportPage({ params }: Props) {
                 }`}
                 style={{ animationDelay: `${Math.min(i, 8) * 40 + 100}ms` }}
               >
-                <p className="text-xs text-ink-muted">
-                  {t("questionN", { n: i + 1 })} · {item.score}/100 ·{" "}
-                  {item.correct ? t("correct") : t("needsImprovement")}
-                </p>
-                <p className="mt-2 font-medium">{item.prompt}</p>
-                <p className="mt-2 text-sm text-ink-muted">
-                  {t("yourAnswer")}: {item.userAnswer || "—"}
-                </p>
-                {item.correctAnswer ? (
-                  <p className="mt-1 text-sm text-teal">
-                    {t("correctAnswer")}: {item.correctAnswer}
-                  </p>
-                ) : null}
-                <p className="mt-3 text-sm">
-                  <span className="text-ink-muted">{t("why")}: </span>
-                  {item.why}
-                </p>
-                <p className="mt-2 text-sm">
-                  <span className="text-ink-muted">{t("improvement")}: </span>
-                  {item.improvement}
-                </p>
+                <div className="exam-report-item-head">
+                  <span className="exam-report-item-meta">
+                    {t("questionN", { n: i + 1 })} · {item.score}/100
+                  </span>
+                  <span
+                    className={`exam-report-item-verdict ${
+                      item.correct ? "is-correct" : "is-wrong"
+                    }`}
+                  >
+                    {item.correct ? t("correct") : t("needsImprovement")}
+                  </span>
+                </div>
+                <p className="exam-report-item-prompt">{item.prompt}</p>
+                <dl className="exam-report-item-dl">
+                  <div>
+                    <dt>{t("yourAnswer")}</dt>
+                    <dd>{item.userAnswer || "—"}</dd>
+                  </div>
+                  {item.correctAnswer ? (
+                    <div>
+                      <dt>{t("correctAnswer")}</dt>
+                      <dd className="is-correct-text">{item.correctAnswer}</dd>
+                    </div>
+                  ) : null}
+                  <div>
+                    <dt>{t("why")}</dt>
+                    <dd>{item.why}</dd>
+                  </div>
+                  <div>
+                    <dt>{t("improvement")}</dt>
+                    <dd>{item.improvement}</dd>
+                  </div>
+                </dl>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       ) : (
-        <p className="mt-8 text-ink-muted">{t("submitError")}</p>
+        <p className="exam-report-empty">{t("submitError")}</p>
       )}
 
       <ExamResultDock

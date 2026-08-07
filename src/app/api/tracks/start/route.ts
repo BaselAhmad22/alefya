@@ -60,3 +60,36 @@ export async function GET(request: Request) {
 
   return NextResponse.json({ enrollments });
 }
+
+export async function DELETE(request: Request) {
+  const session = await getApiSession(request);
+  if (!session?.user?.id) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
+
+  const body = await request.json().catch(() => ({}));
+  const parsed = schema.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json({ error: "invalid" }, { status: 400 });
+  }
+
+  const trackSlug = parsed.data.trackSlug;
+  const userId = session.user.id;
+
+  await prisma.$transaction([
+    prisma.trackEnrollment.deleteMany({
+      where: { userId, trackSlug },
+    }),
+    prisma.progress.deleteMany({
+      where: { userId, trackSlug },
+    }),
+    prisma.checklistItem.deleteMany({
+      where: { userId, trackSlug },
+    }),
+    prisma.examAttempt.deleteMany({
+      where: { userId, trackSlug },
+    }),
+  ]);
+
+  return NextResponse.json({ ok: true });
+}

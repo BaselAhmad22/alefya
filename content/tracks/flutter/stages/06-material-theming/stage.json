@@ -1,0 +1,17 @@
+{
+  "slug": "06-material-theming",
+  "order": 6,
+  "title": {
+    "ar": "Material والثيم",
+    "en": "Material & theming"
+  },
+  "description": {
+    "ar": "مظهر موحّد للتطبيق",
+    "en": "Consistent app look"
+  },
+  "lessons": [
+    "01-scaffold.json",
+    "02-theme-data.json",
+    "03-common-widgets.json"
+  ]
+}

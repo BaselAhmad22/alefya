@@ -1,0 +1,18 @@
+{
+  "slug": "05-layout-responsive",
+  "order": 5,
+  "title": {
+    "ar": "التخطيط والاستجابة",
+    "en": "Layout & responsive UI"
+  },
+  "description": {
+    "ar": "Row، Column، والمرونة",
+    "en": "Row, Column, and flexibility"
+  },
+  "lessons": [
+    "01-row-column.json",
+    "02-expanded-flexible.json",
+    "03-constraints.json",
+    "04-media-query.json"
+  ]
+}

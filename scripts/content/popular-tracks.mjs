@@ -1,8 +1,9 @@
 /**
  * Popular high-demand tracks for AlefYa categories.
- * Flutter + 2 tracks per other category section.
+ * Flutter lives in flutter.mjs (full curriculum); other popular tracks stay here.
  */
 import { stage } from "./expand.mjs";
+import { flutterTrack, flutterStages } from "./flutter.mjs";
 
 function L(slug, order, duration, titleAr, titleEn, summaryAr, summaryEn, focusAr, focusEn, ideas, code, stack = "javascript") {
   return {
@@ -72,94 +73,6 @@ function buildTrack({ slug, order, title, tagline, description, color, hours, st
   }
   return [track, stageMap];
 }
-
-// ——— Flutter ———
-const [flutterTrack, flutterStages] = buildTrack({
-  slug: "flutter",
-  order: 6,
-  title: { ar: "Flutter", en: "Flutter" },
-  tagline: {
-    ar: "من Dart حتى تطبيق جوال متعدد المنصات",
-    en: "From Dart to a cross-platform mobile app",
-  },
-  description: {
-    ar: "مسار Flutter الأشهر عالمياً لبناء iOS وAndroid بقاعدة كود واحدة: Dart، Widgets، الحالة، التنقل، ثم مشروع.",
-    en: "The world's most popular path for one codebase on iOS & Android: Dart, widgets, state, navigation, then a project.",
-  },
-  color: "#02569B",
-  hours: 100,
-  stages: [
-    {
-      slug: "01-dart",
-      order: 1,
-      title: { ar: "أساسيات Dart", en: "Dart foundations" },
-      description: { ar: "لغة Flutter", en: "Flutter's language" },
-      lessons: [
-        L("01-why-flutter", 1, 40, "لماذا Flutter؟", "Why Flutter?", "أين يُستخدم ولماذا يُطلب كثيراً.", "Where it's used and why demand is high.",
-          "Flutter من أكثر أطر الجوال بحثاً وتوظيفاً لأنه يوحّد iOS وAndroid.", "Flutter is among the most searched mobile stacks because it unifies iOS and Android.",
-          [["منصة واحدة", "تطبيق واحد يعمل على منصتين مع أداء قريب من الأصلي عبر محرك الرسم.", "One codebase", "One app on two platforms with near-native performance via its rendering engine."],
-           ["سوق العمل", "مطلوب في الشركات الناشئة والوكالات التي تريد سرعة تسليم.", "Job market", "In demand at startups and agencies that need fast delivery."]],
-          "void main() {\n  print('Hello Flutter');\n}", "dart"),
-        L("02-dart-syntax", 2, 45, "صيغة Dart", "Dart syntax", "متغيرات، دوال، null safety.", "Vars, functions, null safety.",
-          "Dart هي أساس كل Widget — أتقنها قبل الواجهة.", "Dart underpins every widget — master it before UI.",
-          [["Null safety", "الأنواع غير القابلة للـ null تقلّل أعطال الإنتاج.", "Null safety", "Non-nullable types cut a huge class of production crashes."],
-           ["async", "Future وasync/await لكل I/O.", "async", "Future and async/await for every I/O path."]],
-          "String greet(String? name) => 'Hi ${name ?? 'guest'}';", "dart"),
-        L("03-classes-collections", 3, 45, "الفئات والمجموعات", "Classes & collections", "class، List، Map.", "class, List, Map.",
-          "نماذج البيانات في Flutter تُبنى من classes ومجموعات.", "Flutter data models are classes and collections.",
-          [["List وMap", "أساس القوائم والحالة.", "List & Map", "Core of lists and state."],
-           ["Constructors", "named وfactory شائعان جداً.", "Constructors", "Named and factory constructors are everywhere."]],
-          "class User {\n  final String id;\n  User(this.id);\n}", "dart"),
-      ],
-    },
-    {
-      slug: "02-widgets",
-      order: 2,
-      title: { ar: "Widgets", en: "Widgets" },
-      description: { ar: "كل شيء Widget", en: "Everything is a widget" },
-      lessons: [
-        L("01-widget-tree", 1, 45, "شجرة الـ Widgets", "The widget tree", "Stateless مقابل Stateful.", "Stateless vs Stateful.",
-          "فهم الشجرة يمنع أخطاء setState العشوائية.", "Understanding the tree prevents random setState bugs.",
-          [["StatelessWidget", "UI يعتمد على المدخلات فقط.", "StatelessWidget", "UI depends only on inputs."],
-           ["StatefulWidget", "حالة محلية تتغير مع التفاعل.", "StatefulWidget", "Local state that changes with interaction."]],
-          "class Hello extends StatelessWidget {\n  const Hello({super.key});\n  @override\n  Widget build(BuildContext context) => const Text('AlefYa');\n}", "dart"),
-        L("02-layout", 2, 45, "التخطيط", "Layout", "Row، Column، Expanded.", "Row, Column, Expanded.",
-          "Flex layout هو يوميات مطوّر Flutter.", "Flex layout is daily Flutter work.",
-          [["Column/Row", "المحاور الرئيسية للتوزيع.", "Column/Row", "Main axes for composition."],
-           ["Expanded", "يملأ المساحة المتبقية بذكاء.", "Expanded", "Fills remaining space intelligently."]],
-          "Column(children: [Text('A'), Text('B')])", "dart"),
-        L("03-navigation", 3, 45, "التنقل", "Navigation", "Navigator وroutes.", "Navigator and routes.",
-          "التنقل بين الشاشات أساس أي تطبيق.", "Screen navigation is foundational.",
-          [["Navigator", "مكدس الشاشات.", "Navigator", "The screen stack."],
-           ["named routes", "تنظيم أوضح للتطبيقات الكبيرة.", "Named routes", "Cleaner structure for larger apps."]],
-          "Navigator.push(context, MaterialPageRoute(builder: (_) => NextPage()));", "dart"),
-      ],
-    },
-    {
-      slug: "03-state-project",
-      order: 3,
-      title: { ar: "الحالة ومشروع", en: "State & project" },
-      description: { ar: "Provider/Riverpod ثم مشروع", en: "Provider/Riverpod then a project" },
-      lessons: [
-        L("01-setstate-limits", 1, 40, "حدود setState", "Limits of setState", "متى تتجاوز الحالة المحلية.", "When local state is not enough.",
-          "التطبيقات الحقيقية تحتاج حالة مشتركة.", "Real apps need shared state.",
-          [["رفع الحالة", "شارك البيانات بين الشاشات.", "Lifting state", "Share data across screens."],
-           ["أنماط شائعة", "Provider وRiverpod وBloc.", "Common patterns", "Provider, Riverpod, and Bloc."]],
-          "// prefer a state package for shared app state", "dart"),
-        L("02-http", 2, 45, "HTTP والـ JSON", "HTTP & JSON", "جلب بيانات من API.", "Fetching from an API.",
-          "معظم التطبيقات تتكلم مع خادم.", "Most apps talk to a server.",
-          [["http/dio", "طلبات الشبكة.", "http/dio", "Network requests."],
-           ["fromJson", "تحويل JSON لنماذج.", "fromJson", "Map JSON into models."]],
-          "final res = await http.get(Uri.parse('https://api.example.com'));", "dart"),
-        L("03-capstone", 3, 55, "مشروع تطبيقي", "Capstone project", "شاشة قائمة + تفاصيل.", "List + detail screens.",
-          "اجمع Widgets والحالة والشبكة في تطبيق صغير.", "Combine widgets, state, and networking in a small app.",
-          [["تصميم الشاشات", "قائمة ثم تفاصيل.", "Screen design", "List then detail."],
-           ["تسليم", "اختبر على محاكٍ أو جهاز.", "Ship", "Test on emulator or device."]],
-          "// Build a lessons list screen for AlefYa-style content", "dart"),
-      ],
-    },
-  ],
-});
 
 // ——— Vue ———
 const [vueTrack, vueStages] = buildTrack({

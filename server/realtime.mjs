@@ -1,14 +1,15 @@
 /**
  * AlefYa realtime chat — Socket.io server.
  * Run: node server/realtime.mjs
- * Env: REALTIME_PORT=4001, AUTH_SECRET=..., DATABASE_URL=file:./prisma/dev.db
+ * Env: PORT | REALTIME_PORT, AUTH_SECRET, DATABASE_URL, REALTIME_CORS_ORIGIN
  */
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { jwtVerify } from "jose";
 import { PrismaClient } from "@prisma/client";
 
-const port = Number(process.env.REALTIME_PORT || 4001);
+const port = Number(process.env.PORT || process.env.REALTIME_PORT || 4001);
+const corsOrigin = process.env.REALTIME_CORS_ORIGIN || "*";
 const secret = new TextEncoder().encode(
   process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET || "dev-secret",
 );
@@ -16,9 +17,18 @@ const prisma = new PrismaClient();
 const httpServer = createServer();
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.REALTIME_CORS_ORIGIN || "*",
+    origin: corsOrigin.includes(",")
+      ? corsOrigin.split(",").map((o) => o.trim())
+      : corsOrigin,
     methods: ["GET", "POST"],
   },
+});
+
+process.on("unhandledRejection", (err) => {
+  console.error("[alefya-realtime] unhandledRejection", err);
+});
+process.on("uncaughtException", (err) => {
+  console.error("[alefya-realtime] uncaughtException", err);
 });
 
 io.use(async (socket, next) => {
@@ -172,87 +182,95 @@ io.on("connection", (socket) => {
       attachmentName,
       attachmentSize,
     }) => {
-      if (!conversationId) return;
-      const text = body ? String(body).trim().slice(0, 4000) : "";
-      const fileUrl =
-        attachmentUrl && String(attachmentUrl).startsWith("/uploads/chat/")
-          ? String(attachmentUrl)
-          : null;
-      if (!text && !fileUrl) return;
+      try {
+        if (!conversationId) return;
+        const text = body ? String(body).trim().slice(0, 4000) : "";
+        const fileUrl =
+          attachmentUrl && String(attachmentUrl).startsWith("/uploads/chat/")
+            ? String(attachmentUrl)
+            : null;
+        if (!text && !fileUrl) return;
 
-      const member = await prisma.conversationMember.findUnique({
-        where: {
-          conversationId_userId: { conversationId, userId },
-        },
-      });
-      if (!member || member.hiddenAt) return;
-
-      let safeReplyToId = null;
-      if (replyToId) {
-        const target = await prisma.message.findUnique({
-          where: { id: String(replyToId) },
+        const member = await prisma.conversationMember.findUnique({
+          where: {
+            conversationId_userId: { conversationId, userId },
+          },
         });
-        if (
-          target &&
-          target.conversationId === conversationId &&
-          !target.deletedAt
-        ) {
-          safeReplyToId = target.id;
+        if (!member || member.hiddenAt) return;
+
+        let safeReplyToId = null;
+        if (replyToId) {
+          const target = await prisma.message.findUnique({
+            where: { id: String(replyToId) },
+          });
+          if (
+            target &&
+            target.conversationId === conversationId &&
+            !target.deletedAt
+          ) {
+            safeReplyToId = target.id;
+          }
         }
-      }
 
-      const message = await prisma.message.create({
-        data: {
-          conversationId,
-          senderId: userId,
-          body: text,
-          replyToId: safeReplyToId,
-          attachmentUrl: fileUrl,
-          attachmentMime: fileUrl
-            ? String(attachmentMime || "application/octet-stream").slice(0, 120)
-            : null,
-          attachmentName: fileUrl
-            ? String(attachmentName || "file").slice(0, 160)
-            : null,
-          attachmentSize:
-            fileUrl && Number.isFinite(Number(attachmentSize))
-              ? Math.max(0, Math.floor(Number(attachmentSize)))
+        const message = await prisma.message.create({
+          data: {
+            conversationId,
+            senderId: userId,
+            body: text,
+            replyToId: safeReplyToId,
+            attachmentUrl: fileUrl,
+            attachmentMime: fileUrl
+              ? String(attachmentMime || "application/octet-stream").slice(
+                  0,
+                  120,
+                )
               : null,
-        },
-        include: messageInclude,
-      });
-      await prisma.conversation.update({
-        where: { id: conversationId },
-        data: { updatedAt: new Date() },
-      });
-      await prisma.conversationMember.update({
-        where: {
-          conversationId_userId: { conversationId, userId },
-        },
-        data: { lastReadAt: new Date() },
-      });
+            attachmentName: fileUrl
+              ? String(attachmentName || "file").slice(0, 160)
+              : null,
+            attachmentSize:
+              fileUrl && Number.isFinite(Number(attachmentSize))
+                ? Math.max(0, Math.floor(Number(attachmentSize)))
+                : null,
+          },
+          include: messageInclude,
+        });
+        await prisma.conversation.update({
+          where: { id: conversationId },
+          data: { updatedAt: new Date() },
+        });
+        await prisma.conversationMember.update({
+          where: {
+            conversationId_userId: { conversationId, userId },
+          },
+          data: { lastReadAt: new Date() },
+        });
 
-      // Resurface chat for peers who hid/deleted it for themselves.
-      // Keep clearedAt so older history stays wiped for them.
-      await prisma.conversationMember.updateMany({
-        where: {
+        // Resurface chat for peers who hid/deleted it for themselves.
+        // Keep clearedAt so older history stays wiped for them.
+        await prisma.conversationMember.updateMany({
+          where: {
+            conversationId,
+            userId: { not: userId },
+            hiddenAt: { not: null },
+          },
+          data: { hiddenAt: null },
+        });
+
+        await emitToConversation(
           conversationId,
-          userId: { not: userId },
-          hiddenAt: { not: null },
-        },
-        data: { hiddenAt: null },
-      });
-
-      await emitToConversation(
-        conversationId,
-        "message:new",
-        mapMessage(message),
-      );
-      const peers = await prisma.conversationMember.findMany({
-        where: { conversationId, NOT: { userId }, hiddenAt: null },
-      });
-      for (const m of peers) {
-        io.to(`user:${m.userId}`).emit("messages:badge");
+          "message:new",
+          mapMessage(message),
+        );
+        const peers = await prisma.conversationMember.findMany({
+          where: { conversationId, NOT: { userId }, hiddenAt: null },
+        });
+        for (const m of peers) {
+          io.to(`user:${m.userId}`).emit("messages:badge");
+        }
+      } catch (err) {
+        console.error("[alefya-realtime] message:send failed", err);
+        socket.emit("message:error", { action: "send", message: "failed" });
       }
     },
   );

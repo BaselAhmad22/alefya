@@ -6,8 +6,8 @@ export async function SiteFooter() {
   const t = await getTranslations("footer");
 
   return (
-    <footer className="site-footer border-t border-line/70 py-10">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-5 px-4 sm:px-6">
+    <footer className="site-footer">
+      <div className="page-container flex flex-wrap items-center justify-between gap-5 py-12">
         <Link
           href="/"
           className="group inline-flex items-center gap-3 text-sm text-ink-muted transition-colors hover:text-ink"

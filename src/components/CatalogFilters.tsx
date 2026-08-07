@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 
 export type FilterStatus = "all" | "in_progress" | "completed";
@@ -297,8 +298,8 @@ export function DashboardFilters({
   }, [q, status, sort]);
 
   return (
-    <div className="mt-8">
-      <div className="catalog-toolbar">
+    <div className="dashboard-tracks-section">
+      <div className="catalog-toolbar dashboard-toolbar">
         <div className="catalog-toolbar-inner">
           <SearchField
             value={q}
@@ -336,7 +337,7 @@ export function DashboardFilters({
           <p className="text-ink-muted">{labels.emptyFiltered}</p>
         </div>
       ) : (
-        <div key={listKey} className="catalog-results mt-6 grid gap-4">
+        <div key={listKey} className="catalog-results dashboard-track-grid mt-6">
           {filtered.map(
             ({ slug, title, done, total, href, resumeLabel, completedLabel }, i) => {
               const pct = total ? Math.round((done / total) * 100) : 0;
@@ -344,32 +345,31 @@ export function DashboardFilters({
                 <a
                   key={slug}
                   href={href}
-                  className="catalog-result-card group relative block overflow-hidden rounded-[calc(var(--radius)+2px)] border border-line/80 bg-bg-elevated/55 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal/40 hover:bg-bg-elevated sm:p-6"
+                  className="dashboard-track-card catalog-result-card group"
                   style={{ animationDelay: `${Math.min(i, 8) * 45}ms` }}
                 >
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="min-w-0">
-                      <h2 className="font-[family-name:var(--font-display)] text-2xl text-ink transition-colors group-hover:text-teal-bright">
-                        {title}
-                      </h2>
-                      <p className="mt-1 text-sm text-ink-muted">
-                        {done}/{total} {completedLabel} · {pct}%
-                      </p>
-                      <div className="mt-3 h-1.5 w-52 max-w-full overflow-hidden rounded-full bg-bg-soft">
-                        <div
-                          className="h-full rounded-full bg-gradient-to-r from-teal to-accent transition-[width] duration-500"
-                          style={{ width: `${pct}%` }}
-                        />
-                      </div>
+                  <div className="dashboard-track-body min-w-0">
+                    <h2 className="dashboard-track-title">{title}</h2>
+                    <p className="dashboard-track-meta">
+                      {done}/{total} {completedLabel}
+                    </p>
+                    <div className="dashboard-track-bar" aria-hidden>
+                      <span style={{ width: `${pct}%` }} />
                     </div>
-                    <span className="inline-flex items-center gap-2 self-start rounded-full border border-line bg-bg/50 px-3.5 py-2 text-sm text-ink-muted transition-all group-hover:border-accent/40 group-hover:text-accent sm:self-center">
+                  </div>
+                  <div className="dashboard-track-aside">
+                    <span className="dashboard-track-pct">{pct}%</span>
+                    <span className="dashboard-track-go">
                       {resumeLabel}
-                      <span
-                        className="flex h-6 w-6 items-center justify-center rounded-full bg-accent/15 text-accent rtl:rotate-180"
-                        aria-hidden
-                      >
-                        →
-                      </span>
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+                        <path
+                          d="M3 7h8M7.5 3.5 11 7l-3.5 3.5"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </span>
                   </div>
                 </a>
@@ -460,28 +460,41 @@ export function CategoriesFilters({
           <p className="text-ink-muted">{labels.emptyFiltered}</p>
         </div>
       ) : (
-        <div
-          key={listKey}
-          className="catalog-results mt-8 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <div key={listKey} className="catalog-results mt-8 catalog-grid">
           {filtered.map((cat, i) => (
             <a
               key={cat.slug}
               href={cat.href}
-              className="catalog-result-card surface-panel flex h-full min-h-[11.5rem] flex-col p-6 transition hover:border-teal/40"
-              style={{ animationDelay: `${Math.min(i, 9) * 50}ms` }}
+              className="catalog-card catalog-result-card h-full"
+              style={{
+                animationDelay: `${Math.min(i, 9) * 50}ms`,
+                ["--card-accent"]:
+                  i % 3 === 0
+                    ? "var(--teal)"
+                    : i % 3 === 1
+                      ? "var(--accent)"
+                      : "#2dd4bf",
+              } as CSSProperties}
             >
-              <h2 className="font-[family-name:var(--font-display)] text-2xl text-ink">
-                {cat.title}
-              </h2>
-              <p className="mt-2 line-clamp-2 min-h-[2.75rem] text-sm leading-relaxed text-ink-muted">
-                {cat.description}
-              </p>
-              <p className="mt-auto pt-4 text-xs uppercase tracking-wider text-accent">
+              <p className="catalog-card-meta">
                 {cat.trackCount > 0
                   ? `${cat.trackCount} ${cat.tracksLabel}`
                   : cat.comingSoon}
               </p>
+              <h2 className="catalog-card-title">{cat.title}</h2>
+              <p className="catalog-card-desc line-clamp-2">{cat.description}</p>
+              <span className="catalog-card-go">
+                {cat.tracksLabel}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+                  <path
+                    d="M3 7h8M7.5 3.5 11 7l-3.5 3.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
             </a>
           ))}
         </div>

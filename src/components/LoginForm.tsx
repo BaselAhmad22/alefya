@@ -45,9 +45,9 @@ export function LoginForm() {
       brandLine={t("authBrandLine")}
       brandSub={t("authBrandSub")}
     >
-      <form onSubmit={onSubmit} className="space-y-5">
-        <label className="block space-y-2 text-sm">
-          <span className="font-medium text-ink-muted">{t("username")}</span>
+      <form onSubmit={onSubmit} className="auth-form">
+        <label className="auth-field">
+          <span className="auth-label">{t("username")}</span>
           <input
             name="username"
             type="text"
@@ -57,8 +57,8 @@ export function LoginForm() {
             className="auth-input"
           />
         </label>
-        <label className="block space-y-2 text-sm">
-          <span className="font-medium text-ink-muted">{t("password")}</span>
+        <label className="auth-field">
+          <span className="auth-label">{t("password")}</span>
           <input
             name="password"
             type="password"
@@ -69,25 +69,22 @@ export function LoginForm() {
           />
         </label>
         {error && (
-          <p
-            role="alert"
-            className="rounded-[var(--radius)] border border-danger/40 bg-danger/10 px-3 py-2 text-sm text-danger"
-          >
+          <p role="alert" className="auth-alert is-error">
             {error}
           </p>
         )}
         <button
           type="submit"
           disabled={loading}
-          className="btn-primary w-full disabled:opacity-50"
+          className="btn-primary auth-submit"
         >
           {loading ? "…" : t("loginSubmit")}
         </button>
-        <p className="text-center text-sm text-ink-muted">
+        <p className="auth-switch">
           {t("noAccount")}{" "}
           <Link
             href={`/register${searchParams.get("next") ? `?next=${encodeURIComponent(searchParams.get("next")!)}` : ""}`}
-            className="font-medium text-teal transition-colors hover:text-accent"
+            className="auth-switch-link"
           >
             {t("registerSubmit")}
           </Link>

@@ -19,19 +19,17 @@ export default async function FriendsPage({ params }: Props) {
   const t = await getTranslations("friends");
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
-      <header className="mb-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-          AlefYa
-        </p>
-        <h1 className="mt-2 font-[family-name:var(--font-display)] text-3xl sm:text-4xl">
-          {t("pageTitle")}
-        </h1>
-        <p className="mt-2 text-ink-muted">{t("pageSubtitle")}</p>
+    <main className="ay-page friends-page">
+      <div className="ay-page-ambient" aria-hidden />
+      <header className="page-hero friends-page-hero">
+        <p className="page-kicker">AlefYa</p>
+        <h1 className="page-title">{t("pageTitle")}</h1>
+        <p className="page-sub">{t("pageSubtitle")}</p>
+        <hr className="page-hero-rule" />
       </header>
       <Suspense
         fallback={
-          <div className="flex justify-center py-16">
+          <div className="friends-loading">
             <PageLoader />
           </div>
         }

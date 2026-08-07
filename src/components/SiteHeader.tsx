@@ -23,8 +23,8 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="site-header sticky top-0 z-40 border-b border-line/70 bg-bg/70 backdrop-blur-2xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+    <header className="site-header sticky top-0 z-40">
+      <div className="site-header-inner page-container flex h-[4.25rem] items-center justify-between gap-3">
         <div className="flex min-w-0 items-center gap-2.5 sm:gap-3.5">
           <Link href="/" className="group flex items-center gap-3">
             <BrandLogo

@@ -1,0 +1,17 @@
+{
+  "slug": "12-persistence",
+  "order": 12,
+  "title": {
+    "ar": "التخزين المحلي",
+    "en": "Local persistence"
+  },
+  "description": {
+    "ar": "حفظ بين الجلسات",
+    "en": "Survive app restarts"
+  },
+  "lessons": [
+    "01-shared-prefs.json",
+    "02-files.json",
+    "03-local-db.json"
+  ]
+}
