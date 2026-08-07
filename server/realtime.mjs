@@ -186,7 +186,9 @@ io.on("connection", (socket) => {
         if (!conversationId) return;
         const text = body ? String(body).trim().slice(0, 4000) : "";
         const fileUrl =
-          attachmentUrl && String(attachmentUrl).startsWith("/uploads/chat/")
+          attachmentUrl &&
+          (String(attachmentUrl).startsWith("/uploads/chat/") ||
+            String(attachmentUrl).startsWith("/api/chat/files/"))
             ? String(attachmentUrl)
             : null;
         if (!text && !fileUrl) return;

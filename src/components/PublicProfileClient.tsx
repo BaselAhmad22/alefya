@@ -99,19 +99,22 @@ export function PublicProfileClient({
   }
 
   async function respond(action: "accept" | "reject") {
-    if (!profile.pendingRequest) return;
+    if (!profile.pendingRequest || busy) return;
     setBusy(true);
-    await fetch("/api/friends/respond", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        requestId: profile.pendingRequest.id,
-        action,
-      }),
-    });
-    setBusy(false);
-    await refresh();
-    dispatchFriendsBadgeRefresh();
+    try {
+      await fetch("/api/friends/respond", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          requestId: profile.pendingRequest.id,
+          action,
+        }),
+      });
+    } finally {
+      setBusy(false);
+      await refresh();
+      dispatchFriendsBadgeRefresh();
+    }
   }
 
   async function unfriend() {

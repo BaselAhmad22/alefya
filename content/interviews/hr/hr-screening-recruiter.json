@@ -21,24 +21,24 @@
           "Generic answer with no research."
         ],
         "ar": [
-          "tone سلبي أو defensive.",
-          "تناقض CV.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "إجابة generic بلا research."
+          "نبرة سلبية أو دفاعية.",
+          "تناقض سيرتك الذاتية.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور."
         ]
       },
       "correctIndex": 2,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates availability for pipeline advancement.",
-        "ar": "يقيس availability للتقدم في pipeline."
+        "ar": "يقيّم availability ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -46,21 +46,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -82,24 +82,24 @@
           "Negative or defensive tone."
         ],
         "ar": [
-          "إجابة generic بلا research.",
-          "تناقض CV.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "tone سلبي أو defensive."
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "تناقض سيرتك الذاتية.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "نبرة سلبية أو دفاعية."
         ]
       },
       "correctIndex": 2,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates availability for pipeline advancement.",
-        "ar": "يقيس availability للتقدم في pipeline."
+        "ar": "يقيّم availability ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -107,21 +107,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -143,24 +143,24 @@
           "Contradict your resume."
         ],
         "ar": [
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "tone سلبي أو defensive.",
-          "إجابة generic بلا research.",
-          "تناقض CV."
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "نبرة سلبية أو دفاعية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "تناقض سيرتك الذاتية."
         ]
       },
       "correctIndex": 0,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates availability for pipeline advancement.",
-        "ar": "يقيس availability للتقدم في pipeline."
+        "ar": "يقيّم availability ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -168,21 +168,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -204,24 +204,24 @@
           "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
         ],
         "ar": [
-          "إجابة generic بلا research.",
-          "تناقض CV.",
-          "tone سلبي أو defensive.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "تناقض سيرتك الذاتية.",
+          "نبرة سلبية أو دفاعية.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً."
         ]
       },
       "correctIndex": 3,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates availability for pipeline advancement.",
-        "ar": "يقيس availability للتقدم في pipeline."
+        "ar": "يقيّم availability ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -229,21 +229,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -265,24 +265,24 @@
           "Contradict your resume."
         ],
         "ar": [
-          "tone سلبي أو defensive.",
-          "إجابة generic بلا research.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "تناقض CV."
+          "نبرة سلبية أو دفاعية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "تناقض سيرتك الذاتية."
         ]
       },
       "correctIndex": 2,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates eligibility for pipeline advancement.",
-        "ar": "يقيس eligibility للتقدم في pipeline."
+        "ar": "يقيّم eligibility ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -290,21 +290,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -326,24 +326,24 @@
           "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
         ],
         "ar": [
-          "tone سلبي أو defensive.",
-          "تناقض CV.",
-          "إجابة generic بلا research.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+          "نبرة سلبية أو دفاعية.",
+          "تناقض سيرتك الذاتية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً."
         ]
       },
       "correctIndex": 3,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates eligibility for pipeline advancement.",
-        "ar": "يقيس eligibility للتقدم في pipeline."
+        "ar": "يقيّم eligibility ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -351,21 +351,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -387,24 +387,24 @@
           "Generic answer with no research."
         ],
         "ar": [
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "تناقض CV.",
-          "tone سلبي أو defensive.",
-          "إجابة generic بلا research."
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "تناقض سيرتك الذاتية.",
+          "نبرة سلبية أو دفاعية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور."
         ]
       },
       "correctIndex": 0,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates eligibility for pipeline advancement.",
-        "ar": "يقيس eligibility للتقدم في pipeline."
+        "ar": "يقيّم eligibility ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -412,21 +412,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -448,24 +448,24 @@
           "Negative or defensive tone."
         ],
         "ar": [
-          "إجابة generic بلا research.",
-          "تناقض CV.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "tone سلبي أو defensive."
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "تناقض سيرتك الذاتية.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "نبرة سلبية أو دفاعية."
         ]
       },
       "correctIndex": 2,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates eligibility for pipeline advancement.",
-        "ar": "يقيس eligibility للتقدم في pipeline."
+        "ar": "يقيّم eligibility ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -473,21 +473,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -509,24 +509,24 @@
           "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
         ],
         "ar": [
-          "tone سلبي أو defensive.",
-          "تناقض CV.",
-          "إجابة generic بلا research.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+          "نبرة سلبية أو دفاعية.",
+          "تناقض سيرتك الذاتية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً."
         ]
       },
       "correctIndex": 3,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates screening-motivation for pipeline advancement.",
-        "ar": "يقيس screening-motivation للتقدم في pipeline."
+        "ar": "يقيّم screening-motivation ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -534,21 +534,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -570,24 +570,24 @@
           "Generic answer with no research."
         ],
         "ar": [
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "تناقض CV.",
-          "tone سلبي أو defensive.",
-          "إجابة generic بلا research."
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "تناقض سيرتك الذاتية.",
+          "نبرة سلبية أو دفاعية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور."
         ]
       },
       "correctIndex": 0,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates screening-motivation for pipeline advancement.",
-        "ar": "يقيس screening-motivation للتقدم في pipeline."
+        "ar": "يقيّم screening-motivation ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -595,21 +595,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -631,24 +631,24 @@
           "Negative or defensive tone."
         ],
         "ar": [
-          "إجابة generic بلا research.",
-          "تناقض CV.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "tone سلبي أو defensive."
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "تناقض سيرتك الذاتية.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "نبرة سلبية أو دفاعية."
         ]
       },
       "correctIndex": 2,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates screening-motivation for pipeline advancement.",
-        "ar": "يقيس screening-motivation للتقدم في pipeline."
+        "ar": "يقيّم screening-motivation ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -656,21 +656,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -692,24 +692,24 @@
           "Contradict your resume."
         ],
         "ar": [
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "tone سلبي أو defensive.",
-          "إجابة generic بلا research.",
-          "تناقض CV."
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "نبرة سلبية أو دفاعية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "تناقض سيرتك الذاتية."
         ]
       },
       "correctIndex": 0,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates screening-motivation for pipeline advancement.",
-        "ar": "يقيس screening-motivation للتقدم في pipeline."
+        "ar": "يقيّم screening-motivation ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -717,21 +717,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -753,24 +753,24 @@
           "Negative or defensive tone."
         ],
         "ar": [
-          "تناقض CV.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "إجابة generic بلا research.",
-          "tone سلبي أو defensive."
+          "تناقض سيرتك الذاتية.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "نبرة سلبية أو دفاعية."
         ]
       },
       "correctIndex": 1,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates level-fit for pipeline advancement.",
-        "ar": "يقيس level-fit للتقدم في pipeline."
+        "ar": "يقيّم level-fit ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -778,21 +778,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -814,24 +814,24 @@
           "Contradict your resume."
         ],
         "ar": [
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "إجابة generic بلا research.",
-          "tone سلبي أو defensive.",
-          "تناقض CV."
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "نبرة سلبية أو دفاعية.",
+          "تناقض سيرتك الذاتية."
         ]
       },
       "correctIndex": 0,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates level-fit for pipeline advancement.",
-        "ar": "يقيس level-fit للتقدم في pipeline."
+        "ar": "يقيّم level-fit ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -839,21 +839,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -875,24 +875,24 @@
           "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
         ],
         "ar": [
-          "إجابة generic بلا research.",
-          "tone سلبي أو defensive.",
-          "تناقض CV.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "نبرة سلبية أو دفاعية.",
+          "تناقض سيرتك الذاتية.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً."
         ]
       },
       "correctIndex": 3,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates level-fit for pipeline advancement.",
-        "ar": "يقيس level-fit للتقدم في pipeline."
+        "ar": "يقيّم level-fit ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -900,21 +900,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -936,24 +936,24 @@
           "Generic answer with no research."
         ],
         "ar": [
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "tone سلبي أو defensive.",
-          "تناقض CV.",
-          "إجابة generic بلا research."
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "نبرة سلبية أو دفاعية.",
+          "تناقض سيرتك الذاتية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور."
         ]
       },
       "correctIndex": 0,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates level-fit for pipeline advancement.",
-        "ar": "يقيس level-fit للتقدم في pipeline."
+        "ar": "يقيّم level-fit ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -961,21 +961,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -997,24 +997,24 @@
           "Generic answer with no research."
         ],
         "ar": [
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "tone سلبي أو defensive.",
-          "تناقض CV.",
-          "إجابة generic بلا research."
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "نبرة سلبية أو دفاعية.",
+          "تناقض سيرتك الذاتية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور."
         ]
       },
       "correctIndex": 0,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates logistics for pipeline advancement.",
-        "ar": "يقيس logistics للتقدم في pipeline."
+        "ar": "يقيّم logistics ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -1022,21 +1022,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -1058,24 +1058,24 @@
           "Negative or defensive tone."
         ],
         "ar": [
-          "إجابة generic بلا research.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "تناقض CV.",
-          "tone سلبي أو defensive."
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "تناقض سيرتك الذاتية.",
+          "نبرة سلبية أو دفاعية."
         ]
       },
       "correctIndex": 1,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates logistics for pipeline advancement.",
-        "ar": "يقيس logistics للتقدم في pipeline."
+        "ar": "يقيّم logistics ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -1083,21 +1083,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -1119,24 +1119,24 @@
           "Contradict your resume."
         ],
         "ar": [
-          "tone سلبي أو defensive.",
-          "إجابة generic بلا research.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "تناقض CV."
+          "نبرة سلبية أو دفاعية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "تناقض سيرتك الذاتية."
         ]
       },
       "correctIndex": 2,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates logistics for pipeline advancement.",
-        "ar": "يقيس logistics للتقدم في pipeline."
+        "ar": "يقيّم logistics ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -1144,21 +1144,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -1180,24 +1180,24 @@
           "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
         ],
         "ar": [
-          "tone سلبي أو defensive.",
-          "تناقض CV.",
-          "إجابة generic بلا research.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+          "نبرة سلبية أو دفاعية.",
+          "تناقض سيرتك الذاتية.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً."
         ]
       },
       "correctIndex": 3,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates logistics for pipeline advancement.",
-        "ar": "يقيس logistics للتقدم في pipeline."
+        "ar": "يقيّم logistics ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -1205,21 +1205,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -1241,24 +1241,24 @@
           "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role."
         ],
         "ar": [
-          "إجابة generic بلا research.",
-          "تناقض CV.",
-          "tone سلبي أو defensive.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "تناقض سيرتك الذاتية.",
+          "نبرة سلبية أو دفاعية.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً."
         ]
       },
       "correctIndex": 3,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates phone-screen for pipeline advancement.",
-        "ar": "يقيس phone-screen للتقدم في pipeline."
+        "ar": "يقيّم phone-screen ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -1266,21 +1266,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -1302,24 +1302,24 @@
           "Generic answer with no research."
         ],
         "ar": [
-          "tone سلبي أو defensive.",
-          "تناقض CV.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "إجابة generic بلا research."
+          "نبرة سلبية أو دفاعية.",
+          "تناقض سيرتك الذاتية.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور."
         ]
       },
       "correctIndex": 2,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates phone-screen for pipeline advancement.",
-        "ar": "يقيس phone-screen للتقدم في pipeline."
+        "ar": "يقيّم phone-screen ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -1327,21 +1327,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -1363,24 +1363,24 @@
           "Negative or defensive tone."
         ],
         "ar": [
-          "تناقض CV.",
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "إجابة generic بلا research.",
-          "tone سلبي أو defensive."
+          "تناقض سيرتك الذاتية.",
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "نبرة سلبية أو دفاعية."
         ]
       },
       "correctIndex": 1,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates phone-screen for pipeline advancement.",
-        "ar": "يقيس phone-screen للتقدم في pipeline."
+        "ar": "يقيّم phone-screen ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -1388,21 +1388,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     },
     {
@@ -1424,24 +1424,24 @@
           "Contradict your resume."
         ],
         "ar": [
-          "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور.",
-          "إجابة generic بلا research.",
-          "tone سلبي أو defensive.",
-          "تناقض CV."
+          "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+          "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+          "نبرة سلبية أو دفاعية.",
+          "تناقض سيرتك الذاتية."
         ]
       },
       "correctIndex": 0,
       "whyAsked": {
         "en": "Recruiters and HR use this to assess fit, motivation, and communication early.",
-        "ar": "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."
+        "ar": "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك."
       },
       "recruiterIntent": {
         "en": "Evaluates phone-screen for pipeline advancement.",
-        "ar": "يقيس phone-screen للتقدم في pipeline."
+        "ar": "يقيّم phone-screen ليقرر إن كنت تتقدّم للمرحلة التالية."
       },
       "modelAnswer": {
         "en": "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
-        "ar": "context → proof → tie role/company → enthusiasm للخطوة التالية."
+        "ar": "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية."
       },
       "redFlags": {
         "en": [
@@ -1449,21 +1449,21 @@
           "Negative"
         ],
         "ar": [
-          "غير م prepared",
+          "غير مستعد",
           "سلبي"
         ]
       },
       "passTip": {
         "en": "Ask what the next interview stage assesses and prepare one story for it.",
-        "ar": "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."
+        "ar": "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها."
       },
       "explanation": {
         "en": "Specific, researched answers advance to hiring manager.",
-        "ar": "إجابات specific researched تتقدم لمدير التوظيف."
+        "ar": "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف."
       },
       "improvement": {
         "en": "Research company + write 3 bullet pitch.",
-        "ar": "research + 3 bullet pitch."
+        "ar": "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور."
       }
     }
   ]

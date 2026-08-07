@@ -9,6 +9,7 @@ import { SiteFooterGate } from "@/components/SiteFooterGate";
 import { PageTransition } from "@/components/PageTransition";
 import { NavigationProgress } from "@/components/NavigationProgress";
 import { LazyMessenger } from "@/components/LazyMessenger";
+import { ToastProvider } from "@/components/ToastProvider";
 
 type Props = {
   children: React.ReactNode;
@@ -32,35 +33,37 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider messages={messages}>
       <SessionProvider>
-        <div
-          lang={locale}
-          dir={dir}
-          className="flex min-h-screen flex-col"
-          style={
-            {
-              /* AR UI: Noto Sans for clean headings; Naskh reserved for .font-brand */
-              "--font-display":
-                locale === "ar"
-                  ? "var(--font-body-arabic), var(--font-display-arabic)"
-                  : "var(--font-display-latin), var(--font-display-arabic)",
-              "--font-body":
-                locale === "ar"
-                  ? "var(--font-body-arabic), var(--font-body-latin)"
-                  : "var(--font-body-latin), var(--font-body-arabic)",
-              fontFamily: "var(--font-body), system-ui, sans-serif",
-            } as React.CSSProperties
-          }
-        >
-          <NavigationProgress />
-          <SiteHeader />
-          <main className="flex-1">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <SiteFooterGate>
-            <SiteFooter />
-          </SiteFooterGate>
-          <LazyMessenger />
-        </div>
+        <ToastProvider>
+          <div
+            lang={locale}
+            dir={dir}
+            className="flex min-h-screen flex-col"
+            style={
+              {
+                /* AR UI: Noto Sans for clean headings; Naskh reserved for .font-brand */
+                "--font-display":
+                  locale === "ar"
+                    ? "var(--font-body-arabic), var(--font-display-arabic)"
+                    : "var(--font-display-latin), var(--font-display-arabic)",
+                "--font-body":
+                  locale === "ar"
+                    ? "var(--font-body-arabic), var(--font-body-latin)"
+                    : "var(--font-body-latin), var(--font-body-arabic)",
+                fontFamily: "var(--font-body), system-ui, sans-serif",
+              } as React.CSSProperties
+            }
+          >
+            <NavigationProgress />
+            <SiteHeader />
+            <main className="flex-1">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <SiteFooterGate>
+              <SiteFooter />
+            </SiteFooterGate>
+            <LazyMessenger />
+          </div>
+        </ToastProvider>
       </SessionProvider>
     </NextIntlClientProvider>
   );

@@ -16,22 +16,21 @@ import { LEVELS } from "@/lib/roadmap";
 import { PASSWORD_RULES, passwordRuleMet } from "@/lib/validation";
 import { BrandLogo } from "@/components/BrandLogo";
 import { AccordionToggle } from "@/components/AccordionToggle";
+import { useToast } from "@/components/ToastProvider";
 
 type Props = {
   initialUsername: string;
   initialLevel: string | null;
 };
 
-type Status = {
-  kind: "success" | "error";
-  message: string;
-} | null;
+type UsernameStatus = "idle" | "checking" | "ok" | "error";
 
 export function ProfileForm({ initialUsername, initialLevel }: Props) {
   const t = useTranslations("profile");
   const tAuth = useTranslations("auth");
   const locale = useLocale() as "ar" | "en";
   const router = useRouter();
+  const { push: pushToast } = useToast();
   const usernameDialogTitleId = useId();
   const usernameInputRef = useRef<HTMLInputElement>(null);
 
@@ -43,13 +42,14 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
   const [newPassword, setNewPassword] = useState("");
   const [deletePassword, setDeletePassword] = useState("");
   const [confirmation, setConfirmation] = useState("");
-  const [status, setStatus] = useState<Status>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [dangerOpen, setDangerOpen] = useState(false);
   const [passwordOpen, setPasswordOpen] = useState(false);
   const [usernameOpen, setUsernameOpen] = useState(false);
   const [usernameVisible, setUsernameVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [usernameStatus, setUsernameStatus] = useState<UsernameStatus>("idle");
+  const [usernameError, setUsernameError] = useState<string | null>(null);
 
   const usernameDirty =
     username.trim().toLowerCase() !== savedUsername.toLowerCase();
@@ -73,6 +73,53 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!usernameOpen) {
+      setUsernameStatus("idle");
+      setUsernameError(null);
+      return;
+    }
+    const value = username.trim().toLowerCase();
+    if (!value || value === savedUsername.toLowerCase()) {
+      setUsernameStatus("idle");
+      setUsernameError(null);
+      return;
+    }
+    if (value.length < 5) {
+      setUsernameStatus("error");
+      setUsernameError(tAuth("usernameShort"));
+      return;
+    }
+    if (!/^[a-z0-9_]+$/i.test(value)) {
+      setUsernameStatus("error");
+      setUsernameError(tAuth("usernameChars"));
+      return;
+    }
+    setUsernameStatus("checking");
+    const timer = window.setTimeout(async () => {
+      try {
+        const res = await fetch(
+          `/api/username/check?username=${encodeURIComponent(value)}`,
+        );
+        const data = await res.json();
+        if (data.available) {
+          setUsernameStatus("ok");
+          setUsernameError(null);
+        } else if (data.reason === "username_taken") {
+          setUsernameStatus("error");
+          setUsernameError(tAuth("usernameTaken"));
+        } else {
+          setUsernameStatus("error");
+          setUsernameError(tAuth("usernameInvalid"));
+        }
+      } catch {
+        setUsernameStatus("error");
+        setUsernameError(tAuth("usernameCheckError"));
+      }
+    }, 350);
+    return () => window.clearTimeout(timer);
+  }, [username, usernameOpen, savedUsername, tAuth]);
 
   useEffect(() => {
     if (!usernameOpen) {
@@ -121,7 +168,6 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
 
   async function patch(data: Record<string, string>, action: string) {
     setBusy(action);
-    setStatus(null);
     try {
       const response = await fetch("/api/profile", {
         method: "PATCH",
@@ -130,14 +176,20 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) {
-        setStatus({ kind: "error", message: errorMessage(result.error) });
+        const message = errorMessage(result.error);
+        if (action === "username" && result.error === "username_taken") {
+          setUsernameStatus("error");
+          setUsernameError(tAuth("usernameTaken"));
+        } else {
+          pushToast({ kind: "error", message, mode: "sticky" });
+        }
         return false;
       }
-      setStatus({ kind: "success", message: t("saved") });
+      pushToast({ kind: "success", message: t("saved"), mode: "auto" });
       router.refresh();
       return true;
     } catch {
-      setStatus({ kind: "error", message: t("saveError") });
+      pushToast({ kind: "error", message: t("saveError"), mode: "sticky" });
       return false;
     } finally {
       setBusy(null);
@@ -146,17 +198,22 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
 
   function openUsernameModal() {
     setUsername(savedUsername);
+    setUsernameStatus("idle");
+    setUsernameError(null);
     setUsernameOpen(true);
   }
 
   function closeUsernameModal() {
     setUsernameOpen(false);
     setUsername(savedUsername);
+    setUsernameStatus("idle");
+    setUsernameError(null);
   }
 
   async function updateUsername(event: FormEvent) {
     event.preventDefault();
     if (!usernameDirty) return;
+    if (usernameStatus === "error" || usernameStatus === "checking") return;
     const saved = await patch({ username }, "username");
     if (saved) {
       const normalized = username.trim().toLowerCase();
@@ -170,7 +227,11 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
   async function updatePassword(event: FormEvent) {
     event.preventDefault();
     if (!allPwOk) {
-      setStatus({ kind: "error", message: tAuth("weakPassword") });
+      pushToast({
+        kind: "error",
+        message: tAuth("weakPassword"),
+        mode: "sticky",
+      });
       return;
     }
     const saved = await patch({ currentPassword, newPassword }, "password");
@@ -192,7 +253,6 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
     event.preventDefault();
     if (confirmation !== savedUsername) return;
     setBusy("delete");
-    setStatus(null);
     try {
       const response = await fetch("/api/profile", {
         method: "DELETE",
@@ -201,12 +261,16 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) {
-        setStatus({ kind: "error", message: errorMessage(result.error) });
+        pushToast({
+          kind: "error",
+          message: errorMessage(result.error),
+          mode: "sticky",
+        });
         return;
       }
       await signOut({ callbackUrl: `/${locale}` });
     } catch {
-      setStatus({ kind: "error", message: t("deleteError") });
+      pushToast({ kind: "error", message: t("deleteError"), mode: "sticky" });
     } finally {
       setBusy(null);
     }
@@ -246,7 +310,28 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
                     value={username}
                     onChange={(event) => setUsername(event.target.value)}
                     autoComplete="username"
+                    className={
+                      usernameStatus === "error"
+                        ? "is-error"
+                        : usernameStatus === "ok"
+                          ? "is-ok"
+                          : undefined
+                    }
+                    aria-invalid={usernameStatus === "error"}
                   />
+                  {usernameStatus === "checking" ? (
+                    <p className="auth-hint">{tAuth("usernameChecking")}</p>
+                  ) : null}
+                  {usernameStatus === "ok" ? (
+                    <p className="auth-hint is-ok">
+                      ✓ {tAuth("usernameAvailable")}
+                    </p>
+                  ) : null}
+                  {usernameError ? (
+                    <p className="auth-hint is-error" role="alert">
+                      {usernameError}
+                    </p>
+                  ) : null}
                 </label>
                 <div className="profile-modal-actions">
                   <button
@@ -259,7 +344,12 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
                   </button>
                   <button
                     type="submit"
-                    disabled={!usernameDirty || busy !== null}
+                    disabled={
+                      !usernameDirty ||
+                      busy !== null ||
+                      usernameStatus === "error" ||
+                      usernameStatus === "checking"
+                    }
                     className="btn-primary btn-compact"
                   >
                     {busy === "username" ? t("saving") : t("saveUsername")}
@@ -438,17 +528,6 @@ export function ProfileForm({ initialUsername, initialLevel }: Props) {
           </div>
         </div>
       </div>
-
-      {status && (
-        <p
-          className={`profile-toast ${
-            status.kind === "success" ? "is-ok" : "is-err"
-          }`}
-          role="status"
-        >
-          {status.message}
-        </p>
-      )}
 
       <div className="profile-stack">
         <form

@@ -243,12 +243,66 @@ export const HR_LEAD_TEMPLATES = [
 ];
 
 export const HR_PSYCH_TEMPLATES = [
-  { id: "psych-stress", competency: "stress", prompts: [l("Handle stress?", "stress؟"), l("Multiple deadlines?", "deadlines متعددة؟"), l("Recover from burnout?", "burnout؟"), l("Work-life boundaries?", "boundaries؟")] },
-  { id: "psych-integrity", competency: "integrity", prompts: [l("Ethical gray area?", "ethical gray؟"), l("Pressure to cut corners?", "cut corners؟"), l("Whistleblowing scenario?", "whistleblowing؟"), l("Admit mistake to client?", "admit mistake client؟")] },
-  { id: "psych-learn", competency: "learning", prompts: [l("Learn new skill fast?", "learn fast؟"), l("Handle steep learning curve?", "steep curve؟"), l("Self-study habits?", "self-study؟"), l("Learn from failure?", "learn failure؟")] },
-  { id: "psych-style", competency: "work-style", prompts: [l("Independent vs collaborative?", "independent vs collab؟"), l("Structured vs flexible?", "structured vs flexible؟"), l("Detail vs big picture?", "detail vs big picture؟"), l("Preferred manager style?", "manager style؟")] },
-  { id: "psych-motivation", competency: "intrinsic-drive", prompts: [l("What motivates you daily?", "motivates daily؟"), l("Demotivators?", "demotivators؟"), l("Flow state at work?", "flow state؟"), l("Energy management?", "energy management؟")] },
-  { id: "psych-judgment", competency: "judgment", prompts: [l("Quick decision with risk?", "quick decision risk؟"), l("Ambiguous instructions?", "ambiguous instructions؟"), l("Competing values?", "competing values؟"), l("Incomplete information?", "incomplete info؟")] },
+  {
+    id: "psych-stress",
+    competency: "stress",
+    prompts: [
+      l("Handle stress?", "كيف تتعامل مع ضغط العمل؟"),
+      l("Multiple deadlines?", "ماذا تفعل عند تعارض عدة مواعيد نهائية؟"),
+      l("Recover from burnout?", "كيف تتعافى من الإرهاق الشديد؟"),
+      l("Work-life boundaries?", "كيف تحافظ على حدود بين العمل والحياة؟"),
+    ],
+  },
+  {
+    id: "psych-integrity",
+    competency: "integrity",
+    prompts: [
+      l("Ethical gray area?", "كيف تتصرف في منطقة أخلاقية رمادية؟"),
+      l("Pressure to cut corners?", "ماذا لو طُلب منك اختصار الجودة تحت ضغط؟"),
+      l("Whistleblowing scenario?", "متى تبلّغ عن مخالفة داخلية؟"),
+      l("Admit mistake to client?", "كيف تعترف بخطأ أمام العميل؟"),
+    ],
+  },
+  {
+    id: "psych-learn",
+    competency: "learning",
+    prompts: [
+      l("Learn new skill fast?", "كيف تتعلّم مهارة جديدة بسرعة؟"),
+      l("Handle steep learning curve?", "كيف تتعامل مع منحنى تعلّم صعب؟"),
+      l("Self-study habits?", "ما عاداتك في الدراسة الذاتية؟"),
+      l("Learn from failure?", "كيف تتعلّم من الفشل؟"),
+    ],
+  },
+  {
+    id: "psych-style",
+    competency: "work-style",
+    prompts: [
+      l("Independent vs collaborative?", "هل تفضّل العمل مستقلاً أم ضمن فريق؟"),
+      l("Structured vs flexible?", "هل تفضّل بيئة منظمة أم مرنة؟"),
+      l("Detail vs big picture?", "هل تركّز على التفاصيل أم الصورة الكبيرة؟"),
+      l("Preferred manager style?", "أي أسلوب إدارة يناسبك؟"),
+    ],
+  },
+  {
+    id: "psych-motivation",
+    competency: "intrinsic-drive",
+    prompts: [
+      l("What motivates you daily?", "ما الذي يحفّزك يومياً في العمل؟"),
+      l("Demotivators?", "ما الذي يُضعف حماسك؟"),
+      l("Flow state at work?", "متى تشعر بالانغماس الكامل في العمل؟"),
+      l("Energy management?", "كيف تدير طاقتك خلال اليوم؟"),
+    ],
+  },
+  {
+    id: "psych-judgment",
+    competency: "judgment",
+    prompts: [
+      l("Quick decision with risk?", "كيف تتخذ قراراً سريعاً وفيه مخاطرة؟"),
+      l("Ambiguous instructions?", "ماذا تفعل عند تعليمات غامضة؟"),
+      l("Competing values?", "كيف توازن بين قيم متعارضة؟"),
+      l("Incomplete information?", "كيف تقرر بمعلومات ناقصة؟"),
+    ],
+  },
 ];
 
 export const HR_CULTURE_TEMPLATES = [
@@ -276,7 +330,17 @@ export const HR_SCREEN_TEMPLATES = [
   { id: "scr-comm", competency: "phone-screen", prompts: [l("Two-minute background for recruiter?", "background recruiter؟"), l("Top 3 requirements match?", "top 3 match؟"), l("Questions for recruiter?", "questions recruiter؟"), l("Follow-up thank you?", "thank you follow-up؟")] },
 ];
 
+const COMPETENCY_AR = {
+  stress: "إدارة الضغط",
+  integrity: "النزاهة",
+  learning: "التعلّم المستمر",
+  "work-style": "أسلوب العمل",
+  "intrinsic-drive": "الدافع الذاتي",
+  judgment: "حسن الحكم",
+};
+
 export function templateToPack(trackSlug, tpl, kind, stage, difficulty = "mid") {
+  const competencyAr = COMPETENCY_AR[tpl.competency] || tpl.competency;
   return pack(
     tpl.id,
     trackSlug,
@@ -285,20 +349,53 @@ export function templateToPack(trackSlug, tpl, kind, stage, difficulty = "mid") 
     stage,
     difficulty,
     tpl.prompts,
-    l("Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.", "أجب بتفاصيل، احتراف، وalignment forward — م tailored لهذا الدور."),
+    l(
+      "Answer with specifics, professionalism, and forward-looking alignment — tailored to this role.",
+      "أجب بأمثلة واضحة، بأسلوب احترافي، واربط إجابتك بهذا الدور تحديداً.",
+    ),
     traps3(
-      { en: "Generic answer with no research.", ar: "إجابة generic بلا research." },
-      { en: "Negative or defensive tone.", ar: "tone سلبي أو defensive." },
-      { en: "Contradict your resume.", ar: "تناقض CV." },
+      {
+        en: "Generic answer with no research.",
+        ar: "إجابة عامة بلا أي معرفة عن الشركة أو الدور.",
+      },
+      {
+        en: "Negative or defensive tone.",
+        ar: "نبرة سلبية أو دفاعية.",
+      },
+      {
+        en: "Contradict your resume.",
+        ar: "تناقض سيرتك الذاتية.",
+      },
     ),
     {
-      whyAsked: l("Recruiters and HR use this to assess fit, motivation, and communication early.", "Recruiters وHR يستخدمون هذا لتقييم fit وmotivation مبكراً."),
-      recruiterIntent: l(`Evaluates ${tpl.competency} for pipeline advancement.`, `يقيس ${tpl.competency} للتقدم في pipeline.`),
-      modelAnswer: l("Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.", "context → proof → tie role/company → enthusiasm للخطوة التالية."),
-      redFlags: [l("Unprepared", "غير م prepared"), l("Negative", "سلبي")],
-      passTip: l("Ask what the next interview stage assesses and prepare one story for it.", "اسأل ماذا تقيم المرحلة التالية وحضّر قصة."),
-      explanation: l("Specific, researched answers advance to hiring manager.", "إجابات specific researched تتقدم لمدير التوظيف."),
-      improvement: l("Research company + write 3 bullet pitch.", "research + 3 bullet pitch."),
+      whyAsked: l(
+        "Recruiters and HR use this to assess fit, motivation, and communication early.",
+        "مسؤولو التوظيف يستخدمون هذا السؤال مبكراً لتقييم ملاءمتك للدور، ودافعك، وأسلوب تواصلك.",
+      ),
+      recruiterIntent: l(
+        `Evaluates ${tpl.competency} for pipeline advancement.`,
+        `يقيّم ${competencyAr} ليقرر إن كنت تتقدّم للمرحلة التالية.`,
+      ),
+      modelAnswer: l(
+        "Brief context → your relevant proof → tie to role/company → confirm enthusiasm for next step.",
+        "سياق قصير ← دليل من تجربتك ← ربط بالدور/الشركة ← تأكيد حماسك للخطوة التالية.",
+      ),
+      redFlags: [
+        l("Unprepared", "غير مستعد"),
+        l("Negative", "سلبي"),
+      ],
+      passTip: l(
+        "Ask what the next interview stage assesses and prepare one story for it.",
+        "اسأل ماذا تقيّم المرحلة التالية، وحضّر قصة واحدة تناسبها.",
+      ),
+      explanation: l(
+        "Specific, researched answers advance to hiring manager.",
+        "الإجابات المحددة والمدروسة تقرّبك من مقابلة مدير التوظيف.",
+      ),
+      improvement: l(
+        "Research company + write 3 bullet pitch.",
+        "اقرأ عن الشركة واكتب ثلاث نقاط تعريفية عن نفسك لهذا الدور.",
+      ),
     },
   );
 }

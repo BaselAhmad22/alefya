@@ -48,11 +48,37 @@ export function LeaveGuard({
   activeRef.current = active;
 
   useEffect(() => {
-    if (!active) {
+    if (active) {
+      document.documentElement.dataset.leaveGuardActive = "true";
+    } else {
+      delete document.documentElement.dataset.leaveGuardActive;
       setPendingHref(null);
       allowNextRef.current = false;
     }
+    return () => {
+      delete document.documentElement.dataset.leaveGuardActive;
+    };
   }, [active]);
+
+  useEffect(() => {
+    const onProgrammatic = (e: Event) => {
+      if (!activeRef.current) return;
+      const detail = (e as CustomEvent<{ href?: string }>).detail;
+      const href = detail?.href;
+      if (!href) return;
+      try {
+        const url = new URL(href, window.location.href);
+        if (url.origin !== window.location.origin) return;
+        window.dispatchEvent(new Event("alefya:nav-cancel"));
+        setPendingHref(url.href);
+      } catch {
+        /* ignore */
+      }
+    };
+    window.addEventListener("alefya:confirm-nav", onProgrammatic);
+    return () =>
+      window.removeEventListener("alefya:confirm-nav", onProgrammatic);
+  }, []);
 
   useEffect(() => {
     if (!active) return;

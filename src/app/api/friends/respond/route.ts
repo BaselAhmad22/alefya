@@ -6,6 +6,7 @@ import {
   createNotification,
   friendshipPair,
 } from "@/lib/friends";
+import { notifyRealtimeUser } from "@/lib/realtime-notify";
 
 const schema = z.object({
   requestId: z.string().min(1),
@@ -95,26 +96,14 @@ export async function POST(request: Request) {
       },
     });
 
-    try {
-      const port = process.env.REALTIME_PORT || "4001";
-      await fetch(`http://127.0.0.1:${port}/notify`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userId: req.fromUserId,
-          notification: {
-            type: "friend_accepted",
-            payload: {
-              requestId: req.id,
-              byUserId: req.toUser.id,
-              byUsername: req.toUser.username,
-            },
-          },
-        }),
-      });
-    } catch {
-      /* ignore */
-    }
+    await notifyRealtimeUser(req.fromUserId, {
+      type: "friend_accepted",
+      payload: {
+        requestId: req.id,
+        byUserId: req.toUser.id,
+        byUsername: req.toUser.username,
+      },
+    });
 
     await resolveRequestNotifications("accepted");
 
@@ -136,26 +125,14 @@ export async function POST(request: Request) {
     },
   });
 
-  try {
-    const port = process.env.REALTIME_PORT || "4001";
-    await fetch(`http://127.0.0.1:${port}/notify`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userId: req.fromUserId,
-        notification: {
-          type: "friend_rejected",
-          payload: {
-            requestId: req.id,
-            byUserId: req.toUser.id,
-            byUsername: req.toUser.username,
-          },
-        },
-      }),
-    });
-  } catch {
-    /* ignore */
-  }
+  await notifyRealtimeUser(req.fromUserId, {
+    type: "friend_rejected",
+    payload: {
+      requestId: req.id,
+      byUserId: req.toUser.id,
+      byUsername: req.toUser.username,
+    },
+  });
 
   await resolveRequestNotifications("rejected");
 

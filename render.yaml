@@ -28,6 +28,8 @@ services:
         value: https://alefya-web.onrender.com
       - key: NEXT_PUBLIC_REALTIME_URL
         value: https://alefya-realtime.onrender.com
+      - key: REALTIME_INTERNAL_URL
+        value: https://alefya-realtime.onrender.com
       - key: NEXT_PUBLIC_APP_URL
         value: https://alefya-web.onrender.com
       - key: OPENAI_API_KEY

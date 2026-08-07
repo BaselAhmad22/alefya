@@ -67,6 +67,8 @@ export function NotificationsBell() {
   useEffect(() => {
     if (!session?.user) return;
     void load();
+    const id = window.setInterval(() => void load(), 12000);
+    return () => window.clearInterval(id);
   }, [session?.user, load]);
 
   useEffect(() => {
@@ -130,6 +132,16 @@ export function NotificationsBell() {
       return;
     }
 
+    const leaveGuardActive =
+      document.documentElement.dataset.leaveGuardActive === "true";
+    if (leaveGuardActive) {
+      const absolute = new URL(href, window.location.origin).href;
+      window.dispatchEvent(
+        new CustomEvent("alefya:confirm-nav", { detail: { href: absolute } }),
+      );
+      return;
+    }
+
     showNavLoader();
     router.push(href);
   }
@@ -137,34 +149,38 @@ export function NotificationsBell() {
   async function respond(n: Notif, action: "accept" | "reject") {
     const requestId = n.payload.requestId;
     if (typeof requestId !== "string") return;
+    if (busy) return;
     setBusy(true);
-    const res = await fetch("/api/friends/respond", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ requestId, action }),
-    });
-    setBusy(false);
-    if (!res.ok) {
-      await load();
-      return;
-    }
+    try {
+      const res = await fetch("/api/friends/respond", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ requestId, action }),
+      });
+      if (!res.ok && res.status !== 409) {
+        await load();
+        return;
+      }
 
-    setItems((prev) =>
-      prev.map((item) => {
-        if (item.id !== n.id) return item;
-        return {
-          ...item,
-          readAt: item.readAt || new Date().toISOString(),
-          payload: {
-            ...item.payload,
-            resolved: true,
-            resolution: action === "accept" ? "accepted" : "rejected",
-          },
-        };
-      }),
-    );
-    await load();
-    dispatchFriendsBadgeRefresh();
+      setItems((prev) =>
+        prev.map((item) => {
+          if (item.id !== n.id) return item;
+          return {
+            ...item,
+            readAt: item.readAt || new Date().toISOString(),
+            payload: {
+              ...item.payload,
+              resolved: true,
+              resolution: action === "accept" ? "accepted" : "rejected",
+            },
+          };
+        }),
+      );
+      await load();
+      dispatchFriendsBadgeRefresh();
+    } finally {
+      setBusy(false);
+    }
   }
 
   if (!session?.user) return null;

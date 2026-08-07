@@ -739,12 +739,20 @@ export function MessengerWidget() {
                           ) : (
                             <>
                               {m.attachment && isImageMime(m.attachment.mime) ? (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img
-                                  src={m.attachment.url}
-                                  alt={m.attachment.name}
-                                  className="messenger-attach-img"
-                                />
+                                <a
+                                  href={m.attachment.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="messenger-attach-img-link"
+                                  data-leave-ok="true"
+                                >
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img
+                                    src={m.attachment.url}
+                                    alt={m.attachment.name}
+                                    className="messenger-attach-img"
+                                  />
+                                </a>
                               ) : null}
                               {m.attachment &&
                               !isImageMime(m.attachment.mime) ? (
@@ -753,6 +761,7 @@ export function MessengerWidget() {
                                   target="_blank"
                                   rel="noreferrer"
                                   className="messenger-attach-file"
+                                  data-leave-ok="true"
                                 >
                                   {m.attachment.name || t("file")}
                                 </a>

@@ -1,8 +1,7 @@
 import { randomUUID } from "crypto";
-import { mkdir, writeFile } from "fs/promises";
-import path from "path";
 import { NextResponse } from "next/server";
 import { getApiSession } from "@/lib/api-session";
+import { prisma } from "@/lib/prisma";
 
 const MAX_BYTES = 8 * 1024 * 1024;
 
@@ -41,22 +40,25 @@ export async function POST(request: Request) {
   const safeName = (file.name || `file${ext}`)
     .replace(/[^\w.\-()\s\u0600-\u06FF]+/g, "_")
     .slice(0, 120);
-  const id = randomUUID().replace(/-/g, "").slice(0, 16);
-  const userDir = session.user.id.replace(/[^\w-]/g, "_");
-  const relDir = path.join("uploads", "chat", userDir);
-  const absDir = path.join(process.cwd(), "public", relDir);
-  await mkdir(absDir, { recursive: true });
-
-  const filename = `${id}${ext}`;
-  const absPath = path.join(absDir, filename);
+  const id = randomUUID().replace(/-/g, "").slice(0, 20);
   const buffer = Buffer.from(await file.arrayBuffer());
-  await writeFile(absPath, buffer);
+  const name = safeName.endsWith(ext) ? safeName : `${safeName}${ext}`;
 
-  const url = `/${relDir.replace(/\\/g, "/")}/${filename}`;
+  await prisma.chatFile.create({
+    data: {
+      id,
+      userId: session.user.id,
+      mime,
+      name,
+      size: file.size,
+      data: buffer,
+    },
+  });
+
   return NextResponse.json({
-    url,
+    url: `/api/chat/files/${id}`,
     mime,
-    name: safeName.endsWith(ext) ? safeName : `${safeName}${ext}`,
+    name,
     size: file.size,
   });
 }

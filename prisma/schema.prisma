@@ -30,6 +30,21 @@ model User {
   friendshipsA    Friendship[]      @relation("FriendshipA")
   friendshipsB    Friendship[]      @relation("FriendshipB")
   notifications   Notification[]
+  chatFiles       ChatFile[]
+}
+
+/** Durable chat attachments (Postgres) — survives Render ephemeral disk. */
+model ChatFile {
+  id        String   @id @default(cuid())
+  userId    String
+  mime      String
+  name      String
+  size      Int
+  data      Bytes
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
 }
 
 model Progress {

@@ -75,14 +75,22 @@ export function FriendsClient() {
   }
 
   async function respond(requestId: string, action: "accept" | "reject") {
+    if (busy) return;
     setBusy(requestId);
-    await fetch("/api/friends/respond", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ requestId, action }),
-    });
-    setBusy(null);
-    await load();
+    try {
+      const res = await fetch("/api/friends/respond", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ requestId, action }),
+      });
+      if (!res.ok && res.status !== 409) {
+        // already_handled (409) still refresh — first click may have succeeded
+        return;
+      }
+    } finally {
+      setBusy(null);
+      await load();
+    }
   }
 
   async function confirmUnfriend() {

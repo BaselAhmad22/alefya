@@ -201,7 +201,8 @@ export async function POST(request: Request) {
     }
     if (
       attachmentUrl &&
-      !attachmentUrl.startsWith("/uploads/chat/")
+      !attachmentUrl.startsWith("/uploads/chat/") &&
+      !attachmentUrl.startsWith("/api/chat/files/")
     ) {
       return NextResponse.json({ error: "invalid_attachment" }, { status: 400 });
     }

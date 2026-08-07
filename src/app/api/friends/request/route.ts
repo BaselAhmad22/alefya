@@ -3,6 +3,7 @@ import { z } from "zod";
 import { getApiSession } from "@/lib/api-session";
 import { prisma } from "@/lib/prisma";
 import { createNotification, canRequestFriendship } from "@/lib/friends";
+import { notifyRealtimeUser } from "@/lib/realtime-notify";
 
 const requestSchema = z.object({
   toUserId: z.string().min(1).optional(),
@@ -68,29 +69,17 @@ export async function POST(request: Request) {
   });
 
   // Best-effort realtime ping (ignore failures)
-  try {
-    const port = process.env.REALTIME_PORT || "4001";
-    await fetch(`http://127.0.0.1:${port}/notify`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userId: toUserId,
-        notification: {
-          id: notification.id,
-          type: notification.type,
-          payload: {
-            requestId: friendRequest.id,
-            fromUserId: fromUser.id,
-            fromUsername: fromUser.username,
-            note,
-          },
-          createdAt: notification.createdAt,
-        },
-      }),
-    });
-  } catch {
-    /* polling fallback */
-  }
+  await notifyRealtimeUser(toUserId, {
+    id: notification.id,
+    type: notification.type,
+    payload: {
+      requestId: friendRequest.id,
+      fromUserId: fromUser.id,
+      fromUsername: fromUser.username,
+      note,
+    },
+    createdAt: notification.createdAt,
+  });
 
   return NextResponse.json({
     ok: true,
