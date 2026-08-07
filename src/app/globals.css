@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  /* Modern Dark Cinema × Education teal/amber (ui-ux-pro-max) */
+  /* Modern Dark Cinema Ã— Education teal/amber (ui-ux-pro-max) */
   --bg: #0a1214;
   --bg-elevated: #111c20;
   --bg-soft: #172428;
-  /* Soft aqua-cream — not pure white */
+  /* Soft aqua-cream â€” not pure white */
   --ink: #c5d9d4;
   --ink-heading: #d2e6e0;
   --ink-muted: #7f9b97;
@@ -102,7 +102,7 @@ a {
   color: #042f2e;
 }
 
-/* ——— Lesson prose ——— */
+/* â€”â€”â€” Lesson prose â€”â€”â€” */
 .prose-lesson {
   line-height: 1.85;
   font-size: 1.0625rem;
@@ -384,8 +384,8 @@ a {
     0 0 0 1px rgba(94, 234, 212, 0.06);
 }
 
-/* Shared page chrome — My Tracks–inspired, MotionSites-bolder
-   (ay-page — not .page-shell, which wraps PageTransition) */
+/* Shared page chrome â€” My Tracksâ€“inspired, MotionSites-bolder
+   (ay-page â€” not .page-shell, which wraps PageTransition) */
 .ay-page {
   position: relative;
   width: 100%;
@@ -564,7 +564,7 @@ a {
   justify-content: center;
 }
 
-/* Dashboard — enrolled tracks hub */
+/* Dashboard â€” enrolled tracks hub */
 .dashboard-page {
   max-width: var(--page-max);
 }
@@ -983,7 +983,7 @@ a {
   background: rgba(10, 18, 20, 0.35);
 }
 
-/* Home categories preview — logo sits outside overflow clip */
+/* Home categories preview â€” logo sits outside overflow clip */
 .home-cat-preview {
   position: relative;
   padding-bottom: 1.1rem;
@@ -1043,7 +1043,7 @@ a {
   animation-delay: 1.2s;
 }
 
-/* ——— Home interview CTA ——— */
+/* â€”â€”â€” Home interview CTA â€”â€”â€” */
 .home-interview {
   position: relative;
 }
@@ -1315,7 +1315,7 @@ a {
   }
 }
 
-/* ——— Messages workspace ——— */
+/* â€”â€”â€” Messages workspace â€”â€”â€” */
 .messages-page {
   position: relative;
   max-width: var(--page-max);
@@ -1537,7 +1537,7 @@ a {
   gap: 0.15rem;
 }
 
-/* Premium chat scrollbars — thin teal/amber rail */
+/* Premium chat scrollbars â€” thin teal/amber rail */
 .chat-scroll {
   scrollbar-width: thin;
   scrollbar-color: rgba(94, 234, 212, 0.38) transparent;
@@ -1641,7 +1641,7 @@ a {
   opacity: 0.9;
 }
 
-/* Floating action pill — slides in over the time column */
+/* Floating action pill â€” slides in over the time column */
 .chat-conv-actions {
   position: absolute;
   inset-inline-end: 0.4rem;
@@ -3085,7 +3085,7 @@ button.chat-bubble:disabled,
   }
 }
 
-/* ——— My Tracks workspace ——— */
+/* â€”â€”â€” My Tracks workspace â€”â€”â€” */
 .my-tracks {
   position: relative;
   width: 100%;
@@ -3731,7 +3731,7 @@ html[lang="en"] .my-tracks-empty-kicker {
 }
 
 
-/* ——— FAQ ——— */
+/* â€”â€”â€” FAQ â€”â€”â€” */
 .faq-kicker {
   margin: 0;
   font-size: 0.68rem;
@@ -3917,7 +3917,7 @@ html[lang="en"] .my-tracks-empty-kicker {
   transition: color 0.2s ease;
 }
 
-/* Plus → minus accordion chip */
+/* Plus â†’ minus accordion chip */
 .toggle-chip {
   position: relative;
   display: inline-flex;
@@ -4045,7 +4045,7 @@ html[lang="en"] .my-tracks-empty-kicker {
   justify-content: center;
 }
 
-/* Footer FAQ — strong resting presence + polished hover */
+/* Footer FAQ â€” strong resting presence + polished hover */
 .footer-faq-link {
   --faq-ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
@@ -4923,7 +4923,7 @@ html.is-page-loading body {
   background: linear-gradient(270deg, var(--teal), var(--accent));
 }
 
-/* Lesson pager — nested island CTAs */
+/* Lesson pager â€” nested island CTAs */
 .lesson-pager {
   display: grid;
   grid-template-columns: 1fr;
@@ -5082,7 +5082,7 @@ html.is-page-loading body {
   }
 }
 
-/* AI helper — sticky with page scroll (not viewport-fixed) */
+/* AI helper â€” sticky with page scroll (not viewport-fixed) */
 .ai-helper-rail {
   position: absolute;
   inset-block: 0;
@@ -5277,11 +5277,11 @@ html.is-page-loading body {
 }
 
 .page-shell {
-  /* No remount animation — keeps navigations snappy. */
+  /* No remount animation â€” keeps navigations snappy. */
   min-height: 0;
 }
 
-/* ——— Start-from-zero wizard (original look, wide canvas) ——— */
+/* â€”â€”â€” Start-from-zero wizard (original look, wide canvas) â€”â€”â€” */
 .wizard-shell {
   max-width: min(72rem, var(--page-max));
   margin-inline: auto;
@@ -5971,7 +5971,7 @@ html.is-page-loading body {
   animation: lesson-sticky-in 0.35s var(--ease-out) both;
 }
 
-/* ——— Lesson outline sidebar (double-bezel glass) ——— */
+/* â€”â€”â€” Lesson outline sidebar (double-bezel glass) â€”â€”â€” */
 .lesson-outline {
   scrollbar-width: thin;
   scrollbar-color: rgba(94, 234, 212, 0.3) transparent;
@@ -6254,7 +6254,7 @@ html.is-page-loading body {
   transform: translateX(-2px) scale(1.05);
 }
 
-/* ——— Catalog filters (search / status / sort) ——— */
+/* â€”â€”â€” Catalog filters (search / status / sort) â€”â€”â€” */
 .catalog-toolbar {
   position: relative;
   z-index: 30;
@@ -7040,7 +7040,7 @@ html.is-page-loading body {
     linear-gradient(180deg, transparent, rgba(14, 24, 26, 0.55));
 }
 
-/* Header nav — ink for reading, teal only on hover/active (brand accent) */
+/* Header nav â€” ink for reading, teal only on hover/active (brand accent) */
 .site-nav-social {
   display: flex;
   align-items: center;
@@ -7057,7 +7057,7 @@ html.is-page-loading body {
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1;
-  /* Readable mint-white from brand ink — not neon teal, not muddy gray */
+  /* Readable mint-white from brand ink â€” not neon teal, not muddy gray */
   color: #d7ebe7;
   transition:
     color 0.2s ease,
@@ -7358,7 +7358,7 @@ html.is-page-loading body {
   color: var(--teal-bright);
 }
 
-/* ——— Confirm dialog (unfriend etc.) ——— */
+/* â€”â€”â€” Confirm dialog (unfriend etc.) â€”â€”â€” */
 .confirm-overlay {
   position: fixed;
   inset: 0;
@@ -8056,7 +8056,7 @@ html.is-page-loading body {
   background: rgba(220, 38, 38, 0.05);
 }
 
-/* Interview result end panel — in-page, not a floating dock */
+/* Interview result end panel â€” in-page, not a floating dock */
 .interview-result-footer {
   position: relative;
   overflow: hidden;
@@ -8289,7 +8289,7 @@ html.is-page-loading body {
   }
 }
 
-/* Legacy floating dock — keep inert if referenced elsewhere */
+/* Legacy floating dock â€” keep inert if referenced elsewhere */
 .interview-dock {
   display: none;
 }
@@ -8398,7 +8398,7 @@ html.is-page-loading body {
   }
 }
 
-/* ——— Profile settings ——— */
+/* â€”â€”â€” Profile settings â€”â€”â€” */
 .profile-page {
   display: flex;
   flex-direction: column;
@@ -8984,7 +8984,7 @@ html.is-page-loading body {
   color: var(--ink-muted);
 }
 
-/* Smooth expand/collapse (grid 0fr → 1fr) */
+/* Smooth expand/collapse (grid 0fr â†’ 1fr) */
 .profile-danger-panel {
   display: grid;
   grid-template-rows: 0fr;
@@ -9058,7 +9058,7 @@ html.is-page-loading body {
   cursor: not-allowed;
 }
 
-/* ── Public profile ── */
+/* â”€â”€ Public profile â”€â”€ */
 .pp-page {
   padding-bottom: 4rem;
 }
@@ -9213,7 +9213,7 @@ html.is-page-loading body {
   color: var(--ink-muted);
 }
 
-/* ── Public profile: studying tracks ── */
+/* â”€â”€ Public profile: studying tracks â”€â”€ */
 .pp-track-list {
   list-style: none;
   margin: 1.25rem 0 0;
@@ -9439,7 +9439,7 @@ html.is-page-loading body {
   }
 }
 
-/* ── Track page: stages + sticky learners rail ── */
+/* â”€â”€ Track page: stages + sticky learners rail â”€â”€ */
 .track-detail-hero-grid {
   display: grid;
   gap: 1.75rem;
@@ -9702,7 +9702,7 @@ html.is-page-loading body {
     flex-direction: column;
   }
 
-  /* Learners first on mobile — no need to scroll past all stages */
+  /* Learners first on mobile â€” no need to scroll past all stages */
   .track-learners-rail {
     order: -1;
   }
@@ -10291,7 +10291,7 @@ html.is-page-loading body {
   }
 }
 
-/* Social actions — Message / Add friend / Accept (profiles, friends page) */
+/* Social actions â€” Message / Add friend / Accept (profiles, friends page) */
 .social-action {
   display: inline-flex;
   align-items: center;
@@ -10936,7 +10936,7 @@ html.is-page-loading body {
   .messenger-panel { width: min(100vw - 1rem, 22.5rem); height: min(70dvh, 32rem); }
 }
 
-/* ——— Exam result actions & report ——— */
+/* â€”â€”â€” Exam result actions & report â€”â€”â€” */
 .exam-result-hero {
   padding: 1.35rem 1.25rem;
   border-radius: 1.15rem;
@@ -11640,7 +11640,7 @@ html.is-page-loading body {
   }
 }
 
-/* ——— Learning / assessment UI polish (teal/amber) ——— */
+/* â€”â€”â€” Learning / assessment UI polish (teal/amber) â€”â€”â€” */
 
 .lesson-page {
   padding-bottom: 4rem;
@@ -12461,7 +12461,7 @@ html.is-page-loading body {
   }
 }
 
-/* ——— HR interviews ——— */
+/* â€”â€”â€” HR interviews â€”â€”â€” */
 .hr-hub-card {
   --card-accent: #c084fc;
 }
@@ -12536,7 +12536,7 @@ html.is-page-loading body {
   color: var(--ink-muted);
 }
 
-/* HR study deck — calm reading layout */
+/* HR study deck â€” calm reading layout */
 .hr-study-page {
   --hr-accent: #a78bfa;
   --hr-accent-soft: rgba(167, 139, 250, 0.12);
@@ -13294,8 +13294,7 @@ html.is-page-loading body {
   color: var(--ink);
 }
 
-
-/* �� App toasts �� */
+/* -- App toasts -- */
 .ay-toast-stack {
   position: fixed;
   z-index: 80;
@@ -13323,20 +13322,13 @@ html.is-page-loading body {
   -webkit-backdrop-filter: blur(14px);
   animation: ay-toast-in 0.32s var(--ease-out) both;
   overflow: hidden;
+  position: relative;
 }
 
-.ay-toast-success {
-  border-color: rgba(94, 234, 212, 0.35);
-}
-.ay-toast-error {
-  border-color: rgba(248, 113, 113, 0.4);
-}
-.ay-toast-warning {
-  border-color: rgba(251, 191, 36, 0.4);
-}
-.ay-toast-info {
-  border-color: rgba(94, 234, 212, 0.22);
-}
+.ay-toast-success { border-color: rgba(94, 234, 212, 0.35); }
+.ay-toast-error { border-color: rgba(248, 113, 113, 0.4); }
+.ay-toast-warning { border-color: rgba(251, 191, 36, 0.4); }
+.ay-toast-info { border-color: rgba(94, 234, 212, 0.22); }
 
 .ay-toast-icon {
   width: 1.55rem;
@@ -13391,14 +13383,8 @@ html.is-page-loading body {
 }
 
 @keyframes ay-toast-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: none; }
 }
 
 @keyframes ay-toast-bar {
@@ -13406,15 +13392,13 @@ html.is-page-loading body {
   to { transform: scaleX(0); transform-origin: left center; }
 }
 
-html[dir="rtl"] .ay-toast-progress {
-  animation-name: ay-toast-bar-rtl;
-}
+html[dir="rtl"] .ay-toast-progress { animation-name: ay-toast-bar-rtl; }
 @keyframes ay-toast-bar-rtl {
   from { transform: scaleX(1); transform-origin: right center; }
   to { transform: scaleX(0); transform-origin: right center; }
 }
 
-/* Native select / details � brand instead of OS gray/white */
+/* Native select — brand instead of OS gray/white */
 select,
 .ay-select {
   appearance: none;
@@ -13438,9 +13422,7 @@ html[dir="rtl"] .ay-select {
   padding: 0.65rem 0.9rem 0.65rem 2.4rem;
 }
 select:hover,
-.ay-select:hover {
-  border-color: rgba(94, 234, 212, 0.4);
-}
+.ay-select:hover { border-color: rgba(94, 234, 212, 0.4); }
 select:focus-visible,
 .ay-select:focus-visible {
   outline: none;
@@ -13452,9 +13434,5 @@ select option {
   color: var(--ink);
 }
 
-.profile-field input.is-error {
-  border-color: rgba(248, 113, 113, 0.55);
-}
-.profile-field input.is-ok {
-  border-color: rgba(94, 234, 212, 0.45);
-}
+.profile-field input.is-error { border-color: rgba(248, 113, 113, 0.55); }
+.profile-field input.is-ok { border-color: rgba(94, 234, 212, 0.45); }
