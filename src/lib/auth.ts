@@ -1,10 +1,11 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
+import { connection } from "next/server";
 import { prisma } from "./prisma";
 import { loginSchema, normalizeUsername } from "./validation";
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+const nextAuth = NextAuth({
   session: { strategy: "jwt" },
   pages: {
     signIn: "/ar/login",
@@ -57,3 +58,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     },
   },
 });
+
+export const { handlers, signIn, signOut } = nextAuth;
+
+/**
+ * Always opt out of static prerender before reading the session.
+ * Without this, Next can cache an unauthenticated redirect (e.g. /profile → login)
+ * and serve it even when the user is logged in.
+ */
+export async function auth() {
+  await connection();
+  return nextAuth.auth();
+}

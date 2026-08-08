@@ -15,6 +15,7 @@ import { Reveal } from "@/components/Reveal";
 import { StartTrackButton } from "@/components/StartTrackButton";
 import { LeaveTrackButton } from "@/components/LeaveTrackButton";
 import { ClassmatesPanel } from "@/components/ClassmatesPanel";
+import { BackLink } from "@/components/BackLink";
 import {
   getContinueTarget,
   isLessonUnlocked,
@@ -88,12 +89,9 @@ export default async function TrackPage({ params }: Props) {
       <div className="ay-page-ambient" aria-hidden />
 
       {category && (
-        <Link
-          href={`/categories/${category.slug}`}
-          className="inline-flex text-sm text-ink-muted transition-colors hover:text-accent"
-        >
-          ← {tl(category.title, loc)}
-        </Link>
+        <BackLink href={`/categories/${category.slug}`}>
+          {tl(category.title, loc)}
+        </BackLink>
       )}
 
       <header className="track-detail-hero page-hero mt-6">

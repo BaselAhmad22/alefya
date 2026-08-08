@@ -162,20 +162,8 @@ export function NotificationsBell() {
         return;
       }
 
-      setItems((prev) =>
-        prev.map((item) => {
-          if (item.id !== n.id) return item;
-          return {
-            ...item,
-            readAt: item.readAt || new Date().toISOString(),
-            payload: {
-              ...item.payload,
-              resolved: true,
-              resolution: action === "accept" ? "accepted" : "rejected",
-            },
-          };
-        }),
-      );
+      // Drop the request from the receiver's list — only the sender is notified.
+      setItems((prev) => prev.filter((item) => item.id !== n.id));
       await load();
       dispatchFriendsBadgeRefresh();
     } finally {
@@ -239,7 +227,6 @@ export function NotificationsBell() {
                     (p.byUsername as string) ||
                     "";
                   const pending = isPendingRequest(n);
-                  const resolution = p.resolution as string | undefined;
                   return (
                     <li
                       key={n.id}
@@ -254,18 +241,8 @@ export function NotificationsBell() {
                         {n.type === "friend_request" && (
                           <>
                             <p className="notif-item-text">
-                              {pending ? (
-                                <>
-                                  <span className="notif-user">@{from}</span>{" "}
-                                  {t("friendRequest")}
-                                </>
-                              ) : resolution === "accepted" ? (
-                                t("youAccepted")
-                              ) : resolution === "rejected" ? (
-                                t("youRejected")
-                              ) : (
-                                t("friendRequest")
-                              )}
+                              <span className="notif-user">@{from}</span>{" "}
+                              {t("friendRequest")}
                             </p>
                             {typeof p.note === "string" && p.note && pending ? (
                               <p className="notif-item-note">“{p.note}”</p>

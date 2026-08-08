@@ -1,6 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/routing";
+import { BackLink } from "@/components/BackLink";
 import { StageExamClient } from "@/components/StageExamClient";
 import { auth } from "@/lib/auth";
 import { getTrack, t as tl } from "@/lib/content";
@@ -61,13 +61,7 @@ export default async function ExamPage({ params }: Props) {
   return (
     <main className="ay-page ay-page-focus exam-page min-h-[calc(100vh-4rem)]">
       <div className="ay-page-ambient" aria-hidden />
-      <Link
-        href={`/tracks/${trackSlug}`}
-        className="exam-back-link"
-      >
-        <span className="exam-back-chip rtl:rotate-180" aria-hidden>←</span>
-        {t("backToTrack")}
-      </Link>
+      <BackLink href={`/tracks/${trackSlug}`}>{t("backToTrack")}</BackLink>
       <header className="page-hero">
         <p className="page-kicker">{tl(track.title, loc)}</p>
         <h1 className="page-title">{t("title")}</h1>

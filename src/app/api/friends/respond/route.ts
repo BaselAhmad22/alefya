@@ -43,13 +43,14 @@ export async function POST(request: Request) {
   const userId = session.user.id;
   const requestId = req.id;
 
-  async function resolveRequestNotifications(resolution: "accepted" | "rejected") {
+  async function clearReceiverRequestNotifications() {
     const rows = await prisma.notification.findMany({
       where: {
         userId,
         type: "friend_request",
       },
     });
+    const ids: string[] = [];
     for (const row of rows) {
       let payload: Record<string, unknown> = {};
       try {
@@ -58,17 +59,10 @@ export async function POST(request: Request) {
         continue;
       }
       if (payload.requestId !== requestId) continue;
-      await prisma.notification.update({
-        where: { id: row.id },
-        data: {
-          payloadJson: JSON.stringify({
-            ...payload,
-            resolved: true,
-            resolution,
-          }),
-          readAt: row.readAt || now,
-        },
-      });
+      ids.push(row.id);
+    }
+    if (ids.length) {
+      await prisma.notification.deleteMany({ where: { id: { in: ids } } });
     }
   }
 
@@ -86,6 +80,7 @@ export async function POST(request: Request) {
       }),
     ]);
 
+    // Only the sender gets notified — never the person who accepted.
     await createNotification({
       userId: req.fromUserId,
       type: "friend_accepted",
@@ -105,7 +100,7 @@ export async function POST(request: Request) {
       },
     });
 
-    await resolveRequestNotifications("accepted");
+    await clearReceiverRequestNotifications();
 
     return NextResponse.json({ ok: true, status: "accepted" });
   }
@@ -115,6 +110,7 @@ export async function POST(request: Request) {
     data: { status: "rejected", respondedAt: now },
   });
 
+  // Only the sender gets notified — never the person who declined.
   await createNotification({
     userId: req.fromUserId,
     type: "friend_rejected",
@@ -134,7 +130,7 @@ export async function POST(request: Request) {
     },
   });
 
-  await resolveRequestNotifications("rejected");
+  await clearReceiverRequestNotifications();
 
   return NextResponse.json({ ok: true, status: "rejected" });
 }

@@ -7,6 +7,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useRouter, Link } from "@/i18n/routing";
 import { showNavLoader, hideNavLoader } from "@/lib/nav-loader";
+import { notifyAppError } from "@/lib/app-error";
+import { BackLink } from "@/components/BackLink";
 import {
   LEVELS,
   FIELDS,
@@ -196,12 +198,15 @@ export function RoadmapWizard({
       if (!res.ok) {
         hideNavLoader();
         setError(t("saveError"));
+        notifyAppError(t("saveError"));
         return;
       }
-      router.push(data.startHref || "/dashboard");
+      router.push(data.startHref || "/tracks");
       router.refresh();
     } catch {
       hideNavLoader();
+      setError(t("saveError"));
+      notifyAppError(t("saveError"));
     } finally {
       setSaving(false);
     }
@@ -325,14 +330,13 @@ export function RoadmapWizard({
               }}
             />
             {!savedLevel && (
-              <button
-                type="button"
+              <BackLink
+                className="mt-4"
                 disabled={busy}
-                className="mt-4 text-sm text-ink-muted transition-colors hover:text-accent disabled:opacity-50"
                 onClick={() => goTo("level")}
               >
                 {t("back")}
-              </button>
+              </BackLink>
             )}
           </>
         )}
@@ -351,14 +355,13 @@ export function RoadmapWizard({
                 goTo("framework");
               }}
             />
-            <button
-              type="button"
+            <BackLink
+              className="mt-4"
               disabled={busy}
-              className="mt-4 text-sm text-ink-muted transition-colors hover:text-accent disabled:opacity-50"
               onClick={() => goTo("field")}
             >
               {t("back")}
-            </button>
+            </BackLink>
           </>
         )}
 
@@ -375,14 +378,13 @@ export function RoadmapWizard({
                 goTo("result");
               }}
             />
-            <button
-              type="button"
+            <BackLink
+              className="mt-4"
               disabled={busy}
-              className="mt-4 text-sm text-ink-muted transition-colors hover:text-accent disabled:opacity-50"
               onClick={() => goTo("language")}
             >
               {t("back")}
-            </button>
+            </BackLink>
           </>
         )}
 
@@ -409,7 +411,7 @@ export function RoadmapWizard({
               ))}
             </ol>
             {error && <p className="mt-4 text-sm text-danger">{error}</p>}
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <button
                 type="button"
                 disabled={saving || busy}
@@ -418,14 +420,12 @@ export function RoadmapWizard({
               >
                 {saving ? "…" : t("startLearning")}
               </button>
-              <button
-                type="button"
+              <BackLink
                 disabled={busy}
-                className="text-sm text-ink-muted transition-colors hover:text-accent disabled:opacity-50"
                 onClick={() => goTo("framework")}
               >
                 {t("back")}
-              </button>
+              </BackLink>
             </div>
             {status !== "authenticated" && (
               <p className="mt-3 text-sm text-ink-muted">

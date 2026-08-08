@@ -231,6 +231,7 @@ export default async function LessonPage({ params }: Props) {
                   trackSlug={trackSlug}
                   lessonSlug={lessonSlug}
                   initialCompleted={lessonDone}
+                  nextBlocked={nextBlocked}
                 />
               </div>
               <LessonNav

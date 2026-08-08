@@ -1,18 +1,36 @@
-/** Imperative full-viewport nav loader — paints before React can lag. */
+/** Imperative nav feedback — only for real route changes / explicit opt-in. */
 
 const OVERLAY_ID = "alefya-nav-loader";
+const BAR_ID = "alefya-nav-bar";
 const LOADING_CLASS = "is-page-loading";
 
-/** Only show spinner if navigation is still pending after this delay. */
-const SHOW_DELAY_MS = 140;
+/** Full overlay only if still navigating after this (avoids flash on instant routes). */
+const OVERLAY_DELAY_MS = 180;
 
 let hideTimer: number | null = null;
-let showTimer: number | null = null;
-let visible = false;
+let overlayTimer: number | null = null;
+let visibleOverlay = false;
+let barOn = false;
+
+function loadingLabel(): string {
+  const lang = document.documentElement.lang || "";
+  return lang.startsWith("ar") ? "جاري التحميل…" : "Loading…";
+}
 
 function setPageLoadingLock(on: boolean) {
   if (typeof document === "undefined") return;
   document.documentElement.classList.toggle(LOADING_CLASS, on);
+}
+
+function ensureBar(): HTMLElement {
+  let el = document.getElementById(BAR_ID);
+  if (el) return el;
+  el = document.createElement("div");
+  el.id = BAR_ID;
+  el.className = "ay-nav-bar";
+  el.setAttribute("aria-hidden", "true");
+  document.body.appendChild(el);
+  return el;
 }
 
 function ensureOverlay(): HTMLElement {
@@ -24,26 +42,10 @@ function ensureOverlay(): HTMLElement {
   el.className = "page-loader-overlay";
   el.setAttribute("role", "status");
   el.setAttribute("aria-busy", "true");
-  el.setAttribute("aria-label", "Loading");
   el.setAttribute("aria-live", "polite");
-  // Start with none so the click that triggered navigation still reaches the link.
-  // Once visible (after SHOW_DELAY), we switch to auto to block all interaction.
-  el.style.cssText = [
-    "position:fixed",
-    "top:0",
-    "left:0",
-    "right:0",
-    "bottom:0",
-    "width:100vw",
-    "height:100dvh",
-    "display:none",
-    "align-items:center",
-    "justify-content:center",
-    "z-index:9999",
-    "margin:0",
-    "pointer-events:none",
-    "cursor:wait",
-  ].join(";");
+  el.hidden = true;
+  el.style.display = "none";
+  el.style.pointerEvents = "none";
 
   el.innerHTML = `
     <div class="page-loader" aria-hidden="true">
@@ -52,6 +54,7 @@ function ensureOverlay(): HTMLElement {
         <span class="page-loader-ring page-loader-ring-delay"></span>
         <span class="page-loader-core"></span>
       </div>
+      <p class="page-loader-label"></p>
       <div class="page-loader-bars">
         <span></span><span></span><span></span><span></span>
       </div>
@@ -81,50 +84,65 @@ function ensureOverlay(): HTMLElement {
   return el;
 }
 
+function paintBar(): void {
+  const el = ensureBar();
+  el.classList.add("is-on");
+  barOn = true;
+  setPageLoadingLock(true);
+}
+
 function paintOverlay(maxMs: number): void {
   const el = ensureOverlay();
+  const label = el.querySelector(".page-loader-label");
+  if (label) label.textContent = loadingLabel();
+  el.setAttribute("aria-label", loadingLabel());
   el.hidden = false;
   el.style.display = "flex";
-  // Navigation click already finished (we delayed SHOW_DELAY_MS) — now lock the UI.
   el.style.pointerEvents = "auto";
-  setPageLoadingLock(true);
-  visible = true;
+  paintBar();
+  visibleOverlay = true;
+  if (hideTimer) window.clearTimeout(hideTimer);
+  hideTimer = window.setTimeout(() => hideNavLoader(), maxMs);
+}
+
+function clearTimers(): void {
+  if (overlayTimer) {
+    window.clearTimeout(overlayTimer);
+    overlayTimer = null;
+  }
   if (hideTimer) {
     window.clearTimeout(hideTimer);
     hideTimer = null;
   }
-  hideTimer = window.setTimeout(() => hideNavLoader(), maxMs);
 }
 
 /**
- * Schedule the nav loader. Fast local navigations finish before SHOW_DELAY_MS
- * and never flash a full-screen spinner.
+ * Show navigation feedback immediately (top bar), then full overlay if still pending.
  */
-export function showNavLoader(maxMs = 10000): void {
+export function showNavLoader(maxMs = 12000): void {
   if (typeof document === "undefined") return;
-  if (visible) {
+  paintBar();
+  if (visibleOverlay) {
     paintOverlay(maxMs);
     return;
   }
-  if (showTimer) window.clearTimeout(showTimer);
-  showTimer = window.setTimeout(() => {
-    showTimer = null;
+  if (overlayTimer) window.clearTimeout(overlayTimer);
+  overlayTimer = window.setTimeout(() => {
+    overlayTimer = null;
     paintOverlay(maxMs);
-  }, SHOW_DELAY_MS);
+  }, OVERLAY_DELAY_MS);
 }
 
 export function hideNavLoader(): void {
   if (typeof document === "undefined") return;
-  if (showTimer) {
-    window.clearTimeout(showTimer);
-    showTimer = null;
-  }
-  if (hideTimer) {
-    window.clearTimeout(hideTimer);
-    hideTimer = null;
-  }
-  visible = false;
+  clearTimers();
+  visibleOverlay = false;
+  barOn = false;
   setPageLoadingLock(false);
+
+  const bar = document.getElementById(BAR_ID);
+  if (bar) bar.classList.remove("is-on");
+
   const el = document.getElementById(OVERLAY_ID);
   if (!el) return;
   el.hidden = true;
@@ -133,55 +151,64 @@ export function hideNavLoader(): void {
 }
 
 export function isNavLoaderVisible(): boolean {
-  return visible;
+  return visibleOverlay || barOn;
 }
 
-/** True when this control should trigger the instant nav loader. */
+function isExemptControl(el: Element): boolean {
+  if (el.closest("[data-no-loader]")) return true;
+  if (el.closest('[role="dialog"], .confirm-overlay, .confirm-shell, .profile-modal-shell')) {
+    return true;
+  }
+  return false;
+}
+
+function isSamePageAnchor(anchor: HTMLAnchorElement): boolean {
+  if (anchor.target && anchor.target !== "_self") return true;
+  if (anchor.hasAttribute("download")) return true;
+  const href = anchor.getAttribute("href");
+  if (
+    !href ||
+    href.startsWith("#") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:") ||
+    href.startsWith("javascript:")
+  ) {
+    return true;
+  }
+  try {
+    const url = new URL(href, window.location.href);
+    if (url.origin !== window.location.origin) return true;
+    const current = new URL(window.location.href);
+    return url.pathname === current.pathname && url.search === current.search;
+  } catch {
+    return true;
+  }
+}
+
+/**
+ * Loader only for:
+ * 1) Same-origin links that actually change the route
+ * 2) Explicit opt-in via [data-nav-loader] (buttons that push/replace routes)
+ *
+ * Filters, accordions, messenger toggle, FAQ, local UI — never trigger.
+ */
 export function shouldShowNavLoaderForTarget(target: EventTarget | null): boolean {
   if (!(target instanceof Element)) return false;
+  if (isExemptControl(target)) return false;
 
-  if (target.closest("[data-no-loader]")) return false;
-
-  // Confirm / dialog actions must not flash a loader on Stay/Cancel.
-  if (target.closest('[role="dialog"], .confirm-overlay, .confirm-shell')) {
-    return false;
-  }
-
-  const anchor = target.closest("a");
-  if (anchor instanceof HTMLAnchorElement) {
-    if (anchor.target && anchor.target !== "_self") return false;
-    if (anchor.hasAttribute("download")) return false;
-    const href = anchor.getAttribute("href");
-    if (
-      !href ||
-      href.startsWith("#") ||
-      href.startsWith("mailto:") ||
-      href.startsWith("tel:") ||
-      href.startsWith("javascript:")
-    ) {
-      return false;
-    }
-    try {
-      const url = new URL(href, window.location.href);
-      if (url.origin !== window.location.origin) return false;
-      const current = new URL(window.location.href);
-      if (url.pathname === current.pathname && url.search === current.search) {
-        return false;
-      }
-      return true;
-    } catch {
-      return false;
-    }
-  }
-
-  // Only buttons that explicitly opt in — not every button on the page.
-  const btn = target.closest(
-    "button[data-nav-loader], [role='button'][data-nav-loader]",
-  );
-  if (btn) {
+  if (target.closest("[data-nav-loader]")) {
+    const btn = target.closest("button, [role='button'], a");
     if (btn instanceof HTMLButtonElement && btn.disabled) return false;
+    if (btn?.getAttribute("aria-disabled") === "true") return false;
     return true;
   }
 
-  return false;
+  const anchor = target.closest("a");
+  if (!(anchor instanceof HTMLAnchorElement)) return false;
+  return !isSamePageAnchor(anchor);
+}
+
+/** Alias kept for callers — same rule set as shouldShowNavLoaderForTarget. */
+export function isHardNavigationTarget(target: EventTarget | null): boolean {
+  return shouldShowNavLoaderForTarget(target);
 }

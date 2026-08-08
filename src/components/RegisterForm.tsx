@@ -7,9 +7,10 @@ import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { AuthShell } from "@/components/AuthShell";
 import { PASSWORD_RULES, passwordRuleMet } from "@/lib/validation";
+import { showNavLoader } from "@/lib/nav-loader";
 
 function safeNext(raw: string | null, locale: string) {
-  if (!raw || !raw.startsWith("/")) return `/${locale}/dashboard`;
+  if (!raw || !raw.startsWith("/")) return `/${locale}/tracks`;
   return raw;
 }
 
@@ -129,9 +130,11 @@ export function RegisterForm() {
     });
     setLoading(false);
     if (login?.error) {
+      showNavLoader();
       window.location.href = `/${locale}/login`;
       return;
     }
+    showNavLoader();
     window.location.href = safeNext(searchParams.get("next"), locale);
   }
 

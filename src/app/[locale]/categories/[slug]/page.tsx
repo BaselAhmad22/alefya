@@ -1,10 +1,12 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { CSSProperties } from "react";
 import { Link } from "@/i18n/routing";
 import { getCategory } from "@/lib/categories";
 import { getTrack, countLessons, t as tl } from "@/lib/content";
 import type { Locale } from "@/i18n/config";
 import { Reveal } from "@/components/Reveal";
+import { BackLink } from "@/components/BackLink";
 
 /** Public category detail — rebuild at most once per hour. */
 export const revalidate = 3600;
@@ -25,55 +27,106 @@ export default async function CategoryDetailPage({ params }: Props) {
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
   return (
-    <div className="ay-page">
-      <div className="ay-page-ambient" aria-hidden />
+    <div
+      className="ay-page category-page"
+      style={{ ["--category-accent" as string]: category.color || "var(--teal)" }}
+    >
+      <div className="ay-page-ambient category-page-ambient" aria-hidden />
 
-      <Link
-        href="/categories"
-        className="inline-flex text-sm text-ink-muted transition-colors hover:text-accent"
-      >
-        ← {t("back")}
-      </Link>
+      <BackLink href="/categories" className="category-back">
+        {t("back")}
+      </BackLink>
 
-      <header className="page-hero mt-6">
-        <p className="page-kicker">AlefYa</p>
-        <h1 className="page-title">{tl(category.title, loc)}</h1>
-        <p className="page-sub">{tl(category.description, loc)}</p>
-        <hr className="page-hero-rule" />
+      <header className="category-hero">
+        <div className="category-hero-panel">
+          <p className="category-hero-kicker">{t("label")}</p>
+          <h1 className="category-hero-title">{tl(category.title, loc)}</h1>
+          <p className="category-hero-sub">{tl(category.description, loc)}</p>
+          <div className="category-hero-meta">
+            <span className="category-hero-pill">
+              {tracks.length > 0
+                ? `${tracks.length} ${t("tracksCount")}`
+                : t("comingSoon")}
+            </span>
+            {tracks.length > 0 ? (
+              <span className="category-hero-hint">{t("pickTrack")}</span>
+            ) : null}
+          </div>
+        </div>
       </header>
 
       {tracks.length === 0 ? (
-        <div className="catalog-empty mt-10 rounded-2xl">
-          <p className="text-ink-muted">{t("emptyCategory")}</p>
-          <Link href="/categories" className="btn-ghost mt-4 inline-flex">
+        <div className="category-empty">
+          <p className="category-empty-text">{t("emptyCategory")}</p>
+          <Link href="/categories" className="btn-ghost">
             {t("back")}
           </Link>
         </div>
       ) : (
-        <div className="mt-10 journey-grid">
-          {tracks.map((track, i) => (
-            <Reveal key={track.slug} delay={i * 70}>
-              <Link href={`/tracks/${track.slug}`} className="journey-row group">
-                <span className="journey-row-index">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="journey-row-body min-w-0">
-                  <h2 className="journey-row-title">{tl(track.title, loc)}</h2>
-                  <p className="journey-row-meta">{tl(track.tagline, loc)}</p>
-                </div>
-                <div className="journey-row-aside text-end">
-                  <p className="journey-row-meta !text-xs">
-                    {track.stages.length} {tt("stages")} · {countLessons(track)}{" "}
-                    {tt("lessons")}
-                  </p>
-                  <p className="journey-row-go !mt-1">{tt("viewTrack")}</p>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
+        <section className="category-tracks" aria-label={t("tracksCount")}>
+          <div className="category-tracks-head">
+            <h2 className="category-tracks-title">{t("tracksHeading")}</h2>
+            <p className="category-tracks-hint">{tt("linearHint")}</p>
+          </div>
+
+          <ol className="category-track-list">
+            {tracks.map((track, i) => {
+              const lessons = countLessons(track);
+              const accent = track.color || category.color || "#14b8a6";
+              return (
+                <Reveal key={track.slug} delay={i * 55}>
+                  <li>
+                    <Link
+                      href={`/tracks/${track.slug}`}
+                      className="category-track-card"
+                      style={
+                        { ["--track-accent" as string]: accent } as CSSProperties
+                      }
+                    >
+                      <span className="category-track-index" aria-hidden>
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="category-track-body">
+                        <h3 className="category-track-title">
+                          {tl(track.title, loc)}
+                        </h3>
+                        <p className="category-track-tag">
+                          {tl(track.tagline, loc)}
+                        </p>
+                        <p className="category-track-stats">
+                          {track.stages.length} {tt("stages")}
+                          <span aria-hidden>·</span>
+                          {lessons} {tt("lessons")}
+                          <span aria-hidden>·</span>
+                          ~{track.estimatedHours}h
+                        </p>
+                      </div>
+                      <span className="category-track-go">
+                        {tt("viewPlan")}
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                          aria-hidden
+                        >
+                          <path
+                            d="M3 7h8M7.5 3.5 11 7l-3.5 3.5"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </span>
+                    </Link>
+                  </li>
+                </Reveal>
+              );
+            })}
+          </ol>
+        </section>
       )}
     </div>
   );
 }
-

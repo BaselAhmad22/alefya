@@ -10,6 +10,7 @@ import { PageTransition } from "@/components/PageTransition";
 import { NavigationProgress } from "@/components/NavigationProgress";
 import { LazyMessenger } from "@/components/LazyMessenger";
 import { ToastProvider } from "@/components/ToastProvider";
+import { GlobalErrorWatcher } from "@/components/GlobalErrorWatcher";
 
 type Props = {
   children: React.ReactNode;
@@ -34,6 +35,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <NextIntlClientProvider messages={messages}>
       <SessionProvider>
         <ToastProvider>
+          <GlobalErrorWatcher />
           <div
             lang={locale}
             dir={dir}

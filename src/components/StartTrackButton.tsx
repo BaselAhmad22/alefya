@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { useRouter } from "@/i18n/routing";
 import { hideNavLoader, showNavLoader } from "@/lib/nav-loader";
+import { notifyAppError } from "@/lib/app-error";
 
 type Props = {
   trackSlug: string;
@@ -55,12 +56,14 @@ export function StartTrackButton({
           );
           return;
         }
+        notifyAppError();
         return;
       }
       router.push(continueHref);
       router.refresh();
     } catch {
       hideNavLoader();
+      notifyAppError();
     } finally {
       setLoading(false);
     }

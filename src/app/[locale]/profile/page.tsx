@@ -4,6 +4,8 @@ import { ProfileForm } from "@/components/ProfileForm";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 type Props = { params: Promise<{ locale: string }> };
 
 export default async function ProfilePage({ params }: Props) {
@@ -23,7 +25,11 @@ export default async function ProfilePage({ params }: Props) {
       roadmap: { select: { level: true } },
     },
   });
-  if (!user) redirect(`/${locale}/login`);
+  if (!user) {
+    redirect(
+      `/${locale}/login?next=${encodeURIComponent(`/${locale}/profile`)}`,
+    );
+  }
 
   return (
     <main className="ay-page profile-ay-page">

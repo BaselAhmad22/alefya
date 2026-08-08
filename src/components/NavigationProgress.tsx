@@ -10,9 +10,8 @@ import {
 } from "@/lib/nav-loader";
 
 /**
- * Instant full-viewport loader on navigations.
- * Overlay starts with pointer-events none until shown (after delay),
- * then locks the UI so nothing else is clickable.
+ * Route-change feedback only (top bar + delayed full overlay).
+ * Local UI (filters, FAQ, messenger, toggles) does not trigger the loader.
  */
 export function NavigationProgress() {
   const pathname = usePathname();
@@ -23,7 +22,6 @@ export function NavigationProgress() {
   }, [pathname, locale]);
 
   useEffect(() => {
-    // Clear any stuck loader from a previous broken session.
     hideNavLoader();
 
     const onPointerDown = (e: PointerEvent) => {

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/routing";
+import { BackLink } from "@/components/BackLink";
 import { getHrInterviewQuestionCount } from "@/lib/interview-counts";
 import { getAllHrTracks, getHrTrack } from "@/lib/hr-tracks";
 import type { Locale } from "@/i18n/config";
@@ -24,15 +25,7 @@ export default async function HrTrackHubPage({ params }: Props) {
     <div className="ay-page interview-hub">
       <div className="ay-page-ambient" aria-hidden />
 
-      <Link
-        href="/interviews/hr"
-        className="exam-back-link"
-      >
-        <span className="exam-back-chip rtl:rotate-180" aria-hidden>
-          ←
-        </span>
-        {t("backHrCategory")}
-      </Link>
+      <BackLink href="/interviews/hr">{t("backHrCategory")}</BackLink>
 
       <header className="page-hero mt-6">
         <p className="page-kicker">

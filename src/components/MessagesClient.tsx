@@ -149,6 +149,8 @@ export function MessagesClient() {
   const [flashId, setFlashId] = useState<string | null>(null);
   const [pendingFile, setPendingFile] = useState<PendingFile | null>(null);
   const [busy, setBusy] = useState(false);
+  const [paneBusy, setPaneBusy] = useState(false);
+  const [paneAnim, setPaneAnim] = useState<"idle" | "out" | "in">("idle");
   const [hideTarget, setHideTarget] = useState<{
     id: string;
     username: string;
@@ -169,6 +171,10 @@ export function MessagesClient() {
   const loadReqRef = useRef(0);
   const emojiBtnRef = useRef<HTMLButtonElement>(null);
   const reactMoreRef = useRef<HTMLButtonElement>(null);
+  const cacheRef = useRef<
+    Map<string, { messages: ChatMessage[]; peerReadAt: string | null }>
+  >(new Map());
+  const switchTimerRef = useRef<number | null>(null);
 
   const myId = session?.user?.id;
 
@@ -277,10 +283,11 @@ export function MessagesClient() {
     }
   }
 
-  async function loadMessages(conversationId: string) {
+  async function loadMessages(conversationId: string, opts?: { soft?: boolean }) {
     const reqId = ++loadReqRef.current;
     seedIdsRef.current = true;
     animateIdsRef.current = new Set();
+    if (!opts?.soft) setPaneBusy(true);
     try {
       const res = await fetch("/api/messages", {
         method: "POST",
@@ -293,24 +300,80 @@ export function MessagesClient() {
       if (!res.ok || !Array.isArray(data.messages)) {
         return;
       }
-      setMessages(
-        data.messages.map((m: ChatMessage) => normalizeMessage(m)),
-      );
-      setPeerReadAt(data.peerReadAt || null);
+      const next = data.messages.map((m: ChatMessage) => normalizeMessage(m));
+      const peer = data.peerReadAt || null;
+      setMessages(next);
+      setPeerReadAt(peer);
+      cacheRef.current.set(conversationId, {
+        messages: next,
+        peerReadAt: peer,
+      });
       window.dispatchEvent(new Event("alefya:messages-badge"));
     } catch {
       // Keep current messages on network failure.
     } finally {
       if (reqId === loadReqRef.current) {
-        window.setTimeout(() => {
-          if (reqId === loadReqRef.current) seedIdsRef.current = false;
-        }, 80);
+        setPaneBusy(false);
+        if (!opts?.soft) {
+          setPaneAnim((prev) => (prev === "out" ? prev : "in"));
+          window.setTimeout(() => {
+            if (reqId === loadReqRef.current) {
+              seedIdsRef.current = false;
+              setPaneAnim("idle");
+            }
+          }, 280);
+        } else {
+          window.setTimeout(() => {
+            if (reqId === loadReqRef.current) seedIdsRef.current = false;
+          }, 80);
+        }
       }
     }
   }
 
+  function selectConversation(nextId: string) {
+    if (nextId === activeId) return;
+    if (switchTimerRef.current) {
+      window.clearTimeout(switchTimerRef.current);
+      switchTimerRef.current = null;
+    }
+
+    setPaneAnim("out");
+    setTyping(false);
+    setSelectedId(null);
+    setReplyTo(null);
+    setEditingId(null);
+    setHistoryId(null);
+    setReactStripOpen(false);
+    setReactEmojiOpen(false);
+    setEmojiOpen(false);
+    setFlashId(null);
+    setText("");
+    clearPendingFile();
+
+    switchTimerRef.current = window.setTimeout(() => {
+      switchTimerRef.current = null;
+      const cached = cacheRef.current.get(nextId);
+      if (cached) {
+        setMessages(cached.messages);
+        setPeerReadAt(cached.peerReadAt);
+        setPaneBusy(false);
+      } else {
+        setMessages([]);
+        setPeerReadAt(null);
+        setPaneBusy(true);
+      }
+      setPaneAnim("in");
+      setActiveId(nextId);
+      window.setTimeout(() => setPaneAnim("idle"), 300);
+    }, 150);
+  }
+
   useEffect(() => {
     void loadConversations();
+    return () => {
+      if (switchTimerRef.current) window.clearTimeout(switchTimerRef.current);
+    };
   }, []);
 
   useEffect(() => {
@@ -318,23 +381,16 @@ export function MessagesClient() {
   }, [initialC]);
 
   useEffect(() => {
-    if (activeId) {
-      void loadMessages(activeId);
-      setTyping(false);
-      setSelectedId(null);
-      setReplyTo(null);
-      setEditingId(null);
-      setHistoryId(null);
-      setReactStripOpen(false);
-      setReactEmojiOpen(false);
-      setEmojiOpen(false);
-      setFlashId(null);
-      setText("");
-      clearPendingFile();
-    } else {
+    if (!activeId) {
       loadReqRef.current += 1;
       setMessages([]);
+      setPaneBusy(false);
+      setPaneAnim("idle");
+      return;
     }
+    void loadMessages(activeId, {
+      soft: cacheRef.current.has(activeId),
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeId]);
 
@@ -869,7 +925,8 @@ export function MessagesClient() {
                 <li key={c.id} className="chat-conv-row">
                   <button
                     type="button"
-                    onClick={() => setActiveId(c.id)}
+                    data-no-loader
+                    onClick={() => selectConversation(c.id)}
                     className={`chat-conv ${activeId === c.id ? "is-active" : ""} ${c.pinned ? "is-pinned" : ""}`}
                   >
                     <span className="chat-avatar" aria-hidden>
@@ -904,6 +961,7 @@ export function MessagesClient() {
                   <div className="chat-conv-actions" role="group" aria-label={t("chatActions")}>
                     <button
                       type="button"
+                      data-no-loader
                       className={`chat-conv-action is-pin ${c.pinned ? "is-on" : ""}`}
                       title={c.pinned ? t("unpin") : t("pin")}
                       aria-label={c.pinned ? t("unpin") : t("pin")}
@@ -919,6 +977,7 @@ export function MessagesClient() {
                     </button>
                     <button
                       type="button"
+                      data-no-loader
                       className="chat-conv-action is-danger"
                       title={t("deleteChat")}
                       aria-label={t("deleteChat")}
@@ -977,12 +1036,20 @@ export function MessagesClient() {
 
         <div
           ref={scrollerRef}
-          className="chat-thread chat-scroll"
+          className={`chat-thread chat-scroll ${paneAnim === "out" ? "is-pane-out" : ""} ${paneAnim === "in" ? "is-pane-in" : ""} ${paneBusy ? "is-pane-busy" : ""}`}
           onClick={() => {
             if (selectedId) setSelectedId(null);
           }}
         >
-          {!activeId ? (
+          {paneBusy && messages.length === 0 ? (
+            <div className="chat-thread-skeleton" aria-busy="true" aria-label={t("loadingMessages")}>
+              <div className="chat-skel-line is-theirs" />
+              <div className="chat-skel-line is-mine" />
+              <div className="chat-skel-line is-theirs is-short" />
+              <div className="chat-skel-line is-mine is-short" />
+              <p className="chat-skel-label">{t("loadingMessages")}</p>
+            </div>
+          ) : !activeId ? (
             <div className="chat-thread-empty">
               <p className="chat-thread-empty-kicker">AlefYa</p>
               <p className="chat-thread-empty-title">{t("select")}</p>

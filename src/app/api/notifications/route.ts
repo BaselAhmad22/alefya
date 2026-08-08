@@ -28,13 +28,22 @@ export async function GET(request: Request) {
   return NextResponse.json(
     {
       unread,
-      notifications: rows.map((n) => ({
-        id: n.id,
-        type: n.type,
-        payload: JSON.parse(n.payloadJson || "{}") as Record<string, unknown>,
-        readAt: n.readAt,
-        createdAt: n.createdAt,
-      })),
+      notifications: rows
+        .map((n) => ({
+          id: n.id,
+          type: n.type,
+          payload: JSON.parse(n.payloadJson || "{}") as Record<string, unknown>,
+          readAt: n.readAt,
+          createdAt: n.createdAt,
+        }))
+        // Never show the receiver a "you accepted/declined" echo of their own action.
+        .filter(
+          (n) =>
+            !(
+              n.type === "friend_request" &&
+              Boolean((n.payload as { resolved?: unknown }).resolved)
+            ),
+        ),
     },
     {
       headers: {

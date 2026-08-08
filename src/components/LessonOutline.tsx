@@ -1,4 +1,5 @@
 import { Link } from "@/i18n/routing";
+import { BackLink } from "@/components/BackLink";
 
 export type OutlineItem = {
   slug: string;
@@ -28,12 +29,9 @@ export function LessonOutline({
     <aside className="lesson-outline sticky top-20 z-20 hidden max-h-[calc(100vh-5.5rem)] self-start overflow-y-auto overscroll-contain lg:block">
       <div className="lesson-outline-shell">
         <div className="lesson-outline-core">
-          <Link href={backHref} className="lesson-outline-back">
-            <span className="lesson-outline-back-chip rtl:rotate-180" aria-hidden>
-              ←
-            </span>
-            <span>{backLabel}</span>
-          </Link>
+          <BackLink href={backHref} className="lesson-outline-back">
+            {backLabel}
+          </BackLink>
 
           <div className="lesson-outline-head">
             <h2 className="lesson-outline-title-main">{outlineLabel}</h2>

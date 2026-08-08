@@ -5,6 +5,7 @@ import { getInterviewQuestionCount } from "@/lib/interview-counts";
 import type { Locale } from "@/i18n/config";
 import type { CSSProperties } from "react";
 import { Link } from "@/i18n/routing";
+import { BackLink } from "@/components/BackLink";
 import { Reveal } from "@/components/Reveal";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -21,12 +22,7 @@ export default async function TechInterviewsPage({ params }: Props) {
     <div className="ay-page interview-hub">
       <div className="ay-page-ambient" aria-hidden />
 
-      <Link href="/interviews" className="exam-back-link">
-        <span className="exam-back-chip rtl:rotate-180" aria-hidden>
-          ←
-        </span>
-        {t("backHub")}
-      </Link>
+      <BackLink href="/interviews">{t("backHub")}</BackLink>
 
       <header className="page-hero mt-6">
         <p className="page-kicker">{t("label")}</p>

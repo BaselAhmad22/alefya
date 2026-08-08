@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/routing";
 import { hideNavLoader, showNavLoader } from "@/lib/nav-loader";
+import { notifyAppError } from "@/lib/app-error";
 import {
   consumeFriendsPrefetch,
   dispatchFriendsBadgeRefresh,
@@ -84,9 +85,11 @@ export function FriendsClient() {
         body: JSON.stringify({ requestId, action }),
       });
       if (!res.ok && res.status !== 409) {
-        // already_handled (409) still refresh — first click may have succeeded
+        notifyAppError();
         return;
       }
+    } catch {
+      notifyAppError();
     } finally {
       setBusy(null);
       await load();
@@ -97,11 +100,16 @@ export function FriendsClient() {
     if (!pendingUnfriend) return;
     const otherUserId = pendingUnfriend.id;
     setBusy(otherUserId);
-    await fetch("/api/friends", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ otherUserId }),
-    });
+    try {
+      const res = await fetch("/api/friends", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ otherUserId }),
+      });
+      if (!res.ok) notifyAppError();
+    } catch {
+      notifyAppError();
+    }
     setBusy(null);
     setPendingUnfriend(null);
     await load();

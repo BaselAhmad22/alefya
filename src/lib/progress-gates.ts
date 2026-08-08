@@ -4,7 +4,7 @@ import { getTrack, getAllLessons, type Track, type Stage } from "@/lib/content";
 
 export const PASS_SCORE = 75;
 
-/** Per-request memoization — same (user, track) hit once across learn/exam/dashboard. */
+/** Per-request memoization — same (user, track) hit once across learn/exam/tracks. */
 export const getCompletedLessonSlugs = cache(
   async (userId: string, trackSlug: string) => {
     const rows = await prisma.progress.findMany({

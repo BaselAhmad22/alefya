@@ -7,7 +7,6 @@
   "nav": {
     "tracks": "My tracks",
     "categories": "Categories",
-    "dashboard": "My Progress",
     "login": "Log in",
     "register": "Sign up",
     "logout": "Log out",
@@ -41,6 +40,8 @@
     "comingSoon": "Coming soon",
     "back": "All categories",
     "emptyCategory": "No tracks here yet — we're adding them soon.",
+    "pickTrack": "Choose a path and follow it in order",
+    "tracksHeading": "Tracks in this category",
     "filterSearch": "Search categories…",
     "filterAvailability": "Availability",
     "filterAll": "All",
@@ -48,6 +49,23 @@
     "emptyFiltered": "No categories match your filters.",
     "filterShowing": "{count} showing",
     "filterClear": "Clear search"
+  },
+  "errors": {
+    "kicker": "AlefYa",
+    "status": "Temporary interruption",
+    "title": "Something went wrong",
+    "body": "The site isn’t frozen. Try again, or go home and continue from where you left off.",
+    "retry": "Try again",
+    "home": "Home",
+    "categories": "Categories",
+    "ref": "Reference",
+    "generic": "Something went wrong. The site isn’t frozen — try again.",
+    "network": "Connection issue. Check your network and try again.",
+    "chunk": "A part of the page failed to load. Refresh to continue.",
+    "actionFailed": "That action didn’t complete. Please try again.",
+    "notFoundStatus": "Missing path",
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "This link doesn’t lead anywhere. Head home or browse categories."
   },
   "tracks": {
     "title": "Learning tracks",
@@ -175,27 +193,6 @@
     "suggest1": "Explain the core idea simply",
     "suggest2": "What mistakes do people make here?",
     "suggest3": "Give me a smaller step-by-step example"
-  },
-  "dashboard": {
-    "title": "My progress",
-    "subtitle": "Where you stand on each track",
-    "empty": "You haven't started a track yet. Browse categories, or build a plan from zero.",
-    "resume": "Resume",
-    "completedLessons": "lessons completed",
-    "browse": "Browse categories",
-    "startZero": "Start from zero",
-    "filterSearch": "Search tracks…",
-    "filterStatus": "Status",
-    "filterAll": "All",
-    "filterInProgress": "In progress",
-    "filterCompleted": "Completed",
-    "filterSort": "Order by",
-    "sortRecent": "Recently started",
-    "sortName": "Name",
-    "sortProgress": "Progress",
-    "emptyFiltered": "No tracks match your filters.",
-    "filterShowing": "{count} showing",
-    "filterClear": "Clear search"
   },
   "auth": {
     "loginTitle": "Log in",
@@ -391,6 +388,7 @@
     "save": "Save",
     "select": "Select a conversation",
     "startChat": "Say hello — start the conversation.",
+    "loadingMessages": "Loading conversation…",
     "connecting": "Connecting…",
     "online": "Online",
     "typing": "typing…",
@@ -486,7 +484,7 @@
       },
       "needAccount": {
         "q": "Do I need an account?",
-        "a": "Browsing is open, but saving a roadmap, tracking lessons, taking exams, messaging friends, and using your dashboard require signing up."
+        "a": "Browsing is open, but saving a roadmap, tracking lessons, taking exams, and messaging friends require signing up."
       },
       "usernameRules": {
         "q": "What are the username rules?",
@@ -522,7 +520,7 @@
       },
       "resumeProgress": {
         "q": "Will I resume where I left off?",
-        "a": "Yes. Your dashboard and From zero continue from the first unfinished lesson or exam in your plan sequence."
+        "a": "Yes. My tracks and From zero continue from the first unfinished lesson or exam in your plan sequence."
       },
       "roadmapAiHelp": {
         "q": "Can AI help me choose in From zero?",
@@ -546,7 +544,7 @@
       },
       "myTracks": {
         "q": "Where do I see tracks I’ve started?",
-        "a": "Open My tracks or My Progress (dashboard) to continue enrollments and see how far you’ve gone."
+        "a": "Open My tracks to continue enrollments and see how far you’ve gone."
       },
       "whenExam": {
         "q": "When do stage exams appear?",

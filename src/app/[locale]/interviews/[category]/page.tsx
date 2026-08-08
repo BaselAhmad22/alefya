@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/routing";
+import { BackLink } from "@/components/BackLink";
 import { getCategory } from "@/lib/categories";
 import { getTrackMeta, t as tl } from "@/lib/content";
 import { getInterviewQuestionCount } from "@/lib/interview-counts";
@@ -25,12 +26,7 @@ export default async function InterviewCategoryPage({ params }: Props) {
     <div className="ay-page interview-hub">
       <div className="ay-page-ambient" aria-hidden />
 
-      <Link href="/interviews/tech" className="exam-back-link">
-        <span className="exam-back-chip rtl:rotate-180" aria-hidden>
-          ←
-        </span>
-        {t("backTechSection")}
-      </Link>
+      <BackLink href="/interviews/tech">{t("backTechSection")}</BackLink>
 
       <header className="page-hero mt-6">
         <p className="page-kicker">{t("label")}</p>

@@ -23,6 +23,7 @@ export default async function CategoriesPage({ params }: Props) {
       title: tl(cat.title, loc),
       description: tl(cat.description, loc),
       trackCount: count,
+      color: cat.color || "#14b8a6",
       href: `/${locale}/categories/${cat.slug}`,
       tracksLabel: t("tracksCount"),
       comingSoon: t("comingSoon"),
@@ -30,10 +31,10 @@ export default async function CategoriesPage({ params }: Props) {
   });
 
   return (
-    <div className="ay-page">
-      <div className="ay-page-ambient" aria-hidden />
+    <div className="ay-page categories-index-page">
+      <div className="ay-page-ambient categories-index-ambient" aria-hidden />
 
-      <header className="page-hero">
+      <header className="page-hero categories-index-hero">
         <p className="page-kicker">AlefYa</p>
         <h1 className="page-title">{t("title")}</h1>
         <p className="page-sub">{t("subtitle")}</p>

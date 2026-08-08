@@ -94,23 +94,25 @@ export default async function HomePage({ params }: Props) {
               </div>
               <ol className="mt-6 space-y-4">
                 {categories.slice(0, 5).map((cat, i) => (
-                  <li
-                    key={cat.slug}
-                    className="journey-row !grid-cols-[auto_minmax(0,1fr)] !gap-4 !p-3.5"
-                  >
-                    <span className="journey-row-index">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <p className="font-[family-name:var(--font-display)] text-xl text-ink-heading">
-                        {tl(cat.title, loc)}
-                      </p>
-                      <p className="text-sm text-ink-muted">
-                        {cat.trackSlugs.length > 0
-                          ? `${cat.trackSlugs.length} ${tc("tracksCount")}`
-                          : tc("comingSoon")}
-                      </p>
-                    </div>
+                  <li key={cat.slug}>
+                    <Link
+                      href={`/categories/${cat.slug}`}
+                      className="journey-row home-cat-preview-link !grid-cols-[auto_minmax(0,1fr)] !gap-4 !p-3.5"
+                    >
+                      <span className="journey-row-index">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <p className="font-[family-name:var(--font-display)] text-xl text-ink-heading">
+                          {tl(cat.title, loc)}
+                        </p>
+                        <p className="text-sm text-ink-muted">
+                          {cat.trackSlugs.length > 0
+                            ? `${cat.trackSlugs.length} ${tc("tracksCount")}`
+                            : tc("comingSoon")}
+                        </p>
+                      </div>
+                    </Link>
                   </li>
                 ))}
               </ol>
@@ -141,12 +143,7 @@ export default async function HomePage({ params }: Props) {
                   className="catalog-card h-full"
                   style={
                     {
-                      ["--card-accent"]:
-                        i % 3 === 0
-                          ? "var(--teal)"
-                          : i % 3 === 1
-                            ? "var(--accent)"
-                            : "#2dd4bf",
+                      ["--card-accent"]: cat.color || "var(--teal)",
                     } as CSSProperties
                   }
                 >

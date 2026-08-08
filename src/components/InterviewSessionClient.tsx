@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { BackLink } from "@/components/BackLink";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { InterviewResultDock } from "@/components/InterviewResultDock";
 import { LeaveGuard } from "@/components/LeaveGuard";
@@ -271,17 +271,15 @@ export function InterviewSessionClient({
         {resetDialog}
       <div className="ay-page ay-page-focus interview-shell">
         <div className="ay-page-ambient" aria-hidden />
-        <Link
+        <BackLink
           href={
             isHr
               ? `/interviews/hr/${trackSlug}`
               : `/interviews/${categorySlug}`
           }
-          className="exam-back-link"
         >
-          <span className="exam-back-chip rtl:rotate-180" aria-hidden>←</span>
           {t("backCategory")}
-        </Link>
+        </BackLink>
         <header className="page-hero animate-rise">
           <p className="page-kicker">{t("setupLabel")}</p>
           <h1 className="page-title">{trackTitle}</h1>
@@ -574,14 +572,7 @@ export function InterviewSessionClient({
       <div className="ay-page-ambient" aria-hidden />
       <div className="interview-quiz-header">
         <div>
-          <button
-            type="button"
-            onClick={requestReset}
-            className="exam-back-link !inline-flex"
-          >
-            <span className="exam-back-chip rtl:rotate-180" aria-hidden>←</span>
-            {t("changeDifficulty")}
-          </button>
+          <BackLink onClick={requestReset}>{t("changeDifficulty")}</BackLink>
           <h1 className="page-title !mt-3 !text-2xl sm:!text-3xl">{trackTitle}</h1>
           <p className="interview-quiz-progress">
             {t("progressLabel", {

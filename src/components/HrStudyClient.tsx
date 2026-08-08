@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { BackLink } from "@/components/BackLink";
 
 type StudyQ = {
   id: string;
@@ -214,12 +214,9 @@ export function HrStudyClient({ trackSlug, trackTitle, bankSize }: Props) {
     <div className="ay-page hr-study-page">
       <div className="ay-page-ambient" aria-hidden />
 
-      <Link href={`/interviews/hr/${trackSlug}`} className="exam-back-link hr-study-back">
-        <span className="exam-back-chip rtl:rotate-180" aria-hidden>
-          ←
-        </span>
+      <BackLink href={`/interviews/hr/${trackSlug}`} className="hr-study-back">
         {t("backTrackHub")}
-      </Link>
+      </BackLink>
 
       <header className="hr-study-hero">
         <p className="page-kicker">{t("studyModeKicker")}</p>

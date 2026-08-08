@@ -172,7 +172,7 @@ export function AiHelper({ trackSlug, lessonSlug, lessonTitle }: Props) {
             </div>
           </button>
 
-          <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-3">
+          <div ref={listRef} className="ai-helper-scroll flex-1 space-y-3 overflow-y-auto px-4 py-3">
             {messages.length === 0 && (
               <div className="ai-helper-welcome space-y-2 text-sm text-ink-muted">
                 <p>{t("welcome")}</p>

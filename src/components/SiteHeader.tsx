@@ -7,6 +7,7 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { NotificationsBell } from "@/components/NotificationsBell";
 import { FriendsNavLink } from "@/components/FriendsNavLink";
 import { MessagesNavLink } from "@/components/MessagesNavLink";
+import { showNavLoader } from "@/lib/nav-loader";
 
 export function SiteHeader() {
   const t = useTranslations("nav");
@@ -83,12 +84,6 @@ export function SiteHeader() {
             <>
               <span className="site-nav-sep hidden sm:block" aria-hidden />
               <Link
-                href="/dashboard"
-                className={navClass("site-nav-link is-account", "/dashboard")}
-              >
-                {t("dashboard")}
-              </Link>
-              <Link
                 href="/profile"
                 className={navClass("site-nav-link is-account", "/profile")}
               >
@@ -96,7 +91,11 @@ export function SiteHeader() {
               </Link>
               <button
                 type="button"
-                onClick={() => signOut({ callbackUrl: `/${locale}` })}
+                data-nav-loader
+                onClick={() => {
+                  showNavLoader();
+                  void signOut({ callbackUrl: `/${locale}` });
+                }}
                 className="site-nav-link is-account"
               >
                 {t("logout")}

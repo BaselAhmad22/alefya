@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { hideNavLoader, showNavLoader } from "@/lib/nav-loader";
+import { notifyAppError } from "@/lib/app-error";
 
 type Props = {
   trackSlug: string;
@@ -30,6 +31,7 @@ export function LeaveTrackButton({ trackSlug, className }: Props) {
         hideNavLoader();
         setBusy(false);
         setOpen(false);
+        notifyAppError();
         return;
       }
       setOpen(false);
@@ -39,6 +41,7 @@ export function LeaveTrackButton({ trackSlug, className }: Props) {
       hideNavLoader();
       setBusy(false);
       setOpen(false);
+      notifyAppError();
     }
   }
 

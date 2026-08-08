@@ -6,9 +6,10 @@ import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { AuthShell } from "@/components/AuthShell";
+import { showNavLoader } from "@/lib/nav-loader";
 
 function safeNext(raw: string | null, locale: string) {
-  if (!raw || !raw.startsWith("/")) return `/${locale}/dashboard`;
+  if (!raw || !raw.startsWith("/")) return `/${locale}/tracks`;
   return raw;
 }
 
@@ -35,6 +36,7 @@ export function LoginForm() {
       setError(t("error"));
       return;
     }
+    showNavLoader();
     window.location.href = safeNext(searchParams.get("next"), locale);
   }
 

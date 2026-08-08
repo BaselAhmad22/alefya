@@ -5,8 +5,10 @@ import { useLocale, useTranslations } from "next-intl";
 import { LeaveGuard } from "@/components/LeaveGuard";
 import { PageLoader } from "@/components/PageLoader";
 import { ExamResultDock } from "@/components/ExamResultDock";
+import { BackLink } from "@/components/BackLink";
 import { Link } from "@/i18n/routing";
 import type { ExamReport } from "@/lib/exams";
+import { notifyAppError } from "@/lib/app-error";
 
 type PublicQ = {
   id: string;
@@ -58,25 +60,33 @@ export function StageExamClient({
     setError(null);
     setResult(null);
     setAnswers({});
-    const res = await fetch("/api/exams", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        action: "start",
-        trackSlug,
-        stageSlug,
-        locale,
-      }),
-    });
-    const data = await res.json().catch(() => ({}));
-    setLoading(false);
-    if (!res.ok) {
-      setError(data.error === "locked" ? t("locked") : t("startError"));
-      return;
+    try {
+      const res = await fetch("/api/exams", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "start",
+          trackSlug,
+          stageSlug,
+          locale,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      setLoading(false);
+      if (!res.ok) {
+        const msg = data.error === "locked" ? t("locked") : t("startError");
+        setError(msg);
+        notifyAppError(msg);
+        return;
+      }
+      setAttemptId(data.attemptId);
+      setFormat(data.format);
+      setQuestions(data.questions || []);
+    } catch {
+      setLoading(false);
+      setError(t("startError"));
+      notifyAppError(t("startError"));
     }
-    setAttemptId(data.attemptId);
-    setFormat(data.format);
-    setQuestions(data.questions || []);
   }
 
   async function onSubmit(e: FormEvent) {
@@ -84,30 +94,37 @@ export function StageExamClient({
     if (!attemptId) return;
     setSubmitting(true);
     setError(null);
-    const res = await fetch("/api/exams", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        action: "submit",
-        attemptId,
-        locale,
-        answers,
-      }),
-    });
-    const data = await res.json().catch(() => ({}));
-    setSubmitting(false);
-    if (!res.ok) {
+    try {
+      const res = await fetch("/api/exams", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "submit",
+          attemptId,
+          locale,
+          answers,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      setSubmitting(false);
+      if (!res.ok) {
+        setError(t("submitError"));
+        notifyAppError(t("submitError"));
+        return;
+      }
+      setResult({
+        score: data.score,
+        passed: data.passed,
+        passScore: data.passScore,
+        feedback: data.feedback || [],
+        report: data.report,
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch {
+      setSubmitting(false);
       setError(t("submitError"));
-      return;
+      notifyAppError(t("submitError"));
     }
-    setResult({
-      score: data.score,
-      passed: data.passed,
-      passScore: data.passScore,
-      feedback: data.feedback || [],
-      report: data.report,
-    });
-    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   const inProgress = Boolean(attemptId && questions.length > 0 && !result);
@@ -189,9 +206,7 @@ export function StageExamClient({
         {leaveGuard}
         <div className="space-y-4">
           <p className="text-danger">{error}</p>
-          <Link href={`/tracks/${trackSlug}`} className="text-accent hover:underline">
-            {t("backToTrack")}
-          </Link>
+          <BackLink href={`/tracks/${trackSlug}`}>{t("backToTrack")}</BackLink>
         </div>
       </>
     );

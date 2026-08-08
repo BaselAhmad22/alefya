@@ -1,39 +1,74 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter as useNextRouter } from "next/navigation";
+import { hideNavLoader, showNavLoader } from "@/lib/nav-loader";
+import { notifyAppError } from "@/lib/app-error";
 
 type Props = {
   trackSlug: string;
   lessonSlug: string;
   initialCompleted: boolean;
+  /** True while Next is locked until this lesson is marked complete. */
+  nextBlocked?: boolean;
 };
 
 export function LessonActions({
   trackSlug,
   lessonSlug,
   initialCompleted,
+  nextBlocked = false,
 }: Props) {
   const t = useTranslations("lesson");
   const nextRouter = useNextRouter();
   const [completed, setCompleted] = useState(initialCompleted);
   const [loading, setLoading] = useState(false);
+  const [awaitingNext, setAwaitingNext] = useState(false);
+
+  useEffect(() => {
+    setCompleted(initialCompleted);
+  }, [initialCompleted]);
+
+  // Keep the loader up until Next is actually unlocked after refresh.
+  useEffect(() => {
+    if (!awaitingNext) return;
+    if (completed && !nextBlocked) {
+      setAwaitingNext(false);
+      setLoading(false);
+      hideNavLoader();
+    }
+  }, [awaitingNext, completed, nextBlocked]);
 
   async function mark() {
     setLoading(true);
+    showNavLoader();
     try {
       const res = await fetch("/api/progress", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ trackSlug, lessonSlug }),
       });
-      if (res.ok) {
-        setCompleted(true);
-        nextRouter.refresh();
+      if (!res.ok) {
+        hideNavLoader();
+        setLoading(false);
+        notifyAppError();
+        return;
       }
-    } finally {
+      setCompleted(true);
+      setAwaitingNext(true);
+      nextRouter.refresh();
+      // If Next was never blocked, unlock immediately after save.
+      if (!nextBlocked) {
+        setAwaitingNext(false);
+        setLoading(false);
+        hideNavLoader();
+      }
+    } catch {
+      setAwaitingNext(false);
       setLoading(false);
+      hideNavLoader();
+      notifyAppError();
     }
   }
 
