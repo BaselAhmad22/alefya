@@ -9,6 +9,8 @@ type Props = {
   actions: ReactNode;
   digest?: string;
   digestLabel?: string;
+  detail?: string;
+  detailLabel?: string;
   /** Visual tone: soft amber for faults, teal for missing routes */
   tone?: "fault" | "missing";
 };
@@ -55,6 +57,8 @@ export function AppFaultScreen({
   actions,
   digest,
   digestLabel,
+  detail,
+  detailLabel,
   tone = "fault",
 }: Props) {
   return (
@@ -81,6 +85,12 @@ export function AppFaultScreen({
           <p className="ay-error-status">{status}</p>
           <h1 className="ay-error-title">{title}</h1>
           <p className="ay-error-body">{body}</p>
+          {detail ? (
+            <p className="ay-error-detail">
+              {detailLabel ? <span>{detailLabel}</span> : null}
+              <code>{detail}</code>
+            </p>
+          ) : null}
           <div className="ay-error-actions">{actions}</div>
         </div>
 

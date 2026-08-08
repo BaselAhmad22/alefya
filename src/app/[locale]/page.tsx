@@ -6,7 +6,9 @@ import { trackExists, t as tl } from "@/lib/content";
 import type { Locale } from "@/i18n/config";
 import { Reveal } from "@/components/Reveal";
 import { BrandLogo } from "@/components/BrandLogo";
-import { auth } from "@/lib/auth";
+import { HomeCinema } from "@/components/HomeCinema";
+import { HomePrefetch } from "@/components/HomePrefetch";
+import { HomeCtas } from "@/components/HomeCtas";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -17,174 +19,192 @@ export default async function HomePage({ params }: Props) {
   const tc = await getTranslations("categories");
   const categories = getAllCategories();
   const loc = locale as Locale;
-  const session = await auth();
-  const isLoggedIn = Boolean(session?.user);
+  const liveCategories = categories.filter(
+    (c) => c.trackSlugs.filter((s) => trackExists(s)).length > 0,
+  );
+  const featured = (liveCategories.length ? liveCategories : categories).slice(
+    0,
+    6,
+  );
 
   return (
-    <div>
-      <section className="home-hero relative border-b border-line/80">
-        <div className="home-hero-glow home-hero-glow-a" aria-hidden />
-        <div className="home-hero-glow home-hero-glow-b" aria-hidden />
+    <HomeCinema>
+      <HomePrefetch />
 
-        <div className="page-container relative grid min-h-[86vh] items-center gap-12 py-20 lg:grid-cols-[1.12fr_0.88fr]">
-          <div>
-            <div className="animate-rise mb-6 inline-flex items-center gap-4">
+      {/* —— HERO —— */}
+      <section className="ay-hero">
+        <div className="ay-hero-void" aria-hidden>
+          <span className="ay-hero-orb ay-hero-orb-a" data-parallax="18" />
+          <span className="ay-hero-orb ay-hero-orb-b" data-parallax="10" />
+          <span className="ay-hero-orb ay-hero-orb-c" data-parallax="26" />
+          <span className="ay-hero-grid" data-parallax="6" />
+          <span className="ay-hero-scan" />
+        </div>
+
+        <div className="page-container ay-hero-inner">
+          <div className="ay-hero-copy">
+            <span className="ay-hero-watermark" aria-hidden data-parallax="8">
+              {loc === "ar" ? "أ" : "A"}
+            </span>
+
+            <div className="home-cinema-line ay-hero-kicker">
               <BrandLogo
-                size={76}
+                size={64}
                 priority
-                className="border border-accent/35 shadow-[0_0_48px_rgba(232,165,75,0.22)]"
+                className="ay-hero-logo border border-accent/40"
               />
-              <span className="hidden text-xs tracking-[0.18em] text-ink-muted uppercase sm:block">
-                Alef → Ya
-              </span>
+              <span>Alef → Ya</span>
             </div>
+
             <p
-              className={`animate-clip font-brand text-accent ${
+              className={`home-cinema-title ay-hero-brand font-brand ${
                 loc === "ar"
-                  ? "text-[clamp(3.4rem,11vw,6.75rem)] leading-[1.05]"
-                  : "font-[family-name:var(--font-display)] text-[clamp(4.75rem,14vw,9.75rem)] leading-[0.84] tracking-tight"
+                  ? "is-ar"
+                  : "font-[family-name:var(--font-display)] is-en"
               }`}
             >
               {t("brand")}
             </p>
-            <div className="mt-3 h-px w-28 origin-start bg-gradient-to-r from-teal-bright via-accent to-transparent animate-rise-delay" />
-            <h1
-              className={`animate-rise-delay mt-7 max-w-xl font-medium text-ink-heading ${
-                loc === "ar"
-                  ? "text-xl leading-[1.55] sm:text-2xl"
-                  : "text-2xl leading-snug sm:text-3xl"
-              }`}
-            >
+
+            <div className="home-cinema-line ay-hero-rule" aria-hidden />
+
+            <h1 className="home-cinema-line home-cinema-headline ay-hero-headline">
               {t("headline")}
             </h1>
-            <p
-              className={`animate-rise-delay-2 mt-4 max-w-lg text-ink-muted ${
-                loc === "ar"
-                  ? "text-base leading-[1.75]"
-                  : "text-lg leading-relaxed"
-              }`}
-            >
+            <p className="home-cinema-line home-cinema-sub ay-hero-sub">
               {t("sub")}
             </p>
-            <div className="animate-rise-delay-3 mt-10 flex flex-wrap items-center gap-2.5">
-              <Link href="/start" className="btn-primary">
-                {t("ctaStart")}
-              </Link>
-              <Link href="/categories" className="btn-ghost">
-                {t("cta")}
-              </Link>
-              <Link href="/interviews" className="btn-ghost">
-                {t("ctaInterviews")}
-              </Link>
-              {!isLoggedIn ? (
-                <Link href="/register" className="btn-ghost">
-                  {t("ctaSecondary")}
-                </Link>
-              ) : null}
+
+            <div className="home-cinema-line home-cinema-cta ay-hero-actions">
+              <HomeCtas />
             </div>
           </div>
 
-          <div className="home-cat-preview animate-rise-delay-2 hidden lg:block">
-            <div className="surface-panel home-cat-preview-panel p-8">
-              <div className="mb-5 flex items-center gap-3">
-                <BrandLogo size={44} className="border border-line" />
-                <p className="page-kicker" style={{ letterSpacing: "0.14em" }}>
-                  {tc("label")}
-                </p>
+          <aside className="ay-hero-stage home-cinema-panel" aria-hidden={false}>
+            <div className="ay-hero-stage-frame">
+              <div className="ay-hero-stage-meta">
+                <span>{tc("label")}</span>
+                <span className="ay-dot" />
+                <span>{featured.length}</span>
               </div>
-              <ol className="mt-6 space-y-4">
-                {categories.slice(0, 5).map((cat, i) => (
-                  <li key={cat.slug}>
-                    <Link
-                      href={`/categories/${cat.slug}`}
-                      className="journey-row home-cat-preview-link !grid-cols-[auto_minmax(0,1fr)] !gap-4 !p-3.5"
+              <ol className="ay-hero-stage-list">
+                {featured.slice(0, 5).map((cat, i) => {
+                  const count = cat.trackSlugs.filter((s) =>
+                    trackExists(s),
+                  ).length;
+                  return (
+                    <li
+                      key={cat.slug}
+                      className="home-cinema-cat-row"
+                      style={{ ["--i" as string]: i }}
                     >
-                      <span className="journey-row-index">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <p className="font-[family-name:var(--font-display)] text-xl text-ink-heading">
-                          {tl(cat.title, loc)}
-                        </p>
-                        <p className="text-sm text-ink-muted">
-                          {cat.trackSlugs.length > 0
-                            ? `${cat.trackSlugs.length} ${tc("tracksCount")}`
-                            : tc("comingSoon")}
-                        </p>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
+                      <Link
+                        href={`/categories/${cat.slug}`}
+                        className="ay-hero-stage-link"
+                      >
+                        <span className="ay-hero-stage-idx">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="ay-hero-stage-body">
+                          <strong>{tl(cat.title, loc)}</strong>
+                          <em>
+                            {count > 0
+                              ? `${count} ${tc("tracksCount")}`
+                              : tc("comingSoon")}
+                          </em>
+                        </span>
+                        <span className="ay-hero-stage-go" aria-hidden>
+                          →
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
               </ol>
-              <div className="home-cat-preview-badge" aria-hidden>
-                <BrandLogo size={56} />
-              </div>
             </div>
+          </aside>
+        </div>
+
+        <div className="ay-scroll-cue" aria-hidden>
+          <span>{t("scrollCue")}</span>
+          <i />
+        </div>
+      </section>
+
+      {/* —— MANIFESTO —— */}
+      <section className="ay-manifest">
+        <div className="page-container">
+          <Reveal>
+            <p className="ay-section-kicker">{t("manifestKicker")}</p>
+            <h2 className="ay-manifest-title">{t("manifestTitle")}</h2>
+            <p className="ay-manifest-body">{t("manifestBody")}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* —— FEATURED WORK (Lusion-style rows) —— */}
+      <section className="ay-featured">
+        <div className="page-container">
+          <Reveal>
+            <header className="ay-featured-head">
+              <div>
+                <p className="ay-section-kicker">{t("featuredKicker")}</p>
+                <h2 className="ay-featured-title">{t("featuredTitle")}</h2>
+              </div>
+              <Link href="/categories" className="ay-text-link ay-magnetic">
+                {t("featuredSeeAll")}
+              </Link>
+            </header>
+          </Reveal>
+
+          <div className="ay-feature-list">
+            {featured.map((cat, i) => {
+              const count = cat.trackSlugs.filter((s) => trackExists(s)).length;
+              return (
+                <Reveal key={cat.slug} delay={i * 60}>
+                  <Link
+                    href={`/categories/${cat.slug}`}
+                    className="ay-feature-row"
+                    style={
+                      {
+                        ["--card-accent"]: cat.color || "var(--teal)",
+                        ["--i" as string]: i,
+                      } as CSSProperties
+                    }
+                  >
+                    <span className="ay-feature-idx">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="ay-feature-copy">
+                      <strong>{tl(cat.title, loc)}</strong>
+                      <em className={loc === "ar" ? "leading-[1.7]" : ""}>
+                        {tl(cat.description, loc)}
+                      </em>
+                    </span>
+                    <span className="ay-feature-meta">
+                      {count > 0
+                        ? `${count} ${tc("tracksCount")}`
+                        : tc("comingSoon")}
+                    </span>
+                    <span className="ay-feature-arrow" aria-hidden>
+                      →
+                    </span>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="ay-page">
-        <div className="ay-page-ambient" aria-hidden />
-        <Reveal>
-          <header className="page-hero !mb-8">
-            <p className="page-kicker">{tc("label")}</p>
-            <h2 className="page-title">{tc("title")}</h2>
-            <hr className="page-hero-rule" />
-          </header>
-        </Reveal>
-        <div className="catalog-grid">
-          {categories.map((cat, i) => {
-            const trackCount = cat.trackSlugs.filter((s) => trackExists(s)).length;
-            return (
-              <Reveal key={cat.slug} delay={i * 70} className="h-full">
-                <Link
-                  href={`/categories/${cat.slug}`}
-                  className="catalog-card h-full"
-                  style={
-                    {
-                      ["--card-accent"]: cat.color || "var(--teal)",
-                    } as CSSProperties
-                  }
-                >
-                  <p className="catalog-card-meta">
-                    {trackCount > 0
-                      ? `${trackCount} ${tc("tracksCount")}`
-                      : tc("comingSoon")}
-                  </p>
-                  <h3 className="catalog-card-title">{tl(cat.title, loc)}</h3>
-                  <p
-                    className={`catalog-card-desc line-clamp-2 ${
-                      loc === "ar" ? "leading-[1.7]" : ""
-                    }`}
-                  >
-                    {tl(cat.description, loc)}
-                  </p>
-                  <span className="catalog-card-go">
-                    {tc("title")}
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-                      <path
-                        d="M3 7h8M7.5 3.5 11 7l-3.5 3.5"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </Link>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="home-interview">
-        <div className="mx-auto max-w-[var(--page-max)] px-[var(--page-gutter)] py-16 sm:py-20">
+      {/* —— INTERVIEWS —— */}
+      <section className="home-interview ay-interview">
+        <div className="mx-auto max-w-[var(--page-max)] px-[var(--page-gutter)] py-16 sm:py-24">
           <Reveal className="home-interview-reveal">
-            <div className="home-interview-panel">
+            <div className="home-interview-panel ay-interview-panel">
               <div className="home-interview-glow" aria-hidden />
               <div className="home-interview-copy">
+                <p className="ay-section-kicker">{t("ctaInterviews")}</p>
                 <h2 className="home-interview-title home-interview-anim">
                   {t("interviewsTitle")}
                 </h2>
@@ -194,13 +214,13 @@ export default async function HomePage({ params }: Props) {
                 <div className="home-interview-actions home-interview-anim">
                   <Link
                     href="/interviews"
-                    className="btn-primary home-interview-btn"
+                    className="btn-primary home-interview-btn ay-magnetic"
                   >
                     {t("interviewsCta")}
                   </Link>
                   <Link
                     href="/categories"
-                    className="btn-ghost home-interview-btn"
+                    className="btn-ghost home-interview-btn ay-magnetic"
                   >
                     {t("cta")}
                   </Link>
@@ -227,6 +247,17 @@ export default async function HomePage({ params }: Props) {
           </Reveal>
         </div>
       </section>
-    </div>
+
+      {/* —— FINALE —— */}
+      <section className="ay-finale">
+        <div className="page-container ay-finale-inner">
+          <Reveal>
+            <h2 className="ay-finale-title">{t("finaleTitle")}</h2>
+            <p className="ay-finale-sub">{t("finaleSub")}</p>
+            <HomeCtas compact />
+          </Reveal>
+        </div>
+      </section>
+    </HomeCinema>
   );
 }

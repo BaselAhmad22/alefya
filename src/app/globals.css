@@ -14216,6 +14216,34 @@ select option {
   color: var(--ink-muted);
 }
 
+.ay-error-detail {
+  margin: 0.9rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  background: rgba(217, 119, 6, 0.08);
+  display: grid;
+  gap: 0.35rem;
+  text-align: start;
+  max-width: 100%;
+}
+
+.ay-error-detail span {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.ay-error-detail code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink-heading);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 .ay-error-actions {
   display: flex;
   flex-wrap: wrap;
@@ -14287,3 +14315,4 @@ select option {
     animation: none !important;
   }
 }
+

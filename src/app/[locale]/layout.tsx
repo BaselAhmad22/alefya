@@ -11,6 +11,7 @@ import { NavigationProgress } from "@/components/NavigationProgress";
 import { LazyMessenger } from "@/components/LazyMessenger";
 import { ToastProvider } from "@/components/ToastProvider";
 import { GlobalErrorWatcher } from "@/components/GlobalErrorWatcher";
+import { LusionIntro } from "@/components/LusionIntro";
 
 type Props = {
   children: React.ReactNode;
@@ -56,6 +57,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             }
           >
             <NavigationProgress />
+            <LusionIntro />
             <SiteHeader />
             <main className="flex-1">
               <PageTransition>{children}</PageTransition>

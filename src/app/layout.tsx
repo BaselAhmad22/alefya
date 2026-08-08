@@ -7,6 +7,7 @@ import {
   Source_Sans_3,
 } from "next/font/google";
 import "./globals.css";
+import "./home-lusion.css";
 
 const displayLatin = Instrument_Serif({
   subsets: ["latin"],

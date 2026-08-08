@@ -23,6 +23,9 @@ export function NavigationProgress() {
 
   useEffect(() => {
     hideNavLoader();
+    // Clear any stuck lock from a previous session / HMR.
+    document.documentElement.classList.remove("is-page-loading");
+    document.documentElement.classList.remove("is-lusion-loading");
 
     const onPointerDown = (e: PointerEvent) => {
       if (e.button !== 0) return;
@@ -47,12 +50,14 @@ export function NavigationProgress() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") hideNavLoader();
     };
+    const onPageShow = () => hideNavLoader();
 
     document.addEventListener("pointerdown", onPointerDown, true);
     document.addEventListener("click", onClick, true);
     window.addEventListener("alefya:nav-start", onStart);
     window.addEventListener("alefya:nav-cancel", onCancel);
     window.addEventListener("keydown", onKey);
+    window.addEventListener("pageshow", onPageShow);
 
     return () => {
       document.removeEventListener("pointerdown", onPointerDown, true);
@@ -60,6 +65,7 @@ export function NavigationProgress() {
       window.removeEventListener("alefya:nav-start", onStart);
       window.removeEventListener("alefya:nav-cancel", onCancel);
       window.removeEventListener("keydown", onKey);
+      window.removeEventListener("pageshow", onPageShow);
       hideNavLoader();
     };
   }, []);

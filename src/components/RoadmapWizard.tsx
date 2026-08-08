@@ -74,7 +74,7 @@ function OptionCards({
 }
 
 export function RoadmapWizard({
-  savedLevel,
+  savedLevel: savedLevelProp = null,
 }: {
   savedLevel?: string | null;
 }) {
@@ -83,14 +83,17 @@ export function RoadmapWizard({
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  const initialStep: Step = savedLevel ? "field" : "level";
+  const [knownLevel, setKnownLevel] = useState<string | null>(
+    savedLevelProp || null,
+  );
+  const initialStep: Step = knownLevel ? "field" : "level";
   const [step, setStep] = useState<Step>(initialStep);
   const [visibleStep, setVisibleStep] = useState<Step>(initialStep);
   const [phase, setPhase] = useState<"in" | "out">("in");
   const [direction, setDirection] = useState<"forward" | "back">("forward");
   const transitioning = useRef(false);
 
-  const [level, setLevel] = useState<string | null>(savedLevel || null);
+  const [level, setLevel] = useState<string | null>(knownLevel);
   const [field, setField] = useState<RoadmapField | null>(null);
   const [language, setLanguage] = useState<string | null>(null);
   const [framework, setFramework] = useState<string | null>(null);
@@ -104,8 +107,36 @@ export function RoadmapWizard({
   const frameworks =
     field && language ? frameworksFor(field, language) : [];
   const selectedFw = frameworks.find((f) => f.id === framework);
-  const steps = savedLevel ? ALL_STEPS.slice(1) : ALL_STEPS;
+  const steps = knownLevel ? ALL_STEPS.slice(1) : ALL_STEPS;
   const currentN = steps.indexOf(visibleStep) + 1;
+
+  // Hydrate saved level without blocking first paint / route open.
+  useEffect(() => {
+    if (savedLevelProp || status !== "authenticated") return;
+
+    const ac = new AbortController();
+    const kill = window.setTimeout(() => ac.abort(), 2500);
+
+    fetch("/api/roadmap", { signal: ac.signal })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        const lvl = data?.roadmap?.level as string | undefined;
+        if (!lvl || !LEVELS.some((l) => l.id === lvl)) return;
+        setKnownLevel(lvl);
+        setLevel(lvl);
+        setStep((s) => (s === "level" ? "field" : s));
+        setVisibleStep((s) => (s === "level" ? "field" : s));
+      })
+      .catch(() => {
+        /* keep wizard usable offline / on slow DB */
+      })
+      .finally(() => window.clearTimeout(kill));
+
+    return () => {
+      ac.abort();
+      window.clearTimeout(kill);
+    };
+  }, [status, savedLevelProp]);
 
   const contextTitle = useMemo(() => {
     if (visibleStep === "field") return t("aiContextField");
@@ -329,7 +360,7 @@ export function RoadmapWizard({
                 goTo("language");
               }}
             />
-            {!savedLevel && (
+            {!knownLevel && (
               <BackLink
                 className="mt-4"
                 disabled={busy}

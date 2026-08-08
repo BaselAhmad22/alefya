@@ -6,9 +6,21 @@ import { useToast } from "@/components/ToastProvider";
 import { defaultAppErrorMessage, notifyAppError } from "@/lib/app-error";
 import { hideNavLoader } from "@/lib/nav-loader";
 
+function humanizeRawError(raw: string, fallback: string): string {
+  const text = raw.trim();
+  if (!text) return fallback;
+  if (/abort|cancel|NEXT_REDIRECT|NEXT_NOT_FOUND/i.test(text)) return "";
+  if (/failed to fetch|networkerror|load failed|ernet/i.test(text)) {
+    return "";
+  }
+  if (/^\s*at\s+|webpack|node_modules|__next/i.test(text)) return fallback;
+  if (text.length > 180) return `${text.slice(0, 177)}…`;
+  return text;
+}
+
 /**
  * Global safety net: unhandled errors / rejections → clear loader + toast.
- * Also bridges `alefya:app-error` custom events into the toast system.
+ * Shows a concrete message when available (not only a generic line).
  */
 export function GlobalErrorWatcher() {
   const { push } = useToast();
@@ -34,7 +46,6 @@ export function GlobalErrorWatcher() {
     }
 
     function onUnhandledRejection(e: PromiseRejectionEvent) {
-      // Ignore Next.js navigation aborts and benign cancellations.
       const reason = e.reason;
       const text =
         typeof reason === "string"
@@ -42,20 +53,29 @@ export function GlobalErrorWatcher() {
           : reason instanceof Error
             ? reason.message
             : "";
+
       if (/abort|cancel|NEXT_REDIRECT|NEXT_NOT_FOUND/i.test(text)) return;
+      if (/failed to fetch|networkerror|load failed/i.test(text)) {
+        e.preventDefault?.();
+        show(t("network"));
+        return;
+      }
 
       e.preventDefault?.();
-      show(t("generic"));
+      const human = humanizeRawError(text, t("generic"));
+      if (!human) return;
+      show(human === t("generic") ? t("generic") : `${t("generic")} — ${human}`);
     }
 
     function onWindowError(e: ErrorEvent) {
-      // Script load / extension noise — skip empty messages.
       if (!e.message || e.message === "Script error.") return;
-      if (/ResizeObserver|Loading chunk|ChunkLoadError/i.test(e.message)) {
+      if (/ResizeObserver/i.test(e.message)) return;
+      if (/Loading chunk|ChunkLoadError/i.test(e.message)) {
         show(t("chunk"), true);
         return;
       }
-      show(t("generic"));
+      const human = humanizeRawError(e.message, t("generic"));
+      show(human === t("generic") ? t("generic") : `${t("generic")} — ${human}`);
     }
 
     window.addEventListener("alefya:app-error", onAppError);
@@ -69,7 +89,6 @@ export function GlobalErrorWatcher() {
     };
   }, [push, t]);
 
-  // Expose default message helper for non-translated callers after mount.
   useEffect(() => {
     (window as unknown as { __alefyaDefaultError?: () => string }).__alefyaDefaultError =
       () => t("generic");
@@ -82,7 +101,6 @@ export function GlobalErrorWatcher() {
   return null;
 }
 
-/** Imperative helper that uses live translation when available. */
 export function reportClientError(message?: string) {
   const fallback =
     typeof window !== "undefined" &&

@@ -11,8 +11,17 @@ type Props = {
   reset: () => void;
 };
 
+function safeDetail(error: Error): string | undefined {
+  const msg = (error.message || "").trim();
+  if (!msg) return undefined;
+  if (/NEXT_REDIRECT|NEXT_NOT_FOUND|digest/i.test(msg)) return undefined;
+  if (msg.length > 220) return `${msg.slice(0, 217)}…`;
+  return msg;
+}
+
 export default function LocaleError({ error, reset }: Props) {
   const t = useTranslations("errors");
+  const detail = safeDetail(error);
 
   useEffect(() => {
     hideNavLoader();
@@ -25,6 +34,8 @@ export default function LocaleError({ error, reset }: Props) {
       status={t("status")}
       title={t("title")}
       body={t("body")}
+      detail={detail}
+      detailLabel={t("detail")}
       digest={error.digest}
       digestLabel={t("ref")}
       tone="fault"
@@ -35,6 +46,9 @@ export default function LocaleError({ error, reset }: Props) {
           </button>
           <Link href="/" className="btn-ghost">
             {t("home")}
+          </Link>
+          <Link href="/categories" className="btn-ghost">
+            {t("categories")}
           </Link>
         </>
       }

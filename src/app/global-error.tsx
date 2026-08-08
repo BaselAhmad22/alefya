@@ -102,6 +102,12 @@ export default function GlobalError({ error, reset }: Props) {
               <p className="ay-error-status">{copy.status}</p>
               <h1 className="ay-error-title">{copy.title}</h1>
               <p className="ay-error-body">{copy.body}</p>
+              {error.message ? (
+                <p className="ay-error-detail">
+                  <span>{isAr ? "التفاصيل" : "What happened"}</span>
+                  <code>{error.message}</code>
+                </p>
+              ) : null}
               <div className="ay-error-actions">
                 <button type="button" className="btn-primary" onClick={reset}>
                   {copy.retry}
